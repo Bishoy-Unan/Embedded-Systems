@@ -14,31 +14,39 @@
 #ifndef ExtInterrupt_H
 #define ExtInterrupt_H
 
-
-
+/**
+*@ data type used for error status
+*/
+typedef enum {
+	/*every thing run correctly */
+	ExtInterrupt_enumOK ,
+	/*there is mistake*/
+	ExtInterrupt_enumNOK,
+	
+}ExtInterrupt_enumError_t;
 /**
 *@ External Interrupt Init function in which we enable and disable ExtInt0 , ExtInt1, ExtInt2
 *@ and configure the trigring type
 */
-void ExtInterrupt_voidInit(void);
+ExtInterrupt_enumError_t ExtInterrupt_voidInit(void);
 
 /**
 *@ function take pointer to function as input from application 
 *@ and assign this variable ExtInt0_AddCallBack which used in ExtInt0 ISR 
 */
-void ExtINT_voidSetExtINT0(void(*ptr)(void));
+ExtInterrupt_enumError_t ExtINT_voidSetExtINT0(void(*ptr)(void));
 
 /**
 *@ function take pointer to function as input from application 
 *@ and assign this variable ExtInt0_AddCallBack which used in ExtInt1 ISR 
 */
-void ExtINT_voidSetExtINT1(void(*ptr)(void));
+ExtInterrupt_enumError_t ExtINT_voidSetExtINT1(void(*ptr)(void));
 
 /**
 *@ function take pointer to function as input from application 
 *@ and assign this variable ExtInt0_AddCallBack which used in ExtInt2 ISR 
 */
-void ExtINT_voidSetExtINT2(void(*ptr)(void));
+ExtInterrupt_enumError_t ExtINT_voidSetExtINT2(void(*ptr)(void));
 
 
 

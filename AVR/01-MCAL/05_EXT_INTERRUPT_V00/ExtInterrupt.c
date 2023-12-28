@@ -26,25 +26,44 @@
 /**
 *@ pointer to function for External Interrupt0
 */
- void (*ExtInt0_AddCallBack)(void);
+ void (*ExtInt0_AddCallBack)(void) = NULL;
 /**
 *@ pointer to function for External Interrupt1
 */
-void (*ExtInt1_AddCallBack)(void);
+void (*ExtInt1_AddCallBack)(void) = NULL;
 /**
 *@ pointer to function for External Interrupt2
 */
-void (*ExtInt2_AddCallBack)(void);
+void (*ExtInt2_AddCallBack)(void) = NULL;
 
 
 /**
 *@ function take pointer to function as input from application 
 *@ and assign this variable ExtInt0_AddCallBack which used in ExtInt0 ISR 
 */
-void ExtINT_voidSetExtINT0(void(*ptr)(void))
+ExtInterrupt_enumError_t ExtINT_voidSetExtINT0(void(*ptr)(void))
 {
-	ExtInt0_AddCallBack = ptr ;
+		/**
+		*@ return variable to check the behavior of the function
+		*/
+		ExtInterrupt_enumError_t Return_ErrorStatus = ExtInterrupt_enumOK ;
 	
+		/**
+		*@ check if the user pass correct function or not
+		*/
+		if( ptr == NULL )
+		{
+			Return_ErrorStatus = ExtInterrupt_enumNOK ;
+		}
+		else
+		{
+			ExtInt0_AddCallBack = ptr ;
+		}
+	
+
+
+
+return Return_ErrorStatus ;		
 }/*ExtINT_voidSetExtINT0*/
 
 
@@ -52,10 +71,30 @@ void ExtINT_voidSetExtINT0(void(*ptr)(void))
 *@ function take pointer to function as input from application 
 *@ and assign this variable ExtInt0_AddCallBack which used in ExtInt1 ISR 
 */
-void ExtINT_voidSetExtINT1(void(*ptr)(void))
+ExtInterrupt_enumError_t ExtINT_voidSetExtINT1(void(*ptr)(void))
 {
-	ExtInt1_AddCallBack = ptr ;
+		/**
+		*@ return variable to check the behavior of the function
+		*/
+		ExtInterrupt_enumError_t Return_ErrorStatus = ExtInterrupt_enumOK ;
+		
+		/**
+		*@ check if the user pass correct function or not
+		*/
+		if( ptr == NULL )
+		{
+			Return_ErrorStatus = ExtInterrupt_enumNOK ;
+		}
+		else
+		{
+			ExtInt1_AddCallBack = ptr ;
+		}
 	
+	
+	
+
+
+return Return_ErrorStatus ;		
 }/*ExtINT_voidSetExtINT1*/
 
 
@@ -64,10 +103,30 @@ void ExtINT_voidSetExtINT1(void(*ptr)(void))
 *@ function take pointer to function as input from application 
 *@ and assign this variable ExtInt0_AddCallBack which used in ExtInt2 ISR 
 */
-void ExtINT_voidSetExtINT2(void(*ptr)(void))
+ExtInterrupt_enumError_t ExtINT_voidSetExtINT2(void(*ptr)(void))
 {
-	ExtInt2_AddCallBack = ptr ;
+		/**
+		*@ return variable to check the behavior of the function
+		*/
+		ExtInterrupt_enumError_t Return_ErrorStatus = ExtInterrupt_enumOK ;
 	
+	
+		/**
+		*@ check if the user pass correct function or not
+		*/
+		if( ptr == NULL )
+		{
+			Return_ErrorStatus = ExtInterrupt_enumNOK ;
+		}
+		else
+		{
+			ExtInt2_AddCallBack = ptr ;
+		}
+	
+
+
+
+return Return_ErrorStatus ;		
 }/*ExtINT_voidSetExtINT2*/
 
 
@@ -76,8 +135,12 @@ void ExtINT_voidSetExtINT2(void(*ptr)(void))
 *@ External Interrupt Init function in which we enable and disable ExtInt0 , ExtInt1, ExtInt2
 *@ and configure the trigring type
 */
-void ExtInterrupt_voidInit(void)
+ExtInterrupt_enumError_t ExtInterrupt_voidInit(void)
 {
+		/**
+		*@ return variable to check the behavior of the function
+		*/
+		ExtInterrupt_enumError_t Return_ErrorStatus = ExtInterrupt_enumOK ;
 		/**
 		*@ temporary variable used to set registers
 		*/	
@@ -152,7 +215,7 @@ void ExtInterrupt_voidInit(void)
 						Local_u8TempRegVal |= MCUCR_INT0_RE ;
 		
 				#else
-						#error " invalid triggring mode "
+						Return_ErrorStatus = ExtInterrupt_enumNOK ;
 				#endif
 				/**
 				*@ assign the variable back to the register with the desigred value 
@@ -179,7 +242,7 @@ void ExtInterrupt_voidInit(void)
 				*/
 				GICR = Local_u8TempRegVal ;
 		#else 
-			#error " invalid choice "
+			Return_ErrorStatus = ExtInterrupt_enumNOK ;
 		#endif	
 			
 					
@@ -251,7 +314,7 @@ void ExtInterrupt_voidInit(void)
 						Local_u8TempRegVal |= MCUCR_INT1_RE ;
 		
 				#else
-						#error " invalid triggring mode "
+						Return_ErrorStatus = ExtInterrupt_enumNOK ;
 				#endif
 				/**
 				*@ assign the variable back to the register with the desigred value 
@@ -278,7 +341,7 @@ void ExtInterrupt_voidInit(void)
 				*/
 				GICR = Local_u8TempRegVal ;
 		#else 
-			#error " invalid choice "
+			Return_ErrorStatus = ExtInterrupt_enumNOK ;
 		#endif	
 				
 				
@@ -337,7 +400,7 @@ void ExtInterrupt_voidInit(void)
 						Local_u8TempRegVal |= MCUCSR_INT2_RE ;
 		
 				#else
-						#error " invalid triggring mode "
+						Return_ErrorStatus = ExtInterrupt_enumNOK ;
 				#endif
 				/**
 				*@ assign the variable back to the register with the desigred value 
@@ -364,7 +427,7 @@ void ExtInterrupt_voidInit(void)
 				*/
 				GICR = Local_u8TempRegVal ;
 		#else 
-			//#warning "invalid choice"
+			Return_ErrorStatus = ExtInterrupt_enumNOK ;
 		#endif	
 		/**
 		*@ Set GIE global Interrupt enable  
@@ -382,6 +445,12 @@ void ExtInterrupt_voidInit(void)
 		*@ assign the variable back to the register with the desigred value 
 		*/
 		SREG = Local_u8TempRegVal ;
+		
+		
+		
+		
+		
+return Return_ErrorStatus ;		
 }/* ExtInterrupt_voidInit function */
 
 

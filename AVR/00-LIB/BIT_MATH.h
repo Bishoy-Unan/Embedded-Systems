@@ -31,5 +31,8 @@
 #define		LEFT_SHIFT(REG,NO)			(REG<<NO)
 #define		CIRCULAR_LSHIFT(REG,NO)			(((REG)<<(NO)|((REG)>>(8*sizeof(REG)-(NO))))
 #define		CIRCULAR_RSHIFT(REG,NO)			(((REG)>>(NO)|((REG)<<(8*sizeof(REG)-(NO))))
+
+
+#define		NULL	((void*)0)
 					
 #endif
