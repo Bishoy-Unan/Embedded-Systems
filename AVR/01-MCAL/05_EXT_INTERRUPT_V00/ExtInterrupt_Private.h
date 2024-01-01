@@ -82,7 +82,7 @@
 /**
 *@ Enable mask used to enable register GICR ExtInterrupt0
 */
-#define GICR_INT1_ENABLE		0XE0
+#define GICR_INT1_ENABLE		0X80
 /**
 *@ Enable mask used to enable register GICR ExtInterrupt0
 */
