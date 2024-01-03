@@ -1,0 +1,11 @@
+MCAL/DIO_04/DIO.d MCAL/DIO_04/DIO.o: ../MCAL/DIO_04/DIO.c \
+ ../MCAL/DIO_04/../../LIB/STD_TYPES.h ../MCAL/DIO_04/../../LIB/BIT_MATH.h \
+ ../MCAL/DIO_04/DIO_Private.h ../MCAL/DIO_04/DIO.h
+
+../MCAL/DIO_04/../../LIB/STD_TYPES.h:
+
+../MCAL/DIO_04/../../LIB/BIT_MATH.h:
+
+../MCAL/DIO_04/DIO_Private.h:
+
+../MCAL/DIO_04/DIO.h:

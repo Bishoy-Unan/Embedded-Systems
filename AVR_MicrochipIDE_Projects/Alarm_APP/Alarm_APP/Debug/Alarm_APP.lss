@@ -1,0 +1,3793 @@
+
+Alarm_APP.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000d8  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  000015b6  0000164a  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  0000164a  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000001c  00000000  00000000  00001679  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000130  00000000  00000000  00001695  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000045bb  00000000  00000000  000017c5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000bfb  00000000  00000000  00005d80  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00001571  00000000  00000000  0000697b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000001f4  00000000  00000000  00007eec  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002f0  00000000  00000000  000080e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000177a  00000000  00000000  000083d0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000098  00000000  00000000  00009b4a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  0000157a  0000157a  0000160e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00009be4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text._delay_ms 00000038  000014fe  000014fe  00001592  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.main    0000022e  00000dda  00000dda  00000e6e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.LED_enumdInit 00000102  0000113e  0000113e  000011d2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.LED_enuSetLedState 0000006a  00001494  00001494  00001528  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .data.LEDS    00000003  0080008b  000015b3  00001647  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 19 .text.SevenSegments_enumInit 000000f8  00001240  00001240  000012d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.SevenSegments_enumSetVal 0000095a  000000d8  000000d8  0000016c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .data.SevenSegments 00000022  00800060  00001588  0000161c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 22 .text.SWITCH_enumdInit 000000d8  00001338  00001338  000013cc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .text.SWITCH_enuGetSwitchState 00000022  00001536  00001536  000015ca  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .data.SWITCHS 00000009  00800082  000015aa  0000163e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 25 .text.DIO_enumSetCFG 000003a8  00000a32  00000a32  00000ac6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 26 .text.DIO_enumSetPinVal 00000136  00001008  00001008  0000109c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 27 .text.DIO_enumGetPinVal 00000084  00001410  00001410  000014a4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 28 .text.libgcc  0000000c  0000156e  0000156e  00001602  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 29 .text.__dummy_fini 00000002  00001582  00001582  00001616  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 30 .text.__dummy_funcs_on_exit 00000002  00001584  00001584  00001618  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 31 .text.__dummy_simulator_exit 00000002  00001586  00001586  0000161a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 32 .text.exit    00000016  00001558  00001558  000015ec  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 33 .text._Exit   00000004  0000157e  0000157e  00001612  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 42 00 	jmp	0x84	; 0x84 <__ctors_end>
+   4:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+   8:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+   c:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  10:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  14:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  18:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  1c:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  20:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  24:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  28:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  2c:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  30:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  34:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  38:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  3c:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  40:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  44:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  48:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  4c:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  50:	0c 94 bd 0a 	jmp	0x157a	; 0x157a <__bad_interrupt>
+  54:	96 00       	.word	0x0096	; ????
+  56:	cf 00       	.word	0x00cf	; ????
+  58:	08 01       	movw	r0, r16
+  5a:	41 01       	movw	r8, r2
+  5c:	7a 01       	movw	r14, r20
+  5e:	b3 01       	movw	r22, r6
+  60:	ec 01       	movw	r28, r24
+  62:	25 02       	muls	r18, r21
+  64:	5e 02       	muls	r21, r30
+  66:	97 02       	muls	r25, r23
+  68:	db 02       	muls	r29, r27
+  6a:	14 03       	mulsu	r17, r20
+  6c:	4d 03       	fmul	r20, r21
+  6e:	86 03       	fmuls	r16, r22
+  70:	bf 03       	fmulsu	r19, r23
+  72:	f8 03       	fmulsu	r23, r16
+  74:	31 04       	cpc	r3, r1
+  76:	6a 04       	cpc	r6, r10
+  78:	a3 04       	cpc	r10, r3
+  7a:	dc 04       	cpc	r13, r12
+
+0000007c <.dinit>:
+  7c:	00 60       	ori	r16, 0x00	; 0
+  7e:	00 8e       	std	Z+24, r0	; 0x18
+  80:	00 15       	cp	r16, r0
+  82:	88 00       	.word	0x0088	; ????
+
+00000084 <__ctors_end>:
+  84:	11 24       	eor	r1, r1
+  86:	1f be       	out	0x3f, r1	; 63
+  88:	cf e5       	ldi	r28, 0x5F	; 95
+  8a:	d8 e0       	ldi	r29, 0x08	; 8
+  8c:	de bf       	out	0x3e, r29	; 62
+  8e:	cd bf       	out	0x3d, r28	; 61
+
+00000090 <__do_copy_data>:
+  90:	ec e7       	ldi	r30, 0x7C	; 124
+  92:	f0 e0       	ldi	r31, 0x00	; 0
+  94:	40 e0       	ldi	r20, 0x00	; 0
+  96:	17 c0       	rjmp	.+46     	; 0xc6 <__do_clear_bss+0x8>
+  98:	b5 91       	lpm	r27, Z+
+  9a:	a5 91       	lpm	r26, Z+
+  9c:	35 91       	lpm	r19, Z+
+  9e:	25 91       	lpm	r18, Z+
+  a0:	05 91       	lpm	r16, Z+
+  a2:	07 fd       	sbrc	r16, 7
+  a4:	0c c0       	rjmp	.+24     	; 0xbe <__do_clear_bss>
+  a6:	95 91       	lpm	r25, Z+
+  a8:	85 91       	lpm	r24, Z+
+  aa:	ef 01       	movw	r28, r30
+  ac:	f9 2f       	mov	r31, r25
+  ae:	e8 2f       	mov	r30, r24
+  b0:	05 90       	lpm	r0, Z+
+  b2:	0d 92       	st	X+, r0
+  b4:	a2 17       	cp	r26, r18
+  b6:	b3 07       	cpc	r27, r19
+  b8:	d9 f7       	brne	.-10     	; 0xb0 <__do_copy_data+0x20>
+  ba:	fe 01       	movw	r30, r28
+  bc:	04 c0       	rjmp	.+8      	; 0xc6 <__do_clear_bss+0x8>
+
+000000be <__do_clear_bss>:
+  be:	1d 92       	st	X+, r1
+  c0:	a2 17       	cp	r26, r18
+  c2:	b3 07       	cpc	r27, r19
+  c4:	e1 f7       	brne	.-8      	; 0xbe <__do_clear_bss>
+  c6:	e3 38       	cpi	r30, 0x83	; 131
+  c8:	f4 07       	cpc	r31, r20
+  ca:	31 f7       	brne	.-52     	; 0x98 <__do_copy_data+0x8>
+  cc:	0e 94 ed 06 	call	0xdda	; 0xdda <main>
+  d0:	0c 94 ac 0a 	jmp	0x1558	; 0x1558 <exit>
+
+000000d4 <_exit>:
+  d4:	f8 94       	cli
+
+000000d6 <__stop_program>:
+  d6:	ff cf       	rjmp	.-2      	; 0xd6 <__stop_program>
+
+Disassembly of section .text:
+
+0000157a <__bad_interrupt>:
+    157a:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+Disassembly of section .text._delay_ms:
+
+000014fe <_delay_ms>:
+*@ #define LED_PIN				DIO_enumPIN3
+*/
+
+
+	void _delay_ms( int volatile milliseconds)
+{
+    14fe:	cf 93       	push	r28
+    1500:	df 93       	push	r29
+    1502:	00 d0       	rcall	.+0      	; 0x1504 <_delay_ms+0x6>
+    1504:	cd b7       	in	r28, 0x3d	; 61
+    1506:	de b7       	in	r29, 0x3e	; 62
+    1508:	9a 83       	std	Y+2, r25	; 0x02
+    150a:	89 83       	std	Y+1, r24	; 0x01
+	assembly code auto generated by utility
+	from bret mulvey 
+	delay 8 000 cycles
+	1ms at 8.0 MZ
+	*/
+	while(milliseconds--)
+    150c:	06 c0       	rjmp	.+12     	; 0x151a <_delay_ms+0x1c>
+	{
+	asm volatile(
+    150e:	2b e0       	ldi	r18, 0x0B	; 11
+    1510:	33 e6       	ldi	r19, 0x63	; 99
+    1512:	3a 95       	dec	r19
+    1514:	f1 f7       	brne	.-4      	; 0x1512 <_delay_ms+0x14>
+    1516:	2a 95       	dec	r18
+    1518:	e1 f7       	brne	.-8      	; 0x1512 <_delay_ms+0x14>
+	assembly code auto generated by utility
+	from bret mulvey 
+	delay 8 000 cycles
+	1ms at 8.0 MZ
+	*/
+	while(milliseconds--)
+    151a:	89 81       	ldd	r24, Y+1	; 0x01
+    151c:	9a 81       	ldd	r25, Y+2	; 0x02
+    151e:	9c 01       	movw	r18, r24
+    1520:	21 50       	subi	r18, 0x01	; 1
+    1522:	31 09       	sbc	r19, r1
+    1524:	3a 83       	std	Y+2, r19	; 0x02
+    1526:	29 83       	std	Y+1, r18	; 0x01
+    1528:	89 2b       	or	r24, r25
+    152a:	89 f7       	brne	.-30     	; 0x150e <_delay_ms+0x10>
+	);
+	
+	}
+	
+
+}
+    152c:	0f 90       	pop	r0
+    152e:	0f 90       	pop	r0
+    1530:	df 91       	pop	r29
+    1532:	cf 91       	pop	r28
+    1534:	08 95       	ret
+
+Disassembly of section .text.main:
+
+00000dda <main>:
+extern SWITCH_strCFG_t SWITCHS[NumOfLSWITCHES];
+
+
+
+int main(void)
+{
+     dda:	cf 93       	push	r28
+     ddc:	df 93       	push	r29
+     dde:	00 d0       	rcall	.+0      	; 0xde0 <main+0x6>
+     de0:	0f 92       	push	r0
+     de2:	cd b7       	in	r28, 0x3d	; 61
+     de4:	de b7       	in	r29, 0x3e	; 62
+	/**
+	*@ LOCAL_u8Button1 variable to check switch1 one pressed or not , it initialized by 1 which mean switch unpressed
+	*@ This switch is used to adjust alarm , start and stop switch
+	*/
+	u8 LOCAL_u8Button1 = 1 ;
+     de6:	81 e0       	ldi	r24, 0x01	; 1
+     de8:	89 83       	std	Y+1, r24	; 0x01
+	/**
+	*@ LOCAL_u8Button2 variable to check switch2 one pressed or not , it initialized by 1 which mean switch unpressed
+	*@ this switch is used to increment alarm counter
+	*/
+	u8 LOCAL_u8Button2 = 1 ;
+     dea:	8a 83       	std	Y+2, r24	; 0x02
+	/**
+	*@ LOCAL_u8Button3 variable to check switch3 one pressed or not , it initialized by 1 which mean switch unpressed
+	*@  this switch is used to decrement alarm counter
+	*/
+	u8 LOCAL_u8Button3 = 1 ;
+     dec:	8b 83       	std	Y+3, r24	; 0x03
+	*/
+	u8 LOCAL_u8ToggleFlag = 0;
+	/**
+	*@ initialize all of led and switch and 7 segments drivers
+	*/
+	LED_enumdInit();
+     dee:	0e 94 9f 08 	call	0x113e	; 0x113e <LED_enumdInit>
+	SWITCH_enumdInit();
+     df2:	0e 94 9c 09 	call	0x1338	; 0x1338 <SWITCH_enumdInit>
+	SevenSegments_enumInit();
+     df6:	0e 94 20 09 	call	0x1240	; 0x1240 <SevenSegments_enumInit>
+	/**
+	*@ show 00 om two seven segment at starting the  program or at pressing at stop switch
+	*/
+	SevenSegments_enumSetVal(SevenSegments_1,zero);
+     dfa:	60 e0       	ldi	r22, 0x00	; 0
+     dfc:	80 e0       	ldi	r24, 0x00	; 0
+     dfe:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+	SevenSegments_enumSetVal(SevenSegments_2,zero);
+     e02:	60 e0       	ldi	r22, 0x00	; 0
+     e04:	81 e0       	ldi	r24, 0x01	; 1
+     e06:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+	u8 LOCAL_u8SevenSegment1_Val = 0 ;
+	u8 LOCAL_u8SevenSegment2_Val = 0 ;
+	/**
+	*@ flag used to toggle led when counter reaches to zero
+	*/
+	u8 LOCAL_u8ToggleFlag = 0;
+     e0a:	f1 2c       	mov	r15, r1
+	u8 LOCAL_u8StartStopFlag = 0 ;
+	/**
+	*@ two variables represent the value to be shown on two seven segments
+	*/
+	u8 LOCAL_u8SevenSegment1_Val = 0 ;
+	u8 LOCAL_u8SevenSegment2_Val = 0 ;
+     e0c:	00 e0       	ldi	r16, 0x00	; 0
+	*/
+	u8 LOCAL_u8StartStopFlag = 0 ;
+	/**
+	*@ two variables represent the value to be shown on two seven segments
+	*/
+	u8 LOCAL_u8SevenSegment1_Val = 0 ;
+     e0e:	10 e0       	ldi	r17, 0x00	; 0
+    {
+		LOCAL_u8StartStopFlag = 0 ;
+		/**
+		*@ Check if increment switch2 pressed or not
+		*/
+		  SWITCH_enuGetSwitchState( SWITCH1 , & LOCAL_u8Button1 ) ;
+     e10:	be 01       	movw	r22, r28
+     e12:	6f 5f       	subi	r22, 0xFF	; 255
+     e14:	7f 4f       	sbci	r23, 0xFF	; 255
+     e16:	80 e0       	ldi	r24, 0x00	; 0
+     e18:	0e 94 9b 0a 	call	0x1536	; 0x1536 <SWITCH_enuGetSwitchState>
+		/**
+		*@ Check if start and stop switch1 pressed or not
+		*/
+		  SWITCH_enuGetSwitchState( SWITCH2 , & LOCAL_u8Button2 ) ;
+     e1c:	be 01       	movw	r22, r28
+     e1e:	6e 5f       	subi	r22, 0xFE	; 254
+     e20:	7f 4f       	sbci	r23, 0xFF	; 255
+     e22:	81 e0       	ldi	r24, 0x01	; 1
+     e24:	0e 94 9b 0a 	call	0x1536	; 0x1536 <SWITCH_enuGetSwitchState>
+		 /**
+		*@ Check if start and stop switch1 pressed or not
+		*/
+		  SWITCH_enuGetSwitchState( SWITCH3 , & LOCAL_u8Button3 ) ;
+     e28:	be 01       	movw	r22, r28
+     e2a:	6d 5f       	subi	r22, 0xFD	; 253
+     e2c:	7f 4f       	sbci	r23, 0xFF	; 255
+     e2e:	82 e0       	ldi	r24, 0x02	; 2
+     e30:	0e 94 9b 0a 	call	0x1536	; 0x1536 <SWITCH_enuGetSwitchState>
+		
+		
+		/**
+		*@ check if increment switch is pressed or not
+		*/  
+		if(LOCAL_u8Button2 == 0)
+     e34:	8a 81       	ldd	r24, Y+2	; 0x02
+     e36:	81 11       	cpse	r24, r1
+     e38:	42 c0       	rjmp	.+132    	; 0xebe <main+0xe4>
+		{
+				/**
+				*@ check if seven segment 1 exceeds number 9 reset it to zero and increment segment two by one
+				*@ and if the two segments exceeds nine number reset both of them to zero
+				*/
+				if((LOCAL_u8SevenSegment1_Val < 9) && (LOCAL_u8SevenSegment2_Val < 9))
+     e3a:	19 30       	cpi	r17, 0x09	; 9
+     e3c:	60 f4       	brcc	.+24     	; 0xe56 <main+0x7c>
+     e3e:	09 30       	cpi	r16, 0x09	; 9
+     e40:	50 f4       	brcc	.+20     	; 0xe56 <main+0x7c>
+				{
+					LOCAL_u8SevenSegment1_Val++;
+     e42:	1f 5f       	subi	r17, 0xFF	; 255
+					_delay_ms(300);
+     e44:	8c e2       	ldi	r24, 0x2C	; 44
+     e46:	91 e0       	ldi	r25, 0x01	; 1
+     e48:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+     e4c:	61 2f       	mov	r22, r17
+     e4e:	80 e0       	ldi	r24, 0x00	; 0
+     e50:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+     e54:	34 c0       	rjmp	.+104    	; 0xebe <main+0xe4>
+				}
+				else if( (LOCAL_u8SevenSegment1_Val == 9) && (LOCAL_u8SevenSegment2_Val < 9) )
+     e56:	19 30       	cpi	r17, 0x09	; 9
+     e58:	89 f4       	brne	.+34     	; 0xe7c <main+0xa2>
+     e5a:	09 30       	cpi	r16, 0x09	; 9
+     e5c:	78 f4       	brcc	.+30     	; 0xe7c <main+0xa2>
+				{
+					LOCAL_u8SevenSegment1_Val = 0;
+					LOCAL_u8SevenSegment2_Val++;
+     e5e:	0f 5f       	subi	r16, 0xFF	; 255
+					_delay_ms(300);	
+     e60:	8c e2       	ldi	r24, 0x2C	; 44
+     e62:	91 e0       	ldi	r25, 0x01	; 1
+     e64:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+     e68:	60 e0       	ldi	r22, 0x00	; 0
+     e6a:	80 e0       	ldi	r24, 0x00	; 0
+     e6c:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     e70:	60 2f       	mov	r22, r16
+     e72:	81 e0       	ldi	r24, 0x01	; 1
+     e74:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					_delay_ms(300);
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+				}
+				else if( (LOCAL_u8SevenSegment1_Val == 9) && (LOCAL_u8SevenSegment2_Val < 9) )
+				{
+					LOCAL_u8SevenSegment1_Val = 0;
+     e78:	10 e0       	ldi	r17, 0x00	; 0
+					LOCAL_u8SevenSegment2_Val++;
+					_delay_ms(300);	
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     e7a:	21 c0       	rjmp	.+66     	; 0xebe <main+0xe4>
+				}/*if2*/
+				else if( (LOCAL_u8SevenSegment1_Val == 9) && (LOCAL_u8SevenSegment2_Val == 9) )
+     e7c:	19 30       	cpi	r17, 0x09	; 9
+     e7e:	89 f4       	brne	.+34     	; 0xea2 <main+0xc8>
+     e80:	09 30       	cpi	r16, 0x09	; 9
+     e82:	79 f4       	brne	.+30     	; 0xea2 <main+0xc8>
+				{
+					LOCAL_u8SevenSegment1_Val = 0;
+					LOCAL_u8SevenSegment2_Val = 0;
+					_delay_ms(300);
+     e84:	8c e2       	ldi	r24, 0x2C	; 44
+     e86:	91 e0       	ldi	r25, 0x01	; 1
+     e88:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+     e8c:	60 e0       	ldi	r22, 0x00	; 0
+     e8e:	80 e0       	ldi	r24, 0x00	; 0
+     e90:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     e94:	60 e0       	ldi	r22, 0x00	; 0
+     e96:	81 e0       	ldi	r24, 0x01	; 1
+     e98:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+				}/*if2*/
+				else if( (LOCAL_u8SevenSegment1_Val == 9) && (LOCAL_u8SevenSegment2_Val == 9) )
+				{
+					LOCAL_u8SevenSegment1_Val = 0;
+					LOCAL_u8SevenSegment2_Val = 0;
+     e9c:	00 e0       	ldi	r16, 0x00	; 0
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+				}/*if2*/
+				else if( (LOCAL_u8SevenSegment1_Val == 9) && (LOCAL_u8SevenSegment2_Val == 9) )
+				{
+					LOCAL_u8SevenSegment1_Val = 0;
+     e9e:	10 e0       	ldi	r17, 0x00	; 0
+					LOCAL_u8SevenSegment2_Val = 0;
+					_delay_ms(300);
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     ea0:	0e c0       	rjmp	.+28     	; 0xebe <main+0xe4>
+					
+				}/*else if*/
+				else
+				{
+					LOCAL_u8SevenSegment1_Val++;
+     ea2:	1f 5f       	subi	r17, 0xFF	; 255
+					LOCAL_u8SevenSegment2_Val = 9;
+					_delay_ms(300);
+     ea4:	8c e2       	ldi	r24, 0x2C	; 44
+     ea6:	91 e0       	ldi	r25, 0x01	; 1
+     ea8:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+     eac:	61 2f       	mov	r22, r17
+     eae:	80 e0       	ldi	r24, 0x00	; 0
+     eb0:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     eb4:	69 e0       	ldi	r22, 0x09	; 9
+     eb6:	81 e0       	ldi	r24, 0x01	; 1
+     eb8:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					
+				}/*else if*/
+				else
+				{
+					LOCAL_u8SevenSegment1_Val++;
+					LOCAL_u8SevenSegment2_Val = 9;
+     ebc:	09 e0       	ldi	r16, 0x09	; 9
+		}/* if1 LOCAL_u8Button2*/  
+		
+		/**
+		*@ check if decrement switch is pressed or not
+		*/  
+		if(LOCAL_u8Button3 == 0)
+     ebe:	8b 81       	ldd	r24, Y+3	; 0x03
+     ec0:	81 11       	cpse	r24, r1
+     ec2:	46 c0       	rjmp	.+140    	; 0xf50 <main+0x176>
+		{
+				/**
+				*@ check if seven segment 1 reach to zero reset it to nine and decrement seven segment two 
+				*@ and if both segments reach to zero reset them to nine 
+				*/
+				 if( (LOCAL_u8SevenSegment1_Val > 0) && (LOCAL_u8SevenSegment2_Val > 0) )
+     ec4:	11 23       	and	r17, r17
+     ec6:	81 f0       	breq	.+32     	; 0xee8 <main+0x10e>
+     ec8:	00 23       	and	r16, r16
+     eca:	71 f0       	breq	.+28     	; 0xee8 <main+0x10e>
+				{
+					LOCAL_u8SevenSegment1_Val--;
+     ecc:	11 50       	subi	r17, 0x01	; 1
+					_delay_ms(300);
+     ece:	8c e2       	ldi	r24, 0x2C	; 44
+     ed0:	91 e0       	ldi	r25, 0x01	; 1
+     ed2:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+     ed6:	61 2f       	mov	r22, r17
+     ed8:	80 e0       	ldi	r24, 0x00	; 0
+     eda:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     ede:	60 2f       	mov	r22, r16
+     ee0:	81 e0       	ldi	r24, 0x01	; 1
+     ee2:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+     ee6:	34 c0       	rjmp	.+104    	; 0xf50 <main+0x176>
+					}/*if2*/
+				else if( (LOCAL_u8SevenSegment1_Val == 0) && (LOCAL_u8SevenSegment2_Val > 0) )
+     ee8:	11 11       	cpse	r17, r1
+     eea:	11 c0       	rjmp	.+34     	; 0xf0e <main+0x134>
+     eec:	00 23       	and	r16, r16
+     eee:	79 f0       	breq	.+30     	; 0xf0e <main+0x134>
+				{
+					LOCAL_u8SevenSegment1_Val = 9;
+					LOCAL_u8SevenSegment2_Val--;
+     ef0:	01 50       	subi	r16, 0x01	; 1
+					_delay_ms(300);
+     ef2:	8c e2       	ldi	r24, 0x2C	; 44
+     ef4:	91 e0       	ldi	r25, 0x01	; 1
+     ef6:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+     efa:	69 e0       	ldi	r22, 0x09	; 9
+     efc:	80 e0       	ldi	r24, 0x00	; 0
+     efe:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);	
+     f02:	60 2f       	mov	r22, r16
+     f04:	81 e0       	ldi	r24, 0x01	; 1
+     f06:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+					}/*if2*/
+				else if( (LOCAL_u8SevenSegment1_Val == 0) && (LOCAL_u8SevenSegment2_Val > 0) )
+				{
+					LOCAL_u8SevenSegment1_Val = 9;
+     f0a:	19 e0       	ldi	r17, 0x09	; 9
+					LOCAL_u8SevenSegment2_Val--;
+					_delay_ms(300);
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);	
+     f0c:	21 c0       	rjmp	.+66     	; 0xf50 <main+0x176>
+				}/*if2*/
+				else if( (LOCAL_u8SevenSegment1_Val == 0) && (LOCAL_u8SevenSegment2_Val == 0) )
+     f0e:	11 11       	cpse	r17, r1
+     f10:	11 c0       	rjmp	.+34     	; 0xf34 <main+0x15a>
+     f12:	01 11       	cpse	r16, r1
+     f14:	0f c0       	rjmp	.+30     	; 0xf34 <main+0x15a>
+				{
+					LOCAL_u8SevenSegment1_Val = 9;
+					LOCAL_u8SevenSegment2_Val = 9;
+					_delay_ms(300);
+     f16:	8c e2       	ldi	r24, 0x2C	; 44
+     f18:	91 e0       	ldi	r25, 0x01	; 1
+     f1a:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+     f1e:	69 e0       	ldi	r22, 0x09	; 9
+     f20:	80 e0       	ldi	r24, 0x00	; 0
+     f22:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     f26:	69 e0       	ldi	r22, 0x09	; 9
+     f28:	81 e0       	ldi	r24, 0x01	; 1
+     f2a:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);	
+				}/*if2*/
+				else if( (LOCAL_u8SevenSegment1_Val == 0) && (LOCAL_u8SevenSegment2_Val == 0) )
+				{
+					LOCAL_u8SevenSegment1_Val = 9;
+					LOCAL_u8SevenSegment2_Val = 9;
+     f2e:	09 e0       	ldi	r16, 0x09	; 9
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);	
+				}/*if2*/
+				else if( (LOCAL_u8SevenSegment1_Val == 0) && (LOCAL_u8SevenSegment2_Val == 0) )
+				{
+					LOCAL_u8SevenSegment1_Val = 9;
+     f30:	19 e0       	ldi	r17, 0x09	; 9
+					LOCAL_u8SevenSegment2_Val = 9;
+					_delay_ms(300);
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     f32:	0e c0       	rjmp	.+28     	; 0xf50 <main+0x176>
+					
+				}/*else if*/
+				else
+				{
+					LOCAL_u8SevenSegment1_Val--;
+     f34:	11 50       	subi	r17, 0x01	; 1
+					LOCAL_u8SevenSegment2_Val = 0;
+					_delay_ms(300);
+     f36:	8c e2       	ldi	r24, 0x2C	; 44
+     f38:	91 e0       	ldi	r25, 0x01	; 1
+     f3a:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+     f3e:	61 2f       	mov	r22, r17
+     f40:	80 e0       	ldi	r24, 0x00	; 0
+     f42:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     f46:	60 e0       	ldi	r22, 0x00	; 0
+     f48:	81 e0       	ldi	r24, 0x01	; 1
+     f4a:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					
+				}/*else if*/
+				else
+				{
+					LOCAL_u8SevenSegment1_Val--;
+					LOCAL_u8SevenSegment2_Val = 0;
+     f4e:	00 e0       	ldi	r16, 0x00	; 0
+				
+		}/* if1 LOCAL_u8Button2*/
+		
+		
+		 
+		if(LOCAL_u8Button1 == 0)
+     f50:	89 81       	ldd	r24, Y+1	; 0x01
+     f52:	81 11       	cpse	r24, r1
+     f54:	5d cf       	rjmp	.-326    	; 0xe10 <main+0x36>
+     f56:	53 c0       	rjmp	.+166    	; 0xffe <main+0x224>
+		{
+			while(LOCAL_u8StartStopFlag == 0){
+				 if( (LOCAL_u8SevenSegment1_Val > 0) && (LOCAL_u8SevenSegment2_Val > 0) )
+     f58:	11 23       	and	r17, r17
+     f5a:	81 f0       	breq	.+32     	; 0xf7c <main+0x1a2>
+     f5c:	00 23       	and	r16, r16
+     f5e:	71 f0       	breq	.+28     	; 0xf7c <main+0x1a2>
+				 {
+					 LOCAL_u8SevenSegment1_Val--;
+     f60:	11 50       	subi	r17, 0x01	; 1
+					 _delay_ms(1000);
+     f62:	88 ee       	ldi	r24, 0xE8	; 232
+     f64:	93 e0       	ldi	r25, 0x03	; 3
+     f66:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+					 SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+     f6a:	61 2f       	mov	r22, r17
+     f6c:	80 e0       	ldi	r24, 0x00	; 0
+     f6e:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					 SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     f72:	60 2f       	mov	r22, r16
+     f74:	81 e0       	ldi	r24, 0x01	; 1
+     f76:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+     f7a:	42 c0       	rjmp	.+132    	; 0x1000 <main+0x226>
+				 }/*if2*/
+				else if( (LOCAL_u8SevenSegment1_Val == 0) && (LOCAL_u8SevenSegment2_Val > 0) )
+     f7c:	11 11       	cpse	r17, r1
+     f7e:	11 c0       	rjmp	.+34     	; 0xfa2 <main+0x1c8>
+     f80:	00 23       	and	r16, r16
+     f82:	79 f0       	breq	.+30     	; 0xfa2 <main+0x1c8>
+				{
+					LOCAL_u8SevenSegment1_Val = 9;
+					LOCAL_u8SevenSegment2_Val--;
+     f84:	01 50       	subi	r16, 0x01	; 1
+					_delay_ms(1000);
+     f86:	88 ee       	ldi	r24, 0xE8	; 232
+     f88:	93 e0       	ldi	r25, 0x03	; 3
+     f8a:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+     f8e:	69 e0       	ldi	r22, 0x09	; 9
+     f90:	80 e0       	ldi	r24, 0x00	; 0
+     f92:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     f96:	60 2f       	mov	r22, r16
+     f98:	81 e0       	ldi	r24, 0x01	; 1
+     f9a:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					 SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+					 SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+				 }/*if2*/
+				else if( (LOCAL_u8SevenSegment1_Val == 0) && (LOCAL_u8SevenSegment2_Val > 0) )
+				{
+					LOCAL_u8SevenSegment1_Val = 9;
+     f9e:	19 e0       	ldi	r17, 0x09	; 9
+					LOCAL_u8SevenSegment2_Val--;
+					_delay_ms(1000);
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     fa0:	2f c0       	rjmp	.+94     	; 0x1000 <main+0x226>
+				}/*if2*/
+				else if( (LOCAL_u8SevenSegment1_Val > 0) && (LOCAL_u8SevenSegment2_Val == 0) )
+     fa2:	11 23       	and	r17, r17
+     fa4:	81 f0       	breq	.+32     	; 0xfc6 <main+0x1ec>
+     fa6:	01 11       	cpse	r16, r1
+     fa8:	0e c0       	rjmp	.+28     	; 0xfc6 <main+0x1ec>
+				{
+					LOCAL_u8SevenSegment1_Val--;
+     faa:	11 50       	subi	r17, 0x01	; 1
+				
+					_delay_ms(1000);
+     fac:	88 ee       	ldi	r24, 0xE8	; 232
+     fae:	93 e0       	ldi	r25, 0x03	; 3
+     fb0:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+					SevenSegments_enumSetVal(SevenSegments_1,LOCAL_u8SevenSegment1_Val);
+     fb4:	61 2f       	mov	r22, r17
+     fb6:	80 e0       	ldi	r24, 0x00	; 0
+     fb8:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+					SevenSegments_enumSetVal(SevenSegments_2,LOCAL_u8SevenSegment2_Val);
+     fbc:	60 2f       	mov	r22, r16
+     fbe:	81 e0       	ldi	r24, 0x01	; 1
+     fc0:	0e 94 6c 00 	call	0xd8	; 0xd8 <_etext>
+     fc4:	1d c0       	rjmp	.+58     	; 0x1000 <main+0x226>
+					 else
+					 {
+						 /**
+							*@ toggle led and break loop
+							*/
+							if(LOCAL_u8ToggleFlag == 0)
+     fc6:	f1 10       	cpse	r15, r1
+     fc8:	0d c0       	rjmp	.+26     	; 0xfe4 <main+0x20a>
+							{
+								LED_enuSetLedState(LED1,LED_enumActiveHigh_ON);
+     fca:	60 e0       	ldi	r22, 0x00	; 0
+     fcc:	80 e0       	ldi	r24, 0x00	; 0
+     fce:	0e 94 4a 0a 	call	0x1494	; 0x1494 <LED_enuSetLedState>
+								_delay_ms(1000);
+     fd2:	88 ee       	ldi	r24, 0xE8	; 232
+     fd4:	93 e0       	ldi	r25, 0x03	; 3
+     fd6:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+								LOCAL_u8ToggleFlag ^= 1;
+     fda:	81 e0       	ldi	r24, 0x01	; 1
+     fdc:	f8 26       	eor	r15, r24
+							{
+								LED_enuSetLedState(LED1,LED_enumActiveHigh_OFF);
+								_delay_ms(1000);
+								LOCAL_u8ToggleFlag ^= 1;
+							}
+					 LOCAL_u8StartStopFlag =1 ;
+     fde:	ee 24       	eor	r14, r14
+     fe0:	e3 94       	inc	r14
+     fe2:	0e c0       	rjmp	.+28     	; 0x1000 <main+0x226>
+								_delay_ms(1000);
+								LOCAL_u8ToggleFlag ^= 1;
+							}
+							else
+							{
+								LED_enuSetLedState(LED1,LED_enumActiveHigh_OFF);
+     fe4:	61 e0       	ldi	r22, 0x01	; 1
+     fe6:	80 e0       	ldi	r24, 0x00	; 0
+     fe8:	0e 94 4a 0a 	call	0x1494	; 0x1494 <LED_enuSetLedState>
+								_delay_ms(1000);
+     fec:	88 ee       	ldi	r24, 0xE8	; 232
+     fee:	93 e0       	ldi	r25, 0x03	; 3
+     ff0:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <_delay_ms>
+								LOCAL_u8ToggleFlag ^= 1;
+     ff4:	81 e0       	ldi	r24, 0x01	; 1
+     ff6:	f8 26       	eor	r15, r24
+							}
+					 LOCAL_u8StartStopFlag =1 ;
+     ff8:	ee 24       	eor	r14, r14
+     ffa:	e3 94       	inc	r14
+     ffc:	01 c0       	rjmp	.+2      	; 0x1000 <main+0x226>
+     ffe:	e1 2c       	mov	r14, r1
+		
+		
+		 
+		if(LOCAL_u8Button1 == 0)
+		{
+			while(LOCAL_u8StartStopFlag == 0){
+    1000:	ee 20       	and	r14, r14
+    1002:	09 f4       	brne	.+2      	; 0x1006 <main+0x22c>
+    1004:	a9 cf       	rjmp	.-174    	; 0xf58 <main+0x17e>
+    1006:	04 cf       	rjmp	.-504    	; 0xe10 <main+0x36>
+
+Disassembly of section .text.LED_enumdInit:
+
+0000113e <LED_enumdInit>:
+ *@brief  : Function to Configure the  LEDS Pins to be active high or active low .
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+LED_enumErrorState LED_enumdInit(void)
+{
+    113e:	ff 92       	push	r15
+    1140:	0f 93       	push	r16
+    1142:	1f 93       	push	r17
+    1144:	cf 93       	push	r28
+    1146:	df 93       	push	r29
+    1148:	00 d0       	rcall	.+0      	; 0x114a <LED_enumdInit+0xc>
+    114a:	0f 92       	push	r0
+    114c:	cd b7       	in	r28, 0x3d	; 61
+    114e:	de b7       	in	r29, 0x3e	; 62
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentLed[NumOfLeds];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLeds ; LOCAL_u8Iterator++)
+    1150:	f1 2c       	mov	r15, r1
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+LED_enumErrorState LED_enumdInit(void)
+{
+	LED_enumErrorState LOCAL_enumReturnStatus = LED_enumOK ;
+    1152:	80 e0       	ldi	r24, 0x00	; 0
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentLed[NumOfLeds];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLeds ; LOCAL_u8Iterator++)
+    1154:	69 c0       	rjmp	.+210    	; 0x1228 <LED_enumdInit+0xea>
+	{
+		LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strPORT = LEDS[LOCAL_u8Iterator].LED_strPORT ;
+    1156:	8f 2d       	mov	r24, r15
+    1158:	90 e0       	ldi	r25, 0x00	; 0
+    115a:	fc 01       	movw	r30, r24
+    115c:	ee 0f       	add	r30, r30
+    115e:	ff 1f       	adc	r31, r31
+    1160:	e8 0f       	add	r30, r24
+    1162:	f9 1f       	adc	r31, r25
+    1164:	df 01       	movw	r26, r30
+    1166:	a5 57       	subi	r26, 0x75	; 117
+    1168:	bf 4f       	sbci	r27, 0xFF	; 255
+    116a:	2c 91       	ld	r18, X
+    116c:	41 e0       	ldi	r20, 0x01	; 1
+    116e:	50 e0       	ldi	r21, 0x00	; 0
+    1170:	4c 0f       	add	r20, r28
+    1172:	5d 1f       	adc	r21, r29
+    1174:	e4 0f       	add	r30, r20
+    1176:	f5 1f       	adc	r31, r21
+    1178:	20 83       	st	Z, r18
+		
+		LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strPIN = LEDS[LOCAL_u8Iterator].LED_strPIN ;
+    117a:	11 96       	adiw	r26, 0x01	; 1
+    117c:	2c 91       	ld	r18, X
+    117e:	11 97       	sbiw	r26, 0x01	; 1
+    1180:	21 83       	std	Z+1, r18	; 0x01
+		
+		switch(LEDS[LOCAL_u8Iterator].LED_strSTATE){
+    1182:	12 96       	adiw	r26, 0x02	; 2
+    1184:	2c 91       	ld	r18, X
+    1186:	21 30       	cpi	r18, 0x01	; 1
+    1188:	99 f0       	breq	.+38     	; 0x11b0 <LED_enumdInit+0x72>
+    118a:	28 f0       	brcs	.+10     	; 0x1196 <LED_enumdInit+0x58>
+    118c:	22 30       	cpi	r18, 0x02	; 2
+    118e:	f1 f0       	breq	.+60     	; 0x11cc <LED_enumdInit+0x8e>
+    1190:	23 30       	cpi	r18, 0x03	; 3
+    1192:	51 f1       	breq	.+84     	; 0x11e8 <LED_enumdInit+0xaa>
+    1194:	35 c0       	rjmp	.+106    	; 0x1200 <LED_enumdInit+0xc2>
+										case LED_enumActiveHigh_ON:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTHIGH ;		
+    1196:	fc 01       	movw	r30, r24
+    1198:	ee 0f       	add	r30, r30
+    119a:	ff 1f       	adc	r31, r31
+    119c:	e8 0f       	add	r30, r24
+    119e:	f9 1f       	adc	r31, r25
+    11a0:	21 e0       	ldi	r18, 0x01	; 1
+    11a2:	30 e0       	ldi	r19, 0x00	; 0
+    11a4:	2c 0f       	add	r18, r28
+    11a6:	3d 1f       	adc	r19, r29
+    11a8:	e2 0f       	add	r30, r18
+    11aa:	f3 1f       	adc	r31, r19
+    11ac:	12 82       	std	Z+2, r1	; 0x02
+										break;
+    11ae:	28 c0       	rjmp	.+80     	; 0x1200 <LED_enumdInit+0xc2>
+										case LED_enumActiveHigh_OFF:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTLOW ;			
+    11b0:	fc 01       	movw	r30, r24
+    11b2:	ee 0f       	add	r30, r30
+    11b4:	ff 1f       	adc	r31, r31
+    11b6:	e8 0f       	add	r30, r24
+    11b8:	f9 1f       	adc	r31, r25
+    11ba:	41 e0       	ldi	r20, 0x01	; 1
+    11bc:	50 e0       	ldi	r21, 0x00	; 0
+    11be:	4c 0f       	add	r20, r28
+    11c0:	5d 1f       	adc	r21, r29
+    11c2:	e4 0f       	add	r30, r20
+    11c4:	f5 1f       	adc	r31, r21
+    11c6:	21 e0       	ldi	r18, 0x01	; 1
+    11c8:	22 83       	std	Z+2, r18	; 0x02
+										break;
+    11ca:	1a c0       	rjmp	.+52     	; 0x1200 <LED_enumdInit+0xc2>
+										case LED_enumActiveLow_ON:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTLOW ;
+    11cc:	fc 01       	movw	r30, r24
+    11ce:	ee 0f       	add	r30, r30
+    11d0:	ff 1f       	adc	r31, r31
+    11d2:	e8 0f       	add	r30, r24
+    11d4:	f9 1f       	adc	r31, r25
+    11d6:	21 e0       	ldi	r18, 0x01	; 1
+    11d8:	30 e0       	ldi	r19, 0x00	; 0
+    11da:	2c 0f       	add	r18, r28
+    11dc:	3d 1f       	adc	r19, r29
+    11de:	e2 0f       	add	r30, r18
+    11e0:	f3 1f       	adc	r31, r19
+    11e2:	21 e0       	ldi	r18, 0x01	; 1
+    11e4:	22 83       	std	Z+2, r18	; 0x02
+										break;
+    11e6:	0c c0       	rjmp	.+24     	; 0x1200 <LED_enumdInit+0xc2>
+										case LED_enumActiveLOw_OFF:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTHIGH ;
+    11e8:	fc 01       	movw	r30, r24
+    11ea:	ee 0f       	add	r30, r30
+    11ec:	ff 1f       	adc	r31, r31
+    11ee:	e8 0f       	add	r30, r24
+    11f0:	f9 1f       	adc	r31, r25
+    11f2:	41 e0       	ldi	r20, 0x01	; 1
+    11f4:	50 e0       	ldi	r21, 0x00	; 0
+    11f6:	4c 0f       	add	r20, r28
+    11f8:	5d 1f       	adc	r21, r29
+    11fa:	e4 0f       	add	r30, r20
+    11fc:	f5 1f       	adc	r31, r21
+    11fe:	12 82       	std	Z+2, r1	; 0x02
+		
+	/**
+	*@ call DIO_enumSetCFG function to set configration in DIO Driver
+	*@ and check return of DIO_enumSetCFG function ok or not ok
+	*/		
+		 DIO_enumSetCFG( & LOCAL_strCurrentLed [LOCAL_u8Iterator] );
+    1200:	8c 01       	movw	r16, r24
+    1202:	00 0f       	add	r16, r16
+    1204:	11 1f       	adc	r17, r17
+    1206:	80 0f       	add	r24, r16
+    1208:	91 1f       	adc	r25, r17
+    120a:	01 e0       	ldi	r16, 0x01	; 1
+    120c:	10 e0       	ldi	r17, 0x00	; 0
+    120e:	0c 0f       	add	r16, r28
+    1210:	1d 1f       	adc	r17, r29
+    1212:	08 0f       	add	r16, r24
+    1214:	19 1f       	adc	r17, r25
+    1216:	c8 01       	movw	r24, r16
+    1218:	0e 94 19 05 	call	0xa32	; 0xa32 <DIO_enumSetCFG>
+			
+		if( ! (DIO_enumSetCFG( & LOCAL_strCurrentLed [LOCAL_u8Iterator] ))){
+    121c:	c8 01       	movw	r24, r16
+    121e:	0e 94 19 05 	call	0xa32	; 0xa32 <DIO_enumSetCFG>
+    1222:	81 11       	cpse	r24, r1
+			LOCAL_enumReturnStatus = LED_enumOK ;
+		}/*if*/
+		else {
+			LOCAL_enumReturnStatus = LED_enumNOK ;
+    1224:	81 e0       	ldi	r24, 0x01	; 1
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentLed[NumOfLeds];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLeds ; LOCAL_u8Iterator++)
+    1226:	f3 94       	inc	r15
+    1228:	ff 20       	and	r15, r15
+    122a:	09 f4       	brne	.+2      	; 0x122e <LED_enumdInit+0xf0>
+    122c:	94 cf       	rjmp	.-216    	; 0x1156 <LED_enumdInit+0x18>
+	
+
+return LOCAL_enumReturnStatus ;
+	
+	
+}/*led init function */
+    122e:	0f 90       	pop	r0
+    1230:	0f 90       	pop	r0
+    1232:	0f 90       	pop	r0
+    1234:	df 91       	pop	r29
+    1236:	cf 91       	pop	r28
+    1238:	1f 91       	pop	r17
+    123a:	0f 91       	pop	r16
+    123c:	ff 90       	pop	r15
+    123e:	08 95       	ret
+
+Disassembly of section .text.LED_enuSetLedState:
+
+00001494 <LED_enuSetLedState>:
+ *@param  : take led name and led state .
+ *@return : Error State                                               
+ */
+
+LED_enumErrorState LED_enuSetLedState(u8 Copy_u8LedName , u8 Copy_u8State)
+{
+    1494:	cf 93       	push	r28
+    1496:	df 93       	push	r29
+    1498:	00 d0       	rcall	.+0      	; 0x149a <LED_enuSetLedState+0x6>
+    149a:	0f 92       	push	r0
+    149c:	cd b7       	in	r28, 0x3d	; 61
+    149e:	de b7       	in	r29, 0x3e	; 62
+	*/
+	PPRT_strCFG_t LOCAL_strCurrentLed;
+	/**
+	*@ reconfigure led state which is element of array of leds
+	*/
+	LEDS[Copy_u8LedName].LED_strSTATE = Copy_u8State ;
+    14a0:	90 e0       	ldi	r25, 0x00	; 0
+    14a2:	fc 01       	movw	r30, r24
+    14a4:	ee 0f       	add	r30, r30
+    14a6:	ff 1f       	adc	r31, r31
+    14a8:	8e 0f       	add	r24, r30
+    14aa:	9f 1f       	adc	r25, r31
+    14ac:	fc 01       	movw	r30, r24
+    14ae:	e5 57       	subi	r30, 0x75	; 117
+    14b0:	ff 4f       	sbci	r31, 0xFF	; 255
+    14b2:	62 83       	std	Z+2, r22	; 0x02
+	
+	LOCAL_strCurrentLed.PORT_strPORT = LEDS[Copy_u8LedName].LED_strPORT ;
+    14b4:	80 81       	ld	r24, Z
+    14b6:	89 83       	std	Y+1, r24	; 0x01
+	
+	LOCAL_strCurrentLed.PORT_strPIN = LEDS[Copy_u8LedName].LED_strPIN ;
+    14b8:	81 81       	ldd	r24, Z+1	; 0x01
+    14ba:	8a 83       	std	Y+2, r24	; 0x02
+	
+	switch(LEDS[Copy_u8LedName].LED_strSTATE){
+    14bc:	61 30       	cpi	r22, 0x01	; 1
+    14be:	41 f0       	breq	.+16     	; 0x14d0 <LED_enuSetLedState+0x3c>
+    14c0:	28 f0       	brcs	.+10     	; 0x14cc <LED_enuSetLedState+0x38>
+    14c2:	62 30       	cpi	r22, 0x02	; 2
+    14c4:	41 f0       	breq	.+16     	; 0x14d6 <LED_enuSetLedState+0x42>
+    14c6:	63 30       	cpi	r22, 0x03	; 3
+    14c8:	49 f0       	breq	.+18     	; 0x14dc <LED_enuSetLedState+0x48>
+    14ca:	09 c0       	rjmp	.+18     	; 0x14de <LED_enuSetLedState+0x4a>
+		
+		case LED_enumActiveHigh_ON:
+	    LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTHIGH ;
+    14cc:	1b 82       	std	Y+3, r1	; 0x03
+		break;
+    14ce:	07 c0       	rjmp	.+14     	; 0x14de <LED_enuSetLedState+0x4a>
+		case LED_enumActiveHigh_OFF:
+		LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTLOW ;
+    14d0:	81 e0       	ldi	r24, 0x01	; 1
+    14d2:	8b 83       	std	Y+3, r24	; 0x03
+		break;
+    14d4:	04 c0       	rjmp	.+8      	; 0x14de <LED_enuSetLedState+0x4a>
+		case LED_enumActiveLow_ON:
+		LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTLOW ;
+    14d6:	81 e0       	ldi	r24, 0x01	; 1
+    14d8:	8b 83       	std	Y+3, r24	; 0x03
+		break;
+    14da:	01 c0       	rjmp	.+2      	; 0x14de <LED_enuSetLedState+0x4a>
+		case LED_enumActiveLOw_OFF:
+		LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTHIGH ;
+    14dc:	1b 82       	std	Y+3, r1	; 0x03
+	
+	/**
+	*@ call DIO_enumSetCFG function to set configration in DIO Driver
+	*@ and check return of DIO_enumSetCFG function ok or not ok
+	*/		
+		 DIO_enumSetCFG( & LOCAL_strCurrentLed );
+    14de:	ce 01       	movw	r24, r28
+    14e0:	01 96       	adiw	r24, 0x01	; 1
+    14e2:	0e 94 19 05 	call	0xa32	; 0xa32 <DIO_enumSetCFG>
+			
+		if( ! (DIO_enumSetCFG( & LOCAL_strCurrentLed  )))
+    14e6:	ce 01       	movw	r24, r28
+    14e8:	01 96       	adiw	r24, 0x01	; 1
+    14ea:	0e 94 19 05 	call	0xa32	; 0xa32 <DIO_enumSetCFG>
+    14ee:	81 11       	cpse	r24, r1
+		{
+			LOCAL_enumReturnStatus = LED_enumOK ;
+		}/*if*/
+		else {
+			LOCAL_enumReturnStatus = LED_enumNOK ;
+    14f0:	81 e0       	ldi	r24, 0x01	; 1
+		}/*else*/
+	
+	
+return LOCAL_enumReturnStatus ;	
+	
+    14f2:	0f 90       	pop	r0
+    14f4:	0f 90       	pop	r0
+    14f6:	0f 90       	pop	r0
+    14f8:	df 91       	pop	r29
+    14fa:	cf 91       	pop	r28
+    14fc:	08 95       	ret
+
+Disassembly of section .text.SevenSegments_enumInit:
+
+00001240 <SevenSegments_enumInit>:
+ *@brief  : Function to Configure the  SevenSgments port and Pins and connection .
+ *@param  : Address to struct in which i configure port and Pins and connection.
+ *@return : Error State                                               
+ */
+SevenSegments_enumErrorState_t SevenSegments_enumInit(void)
+{
+    1240:	ef 92       	push	r14
+    1242:	ff 92       	push	r15
+    1244:	0f 93       	push	r16
+    1246:	1f 93       	push	r17
+    1248:	cf 93       	push	r28
+    124a:	df 93       	push	r29
+    124c:	00 d0       	rcall	.+0      	; 0x124e <SevenSegments_enumInit+0xe>
+    124e:	00 d0       	rcall	.+0      	; 0x1250 <SevenSegments_enumInit+0x10>
+    1250:	00 d0       	rcall	.+0      	; 0x1252 <SevenSegments_enumInit+0x12>
+    1252:	cd b7       	in	r28, 0x3d	; 61
+    1254:	de b7       	in	r29, 0x3e	; 62
+	PPRT_strCFG_t LOCAL_strCurrentSevenSegments[NumOf_SevenSegments];
+	
+	/**
+	*@ for looping in each elemnt of array
+	*/
+	for( LOCAL_u8SegmentIterator1 = 0 ; LOCAL_u8SegmentIterator1 < NumOf_SevenSegments ; LOCAL_u8SegmentIterator1++)
+    1256:	e1 2c       	mov	r14, r1
+ *@param  : Address to struct in which i configure port and Pins and connection.
+ *@return : Error State                                               
+ */
+SevenSegments_enumErrorState_t SevenSegments_enumInit(void)
+{
+	SevenSegments_enumErrorState_t LOCAL_enumReturnStatus = SevenSegments_enumOK ;
+    1258:	80 e0       	ldi	r24, 0x00	; 0
+	PPRT_strCFG_t LOCAL_strCurrentSevenSegments[NumOf_SevenSegments];
+	
+	/**
+	*@ for looping in each elemnt of array
+	*/
+	for( LOCAL_u8SegmentIterator1 = 0 ; LOCAL_u8SegmentIterator1 < NumOf_SevenSegments ; LOCAL_u8SegmentIterator1++)
+    125a:	5e c0       	rjmp	.+188    	; 0x1318 <SevenSegments_enumInit+0xd8>
+		*@ for looping in each led configration of the seven segment
+		*/
+		for( LOCAL_u8LedIterator2 = 0 ; LOCAL_u8LedIterator2 < SevenSegments_Leds_num ; LOCAL_u8LedIterator2++ ){
+			
+			
+			LOCAL_strCurrentSevenSegments[LOCAL_u8SegmentIterator1].PORT_strPORT = SevenSegments[LOCAL_u8SegmentIterator1].SevenSegments_strLED[LOCAL_u8LedIterator2].SevenSegments_strPORT ;
+    125c:	8e 2d       	mov	r24, r14
+    125e:	90 e0       	ldi	r25, 0x00	; 0
+    1260:	ef 2d       	mov	r30, r15
+    1262:	f0 e0       	ldi	r31, 0x00	; 0
+    1264:	ee 0f       	add	r30, r30
+    1266:	ff 1f       	adc	r31, r31
+    1268:	41 e1       	ldi	r20, 0x11	; 17
+    126a:	48 9f       	mul	r20, r24
+    126c:	90 01       	movw	r18, r0
+    126e:	49 9f       	mul	r20, r25
+    1270:	30 0d       	add	r19, r0
+    1272:	11 24       	eor	r1, r1
+    1274:	e2 0f       	add	r30, r18
+    1276:	f3 1f       	adc	r31, r19
+    1278:	e0 5a       	subi	r30, 0xA0	; 160
+    127a:	ff 4f       	sbci	r31, 0xFF	; 255
+    127c:	40 81       	ld	r20, Z
+    127e:	dc 01       	movw	r26, r24
+    1280:	aa 0f       	add	r26, r26
+    1282:	bb 1f       	adc	r27, r27
+    1284:	a8 0f       	add	r26, r24
+    1286:	b9 1f       	adc	r27, r25
+    1288:	61 e0       	ldi	r22, 0x01	; 1
+    128a:	70 e0       	ldi	r23, 0x00	; 0
+    128c:	6c 0f       	add	r22, r28
+    128e:	7d 1f       	adc	r23, r29
+    1290:	a6 0f       	add	r26, r22
+    1292:	b7 1f       	adc	r27, r23
+    1294:	4c 93       	st	X, r20
+			
+			LOCAL_strCurrentSevenSegments[LOCAL_u8SegmentIterator1].PORT_strPIN  =  SevenSegments[LOCAL_u8SegmentIterator1].SevenSegments_strLED[LOCAL_u8LedIterator2].SevenSegments_strPIN ;
+    1296:	41 81       	ldd	r20, Z+1	; 0x01
+    1298:	11 96       	adiw	r26, 0x01	; 1
+    129a:	4c 93       	st	X, r20
+			
+			switch (SevenSegments[LOCAL_u8SegmentIterator1].SevenSegments_strSTATE){
+    129c:	f9 01       	movw	r30, r18
+    129e:	e0 5a       	subi	r30, 0xA0	; 160
+    12a0:	ff 4f       	sbci	r31, 0xFF	; 255
+    12a2:	20 89       	ldd	r18, Z+16	; 0x10
+    12a4:	22 23       	and	r18, r18
+    12a6:	19 f0       	breq	.+6      	; 0x12ae <SevenSegments_enumInit+0x6e>
+    12a8:	21 30       	cpi	r18, 0x01	; 1
+    12aa:	79 f0       	breq	.+30     	; 0x12ca <SevenSegments_enumInit+0x8a>
+    12ac:	1a c0       	rjmp	.+52     	; 0x12e2 <SevenSegments_enumInit+0xa2>
+				
+						case SevenSegments_enumCommonAnode :
+								LOCAL_strCurrentSevenSegments[LOCAL_u8SegmentIterator1].PORT_strCFGType =  DIO_enumOUTPUTLOW ;
+    12ae:	fc 01       	movw	r30, r24
+    12b0:	ee 0f       	add	r30, r30
+    12b2:	ff 1f       	adc	r31, r31
+    12b4:	e8 0f       	add	r30, r24
+    12b6:	f9 1f       	adc	r31, r25
+    12b8:	21 e0       	ldi	r18, 0x01	; 1
+    12ba:	30 e0       	ldi	r19, 0x00	; 0
+    12bc:	2c 0f       	add	r18, r28
+    12be:	3d 1f       	adc	r19, r29
+    12c0:	e2 0f       	add	r30, r18
+    12c2:	f3 1f       	adc	r31, r19
+    12c4:	21 e0       	ldi	r18, 0x01	; 1
+    12c6:	22 83       	std	Z+2, r18	; 0x02
+						break;
+    12c8:	0c c0       	rjmp	.+24     	; 0x12e2 <SevenSegments_enumInit+0xa2>
+						case SevenSegments_enumCommonCathod:
+								LOCAL_strCurrentSevenSegments[LOCAL_u8SegmentIterator1].PORT_strCFGType =  DIO_enumOUTPUTHIGH ;
+    12ca:	fc 01       	movw	r30, r24
+    12cc:	ee 0f       	add	r30, r30
+    12ce:	ff 1f       	adc	r31, r31
+    12d0:	e8 0f       	add	r30, r24
+    12d2:	f9 1f       	adc	r31, r25
+    12d4:	61 e0       	ldi	r22, 0x01	; 1
+    12d6:	70 e0       	ldi	r23, 0x00	; 0
+    12d8:	6c 0f       	add	r22, r28
+    12da:	7d 1f       	adc	r23, r29
+    12dc:	e6 0f       	add	r30, r22
+    12de:	f7 1f       	adc	r31, r23
+    12e0:	12 82       	std	Z+2, r1	; 0x02
+			
+			/**
+			*@ call DIO_enumSetCFG function to set configration of each led of seven segment in DIO Driver
+			*@ and check return of DIO_enumSetCFG function ok or not ok
+			*/		
+			DIO_enumSetCFG( & LOCAL_strCurrentSevenSegments [LOCAL_u8SegmentIterator1] );
+    12e2:	8c 01       	movw	r16, r24
+    12e4:	00 0f       	add	r16, r16
+    12e6:	11 1f       	adc	r17, r17
+    12e8:	80 0f       	add	r24, r16
+    12ea:	91 1f       	adc	r25, r17
+    12ec:	01 e0       	ldi	r16, 0x01	; 1
+    12ee:	10 e0       	ldi	r17, 0x00	; 0
+    12f0:	0c 0f       	add	r16, r28
+    12f2:	1d 1f       	adc	r17, r29
+    12f4:	08 0f       	add	r16, r24
+    12f6:	19 1f       	adc	r17, r25
+    12f8:	c8 01       	movw	r24, r16
+    12fa:	0e 94 19 05 	call	0xa32	; 0xa32 <DIO_enumSetCFG>
+				
+			if( ! (DIO_enumSetCFG( & LOCAL_strCurrentSevenSegments [LOCAL_u8SegmentIterator1] ))){
+    12fe:	c8 01       	movw	r24, r16
+    1300:	0e 94 19 05 	call	0xa32	; 0xa32 <DIO_enumSetCFG>
+    1304:	81 11       	cpse	r24, r1
+				LOCAL_enumReturnStatus = SevenSegments_enumOK ;
+			}/*if*/
+			else {
+				LOCAL_enumReturnStatus = SevenSegments_enumNOK ;
+    1306:	81 e0       	ldi	r24, 0x01	; 1
+		//LOCAL_strCurrentSevenSegments[LOCAL_u8SegmentIterator1].PORT_strPIN  =  SevenSegments[LOCAL_u8SegmentIterator1].SevenSegments_strLED.SevenSegments_strLED_A ;
+		
+		/**
+		*@ for looping in each led configration of the seven segment
+		*/
+		for( LOCAL_u8LedIterator2 = 0 ; LOCAL_u8LedIterator2 < SevenSegments_Leds_num ; LOCAL_u8LedIterator2++ ){
+    1308:	f3 94       	inc	r15
+    130a:	01 c0       	rjmp	.+2      	; 0x130e <SevenSegments_enumInit+0xce>
+    130c:	f1 2c       	mov	r15, r1
+    130e:	77 e0       	ldi	r23, 0x07	; 7
+    1310:	7f 15       	cp	r23, r15
+    1312:	08 f0       	brcs	.+2      	; 0x1316 <SevenSegments_enumInit+0xd6>
+    1314:	a3 cf       	rjmp	.-186    	; 0x125c <SevenSegments_enumInit+0x1c>
+	PPRT_strCFG_t LOCAL_strCurrentSevenSegments[NumOf_SevenSegments];
+	
+	/**
+	*@ for looping in each elemnt of array
+	*/
+	for( LOCAL_u8SegmentIterator1 = 0 ; LOCAL_u8SegmentIterator1 < NumOf_SevenSegments ; LOCAL_u8SegmentIterator1++)
+    1316:	e3 94       	inc	r14
+    1318:	91 e0       	ldi	r25, 0x01	; 1
+    131a:	9e 15       	cp	r25, r14
+    131c:	b8 f7       	brcc	.-18     	; 0x130c <SevenSegments_enumInit+0xcc>
+	
+
+return LOCAL_enumReturnStatus ;
+	
+	
+}/*led init function */
+    131e:	26 96       	adiw	r28, 0x06	; 6
+    1320:	0f b6       	in	r0, 0x3f	; 63
+    1322:	f8 94       	cli
+    1324:	de bf       	out	0x3e, r29	; 62
+    1326:	0f be       	out	0x3f, r0	; 63
+    1328:	cd bf       	out	0x3d, r28	; 61
+    132a:	df 91       	pop	r29
+    132c:	cf 91       	pop	r28
+    132e:	1f 91       	pop	r17
+    1330:	0f 91       	pop	r16
+    1332:	ff 90       	pop	r15
+    1334:	ef 90       	pop	r14
+    1336:	08 95       	ret
+
+Disassembly of section .text.SevenSegments_enumSetVal:
+
+000000d8 <SevenSegments_enumSetVal>:
+ *@brief  : Function in which i select which seven segment i want to set and the value to be set .
+ *@param  : Number of seven segment and the value.
+ *@return : Error State                                               
+ */
+SevenSegments_enumErrorState_t SevenSegments_enumSetVal(u8 SevenSegment_Num , SevenSegments_enumVal_t SevenSegments_enumNum )
+{
+  d8:	0f 93       	push	r16
+  da:	1f 93       	push	r17
+  dc:	cf 93       	push	r28
+	/**
+	*@ iterator used in for loop
+	*/
+	//u8 LOCAL_u8LedIterator = 0 ;
+	
+	if (  (SevenSegment_Num > NumOf_SevenSegments) || (SevenSegment_Num < 1 ) )
+  de:	9f ef       	ldi	r25, 0xFF	; 255
+  e0:	98 0f       	add	r25, r24
+  e2:	92 30       	cpi	r25, 0x02	; 2
+  e4:	20 f4       	brcc	.+8      	; 0xee <SevenSegments_enumSetVal+0x16>
+		{ 
+			 LOCAL_enumReturnStatus = SevenSegments_enumNOK ;
+		}
+	else if ( (SevenSegments_enumNum > nine) || (SevenSegments_enumNum < zero) )
+  e6:	6a 30       	cpi	r22, 0x0A	; 10
+  e8:	20 f4       	brcc	.+8      	; 0xf2 <SevenSegments_enumSetVal+0x1a>
+SevenSegments_enumErrorState_t SevenSegments_enumSetVal(u8 SevenSegment_Num , SevenSegments_enumVal_t SevenSegments_enumNum )
+{
+	/**
+	*@ LOCAL_enumReturnStatus The function return value
+	*/
+	SevenSegments_enumErrorState_t LOCAL_enumReturnStatus = SevenSegments_enumOK ;
+  ea:	c0 e0       	ldi	r28, 0x00	; 0
+  ec:	03 c0       	rjmp	.+6      	; 0xf4 <SevenSegments_enumSetVal+0x1c>
+	*/
+	//u8 LOCAL_u8LedIterator = 0 ;
+	
+	if (  (SevenSegment_Num > NumOf_SevenSegments) || (SevenSegment_Num < 1 ) )
+		{ 
+			 LOCAL_enumReturnStatus = SevenSegments_enumNOK ;
+  ee:	c1 e0       	ldi	r28, 0x01	; 1
+  f0:	01 c0       	rjmp	.+2      	; 0xf4 <SevenSegments_enumSetVal+0x1c>
+		}
+	else if ( (SevenSegments_enumNum > nine) || (SevenSegments_enumNum < zero) )
+		{
+			LOCAL_enumReturnStatus = SevenSegments_enumNOK ;
+  f2:	c1 e0       	ldi	r28, 0x01	; 1
+	*@ check the connection mode if it common ande or common cathod
+	*@ subtract 1 from input value to be right index in the array of seven segments
+	*/
+	u8 LOCAL_u8SevSegArrayIndex = SevenSegment_Num  ;
+	
+	switch(SevenSegments[(LOCAL_u8SevSegArrayIndex)].SevenSegments_strSTATE){
+  f4:	90 e0       	ldi	r25, 0x00	; 0
+  f6:	21 e1       	ldi	r18, 0x11	; 17
+  f8:	28 9f       	mul	r18, r24
+  fa:	d0 01       	movw	r26, r0
+  fc:	29 9f       	mul	r18, r25
+  fe:	b0 0d       	add	r27, r0
+ 100:	11 24       	eor	r1, r1
+ 102:	a0 5a       	subi	r26, 0xA0	; 160
+ 104:	bf 4f       	sbci	r27, 0xFF	; 255
+ 106:	50 96       	adiw	r26, 0x10	; 16
+ 108:	2c 91       	ld	r18, X
+ 10a:	22 23       	and	r18, r18
+ 10c:	09 f4       	brne	.+2      	; 0x110 <SevenSegments_enumSetVal+0x38>
+ 10e:	48 c2       	rjmp	.+1168   	; 0x5a0 <__EEPROM_REGION_LENGTH__+0x1a0>
+ 110:	21 30       	cpi	r18, 0x01	; 1
+ 112:	09 f0       	breq	.+2      	; 0x116 <SevenSegments_enumSetVal+0x3e>
+ 114:	89 c4       	rjmp	.+2322   	; 0xa28 <__stack+0x1c9>
+		
+		case SevenSegments_enumCommonCathod:
+						switch (SevenSegments_enumNum){
+ 116:	46 2f       	mov	r20, r22
+ 118:	50 e0       	ldi	r21, 0x00	; 0
+ 11a:	4a 30       	cpi	r20, 0x0A	; 10
+ 11c:	51 05       	cpc	r21, r1
+ 11e:	08 f0       	brcs	.+2      	; 0x122 <SevenSegments_enumSetVal+0x4a>
+ 120:	83 c4       	rjmp	.+2310   	; 0xa28 <__stack+0x1c9>
+ 122:	fa 01       	movw	r30, r20
+ 124:	e6 5d       	subi	r30, 0xD6	; 214
+ 126:	ff 4f       	sbci	r31, 0xFF	; 255
+ 128:	0c 94 b7 0a 	jmp	0x156e	; 0x156e <__tablejump2__>
+								
+								case zero:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_enumHIGH );
+ 12c:	21 e1       	ldi	r18, 0x11	; 17
+ 12e:	28 9f       	mul	r18, r24
+ 130:	80 01       	movw	r16, r0
+ 132:	29 9f       	mul	r18, r25
+ 134:	10 0d       	add	r17, r0
+ 136:	11 24       	eor	r1, r1
+ 138:	00 5a       	subi	r16, 0xA0	; 160
+ 13a:	1f 4f       	sbci	r17, 0xFF	; 255
+ 13c:	41 e0       	ldi	r20, 0x01	; 1
+ 13e:	f8 01       	movw	r30, r16
+ 140:	61 81       	ldd	r22, Z+1	; 0x01
+ 142:	80 81       	ld	r24, Z
+ 144:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_enumHIGH );
+ 148:	41 e0       	ldi	r20, 0x01	; 1
+ 14a:	f8 01       	movw	r30, r16
+ 14c:	63 81       	ldd	r22, Z+3	; 0x03
+ 14e:	82 81       	ldd	r24, Z+2	; 0x02
+ 150:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_enumHIGH );
+ 154:	41 e0       	ldi	r20, 0x01	; 1
+ 156:	f8 01       	movw	r30, r16
+ 158:	65 81       	ldd	r22, Z+5	; 0x05
+ 15a:	84 81       	ldd	r24, Z+4	; 0x04
+ 15c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_enumHIGH );
+ 160:	41 e0       	ldi	r20, 0x01	; 1
+ 162:	f8 01       	movw	r30, r16
+ 164:	67 81       	ldd	r22, Z+7	; 0x07
+ 166:	86 81       	ldd	r24, Z+6	; 0x06
+ 168:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_enumHIGH );
+ 16c:	41 e0       	ldi	r20, 0x01	; 1
+ 16e:	f8 01       	movw	r30, r16
+ 170:	61 85       	ldd	r22, Z+9	; 0x09
+ 172:	80 85       	ldd	r24, Z+8	; 0x08
+ 174:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_enumHIGH );
+ 178:	41 e0       	ldi	r20, 0x01	; 1
+ 17a:	f8 01       	movw	r30, r16
+ 17c:	63 85       	ldd	r22, Z+11	; 0x0b
+ 17e:	82 85       	ldd	r24, Z+10	; 0x0a
+ 180:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_eumLOW );
+ 184:	40 e0       	ldi	r20, 0x00	; 0
+ 186:	f8 01       	movw	r30, r16
+ 188:	65 85       	ldd	r22, Z+13	; 0x0d
+ 18a:	84 85       	ldd	r24, Z+12	; 0x0c
+ 18c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_enumHIGH );
+ 190:	41 e0       	ldi	r20, 0x01	; 1
+ 192:	f8 01       	movw	r30, r16
+ 194:	67 85       	ldd	r22, Z+15	; 0x0f
+ 196:	86 85       	ldd	r24, Z+14	; 0x0e
+ 198:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 19c:	45 c4       	rjmp	.+2186   	; 0xa28 <__stack+0x1c9>
+								case one:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_eumLOW );
+ 19e:	21 e1       	ldi	r18, 0x11	; 17
+ 1a0:	28 9f       	mul	r18, r24
+ 1a2:	80 01       	movw	r16, r0
+ 1a4:	29 9f       	mul	r18, r25
+ 1a6:	10 0d       	add	r17, r0
+ 1a8:	11 24       	eor	r1, r1
+ 1aa:	00 5a       	subi	r16, 0xA0	; 160
+ 1ac:	1f 4f       	sbci	r17, 0xFF	; 255
+ 1ae:	40 e0       	ldi	r20, 0x00	; 0
+ 1b0:	f8 01       	movw	r30, r16
+ 1b2:	61 81       	ldd	r22, Z+1	; 0x01
+ 1b4:	80 81       	ld	r24, Z
+ 1b6:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_enumHIGH );
+ 1ba:	41 e0       	ldi	r20, 0x01	; 1
+ 1bc:	f8 01       	movw	r30, r16
+ 1be:	63 81       	ldd	r22, Z+3	; 0x03
+ 1c0:	82 81       	ldd	r24, Z+2	; 0x02
+ 1c2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_enumHIGH );
+ 1c6:	41 e0       	ldi	r20, 0x01	; 1
+ 1c8:	f8 01       	movw	r30, r16
+ 1ca:	65 81       	ldd	r22, Z+5	; 0x05
+ 1cc:	84 81       	ldd	r24, Z+4	; 0x04
+ 1ce:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_eumLOW );
+ 1d2:	40 e0       	ldi	r20, 0x00	; 0
+ 1d4:	f8 01       	movw	r30, r16
+ 1d6:	67 81       	ldd	r22, Z+7	; 0x07
+ 1d8:	86 81       	ldd	r24, Z+6	; 0x06
+ 1da:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_eumLOW );
+ 1de:	40 e0       	ldi	r20, 0x00	; 0
+ 1e0:	f8 01       	movw	r30, r16
+ 1e2:	61 85       	ldd	r22, Z+9	; 0x09
+ 1e4:	80 85       	ldd	r24, Z+8	; 0x08
+ 1e6:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_eumLOW );
+ 1ea:	40 e0       	ldi	r20, 0x00	; 0
+ 1ec:	f8 01       	movw	r30, r16
+ 1ee:	63 85       	ldd	r22, Z+11	; 0x0b
+ 1f0:	82 85       	ldd	r24, Z+10	; 0x0a
+ 1f2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_eumLOW );
+ 1f6:	40 e0       	ldi	r20, 0x00	; 0
+ 1f8:	f8 01       	movw	r30, r16
+ 1fa:	65 85       	ldd	r22, Z+13	; 0x0d
+ 1fc:	84 85       	ldd	r24, Z+12	; 0x0c
+ 1fe:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_enumHIGH );
+ 202:	41 e0       	ldi	r20, 0x01	; 1
+ 204:	f8 01       	movw	r30, r16
+ 206:	67 85       	ldd	r22, Z+15	; 0x0f
+ 208:	86 85       	ldd	r24, Z+14	; 0x0e
+ 20a:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 20e:	0c c4       	rjmp	.+2072   	; 0xa28 <__stack+0x1c9>
+								case two:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_enumHIGH );
+ 210:	21 e1       	ldi	r18, 0x11	; 17
+ 212:	28 9f       	mul	r18, r24
+ 214:	80 01       	movw	r16, r0
+ 216:	29 9f       	mul	r18, r25
+ 218:	10 0d       	add	r17, r0
+ 21a:	11 24       	eor	r1, r1
+ 21c:	00 5a       	subi	r16, 0xA0	; 160
+ 21e:	1f 4f       	sbci	r17, 0xFF	; 255
+ 220:	41 e0       	ldi	r20, 0x01	; 1
+ 222:	f8 01       	movw	r30, r16
+ 224:	61 81       	ldd	r22, Z+1	; 0x01
+ 226:	80 81       	ld	r24, Z
+ 228:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_enumHIGH );
+ 22c:	41 e0       	ldi	r20, 0x01	; 1
+ 22e:	f8 01       	movw	r30, r16
+ 230:	63 81       	ldd	r22, Z+3	; 0x03
+ 232:	82 81       	ldd	r24, Z+2	; 0x02
+ 234:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_eumLOW );
+ 238:	40 e0       	ldi	r20, 0x00	; 0
+ 23a:	f8 01       	movw	r30, r16
+ 23c:	65 81       	ldd	r22, Z+5	; 0x05
+ 23e:	84 81       	ldd	r24, Z+4	; 0x04
+ 240:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_enumHIGH );
+ 244:	41 e0       	ldi	r20, 0x01	; 1
+ 246:	f8 01       	movw	r30, r16
+ 248:	67 81       	ldd	r22, Z+7	; 0x07
+ 24a:	86 81       	ldd	r24, Z+6	; 0x06
+ 24c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_enumHIGH );
+ 250:	41 e0       	ldi	r20, 0x01	; 1
+ 252:	f8 01       	movw	r30, r16
+ 254:	61 85       	ldd	r22, Z+9	; 0x09
+ 256:	80 85       	ldd	r24, Z+8	; 0x08
+ 258:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_eumLOW );
+ 25c:	40 e0       	ldi	r20, 0x00	; 0
+ 25e:	f8 01       	movw	r30, r16
+ 260:	63 85       	ldd	r22, Z+11	; 0x0b
+ 262:	82 85       	ldd	r24, Z+10	; 0x0a
+ 264:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_enumHIGH );
+ 268:	41 e0       	ldi	r20, 0x01	; 1
+ 26a:	f8 01       	movw	r30, r16
+ 26c:	65 85       	ldd	r22, Z+13	; 0x0d
+ 26e:	84 85       	ldd	r24, Z+12	; 0x0c
+ 270:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_enumHIGH );
+ 274:	41 e0       	ldi	r20, 0x01	; 1
+ 276:	f8 01       	movw	r30, r16
+ 278:	67 85       	ldd	r22, Z+15	; 0x0f
+ 27a:	86 85       	ldd	r24, Z+14	; 0x0e
+ 27c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 280:	d3 c3       	rjmp	.+1958   	; 0xa28 <__stack+0x1c9>
+								case three:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_enumHIGH );
+ 282:	21 e1       	ldi	r18, 0x11	; 17
+ 284:	28 9f       	mul	r18, r24
+ 286:	80 01       	movw	r16, r0
+ 288:	29 9f       	mul	r18, r25
+ 28a:	10 0d       	add	r17, r0
+ 28c:	11 24       	eor	r1, r1
+ 28e:	00 5a       	subi	r16, 0xA0	; 160
+ 290:	1f 4f       	sbci	r17, 0xFF	; 255
+ 292:	41 e0       	ldi	r20, 0x01	; 1
+ 294:	f8 01       	movw	r30, r16
+ 296:	61 81       	ldd	r22, Z+1	; 0x01
+ 298:	80 81       	ld	r24, Z
+ 29a:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_enumHIGH );
+ 29e:	41 e0       	ldi	r20, 0x01	; 1
+ 2a0:	f8 01       	movw	r30, r16
+ 2a2:	63 81       	ldd	r22, Z+3	; 0x03
+ 2a4:	82 81       	ldd	r24, Z+2	; 0x02
+ 2a6:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_enumHIGH );
+ 2aa:	41 e0       	ldi	r20, 0x01	; 1
+ 2ac:	f8 01       	movw	r30, r16
+ 2ae:	65 81       	ldd	r22, Z+5	; 0x05
+ 2b0:	84 81       	ldd	r24, Z+4	; 0x04
+ 2b2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_enumHIGH );
+ 2b6:	41 e0       	ldi	r20, 0x01	; 1
+ 2b8:	f8 01       	movw	r30, r16
+ 2ba:	67 81       	ldd	r22, Z+7	; 0x07
+ 2bc:	86 81       	ldd	r24, Z+6	; 0x06
+ 2be:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_eumLOW );
+ 2c2:	40 e0       	ldi	r20, 0x00	; 0
+ 2c4:	f8 01       	movw	r30, r16
+ 2c6:	61 85       	ldd	r22, Z+9	; 0x09
+ 2c8:	80 85       	ldd	r24, Z+8	; 0x08
+ 2ca:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_eumLOW );
+ 2ce:	40 e0       	ldi	r20, 0x00	; 0
+ 2d0:	f8 01       	movw	r30, r16
+ 2d2:	63 85       	ldd	r22, Z+11	; 0x0b
+ 2d4:	82 85       	ldd	r24, Z+10	; 0x0a
+ 2d6:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_enumHIGH );
+ 2da:	41 e0       	ldi	r20, 0x01	; 1
+ 2dc:	f8 01       	movw	r30, r16
+ 2de:	65 85       	ldd	r22, Z+13	; 0x0d
+ 2e0:	84 85       	ldd	r24, Z+12	; 0x0c
+ 2e2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_enumHIGH );
+ 2e6:	41 e0       	ldi	r20, 0x01	; 1
+ 2e8:	f8 01       	movw	r30, r16
+ 2ea:	67 85       	ldd	r22, Z+15	; 0x0f
+ 2ec:	86 85       	ldd	r24, Z+14	; 0x0e
+ 2ee:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 2f2:	9a c3       	rjmp	.+1844   	; 0xa28 <__stack+0x1c9>
+								case four:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_eumLOW );
+ 2f4:	21 e1       	ldi	r18, 0x11	; 17
+ 2f6:	28 9f       	mul	r18, r24
+ 2f8:	80 01       	movw	r16, r0
+ 2fa:	29 9f       	mul	r18, r25
+ 2fc:	10 0d       	add	r17, r0
+ 2fe:	11 24       	eor	r1, r1
+ 300:	00 5a       	subi	r16, 0xA0	; 160
+ 302:	1f 4f       	sbci	r17, 0xFF	; 255
+ 304:	40 e0       	ldi	r20, 0x00	; 0
+ 306:	f8 01       	movw	r30, r16
+ 308:	61 81       	ldd	r22, Z+1	; 0x01
+ 30a:	80 81       	ld	r24, Z
+ 30c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_enumHIGH );
+ 310:	41 e0       	ldi	r20, 0x01	; 1
+ 312:	f8 01       	movw	r30, r16
+ 314:	63 81       	ldd	r22, Z+3	; 0x03
+ 316:	82 81       	ldd	r24, Z+2	; 0x02
+ 318:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_enumHIGH );
+ 31c:	41 e0       	ldi	r20, 0x01	; 1
+ 31e:	f8 01       	movw	r30, r16
+ 320:	65 81       	ldd	r22, Z+5	; 0x05
+ 322:	84 81       	ldd	r24, Z+4	; 0x04
+ 324:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_eumLOW );
+ 328:	40 e0       	ldi	r20, 0x00	; 0
+ 32a:	f8 01       	movw	r30, r16
+ 32c:	67 81       	ldd	r22, Z+7	; 0x07
+ 32e:	86 81       	ldd	r24, Z+6	; 0x06
+ 330:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_eumLOW );
+ 334:	40 e0       	ldi	r20, 0x00	; 0
+ 336:	f8 01       	movw	r30, r16
+ 338:	61 85       	ldd	r22, Z+9	; 0x09
+ 33a:	80 85       	ldd	r24, Z+8	; 0x08
+ 33c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_enumHIGH );
+ 340:	41 e0       	ldi	r20, 0x01	; 1
+ 342:	f8 01       	movw	r30, r16
+ 344:	63 85       	ldd	r22, Z+11	; 0x0b
+ 346:	82 85       	ldd	r24, Z+10	; 0x0a
+ 348:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_enumHIGH );
+ 34c:	41 e0       	ldi	r20, 0x01	; 1
+ 34e:	f8 01       	movw	r30, r16
+ 350:	65 85       	ldd	r22, Z+13	; 0x0d
+ 352:	84 85       	ldd	r24, Z+12	; 0x0c
+ 354:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_enumHIGH );
+ 358:	41 e0       	ldi	r20, 0x01	; 1
+ 35a:	f8 01       	movw	r30, r16
+ 35c:	67 85       	ldd	r22, Z+15	; 0x0f
+ 35e:	86 85       	ldd	r24, Z+14	; 0x0e
+ 360:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 364:	61 c3       	rjmp	.+1730   	; 0xa28 <__stack+0x1c9>
+								case five:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_enumHIGH );
+ 366:	21 e1       	ldi	r18, 0x11	; 17
+ 368:	28 9f       	mul	r18, r24
+ 36a:	80 01       	movw	r16, r0
+ 36c:	29 9f       	mul	r18, r25
+ 36e:	10 0d       	add	r17, r0
+ 370:	11 24       	eor	r1, r1
+ 372:	00 5a       	subi	r16, 0xA0	; 160
+ 374:	1f 4f       	sbci	r17, 0xFF	; 255
+ 376:	41 e0       	ldi	r20, 0x01	; 1
+ 378:	f8 01       	movw	r30, r16
+ 37a:	61 81       	ldd	r22, Z+1	; 0x01
+ 37c:	80 81       	ld	r24, Z
+ 37e:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_eumLOW );
+ 382:	40 e0       	ldi	r20, 0x00	; 0
+ 384:	f8 01       	movw	r30, r16
+ 386:	63 81       	ldd	r22, Z+3	; 0x03
+ 388:	82 81       	ldd	r24, Z+2	; 0x02
+ 38a:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_enumHIGH );
+ 38e:	41 e0       	ldi	r20, 0x01	; 1
+ 390:	f8 01       	movw	r30, r16
+ 392:	65 81       	ldd	r22, Z+5	; 0x05
+ 394:	84 81       	ldd	r24, Z+4	; 0x04
+ 396:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_enumHIGH );
+ 39a:	41 e0       	ldi	r20, 0x01	; 1
+ 39c:	f8 01       	movw	r30, r16
+ 39e:	67 81       	ldd	r22, Z+7	; 0x07
+ 3a0:	86 81       	ldd	r24, Z+6	; 0x06
+ 3a2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_eumLOW );
+ 3a6:	40 e0       	ldi	r20, 0x00	; 0
+ 3a8:	f8 01       	movw	r30, r16
+ 3aa:	61 85       	ldd	r22, Z+9	; 0x09
+ 3ac:	80 85       	ldd	r24, Z+8	; 0x08
+ 3ae:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_enumHIGH );
+ 3b2:	41 e0       	ldi	r20, 0x01	; 1
+ 3b4:	f8 01       	movw	r30, r16
+ 3b6:	63 85       	ldd	r22, Z+11	; 0x0b
+ 3b8:	82 85       	ldd	r24, Z+10	; 0x0a
+ 3ba:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_enumHIGH );
+ 3be:	41 e0       	ldi	r20, 0x01	; 1
+ 3c0:	f8 01       	movw	r30, r16
+ 3c2:	65 85       	ldd	r22, Z+13	; 0x0d
+ 3c4:	84 85       	ldd	r24, Z+12	; 0x0c
+ 3c6:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_enumHIGH );
+ 3ca:	41 e0       	ldi	r20, 0x01	; 1
+ 3cc:	f8 01       	movw	r30, r16
+ 3ce:	67 85       	ldd	r22, Z+15	; 0x0f
+ 3d0:	86 85       	ldd	r24, Z+14	; 0x0e
+ 3d2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 3d6:	28 c3       	rjmp	.+1616   	; 0xa28 <__stack+0x1c9>
+								case six:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_enumHIGH );
+ 3d8:	21 e1       	ldi	r18, 0x11	; 17
+ 3da:	28 9f       	mul	r18, r24
+ 3dc:	80 01       	movw	r16, r0
+ 3de:	29 9f       	mul	r18, r25
+ 3e0:	10 0d       	add	r17, r0
+ 3e2:	11 24       	eor	r1, r1
+ 3e4:	00 5a       	subi	r16, 0xA0	; 160
+ 3e6:	1f 4f       	sbci	r17, 0xFF	; 255
+ 3e8:	41 e0       	ldi	r20, 0x01	; 1
+ 3ea:	f8 01       	movw	r30, r16
+ 3ec:	61 81       	ldd	r22, Z+1	; 0x01
+ 3ee:	80 81       	ld	r24, Z
+ 3f0:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_eumLOW );
+ 3f4:	40 e0       	ldi	r20, 0x00	; 0
+ 3f6:	f8 01       	movw	r30, r16
+ 3f8:	63 81       	ldd	r22, Z+3	; 0x03
+ 3fa:	82 81       	ldd	r24, Z+2	; 0x02
+ 3fc:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_enumHIGH );
+ 400:	41 e0       	ldi	r20, 0x01	; 1
+ 402:	f8 01       	movw	r30, r16
+ 404:	65 81       	ldd	r22, Z+5	; 0x05
+ 406:	84 81       	ldd	r24, Z+4	; 0x04
+ 408:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_enumHIGH );
+ 40c:	41 e0       	ldi	r20, 0x01	; 1
+ 40e:	f8 01       	movw	r30, r16
+ 410:	67 81       	ldd	r22, Z+7	; 0x07
+ 412:	86 81       	ldd	r24, Z+6	; 0x06
+ 414:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_enumHIGH );
+ 418:	41 e0       	ldi	r20, 0x01	; 1
+ 41a:	f8 01       	movw	r30, r16
+ 41c:	61 85       	ldd	r22, Z+9	; 0x09
+ 41e:	80 85       	ldd	r24, Z+8	; 0x08
+ 420:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_enumHIGH );
+ 424:	41 e0       	ldi	r20, 0x01	; 1
+ 426:	f8 01       	movw	r30, r16
+ 428:	63 85       	ldd	r22, Z+11	; 0x0b
+ 42a:	82 85       	ldd	r24, Z+10	; 0x0a
+ 42c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_enumHIGH );
+ 430:	41 e0       	ldi	r20, 0x01	; 1
+ 432:	f8 01       	movw	r30, r16
+ 434:	65 85       	ldd	r22, Z+13	; 0x0d
+ 436:	84 85       	ldd	r24, Z+12	; 0x0c
+ 438:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_enumHIGH );
+ 43c:	41 e0       	ldi	r20, 0x01	; 1
+ 43e:	f8 01       	movw	r30, r16
+ 440:	67 85       	ldd	r22, Z+15	; 0x0f
+ 442:	86 85       	ldd	r24, Z+14	; 0x0e
+ 444:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 448:	ef c2       	rjmp	.+1502   	; 0xa28 <__stack+0x1c9>
+								case seven:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_enumHIGH );
+ 44a:	21 e1       	ldi	r18, 0x11	; 17
+ 44c:	28 9f       	mul	r18, r24
+ 44e:	80 01       	movw	r16, r0
+ 450:	29 9f       	mul	r18, r25
+ 452:	10 0d       	add	r17, r0
+ 454:	11 24       	eor	r1, r1
+ 456:	00 5a       	subi	r16, 0xA0	; 160
+ 458:	1f 4f       	sbci	r17, 0xFF	; 255
+ 45a:	41 e0       	ldi	r20, 0x01	; 1
+ 45c:	f8 01       	movw	r30, r16
+ 45e:	61 81       	ldd	r22, Z+1	; 0x01
+ 460:	80 81       	ld	r24, Z
+ 462:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_enumHIGH );
+ 466:	41 e0       	ldi	r20, 0x01	; 1
+ 468:	f8 01       	movw	r30, r16
+ 46a:	63 81       	ldd	r22, Z+3	; 0x03
+ 46c:	82 81       	ldd	r24, Z+2	; 0x02
+ 46e:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_enumHIGH );
+ 472:	41 e0       	ldi	r20, 0x01	; 1
+ 474:	f8 01       	movw	r30, r16
+ 476:	65 81       	ldd	r22, Z+5	; 0x05
+ 478:	84 81       	ldd	r24, Z+4	; 0x04
+ 47a:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_eumLOW );
+ 47e:	40 e0       	ldi	r20, 0x00	; 0
+ 480:	f8 01       	movw	r30, r16
+ 482:	67 81       	ldd	r22, Z+7	; 0x07
+ 484:	86 81       	ldd	r24, Z+6	; 0x06
+ 486:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_eumLOW );
+ 48a:	40 e0       	ldi	r20, 0x00	; 0
+ 48c:	f8 01       	movw	r30, r16
+ 48e:	61 85       	ldd	r22, Z+9	; 0x09
+ 490:	80 85       	ldd	r24, Z+8	; 0x08
+ 492:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_eumLOW );
+ 496:	40 e0       	ldi	r20, 0x00	; 0
+ 498:	f8 01       	movw	r30, r16
+ 49a:	63 85       	ldd	r22, Z+11	; 0x0b
+ 49c:	82 85       	ldd	r24, Z+10	; 0x0a
+ 49e:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_eumLOW );
+ 4a2:	40 e0       	ldi	r20, 0x00	; 0
+ 4a4:	f8 01       	movw	r30, r16
+ 4a6:	65 85       	ldd	r22, Z+13	; 0x0d
+ 4a8:	84 85       	ldd	r24, Z+12	; 0x0c
+ 4aa:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_enumHIGH );
+ 4ae:	41 e0       	ldi	r20, 0x01	; 1
+ 4b0:	f8 01       	movw	r30, r16
+ 4b2:	67 85       	ldd	r22, Z+15	; 0x0f
+ 4b4:	86 85       	ldd	r24, Z+14	; 0x0e
+ 4b6:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 4ba:	b6 c2       	rjmp	.+1388   	; 0xa28 <__stack+0x1c9>
+								case eight:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_enumHIGH );
+ 4bc:	21 e1       	ldi	r18, 0x11	; 17
+ 4be:	28 9f       	mul	r18, r24
+ 4c0:	80 01       	movw	r16, r0
+ 4c2:	29 9f       	mul	r18, r25
+ 4c4:	10 0d       	add	r17, r0
+ 4c6:	11 24       	eor	r1, r1
+ 4c8:	00 5a       	subi	r16, 0xA0	; 160
+ 4ca:	1f 4f       	sbci	r17, 0xFF	; 255
+ 4cc:	41 e0       	ldi	r20, 0x01	; 1
+ 4ce:	f8 01       	movw	r30, r16
+ 4d0:	61 81       	ldd	r22, Z+1	; 0x01
+ 4d2:	80 81       	ld	r24, Z
+ 4d4:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_enumHIGH );
+ 4d8:	41 e0       	ldi	r20, 0x01	; 1
+ 4da:	f8 01       	movw	r30, r16
+ 4dc:	63 81       	ldd	r22, Z+3	; 0x03
+ 4de:	82 81       	ldd	r24, Z+2	; 0x02
+ 4e0:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_enumHIGH );
+ 4e4:	41 e0       	ldi	r20, 0x01	; 1
+ 4e6:	f8 01       	movw	r30, r16
+ 4e8:	65 81       	ldd	r22, Z+5	; 0x05
+ 4ea:	84 81       	ldd	r24, Z+4	; 0x04
+ 4ec:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_enumHIGH );
+ 4f0:	41 e0       	ldi	r20, 0x01	; 1
+ 4f2:	f8 01       	movw	r30, r16
+ 4f4:	67 81       	ldd	r22, Z+7	; 0x07
+ 4f6:	86 81       	ldd	r24, Z+6	; 0x06
+ 4f8:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_enumHIGH );
+ 4fc:	41 e0       	ldi	r20, 0x01	; 1
+ 4fe:	f8 01       	movw	r30, r16
+ 500:	61 85       	ldd	r22, Z+9	; 0x09
+ 502:	80 85       	ldd	r24, Z+8	; 0x08
+ 504:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_enumHIGH );
+ 508:	41 e0       	ldi	r20, 0x01	; 1
+ 50a:	f8 01       	movw	r30, r16
+ 50c:	63 85       	ldd	r22, Z+11	; 0x0b
+ 50e:	82 85       	ldd	r24, Z+10	; 0x0a
+ 510:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_enumHIGH );
+ 514:	41 e0       	ldi	r20, 0x01	; 1
+ 516:	f8 01       	movw	r30, r16
+ 518:	65 85       	ldd	r22, Z+13	; 0x0d
+ 51a:	84 85       	ldd	r24, Z+12	; 0x0c
+ 51c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_enumHIGH );
+ 520:	41 e0       	ldi	r20, 0x01	; 1
+ 522:	f8 01       	movw	r30, r16
+ 524:	67 85       	ldd	r22, Z+15	; 0x0f
+ 526:	86 85       	ldd	r24, Z+14	; 0x0e
+ 528:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 52c:	7d c2       	rjmp	.+1274   	; 0xa28 <__stack+0x1c9>
+								case nine :
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_enumHIGH );
+ 52e:	21 e1       	ldi	r18, 0x11	; 17
+ 530:	28 9f       	mul	r18, r24
+ 532:	80 01       	movw	r16, r0
+ 534:	29 9f       	mul	r18, r25
+ 536:	10 0d       	add	r17, r0
+ 538:	11 24       	eor	r1, r1
+ 53a:	00 5a       	subi	r16, 0xA0	; 160
+ 53c:	1f 4f       	sbci	r17, 0xFF	; 255
+ 53e:	41 e0       	ldi	r20, 0x01	; 1
+ 540:	f8 01       	movw	r30, r16
+ 542:	61 81       	ldd	r22, Z+1	; 0x01
+ 544:	80 81       	ld	r24, Z
+ 546:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_enumHIGH );
+ 54a:	41 e0       	ldi	r20, 0x01	; 1
+ 54c:	f8 01       	movw	r30, r16
+ 54e:	63 81       	ldd	r22, Z+3	; 0x03
+ 550:	82 81       	ldd	r24, Z+2	; 0x02
+ 552:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_enumHIGH );
+ 556:	41 e0       	ldi	r20, 0x01	; 1
+ 558:	f8 01       	movw	r30, r16
+ 55a:	65 81       	ldd	r22, Z+5	; 0x05
+ 55c:	84 81       	ldd	r24, Z+4	; 0x04
+ 55e:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_enumHIGH );
+ 562:	41 e0       	ldi	r20, 0x01	; 1
+ 564:	f8 01       	movw	r30, r16
+ 566:	67 81       	ldd	r22, Z+7	; 0x07
+ 568:	86 81       	ldd	r24, Z+6	; 0x06
+ 56a:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_eumLOW );
+ 56e:	40 e0       	ldi	r20, 0x00	; 0
+ 570:	f8 01       	movw	r30, r16
+ 572:	61 85       	ldd	r22, Z+9	; 0x09
+ 574:	80 85       	ldd	r24, Z+8	; 0x08
+ 576:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_enumHIGH );
+ 57a:	41 e0       	ldi	r20, 0x01	; 1
+ 57c:	f8 01       	movw	r30, r16
+ 57e:	63 85       	ldd	r22, Z+11	; 0x0b
+ 580:	82 85       	ldd	r24, Z+10	; 0x0a
+ 582:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_enumHIGH );
+ 586:	41 e0       	ldi	r20, 0x01	; 1
+ 588:	f8 01       	movw	r30, r16
+ 58a:	65 85       	ldd	r22, Z+13	; 0x0d
+ 58c:	84 85       	ldd	r24, Z+12	; 0x0c
+ 58e:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_enumHIGH );
+ 592:	41 e0       	ldi	r20, 0x01	; 1
+ 594:	f8 01       	movw	r30, r16
+ 596:	67 85       	ldd	r22, Z+15	; 0x0f
+ 598:	86 85       	ldd	r24, Z+14	; 0x0e
+ 59a:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 59e:	44 c2       	rjmp	.+1160   	; 0xa28 <__stack+0x1c9>
+								default:
+								break;
+						}/*switch two*/
+		break;
+		case SevenSegments_enumCommonAnode :
+						switch (SevenSegments_enumNum){
+ 5a0:	46 2f       	mov	r20, r22
+ 5a2:	50 e0       	ldi	r21, 0x00	; 0
+ 5a4:	4a 30       	cpi	r20, 0x0A	; 10
+ 5a6:	51 05       	cpc	r21, r1
+ 5a8:	08 f0       	brcs	.+2      	; 0x5ac <__EEPROM_REGION_LENGTH__+0x1ac>
+ 5aa:	3e c2       	rjmp	.+1148   	; 0xa28 <__stack+0x1c9>
+ 5ac:	fa 01       	movw	r30, r20
+ 5ae:	ec 5c       	subi	r30, 0xCC	; 204
+ 5b0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 5b2:	0c 94 b7 0a 	jmp	0x156e	; 0x156e <__tablejump2__>
+								
+								case zero:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_eumLOW );
+ 5b6:	21 e1       	ldi	r18, 0x11	; 17
+ 5b8:	28 9f       	mul	r18, r24
+ 5ba:	80 01       	movw	r16, r0
+ 5bc:	29 9f       	mul	r18, r25
+ 5be:	10 0d       	add	r17, r0
+ 5c0:	11 24       	eor	r1, r1
+ 5c2:	00 5a       	subi	r16, 0xA0	; 160
+ 5c4:	1f 4f       	sbci	r17, 0xFF	; 255
+ 5c6:	40 e0       	ldi	r20, 0x00	; 0
+ 5c8:	f8 01       	movw	r30, r16
+ 5ca:	61 81       	ldd	r22, Z+1	; 0x01
+ 5cc:	80 81       	ld	r24, Z
+ 5ce:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_eumLOW );
+ 5d2:	40 e0       	ldi	r20, 0x00	; 0
+ 5d4:	f8 01       	movw	r30, r16
+ 5d6:	63 81       	ldd	r22, Z+3	; 0x03
+ 5d8:	82 81       	ldd	r24, Z+2	; 0x02
+ 5da:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_eumLOW );
+ 5de:	40 e0       	ldi	r20, 0x00	; 0
+ 5e0:	f8 01       	movw	r30, r16
+ 5e2:	65 81       	ldd	r22, Z+5	; 0x05
+ 5e4:	84 81       	ldd	r24, Z+4	; 0x04
+ 5e6:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_eumLOW );
+ 5ea:	40 e0       	ldi	r20, 0x00	; 0
+ 5ec:	f8 01       	movw	r30, r16
+ 5ee:	67 81       	ldd	r22, Z+7	; 0x07
+ 5f0:	86 81       	ldd	r24, Z+6	; 0x06
+ 5f2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_eumLOW );
+ 5f6:	40 e0       	ldi	r20, 0x00	; 0
+ 5f8:	f8 01       	movw	r30, r16
+ 5fa:	61 85       	ldd	r22, Z+9	; 0x09
+ 5fc:	80 85       	ldd	r24, Z+8	; 0x08
+ 5fe:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_eumLOW );
+ 602:	40 e0       	ldi	r20, 0x00	; 0
+ 604:	f8 01       	movw	r30, r16
+ 606:	63 85       	ldd	r22, Z+11	; 0x0b
+ 608:	82 85       	ldd	r24, Z+10	; 0x0a
+ 60a:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_enumHIGH );
+ 60e:	41 e0       	ldi	r20, 0x01	; 1
+ 610:	f8 01       	movw	r30, r16
+ 612:	65 85       	ldd	r22, Z+13	; 0x0d
+ 614:	84 85       	ldd	r24, Z+12	; 0x0c
+ 616:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_eumLOW );
+ 61a:	40 e0       	ldi	r20, 0x00	; 0
+ 61c:	f8 01       	movw	r30, r16
+ 61e:	67 85       	ldd	r22, Z+15	; 0x0f
+ 620:	86 85       	ldd	r24, Z+14	; 0x0e
+ 622:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 626:	00 c2       	rjmp	.+1024   	; 0xa28 <__stack+0x1c9>
+								case one:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_enumHIGH );
+ 628:	21 e1       	ldi	r18, 0x11	; 17
+ 62a:	28 9f       	mul	r18, r24
+ 62c:	80 01       	movw	r16, r0
+ 62e:	29 9f       	mul	r18, r25
+ 630:	10 0d       	add	r17, r0
+ 632:	11 24       	eor	r1, r1
+ 634:	00 5a       	subi	r16, 0xA0	; 160
+ 636:	1f 4f       	sbci	r17, 0xFF	; 255
+ 638:	41 e0       	ldi	r20, 0x01	; 1
+ 63a:	f8 01       	movw	r30, r16
+ 63c:	61 81       	ldd	r22, Z+1	; 0x01
+ 63e:	80 81       	ld	r24, Z
+ 640:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_eumLOW );
+ 644:	40 e0       	ldi	r20, 0x00	; 0
+ 646:	f8 01       	movw	r30, r16
+ 648:	63 81       	ldd	r22, Z+3	; 0x03
+ 64a:	82 81       	ldd	r24, Z+2	; 0x02
+ 64c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_eumLOW );
+ 650:	40 e0       	ldi	r20, 0x00	; 0
+ 652:	f8 01       	movw	r30, r16
+ 654:	65 81       	ldd	r22, Z+5	; 0x05
+ 656:	84 81       	ldd	r24, Z+4	; 0x04
+ 658:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_enumHIGH );
+ 65c:	41 e0       	ldi	r20, 0x01	; 1
+ 65e:	f8 01       	movw	r30, r16
+ 660:	67 81       	ldd	r22, Z+7	; 0x07
+ 662:	86 81       	ldd	r24, Z+6	; 0x06
+ 664:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_enumHIGH );
+ 668:	41 e0       	ldi	r20, 0x01	; 1
+ 66a:	f8 01       	movw	r30, r16
+ 66c:	61 85       	ldd	r22, Z+9	; 0x09
+ 66e:	80 85       	ldd	r24, Z+8	; 0x08
+ 670:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_enumHIGH );
+ 674:	41 e0       	ldi	r20, 0x01	; 1
+ 676:	f8 01       	movw	r30, r16
+ 678:	63 85       	ldd	r22, Z+11	; 0x0b
+ 67a:	82 85       	ldd	r24, Z+10	; 0x0a
+ 67c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_enumHIGH );
+ 680:	41 e0       	ldi	r20, 0x01	; 1
+ 682:	f8 01       	movw	r30, r16
+ 684:	65 85       	ldd	r22, Z+13	; 0x0d
+ 686:	84 85       	ldd	r24, Z+12	; 0x0c
+ 688:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_eumLOW );
+ 68c:	40 e0       	ldi	r20, 0x00	; 0
+ 68e:	f8 01       	movw	r30, r16
+ 690:	67 85       	ldd	r22, Z+15	; 0x0f
+ 692:	86 85       	ldd	r24, Z+14	; 0x0e
+ 694:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 698:	c7 c1       	rjmp	.+910    	; 0xa28 <__stack+0x1c9>
+								case two:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_eumLOW );
+ 69a:	21 e1       	ldi	r18, 0x11	; 17
+ 69c:	28 9f       	mul	r18, r24
+ 69e:	80 01       	movw	r16, r0
+ 6a0:	29 9f       	mul	r18, r25
+ 6a2:	10 0d       	add	r17, r0
+ 6a4:	11 24       	eor	r1, r1
+ 6a6:	00 5a       	subi	r16, 0xA0	; 160
+ 6a8:	1f 4f       	sbci	r17, 0xFF	; 255
+ 6aa:	40 e0       	ldi	r20, 0x00	; 0
+ 6ac:	f8 01       	movw	r30, r16
+ 6ae:	61 81       	ldd	r22, Z+1	; 0x01
+ 6b0:	80 81       	ld	r24, Z
+ 6b2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_eumLOW );
+ 6b6:	40 e0       	ldi	r20, 0x00	; 0
+ 6b8:	f8 01       	movw	r30, r16
+ 6ba:	63 81       	ldd	r22, Z+3	; 0x03
+ 6bc:	82 81       	ldd	r24, Z+2	; 0x02
+ 6be:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_enumHIGH );
+ 6c2:	41 e0       	ldi	r20, 0x01	; 1
+ 6c4:	f8 01       	movw	r30, r16
+ 6c6:	65 81       	ldd	r22, Z+5	; 0x05
+ 6c8:	84 81       	ldd	r24, Z+4	; 0x04
+ 6ca:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_eumLOW );
+ 6ce:	40 e0       	ldi	r20, 0x00	; 0
+ 6d0:	f8 01       	movw	r30, r16
+ 6d2:	67 81       	ldd	r22, Z+7	; 0x07
+ 6d4:	86 81       	ldd	r24, Z+6	; 0x06
+ 6d6:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_eumLOW );
+ 6da:	40 e0       	ldi	r20, 0x00	; 0
+ 6dc:	f8 01       	movw	r30, r16
+ 6de:	61 85       	ldd	r22, Z+9	; 0x09
+ 6e0:	80 85       	ldd	r24, Z+8	; 0x08
+ 6e2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_enumHIGH );
+ 6e6:	41 e0       	ldi	r20, 0x01	; 1
+ 6e8:	f8 01       	movw	r30, r16
+ 6ea:	63 85       	ldd	r22, Z+11	; 0x0b
+ 6ec:	82 85       	ldd	r24, Z+10	; 0x0a
+ 6ee:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_eumLOW );
+ 6f2:	40 e0       	ldi	r20, 0x00	; 0
+ 6f4:	f8 01       	movw	r30, r16
+ 6f6:	65 85       	ldd	r22, Z+13	; 0x0d
+ 6f8:	84 85       	ldd	r24, Z+12	; 0x0c
+ 6fa:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_eumLOW );
+ 6fe:	40 e0       	ldi	r20, 0x00	; 0
+ 700:	f8 01       	movw	r30, r16
+ 702:	67 85       	ldd	r22, Z+15	; 0x0f
+ 704:	86 85       	ldd	r24, Z+14	; 0x0e
+ 706:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 70a:	8e c1       	rjmp	.+796    	; 0xa28 <__stack+0x1c9>
+								case three:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_eumLOW );
+ 70c:	21 e1       	ldi	r18, 0x11	; 17
+ 70e:	28 9f       	mul	r18, r24
+ 710:	80 01       	movw	r16, r0
+ 712:	29 9f       	mul	r18, r25
+ 714:	10 0d       	add	r17, r0
+ 716:	11 24       	eor	r1, r1
+ 718:	00 5a       	subi	r16, 0xA0	; 160
+ 71a:	1f 4f       	sbci	r17, 0xFF	; 255
+ 71c:	40 e0       	ldi	r20, 0x00	; 0
+ 71e:	f8 01       	movw	r30, r16
+ 720:	61 81       	ldd	r22, Z+1	; 0x01
+ 722:	80 81       	ld	r24, Z
+ 724:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_eumLOW );
+ 728:	40 e0       	ldi	r20, 0x00	; 0
+ 72a:	f8 01       	movw	r30, r16
+ 72c:	63 81       	ldd	r22, Z+3	; 0x03
+ 72e:	82 81       	ldd	r24, Z+2	; 0x02
+ 730:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_eumLOW );
+ 734:	40 e0       	ldi	r20, 0x00	; 0
+ 736:	f8 01       	movw	r30, r16
+ 738:	65 81       	ldd	r22, Z+5	; 0x05
+ 73a:	84 81       	ldd	r24, Z+4	; 0x04
+ 73c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_eumLOW );
+ 740:	40 e0       	ldi	r20, 0x00	; 0
+ 742:	f8 01       	movw	r30, r16
+ 744:	67 81       	ldd	r22, Z+7	; 0x07
+ 746:	86 81       	ldd	r24, Z+6	; 0x06
+ 748:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_enumHIGH );
+ 74c:	41 e0       	ldi	r20, 0x01	; 1
+ 74e:	f8 01       	movw	r30, r16
+ 750:	61 85       	ldd	r22, Z+9	; 0x09
+ 752:	80 85       	ldd	r24, Z+8	; 0x08
+ 754:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_enumHIGH );
+ 758:	41 e0       	ldi	r20, 0x01	; 1
+ 75a:	f8 01       	movw	r30, r16
+ 75c:	63 85       	ldd	r22, Z+11	; 0x0b
+ 75e:	82 85       	ldd	r24, Z+10	; 0x0a
+ 760:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_eumLOW );
+ 764:	40 e0       	ldi	r20, 0x00	; 0
+ 766:	f8 01       	movw	r30, r16
+ 768:	65 85       	ldd	r22, Z+13	; 0x0d
+ 76a:	84 85       	ldd	r24, Z+12	; 0x0c
+ 76c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_eumLOW );
+ 770:	40 e0       	ldi	r20, 0x00	; 0
+ 772:	f8 01       	movw	r30, r16
+ 774:	67 85       	ldd	r22, Z+15	; 0x0f
+ 776:	86 85       	ldd	r24, Z+14	; 0x0e
+ 778:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 77c:	55 c1       	rjmp	.+682    	; 0xa28 <__stack+0x1c9>
+								case four:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_enumHIGH );
+ 77e:	21 e1       	ldi	r18, 0x11	; 17
+ 780:	28 9f       	mul	r18, r24
+ 782:	80 01       	movw	r16, r0
+ 784:	29 9f       	mul	r18, r25
+ 786:	10 0d       	add	r17, r0
+ 788:	11 24       	eor	r1, r1
+ 78a:	00 5a       	subi	r16, 0xA0	; 160
+ 78c:	1f 4f       	sbci	r17, 0xFF	; 255
+ 78e:	41 e0       	ldi	r20, 0x01	; 1
+ 790:	f8 01       	movw	r30, r16
+ 792:	61 81       	ldd	r22, Z+1	; 0x01
+ 794:	80 81       	ld	r24, Z
+ 796:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_eumLOW );
+ 79a:	40 e0       	ldi	r20, 0x00	; 0
+ 79c:	f8 01       	movw	r30, r16
+ 79e:	63 81       	ldd	r22, Z+3	; 0x03
+ 7a0:	82 81       	ldd	r24, Z+2	; 0x02
+ 7a2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_eumLOW );
+ 7a6:	40 e0       	ldi	r20, 0x00	; 0
+ 7a8:	f8 01       	movw	r30, r16
+ 7aa:	65 81       	ldd	r22, Z+5	; 0x05
+ 7ac:	84 81       	ldd	r24, Z+4	; 0x04
+ 7ae:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_enumHIGH );
+ 7b2:	41 e0       	ldi	r20, 0x01	; 1
+ 7b4:	f8 01       	movw	r30, r16
+ 7b6:	67 81       	ldd	r22, Z+7	; 0x07
+ 7b8:	86 81       	ldd	r24, Z+6	; 0x06
+ 7ba:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_enumHIGH );
+ 7be:	41 e0       	ldi	r20, 0x01	; 1
+ 7c0:	f8 01       	movw	r30, r16
+ 7c2:	61 85       	ldd	r22, Z+9	; 0x09
+ 7c4:	80 85       	ldd	r24, Z+8	; 0x08
+ 7c6:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_eumLOW );
+ 7ca:	40 e0       	ldi	r20, 0x00	; 0
+ 7cc:	f8 01       	movw	r30, r16
+ 7ce:	63 85       	ldd	r22, Z+11	; 0x0b
+ 7d0:	82 85       	ldd	r24, Z+10	; 0x0a
+ 7d2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_eumLOW );
+ 7d6:	40 e0       	ldi	r20, 0x00	; 0
+ 7d8:	f8 01       	movw	r30, r16
+ 7da:	65 85       	ldd	r22, Z+13	; 0x0d
+ 7dc:	84 85       	ldd	r24, Z+12	; 0x0c
+ 7de:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_eumLOW );
+ 7e2:	40 e0       	ldi	r20, 0x00	; 0
+ 7e4:	f8 01       	movw	r30, r16
+ 7e6:	67 85       	ldd	r22, Z+15	; 0x0f
+ 7e8:	86 85       	ldd	r24, Z+14	; 0x0e
+ 7ea:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 7ee:	1c c1       	rjmp	.+568    	; 0xa28 <__stack+0x1c9>
+								case five:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_eumLOW );
+ 7f0:	21 e1       	ldi	r18, 0x11	; 17
+ 7f2:	28 9f       	mul	r18, r24
+ 7f4:	80 01       	movw	r16, r0
+ 7f6:	29 9f       	mul	r18, r25
+ 7f8:	10 0d       	add	r17, r0
+ 7fa:	11 24       	eor	r1, r1
+ 7fc:	00 5a       	subi	r16, 0xA0	; 160
+ 7fe:	1f 4f       	sbci	r17, 0xFF	; 255
+ 800:	40 e0       	ldi	r20, 0x00	; 0
+ 802:	f8 01       	movw	r30, r16
+ 804:	61 81       	ldd	r22, Z+1	; 0x01
+ 806:	80 81       	ld	r24, Z
+ 808:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_enumHIGH );
+ 80c:	41 e0       	ldi	r20, 0x01	; 1
+ 80e:	f8 01       	movw	r30, r16
+ 810:	63 81       	ldd	r22, Z+3	; 0x03
+ 812:	82 81       	ldd	r24, Z+2	; 0x02
+ 814:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_eumLOW );
+ 818:	40 e0       	ldi	r20, 0x00	; 0
+ 81a:	f8 01       	movw	r30, r16
+ 81c:	65 81       	ldd	r22, Z+5	; 0x05
+ 81e:	84 81       	ldd	r24, Z+4	; 0x04
+ 820:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_eumLOW );
+ 824:	40 e0       	ldi	r20, 0x00	; 0
+ 826:	f8 01       	movw	r30, r16
+ 828:	67 81       	ldd	r22, Z+7	; 0x07
+ 82a:	86 81       	ldd	r24, Z+6	; 0x06
+ 82c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_enumHIGH );
+ 830:	41 e0       	ldi	r20, 0x01	; 1
+ 832:	f8 01       	movw	r30, r16
+ 834:	61 85       	ldd	r22, Z+9	; 0x09
+ 836:	80 85       	ldd	r24, Z+8	; 0x08
+ 838:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_eumLOW );
+ 83c:	40 e0       	ldi	r20, 0x00	; 0
+ 83e:	f8 01       	movw	r30, r16
+ 840:	63 85       	ldd	r22, Z+11	; 0x0b
+ 842:	82 85       	ldd	r24, Z+10	; 0x0a
+ 844:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_eumLOW );
+ 848:	40 e0       	ldi	r20, 0x00	; 0
+ 84a:	f8 01       	movw	r30, r16
+ 84c:	65 85       	ldd	r22, Z+13	; 0x0d
+ 84e:	84 85       	ldd	r24, Z+12	; 0x0c
+ 850:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_eumLOW );
+ 854:	40 e0       	ldi	r20, 0x00	; 0
+ 856:	f8 01       	movw	r30, r16
+ 858:	67 85       	ldd	r22, Z+15	; 0x0f
+ 85a:	86 85       	ldd	r24, Z+14	; 0x0e
+ 85c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 860:	e3 c0       	rjmp	.+454    	; 0xa28 <__stack+0x1c9>
+								case six:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_eumLOW );
+ 862:	21 e1       	ldi	r18, 0x11	; 17
+ 864:	28 9f       	mul	r18, r24
+ 866:	80 01       	movw	r16, r0
+ 868:	29 9f       	mul	r18, r25
+ 86a:	10 0d       	add	r17, r0
+ 86c:	11 24       	eor	r1, r1
+ 86e:	00 5a       	subi	r16, 0xA0	; 160
+ 870:	1f 4f       	sbci	r17, 0xFF	; 255
+ 872:	40 e0       	ldi	r20, 0x00	; 0
+ 874:	f8 01       	movw	r30, r16
+ 876:	61 81       	ldd	r22, Z+1	; 0x01
+ 878:	80 81       	ld	r24, Z
+ 87a:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_enumHIGH );
+ 87e:	41 e0       	ldi	r20, 0x01	; 1
+ 880:	f8 01       	movw	r30, r16
+ 882:	63 81       	ldd	r22, Z+3	; 0x03
+ 884:	82 81       	ldd	r24, Z+2	; 0x02
+ 886:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_eumLOW );
+ 88a:	40 e0       	ldi	r20, 0x00	; 0
+ 88c:	f8 01       	movw	r30, r16
+ 88e:	65 81       	ldd	r22, Z+5	; 0x05
+ 890:	84 81       	ldd	r24, Z+4	; 0x04
+ 892:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_eumLOW );
+ 896:	40 e0       	ldi	r20, 0x00	; 0
+ 898:	f8 01       	movw	r30, r16
+ 89a:	67 81       	ldd	r22, Z+7	; 0x07
+ 89c:	86 81       	ldd	r24, Z+6	; 0x06
+ 89e:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_eumLOW );
+ 8a2:	40 e0       	ldi	r20, 0x00	; 0
+ 8a4:	f8 01       	movw	r30, r16
+ 8a6:	61 85       	ldd	r22, Z+9	; 0x09
+ 8a8:	80 85       	ldd	r24, Z+8	; 0x08
+ 8aa:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_eumLOW );
+ 8ae:	40 e0       	ldi	r20, 0x00	; 0
+ 8b0:	f8 01       	movw	r30, r16
+ 8b2:	63 85       	ldd	r22, Z+11	; 0x0b
+ 8b4:	82 85       	ldd	r24, Z+10	; 0x0a
+ 8b6:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_eumLOW );
+ 8ba:	40 e0       	ldi	r20, 0x00	; 0
+ 8bc:	f8 01       	movw	r30, r16
+ 8be:	65 85       	ldd	r22, Z+13	; 0x0d
+ 8c0:	84 85       	ldd	r24, Z+12	; 0x0c
+ 8c2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_eumLOW );
+ 8c6:	40 e0       	ldi	r20, 0x00	; 0
+ 8c8:	f8 01       	movw	r30, r16
+ 8ca:	67 85       	ldd	r22, Z+15	; 0x0f
+ 8cc:	86 85       	ldd	r24, Z+14	; 0x0e
+ 8ce:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 8d2:	aa c0       	rjmp	.+340    	; 0xa28 <__stack+0x1c9>
+								case seven:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_eumLOW );
+ 8d4:	21 e1       	ldi	r18, 0x11	; 17
+ 8d6:	28 9f       	mul	r18, r24
+ 8d8:	80 01       	movw	r16, r0
+ 8da:	29 9f       	mul	r18, r25
+ 8dc:	10 0d       	add	r17, r0
+ 8de:	11 24       	eor	r1, r1
+ 8e0:	00 5a       	subi	r16, 0xA0	; 160
+ 8e2:	1f 4f       	sbci	r17, 0xFF	; 255
+ 8e4:	40 e0       	ldi	r20, 0x00	; 0
+ 8e6:	f8 01       	movw	r30, r16
+ 8e8:	61 81       	ldd	r22, Z+1	; 0x01
+ 8ea:	80 81       	ld	r24, Z
+ 8ec:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_eumLOW );
+ 8f0:	40 e0       	ldi	r20, 0x00	; 0
+ 8f2:	f8 01       	movw	r30, r16
+ 8f4:	63 81       	ldd	r22, Z+3	; 0x03
+ 8f6:	82 81       	ldd	r24, Z+2	; 0x02
+ 8f8:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_eumLOW );
+ 8fc:	40 e0       	ldi	r20, 0x00	; 0
+ 8fe:	f8 01       	movw	r30, r16
+ 900:	65 81       	ldd	r22, Z+5	; 0x05
+ 902:	84 81       	ldd	r24, Z+4	; 0x04
+ 904:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_enumHIGH );
+ 908:	41 e0       	ldi	r20, 0x01	; 1
+ 90a:	f8 01       	movw	r30, r16
+ 90c:	67 81       	ldd	r22, Z+7	; 0x07
+ 90e:	86 81       	ldd	r24, Z+6	; 0x06
+ 910:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_enumHIGH );
+ 914:	41 e0       	ldi	r20, 0x01	; 1
+ 916:	f8 01       	movw	r30, r16
+ 918:	61 85       	ldd	r22, Z+9	; 0x09
+ 91a:	80 85       	ldd	r24, Z+8	; 0x08
+ 91c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_enumHIGH );
+ 920:	41 e0       	ldi	r20, 0x01	; 1
+ 922:	f8 01       	movw	r30, r16
+ 924:	63 85       	ldd	r22, Z+11	; 0x0b
+ 926:	82 85       	ldd	r24, Z+10	; 0x0a
+ 928:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_enumHIGH );
+ 92c:	41 e0       	ldi	r20, 0x01	; 1
+ 92e:	f8 01       	movw	r30, r16
+ 930:	65 85       	ldd	r22, Z+13	; 0x0d
+ 932:	84 85       	ldd	r24, Z+12	; 0x0c
+ 934:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_eumLOW );
+ 938:	40 e0       	ldi	r20, 0x00	; 0
+ 93a:	f8 01       	movw	r30, r16
+ 93c:	67 85       	ldd	r22, Z+15	; 0x0f
+ 93e:	86 85       	ldd	r24, Z+14	; 0x0e
+ 940:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 944:	71 c0       	rjmp	.+226    	; 0xa28 <__stack+0x1c9>
+								case eight:
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_eumLOW );
+ 946:	21 e1       	ldi	r18, 0x11	; 17
+ 948:	28 9f       	mul	r18, r24
+ 94a:	80 01       	movw	r16, r0
+ 94c:	29 9f       	mul	r18, r25
+ 94e:	10 0d       	add	r17, r0
+ 950:	11 24       	eor	r1, r1
+ 952:	00 5a       	subi	r16, 0xA0	; 160
+ 954:	1f 4f       	sbci	r17, 0xFF	; 255
+ 956:	40 e0       	ldi	r20, 0x00	; 0
+ 958:	f8 01       	movw	r30, r16
+ 95a:	61 81       	ldd	r22, Z+1	; 0x01
+ 95c:	80 81       	ld	r24, Z
+ 95e:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_eumLOW );
+ 962:	40 e0       	ldi	r20, 0x00	; 0
+ 964:	f8 01       	movw	r30, r16
+ 966:	63 81       	ldd	r22, Z+3	; 0x03
+ 968:	82 81       	ldd	r24, Z+2	; 0x02
+ 96a:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_eumLOW );
+ 96e:	40 e0       	ldi	r20, 0x00	; 0
+ 970:	f8 01       	movw	r30, r16
+ 972:	65 81       	ldd	r22, Z+5	; 0x05
+ 974:	84 81       	ldd	r24, Z+4	; 0x04
+ 976:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_eumLOW );
+ 97a:	40 e0       	ldi	r20, 0x00	; 0
+ 97c:	f8 01       	movw	r30, r16
+ 97e:	67 81       	ldd	r22, Z+7	; 0x07
+ 980:	86 81       	ldd	r24, Z+6	; 0x06
+ 982:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_eumLOW );
+ 986:	40 e0       	ldi	r20, 0x00	; 0
+ 988:	f8 01       	movw	r30, r16
+ 98a:	61 85       	ldd	r22, Z+9	; 0x09
+ 98c:	80 85       	ldd	r24, Z+8	; 0x08
+ 98e:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_eumLOW );
+ 992:	40 e0       	ldi	r20, 0x00	; 0
+ 994:	f8 01       	movw	r30, r16
+ 996:	63 85       	ldd	r22, Z+11	; 0x0b
+ 998:	82 85       	ldd	r24, Z+10	; 0x0a
+ 99a:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_eumLOW );
+ 99e:	40 e0       	ldi	r20, 0x00	; 0
+ 9a0:	f8 01       	movw	r30, r16
+ 9a2:	65 85       	ldd	r22, Z+13	; 0x0d
+ 9a4:	84 85       	ldd	r24, Z+12	; 0x0c
+ 9a6:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_eumLOW );
+ 9aa:	40 e0       	ldi	r20, 0x00	; 0
+ 9ac:	f8 01       	movw	r30, r16
+ 9ae:	67 85       	ldd	r22, Z+15	; 0x0f
+ 9b0:	86 85       	ldd	r24, Z+14	; 0x0e
+ 9b2:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+								break;
+ 9b6:	38 c0       	rjmp	.+112    	; 0xa28 <__stack+0x1c9>
+								case nine :
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDA].SevenSegments_strPIN , DIO_eumLOW );
+ 9b8:	21 e1       	ldi	r18, 0x11	; 17
+ 9ba:	28 9f       	mul	r18, r24
+ 9bc:	80 01       	movw	r16, r0
+ 9be:	29 9f       	mul	r18, r25
+ 9c0:	10 0d       	add	r17, r0
+ 9c2:	11 24       	eor	r1, r1
+ 9c4:	00 5a       	subi	r16, 0xA0	; 160
+ 9c6:	1f 4f       	sbci	r17, 0xFF	; 255
+ 9c8:	40 e0       	ldi	r20, 0x00	; 0
+ 9ca:	f8 01       	movw	r30, r16
+ 9cc:	61 81       	ldd	r22, Z+1	; 0x01
+ 9ce:	80 81       	ld	r24, Z
+ 9d0:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDB].SevenSegments_strPIN , DIO_eumLOW );
+ 9d4:	40 e0       	ldi	r20, 0x00	; 0
+ 9d6:	f8 01       	movw	r30, r16
+ 9d8:	63 81       	ldd	r22, Z+3	; 0x03
+ 9da:	82 81       	ldd	r24, Z+2	; 0x02
+ 9dc:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDC].SevenSegments_strPIN , DIO_eumLOW );
+ 9e0:	40 e0       	ldi	r20, 0x00	; 0
+ 9e2:	f8 01       	movw	r30, r16
+ 9e4:	65 81       	ldd	r22, Z+5	; 0x05
+ 9e6:	84 81       	ldd	r24, Z+4	; 0x04
+ 9e8:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDD].SevenSegments_strPIN , DIO_eumLOW );
+ 9ec:	40 e0       	ldi	r20, 0x00	; 0
+ 9ee:	f8 01       	movw	r30, r16
+ 9f0:	67 81       	ldd	r22, Z+7	; 0x07
+ 9f2:	86 81       	ldd	r24, Z+6	; 0x06
+ 9f4:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDE].SevenSegments_strPIN , DIO_enumHIGH );
+ 9f8:	41 e0       	ldi	r20, 0x01	; 1
+ 9fa:	f8 01       	movw	r30, r16
+ 9fc:	61 85       	ldd	r22, Z+9	; 0x09
+ 9fe:	80 85       	ldd	r24, Z+8	; 0x08
+ a00:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDF].SevenSegments_strPIN , DIO_eumLOW );
+ a04:	40 e0       	ldi	r20, 0x00	; 0
+ a06:	f8 01       	movw	r30, r16
+ a08:	63 85       	ldd	r22, Z+11	; 0x0b
+ a0a:	82 85       	ldd	r24, Z+10	; 0x0a
+ a0c:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_LEDG].SevenSegments_strPIN , DIO_eumLOW );
+ a10:	40 e0       	ldi	r20, 0x00	; 0
+ a12:	f8 01       	movw	r30, r16
+ a14:	65 85       	ldd	r22, Z+13	; 0x0d
+ a16:	84 85       	ldd	r24, Z+12	; 0x0c
+ a18:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+										DIO_enumSetPinVal(SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPORT , SevenSegments[LOCAL_u8SevSegArrayIndex].SevenSegments_strLED[SevenSegments_DOT].SevenSegments_strPIN , DIO_eumLOW );
+ a1c:	40 e0       	ldi	r20, 0x00	; 0
+ a1e:	f8 01       	movw	r30, r16
+ a20:	67 85       	ldd	r22, Z+15	; 0x0f
+ a22:	86 85       	ldd	r24, Z+14	; 0x0e
+ a24:	0e 94 04 08 	call	0x1008	; 0x1008 <DIO_enumSetPinVal>
+		
+	}/*switch 1*/
+	
+return LOCAL_enumReturnStatus ;
+	
+}/* SevenSegments_enumSetVal function*/
+ a28:	8c 2f       	mov	r24, r28
+ a2a:	cf 91       	pop	r28
+ a2c:	1f 91       	pop	r17
+ a2e:	0f 91       	pop	r16
+ a30:	08 95       	ret
+
+Disassembly of section .text.SWITCH_enumdInit:
+
+00001338 <SWITCH_enumdInit>:
+ *@brief  : Function to Configure the  SWITCHS Pins to be INPUT pull up or input external pull down resistor .
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+SWITCH_enumErrorState SWITCH_enumdInit(void)
+{
+    1338:	ff 92       	push	r15
+    133a:	0f 93       	push	r16
+    133c:	1f 93       	push	r17
+    133e:	cf 93       	push	r28
+    1340:	df 93       	push	r29
+    1342:	cd b7       	in	r28, 0x3d	; 61
+    1344:	de b7       	in	r29, 0x3e	; 62
+    1346:	29 97       	sbiw	r28, 0x09	; 9
+    1348:	0f b6       	in	r0, 0x3f	; 63
+    134a:	f8 94       	cli
+    134c:	de bf       	out	0x3e, r29	; 62
+    134e:	0f be       	out	0x3f, r0	; 63
+    1350:	cd bf       	out	0x3d, r28	; 61
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentSWITCH[NumOfLSWITCHES];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLSWITCHES ; LOCAL_u8Iterator++)
+    1352:	f1 2c       	mov	r15, r1
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+SWITCH_enumErrorState SWITCH_enumdInit(void)
+{
+	SWITCH_enumErrorState LOCAL_enumReturnStatus = SWITCH_enumOK ;
+    1354:	80 e0       	ldi	r24, 0x00	; 0
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentSWITCH[NumOfLSWITCHES];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLSWITCHES ; LOCAL_u8Iterator++)
+    1356:	4c c0       	rjmp	.+152    	; 0x13f0 <SWITCH_enumdInit+0xb8>
+	{
+		LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strPORT = SWITCHS[LOCAL_u8Iterator].SWITCH_strPORT ;
+    1358:	8f 2d       	mov	r24, r15
+    135a:	90 e0       	ldi	r25, 0x00	; 0
+    135c:	fc 01       	movw	r30, r24
+    135e:	ee 0f       	add	r30, r30
+    1360:	ff 1f       	adc	r31, r31
+    1362:	e8 0f       	add	r30, r24
+    1364:	f9 1f       	adc	r31, r25
+    1366:	df 01       	movw	r26, r30
+    1368:	ae 57       	subi	r26, 0x7E	; 126
+    136a:	bf 4f       	sbci	r27, 0xFF	; 255
+    136c:	2c 91       	ld	r18, X
+    136e:	41 e0       	ldi	r20, 0x01	; 1
+    1370:	50 e0       	ldi	r21, 0x00	; 0
+    1372:	4c 0f       	add	r20, r28
+    1374:	5d 1f       	adc	r21, r29
+    1376:	e4 0f       	add	r30, r20
+    1378:	f5 1f       	adc	r31, r21
+    137a:	20 83       	st	Z, r18
+		
+		LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strPIN = SWITCHS[LOCAL_u8Iterator].SWITCH_strPIN ;
+    137c:	11 96       	adiw	r26, 0x01	; 1
+    137e:	2c 91       	ld	r18, X
+    1380:	11 97       	sbiw	r26, 0x01	; 1
+    1382:	21 83       	std	Z+1, r18	; 0x01
+		
+		switch(SWITCHS[LOCAL_u8Iterator].SWITCH_strSTATE){
+    1384:	12 96       	adiw	r26, 0x02	; 2
+    1386:	2c 91       	ld	r18, X
+    1388:	22 23       	and	r18, r18
+    138a:	19 f0       	breq	.+6      	; 0x1392 <SWITCH_enumdInit+0x5a>
+    138c:	21 30       	cpi	r18, 0x01	; 1
+    138e:	79 f0       	breq	.+30     	; 0x13ae <SWITCH_enumdInit+0x76>
+    1390:	1b c0       	rjmp	.+54     	; 0x13c8 <SWITCH_enumdInit+0x90>
+										case SWITCH_enumINPUT_PULLUP:
+												LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumInputPullUp ;		
+    1392:	fc 01       	movw	r30, r24
+    1394:	ee 0f       	add	r30, r30
+    1396:	ff 1f       	adc	r31, r31
+    1398:	e8 0f       	add	r30, r24
+    139a:	f9 1f       	adc	r31, r25
+    139c:	21 e0       	ldi	r18, 0x01	; 1
+    139e:	30 e0       	ldi	r19, 0x00	; 0
+    13a0:	2c 0f       	add	r18, r28
+    13a2:	3d 1f       	adc	r19, r29
+    13a4:	e2 0f       	add	r30, r18
+    13a6:	f3 1f       	adc	r31, r19
+    13a8:	22 e0       	ldi	r18, 0x02	; 2
+    13aa:	22 83       	std	Z+2, r18	; 0x02
+										break;
+    13ac:	0d c0       	rjmp	.+26     	; 0x13c8 <SWITCH_enumdInit+0x90>
+										case SWITCH_enumINPUT_EXTERNALPULLDOWN:
+												LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumInputExternalPullDown  ;			
+    13ae:	fc 01       	movw	r30, r24
+    13b0:	ee 0f       	add	r30, r30
+    13b2:	ff 1f       	adc	r31, r31
+    13b4:	e8 0f       	add	r30, r24
+    13b6:	f9 1f       	adc	r31, r25
+    13b8:	41 e0       	ldi	r20, 0x01	; 1
+    13ba:	50 e0       	ldi	r21, 0x00	; 0
+    13bc:	4c 0f       	add	r20, r28
+    13be:	5d 1f       	adc	r21, r29
+    13c0:	e4 0f       	add	r30, r20
+    13c2:	f5 1f       	adc	r31, r21
+    13c4:	23 e0       	ldi	r18, 0x03	; 3
+    13c6:	22 83       	std	Z+2, r18	; 0x02
+		
+	/**
+	*@ call DIO_enumSetCFG function to set configration in DIO Driver
+	*@ and check return of DIO_enumSetCFG function ok or not ok
+	*/		
+		 DIO_enumSetCFG( & LOCAL_strCurrentSWITCH [LOCAL_u8Iterator] );
+    13c8:	8c 01       	movw	r16, r24
+    13ca:	00 0f       	add	r16, r16
+    13cc:	11 1f       	adc	r17, r17
+    13ce:	80 0f       	add	r24, r16
+    13d0:	91 1f       	adc	r25, r17
+    13d2:	01 e0       	ldi	r16, 0x01	; 1
+    13d4:	10 e0       	ldi	r17, 0x00	; 0
+    13d6:	0c 0f       	add	r16, r28
+    13d8:	1d 1f       	adc	r17, r29
+    13da:	08 0f       	add	r16, r24
+    13dc:	19 1f       	adc	r17, r25
+    13de:	c8 01       	movw	r24, r16
+    13e0:	0e 94 19 05 	call	0xa32	; 0xa32 <DIO_enumSetCFG>
+			
+		if( ! (DIO_enumSetCFG( & LOCAL_strCurrentSWITCH [LOCAL_u8Iterator] )) ){
+    13e4:	c8 01       	movw	r24, r16
+    13e6:	0e 94 19 05 	call	0xa32	; 0xa32 <DIO_enumSetCFG>
+    13ea:	81 11       	cpse	r24, r1
+			LOCAL_enumReturnStatus = SWITCH_enumOK ;
+		}/*if*/
+		else {
+			LOCAL_enumReturnStatus = SWITCH_enumNOK ;
+    13ec:	81 e0       	ldi	r24, 0x01	; 1
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentSWITCH[NumOfLSWITCHES];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLSWITCHES ; LOCAL_u8Iterator++)
+    13ee:	f3 94       	inc	r15
+    13f0:	52 e0       	ldi	r21, 0x02	; 2
+    13f2:	5f 15       	cp	r21, r15
+    13f4:	08 f0       	brcs	.+2      	; 0x13f8 <SWITCH_enumdInit+0xc0>
+    13f6:	b0 cf       	rjmp	.-160    	; 0x1358 <SWITCH_enumdInit+0x20>
+	
+
+return LOCAL_enumReturnStatus ;
+	
+	
+}/*led init function */
+    13f8:	29 96       	adiw	r28, 0x09	; 9
+    13fa:	0f b6       	in	r0, 0x3f	; 63
+    13fc:	f8 94       	cli
+    13fe:	de bf       	out	0x3e, r29	; 62
+    1400:	0f be       	out	0x3f, r0	; 63
+    1402:	cd bf       	out	0x3d, r28	; 61
+    1404:	df 91       	pop	r29
+    1406:	cf 91       	pop	r28
+    1408:	1f 91       	pop	r17
+    140a:	0f 91       	pop	r16
+    140c:	ff 90       	pop	r15
+    140e:	08 95       	ret
+
+Disassembly of section .text.SWITCH_enuGetSwitchState:
+
+00001536 <SWITCH_enuGetSwitchState>:
+ *@brief  : Function to get switch state .
+ *@param  : switch number and variable in which return switch state.
+ *@return : Error State                                               
+ */	
+SWITCH_enumErrorState SWITCH_enuGetSwitchState(u8 Copy_strSwitchPort , u8 * Add_u8State)
+{
+    1536:	ab 01       	movw	r20, r22
+SWITCH_enumErrorState LOCAL_enumReturnStatus = SWITCH_enumOK ;
+
+if( ! (DIO_enumGetPinVal( SWITCHS[Copy_strSwitchPort].SWITCH_strPORT , SWITCHS[Copy_strSwitchPort].SWITCH_strPIN  , Add_u8State)) )
+    1538:	90 e0       	ldi	r25, 0x00	; 0
+    153a:	fc 01       	movw	r30, r24
+    153c:	ee 0f       	add	r30, r30
+    153e:	ff 1f       	adc	r31, r31
+    1540:	8e 0f       	add	r24, r30
+    1542:	9f 1f       	adc	r25, r31
+    1544:	fc 01       	movw	r30, r24
+    1546:	ee 57       	subi	r30, 0x7E	; 126
+    1548:	ff 4f       	sbci	r31, 0xFF	; 255
+    154a:	61 81       	ldd	r22, Z+1	; 0x01
+    154c:	80 81       	ld	r24, Z
+    154e:	0e 94 08 0a 	call	0x1410	; 0x1410 <DIO_enumGetPinVal>
+    1552:	81 11       	cpse	r24, r1
+	{
+		 LOCAL_enumReturnStatus = SWITCH_enumOK ;
+	}
+else
+	{
+		 LOCAL_enumReturnStatus = SWITCH_enumNOK ;
+    1554:	81 e0       	ldi	r24, 0x01	; 1
+	}	
+	
+	
+return LOCAL_enumReturnStatus ;	
+	
+}/* SWITCH_enuGetSwitchState function*/
+    1556:	08 95       	ret
+
+Disassembly of section .text.DIO_enumSetCFG:
+
+00000a32 <DIO_enumSetCFG>:
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+		}//els
+	return Ret_enumERRORStatus ;
+}/*set port configration function*/
+ a32:	fc 01       	movw	r30, r24
+ a34:	20 81       	ld	r18, Z
+ a36:	24 30       	cpi	r18, 0x04	; 4
+ a38:	08 f0       	brcs	.+2      	; 0xa3c <DIO_enumSetCFG+0xa>
+ a3a:	bf c1       	rjmp	.+894    	; 0xdba <DIO_enumSetCFG+0x388>
+ a3c:	31 81       	ldd	r19, Z+1	; 0x01
+ a3e:	38 30       	cpi	r19, 0x08	; 8
+ a40:	08 f0       	brcs	.+2      	; 0xa44 <DIO_enumSetCFG+0x12>
+ a42:	bd c1       	rjmp	.+890    	; 0xdbe <DIO_enumSetCFG+0x38c>
+ a44:	42 81       	ldd	r20, Z+2	; 0x02
+ a46:	44 30       	cpi	r20, 0x04	; 4
+ a48:	08 f0       	brcs	.+2      	; 0xa4c <DIO_enumSetCFG+0x1a>
+ a4a:	bb c1       	rjmp	.+886    	; 0xdc2 <DIO_enumSetCFG+0x390>
+ a4c:	21 30       	cpi	r18, 0x01	; 1
+ a4e:	09 f4       	brne	.+2      	; 0xa52 <DIO_enumSetCFG+0x20>
+ a50:	73 c0       	rjmp	.+230    	; 0xb38 <DIO_enumSetCFG+0x106>
+ a52:	38 f0       	brcs	.+14     	; 0xa62 <DIO_enumSetCFG+0x30>
+ a54:	22 30       	cpi	r18, 0x02	; 2
+ a56:	09 f4       	brne	.+2      	; 0xa5a <DIO_enumSetCFG+0x28>
+ a58:	da c0       	rjmp	.+436    	; 0xc0e <DIO_enumSetCFG+0x1dc>
+ a5a:	23 30       	cpi	r18, 0x03	; 3
+ a5c:	09 f4       	brne	.+2      	; 0xa60 <DIO_enumSetCFG+0x2e>
+ a5e:	42 c1       	rjmp	.+644    	; 0xce4 <DIO_enumSetCFG+0x2b2>
+ a60:	b2 c1       	rjmp	.+868    	; 0xdc6 <DIO_enumSetCFG+0x394>
+ a62:	41 30       	cpi	r20, 0x01	; 1
+ a64:	f9 f0       	breq	.+62     	; 0xaa4 <DIO_enumSetCFG+0x72>
+ a66:	30 f0       	brcs	.+12     	; 0xa74 <DIO_enumSetCFG+0x42>
+ a68:	42 30       	cpi	r20, 0x02	; 2
+ a6a:	a9 f1       	breq	.+106    	; 0xad6 <DIO_enumSetCFG+0xa4>
+ a6c:	43 30       	cpi	r20, 0x03	; 3
+ a6e:	09 f4       	brne	.+2      	; 0xa72 <DIO_enumSetCFG+0x40>
+ a70:	4a c0       	rjmp	.+148    	; 0xb06 <DIO_enumSetCFG+0xd4>
+ a72:	ab c1       	rjmp	.+854    	; 0xdca <DIO_enumSetCFG+0x398>
+ a74:	6a b3       	in	r22, 0x1a	; 26
+ a76:	41 e0       	ldi	r20, 0x01	; 1
+ a78:	50 e0       	ldi	r21, 0x00	; 0
+ a7a:	fa 01       	movw	r30, r20
+ a7c:	02 c0       	rjmp	.+4      	; 0xa82 <DIO_enumSetCFG+0x50>
+ a7e:	ee 0f       	add	r30, r30
+ a80:	ff 1f       	adc	r31, r31
+ a82:	3a 95       	dec	r19
+ a84:	e2 f7       	brpl	.-8      	; 0xa7e <DIO_enumSetCFG+0x4c>
+ a86:	9f 01       	movw	r18, r30
+ a88:	26 2b       	or	r18, r22
+ a8a:	2a bb       	out	0x1a, r18	; 26
+ a8c:	2b b3       	in	r18, 0x1b	; 27
+ a8e:	fc 01       	movw	r30, r24
+ a90:	01 80       	ldd	r0, Z+1	; 0x01
+ a92:	02 c0       	rjmp	.+4      	; 0xa98 <DIO_enumSetCFG+0x66>
+ a94:	44 0f       	add	r20, r20
+ a96:	55 1f       	adc	r21, r21
+ a98:	0a 94       	dec	r0
+ a9a:	e2 f7       	brpl	.-8      	; 0xa94 <DIO_enumSetCFG+0x62>
+ a9c:	42 2b       	or	r20, r18
+ a9e:	4b bb       	out	0x1b, r20	; 27
+ aa0:	80 e0       	ldi	r24, 0x00	; 0
+ aa2:	08 95       	ret
+ aa4:	6a b3       	in	r22, 0x1a	; 26
+ aa6:	41 e0       	ldi	r20, 0x01	; 1
+ aa8:	50 e0       	ldi	r21, 0x00	; 0
+ aaa:	fa 01       	movw	r30, r20
+ aac:	02 c0       	rjmp	.+4      	; 0xab2 <DIO_enumSetCFG+0x80>
+ aae:	ee 0f       	add	r30, r30
+ ab0:	ff 1f       	adc	r31, r31
+ ab2:	3a 95       	dec	r19
+ ab4:	e2 f7       	brpl	.-8      	; 0xaae <DIO_enumSetCFG+0x7c>
+ ab6:	9f 01       	movw	r18, r30
+ ab8:	26 2b       	or	r18, r22
+ aba:	2a bb       	out	0x1a, r18	; 26
+ abc:	2b b3       	in	r18, 0x1b	; 27
+ abe:	fc 01       	movw	r30, r24
+ ac0:	01 80       	ldd	r0, Z+1	; 0x01
+ ac2:	02 c0       	rjmp	.+4      	; 0xac8 <DIO_enumSetCFG+0x96>
+ ac4:	44 0f       	add	r20, r20
+ ac6:	55 1f       	adc	r21, r21
+ ac8:	0a 94       	dec	r0
+ aca:	e2 f7       	brpl	.-8      	; 0xac4 <DIO_enumSetCFG+0x92>
+ acc:	40 95       	com	r20
+ ace:	42 23       	and	r20, r18
+ ad0:	4b bb       	out	0x1b, r20	; 27
+ ad2:	80 e0       	ldi	r24, 0x00	; 0
+ ad4:	08 95       	ret
+ ad6:	2a b3       	in	r18, 0x1a	; 26
+ ad8:	41 e0       	ldi	r20, 0x01	; 1
+ ada:	50 e0       	ldi	r21, 0x00	; 0
+ adc:	ba 01       	movw	r22, r20
+ ade:	02 c0       	rjmp	.+4      	; 0xae4 <DIO_enumSetCFG+0xb2>
+ ae0:	66 0f       	add	r22, r22
+ ae2:	77 1f       	adc	r23, r23
+ ae4:	3a 95       	dec	r19
+ ae6:	e2 f7       	brpl	.-8      	; 0xae0 <DIO_enumSetCFG+0xae>
+ ae8:	60 95       	com	r22
+ aea:	26 23       	and	r18, r22
+ aec:	2a bb       	out	0x1a, r18	; 26
+ aee:	2b b3       	in	r18, 0x1b	; 27
+ af0:	fc 01       	movw	r30, r24
+ af2:	01 80       	ldd	r0, Z+1	; 0x01
+ af4:	02 c0       	rjmp	.+4      	; 0xafa <DIO_enumSetCFG+0xc8>
+ af6:	44 0f       	add	r20, r20
+ af8:	55 1f       	adc	r21, r21
+ afa:	0a 94       	dec	r0
+ afc:	e2 f7       	brpl	.-8      	; 0xaf6 <DIO_enumSetCFG+0xc4>
+ afe:	42 2b       	or	r20, r18
+ b00:	4b bb       	out	0x1b, r20	; 27
+ b02:	80 e0       	ldi	r24, 0x00	; 0
+ b04:	08 95       	ret
+ b06:	2a b3       	in	r18, 0x1a	; 26
+ b08:	41 e0       	ldi	r20, 0x01	; 1
+ b0a:	50 e0       	ldi	r21, 0x00	; 0
+ b0c:	ba 01       	movw	r22, r20
+ b0e:	02 c0       	rjmp	.+4      	; 0xb14 <DIO_enumSetCFG+0xe2>
+ b10:	66 0f       	add	r22, r22
+ b12:	77 1f       	adc	r23, r23
+ b14:	3a 95       	dec	r19
+ b16:	e2 f7       	brpl	.-8      	; 0xb10 <DIO_enumSetCFG+0xde>
+ b18:	60 95       	com	r22
+ b1a:	26 23       	and	r18, r22
+ b1c:	2a bb       	out	0x1a, r18	; 26
+ b1e:	2b b3       	in	r18, 0x1b	; 27
+ b20:	fc 01       	movw	r30, r24
+ b22:	01 80       	ldd	r0, Z+1	; 0x01
+ b24:	02 c0       	rjmp	.+4      	; 0xb2a <DIO_enumSetCFG+0xf8>
+ b26:	44 0f       	add	r20, r20
+ b28:	55 1f       	adc	r21, r21
+ b2a:	0a 94       	dec	r0
+ b2c:	e2 f7       	brpl	.-8      	; 0xb26 <DIO_enumSetCFG+0xf4>
+ b2e:	40 95       	com	r20
+ b30:	42 23       	and	r20, r18
+ b32:	4b bb       	out	0x1b, r20	; 27
+ b34:	80 e0       	ldi	r24, 0x00	; 0
+ b36:	08 95       	ret
+ b38:	41 30       	cpi	r20, 0x01	; 1
+ b3a:	f9 f0       	breq	.+62     	; 0xb7a <DIO_enumSetCFG+0x148>
+ b3c:	30 f0       	brcs	.+12     	; 0xb4a <DIO_enumSetCFG+0x118>
+ b3e:	42 30       	cpi	r20, 0x02	; 2
+ b40:	a9 f1       	breq	.+106    	; 0xbac <DIO_enumSetCFG+0x17a>
+ b42:	43 30       	cpi	r20, 0x03	; 3
+ b44:	09 f4       	brne	.+2      	; 0xb48 <DIO_enumSetCFG+0x116>
+ b46:	4a c0       	rjmp	.+148    	; 0xbdc <DIO_enumSetCFG+0x1aa>
+ b48:	42 c1       	rjmp	.+644    	; 0xdce <DIO_enumSetCFG+0x39c>
+ b4a:	67 b3       	in	r22, 0x17	; 23
+ b4c:	41 e0       	ldi	r20, 0x01	; 1
+ b4e:	50 e0       	ldi	r21, 0x00	; 0
+ b50:	fa 01       	movw	r30, r20
+ b52:	02 c0       	rjmp	.+4      	; 0xb58 <DIO_enumSetCFG+0x126>
+ b54:	ee 0f       	add	r30, r30
+ b56:	ff 1f       	adc	r31, r31
+ b58:	3a 95       	dec	r19
+ b5a:	e2 f7       	brpl	.-8      	; 0xb54 <DIO_enumSetCFG+0x122>
+ b5c:	9f 01       	movw	r18, r30
+ b5e:	26 2b       	or	r18, r22
+ b60:	27 bb       	out	0x17, r18	; 23
+ b62:	28 b3       	in	r18, 0x18	; 24
+ b64:	fc 01       	movw	r30, r24
+ b66:	01 80       	ldd	r0, Z+1	; 0x01
+ b68:	02 c0       	rjmp	.+4      	; 0xb6e <DIO_enumSetCFG+0x13c>
+ b6a:	44 0f       	add	r20, r20
+ b6c:	55 1f       	adc	r21, r21
+ b6e:	0a 94       	dec	r0
+ b70:	e2 f7       	brpl	.-8      	; 0xb6a <DIO_enumSetCFG+0x138>
+ b72:	42 2b       	or	r20, r18
+ b74:	48 bb       	out	0x18, r20	; 24
+ b76:	80 e0       	ldi	r24, 0x00	; 0
+ b78:	08 95       	ret
+ b7a:	67 b3       	in	r22, 0x17	; 23
+ b7c:	41 e0       	ldi	r20, 0x01	; 1
+ b7e:	50 e0       	ldi	r21, 0x00	; 0
+ b80:	fa 01       	movw	r30, r20
+ b82:	02 c0       	rjmp	.+4      	; 0xb88 <DIO_enumSetCFG+0x156>
+ b84:	ee 0f       	add	r30, r30
+ b86:	ff 1f       	adc	r31, r31
+ b88:	3a 95       	dec	r19
+ b8a:	e2 f7       	brpl	.-8      	; 0xb84 <DIO_enumSetCFG+0x152>
+ b8c:	9f 01       	movw	r18, r30
+ b8e:	26 2b       	or	r18, r22
+ b90:	27 bb       	out	0x17, r18	; 23
+ b92:	28 b3       	in	r18, 0x18	; 24
+ b94:	fc 01       	movw	r30, r24
+ b96:	01 80       	ldd	r0, Z+1	; 0x01
+ b98:	02 c0       	rjmp	.+4      	; 0xb9e <DIO_enumSetCFG+0x16c>
+ b9a:	44 0f       	add	r20, r20
+ b9c:	55 1f       	adc	r21, r21
+ b9e:	0a 94       	dec	r0
+ ba0:	e2 f7       	brpl	.-8      	; 0xb9a <DIO_enumSetCFG+0x168>
+ ba2:	40 95       	com	r20
+ ba4:	42 23       	and	r20, r18
+ ba6:	48 bb       	out	0x18, r20	; 24
+ ba8:	80 e0       	ldi	r24, 0x00	; 0
+ baa:	08 95       	ret
+ bac:	27 b3       	in	r18, 0x17	; 23
+ bae:	41 e0       	ldi	r20, 0x01	; 1
+ bb0:	50 e0       	ldi	r21, 0x00	; 0
+ bb2:	ba 01       	movw	r22, r20
+ bb4:	02 c0       	rjmp	.+4      	; 0xbba <DIO_enumSetCFG+0x188>
+ bb6:	66 0f       	add	r22, r22
+ bb8:	77 1f       	adc	r23, r23
+ bba:	3a 95       	dec	r19
+ bbc:	e2 f7       	brpl	.-8      	; 0xbb6 <DIO_enumSetCFG+0x184>
+ bbe:	60 95       	com	r22
+ bc0:	26 23       	and	r18, r22
+ bc2:	27 bb       	out	0x17, r18	; 23
+ bc4:	28 b3       	in	r18, 0x18	; 24
+ bc6:	fc 01       	movw	r30, r24
+ bc8:	01 80       	ldd	r0, Z+1	; 0x01
+ bca:	02 c0       	rjmp	.+4      	; 0xbd0 <DIO_enumSetCFG+0x19e>
+ bcc:	44 0f       	add	r20, r20
+ bce:	55 1f       	adc	r21, r21
+ bd0:	0a 94       	dec	r0
+ bd2:	e2 f7       	brpl	.-8      	; 0xbcc <DIO_enumSetCFG+0x19a>
+ bd4:	42 2b       	or	r20, r18
+ bd6:	48 bb       	out	0x18, r20	; 24
+ bd8:	80 e0       	ldi	r24, 0x00	; 0
+ bda:	08 95       	ret
+ bdc:	27 b3       	in	r18, 0x17	; 23
+ bde:	41 e0       	ldi	r20, 0x01	; 1
+ be0:	50 e0       	ldi	r21, 0x00	; 0
+ be2:	ba 01       	movw	r22, r20
+ be4:	02 c0       	rjmp	.+4      	; 0xbea <DIO_enumSetCFG+0x1b8>
+ be6:	66 0f       	add	r22, r22
+ be8:	77 1f       	adc	r23, r23
+ bea:	3a 95       	dec	r19
+ bec:	e2 f7       	brpl	.-8      	; 0xbe6 <DIO_enumSetCFG+0x1b4>
+ bee:	60 95       	com	r22
+ bf0:	26 23       	and	r18, r22
+ bf2:	27 bb       	out	0x17, r18	; 23
+ bf4:	28 b3       	in	r18, 0x18	; 24
+ bf6:	fc 01       	movw	r30, r24
+ bf8:	01 80       	ldd	r0, Z+1	; 0x01
+ bfa:	02 c0       	rjmp	.+4      	; 0xc00 <DIO_enumSetCFG+0x1ce>
+ bfc:	44 0f       	add	r20, r20
+ bfe:	55 1f       	adc	r21, r21
+ c00:	0a 94       	dec	r0
+ c02:	e2 f7       	brpl	.-8      	; 0xbfc <DIO_enumSetCFG+0x1ca>
+ c04:	40 95       	com	r20
+ c06:	42 23       	and	r20, r18
+ c08:	48 bb       	out	0x18, r20	; 24
+ c0a:	80 e0       	ldi	r24, 0x00	; 0
+ c0c:	08 95       	ret
+ c0e:	41 30       	cpi	r20, 0x01	; 1
+ c10:	f9 f0       	breq	.+62     	; 0xc50 <DIO_enumSetCFG+0x21e>
+ c12:	30 f0       	brcs	.+12     	; 0xc20 <DIO_enumSetCFG+0x1ee>
+ c14:	42 30       	cpi	r20, 0x02	; 2
+ c16:	a9 f1       	breq	.+106    	; 0xc82 <DIO_enumSetCFG+0x250>
+ c18:	43 30       	cpi	r20, 0x03	; 3
+ c1a:	09 f4       	brne	.+2      	; 0xc1e <DIO_enumSetCFG+0x1ec>
+ c1c:	4a c0       	rjmp	.+148    	; 0xcb2 <DIO_enumSetCFG+0x280>
+ c1e:	d9 c0       	rjmp	.+434    	; 0xdd2 <DIO_enumSetCFG+0x3a0>
+ c20:	64 b3       	in	r22, 0x14	; 20
+ c22:	41 e0       	ldi	r20, 0x01	; 1
+ c24:	50 e0       	ldi	r21, 0x00	; 0
+ c26:	fa 01       	movw	r30, r20
+ c28:	02 c0       	rjmp	.+4      	; 0xc2e <DIO_enumSetCFG+0x1fc>
+ c2a:	ee 0f       	add	r30, r30
+ c2c:	ff 1f       	adc	r31, r31
+ c2e:	3a 95       	dec	r19
+ c30:	e2 f7       	brpl	.-8      	; 0xc2a <DIO_enumSetCFG+0x1f8>
+ c32:	9f 01       	movw	r18, r30
+ c34:	26 2b       	or	r18, r22
+ c36:	24 bb       	out	0x14, r18	; 20
+ c38:	25 b3       	in	r18, 0x15	; 21
+ c3a:	fc 01       	movw	r30, r24
+ c3c:	01 80       	ldd	r0, Z+1	; 0x01
+ c3e:	02 c0       	rjmp	.+4      	; 0xc44 <DIO_enumSetCFG+0x212>
+ c40:	44 0f       	add	r20, r20
+ c42:	55 1f       	adc	r21, r21
+ c44:	0a 94       	dec	r0
+ c46:	e2 f7       	brpl	.-8      	; 0xc40 <DIO_enumSetCFG+0x20e>
+ c48:	42 2b       	or	r20, r18
+ c4a:	45 bb       	out	0x15, r20	; 21
+ c4c:	80 e0       	ldi	r24, 0x00	; 0
+ c4e:	08 95       	ret
+ c50:	64 b3       	in	r22, 0x14	; 20
+ c52:	41 e0       	ldi	r20, 0x01	; 1
+ c54:	50 e0       	ldi	r21, 0x00	; 0
+ c56:	fa 01       	movw	r30, r20
+ c58:	02 c0       	rjmp	.+4      	; 0xc5e <DIO_enumSetCFG+0x22c>
+ c5a:	ee 0f       	add	r30, r30
+ c5c:	ff 1f       	adc	r31, r31
+ c5e:	3a 95       	dec	r19
+ c60:	e2 f7       	brpl	.-8      	; 0xc5a <DIO_enumSetCFG+0x228>
+ c62:	9f 01       	movw	r18, r30
+ c64:	26 2b       	or	r18, r22
+ c66:	24 bb       	out	0x14, r18	; 20
+ c68:	25 b3       	in	r18, 0x15	; 21
+ c6a:	fc 01       	movw	r30, r24
+ c6c:	01 80       	ldd	r0, Z+1	; 0x01
+ c6e:	02 c0       	rjmp	.+4      	; 0xc74 <DIO_enumSetCFG+0x242>
+ c70:	44 0f       	add	r20, r20
+ c72:	55 1f       	adc	r21, r21
+ c74:	0a 94       	dec	r0
+ c76:	e2 f7       	brpl	.-8      	; 0xc70 <DIO_enumSetCFG+0x23e>
+ c78:	40 95       	com	r20
+ c7a:	42 23       	and	r20, r18
+ c7c:	45 bb       	out	0x15, r20	; 21
+ c7e:	80 e0       	ldi	r24, 0x00	; 0
+ c80:	08 95       	ret
+ c82:	24 b3       	in	r18, 0x14	; 20
+ c84:	41 e0       	ldi	r20, 0x01	; 1
+ c86:	50 e0       	ldi	r21, 0x00	; 0
+ c88:	ba 01       	movw	r22, r20
+ c8a:	02 c0       	rjmp	.+4      	; 0xc90 <DIO_enumSetCFG+0x25e>
+ c8c:	66 0f       	add	r22, r22
+ c8e:	77 1f       	adc	r23, r23
+ c90:	3a 95       	dec	r19
+ c92:	e2 f7       	brpl	.-8      	; 0xc8c <DIO_enumSetCFG+0x25a>
+ c94:	60 95       	com	r22
+ c96:	26 23       	and	r18, r22
+ c98:	24 bb       	out	0x14, r18	; 20
+ c9a:	25 b3       	in	r18, 0x15	; 21
+ c9c:	fc 01       	movw	r30, r24
+ c9e:	01 80       	ldd	r0, Z+1	; 0x01
+ ca0:	02 c0       	rjmp	.+4      	; 0xca6 <DIO_enumSetCFG+0x274>
+ ca2:	44 0f       	add	r20, r20
+ ca4:	55 1f       	adc	r21, r21
+ ca6:	0a 94       	dec	r0
+ ca8:	e2 f7       	brpl	.-8      	; 0xca2 <DIO_enumSetCFG+0x270>
+ caa:	42 2b       	or	r20, r18
+ cac:	45 bb       	out	0x15, r20	; 21
+ cae:	80 e0       	ldi	r24, 0x00	; 0
+ cb0:	08 95       	ret
+ cb2:	24 b3       	in	r18, 0x14	; 20
+ cb4:	41 e0       	ldi	r20, 0x01	; 1
+ cb6:	50 e0       	ldi	r21, 0x00	; 0
+ cb8:	ba 01       	movw	r22, r20
+ cba:	02 c0       	rjmp	.+4      	; 0xcc0 <DIO_enumSetCFG+0x28e>
+ cbc:	66 0f       	add	r22, r22
+ cbe:	77 1f       	adc	r23, r23
+ cc0:	3a 95       	dec	r19
+ cc2:	e2 f7       	brpl	.-8      	; 0xcbc <DIO_enumSetCFG+0x28a>
+ cc4:	60 95       	com	r22
+ cc6:	26 23       	and	r18, r22
+ cc8:	24 bb       	out	0x14, r18	; 20
+ cca:	25 b3       	in	r18, 0x15	; 21
+ ccc:	fc 01       	movw	r30, r24
+ cce:	01 80       	ldd	r0, Z+1	; 0x01
+ cd0:	02 c0       	rjmp	.+4      	; 0xcd6 <DIO_enumSetCFG+0x2a4>
+ cd2:	44 0f       	add	r20, r20
+ cd4:	55 1f       	adc	r21, r21
+ cd6:	0a 94       	dec	r0
+ cd8:	e2 f7       	brpl	.-8      	; 0xcd2 <DIO_enumSetCFG+0x2a0>
+ cda:	40 95       	com	r20
+ cdc:	42 23       	and	r20, r18
+ cde:	45 bb       	out	0x15, r20	; 21
+ ce0:	80 e0       	ldi	r24, 0x00	; 0
+ ce2:	08 95       	ret
+ ce4:	41 30       	cpi	r20, 0x01	; 1
+ ce6:	f9 f0       	breq	.+62     	; 0xd26 <DIO_enumSetCFG+0x2f4>
+ ce8:	30 f0       	brcs	.+12     	; 0xcf6 <DIO_enumSetCFG+0x2c4>
+ cea:	42 30       	cpi	r20, 0x02	; 2
+ cec:	a9 f1       	breq	.+106    	; 0xd58 <DIO_enumSetCFG+0x326>
+ cee:	43 30       	cpi	r20, 0x03	; 3
+ cf0:	09 f4       	brne	.+2      	; 0xcf4 <DIO_enumSetCFG+0x2c2>
+ cf2:	4a c0       	rjmp	.+148    	; 0xd88 <DIO_enumSetCFG+0x356>
+ cf4:	70 c0       	rjmp	.+224    	; 0xdd6 <DIO_enumSetCFG+0x3a4>
+ cf6:	61 b3       	in	r22, 0x11	; 17
+ cf8:	41 e0       	ldi	r20, 0x01	; 1
+ cfa:	50 e0       	ldi	r21, 0x00	; 0
+ cfc:	fa 01       	movw	r30, r20
+ cfe:	02 c0       	rjmp	.+4      	; 0xd04 <DIO_enumSetCFG+0x2d2>
+ d00:	ee 0f       	add	r30, r30
+ d02:	ff 1f       	adc	r31, r31
+ d04:	3a 95       	dec	r19
+ d06:	e2 f7       	brpl	.-8      	; 0xd00 <DIO_enumSetCFG+0x2ce>
+ d08:	9f 01       	movw	r18, r30
+ d0a:	26 2b       	or	r18, r22
+ d0c:	21 bb       	out	0x11, r18	; 17
+ d0e:	22 b3       	in	r18, 0x12	; 18
+ d10:	fc 01       	movw	r30, r24
+ d12:	01 80       	ldd	r0, Z+1	; 0x01
+ d14:	02 c0       	rjmp	.+4      	; 0xd1a <DIO_enumSetCFG+0x2e8>
+ d16:	44 0f       	add	r20, r20
+ d18:	55 1f       	adc	r21, r21
+ d1a:	0a 94       	dec	r0
+ d1c:	e2 f7       	brpl	.-8      	; 0xd16 <DIO_enumSetCFG+0x2e4>
+ d1e:	42 2b       	or	r20, r18
+ d20:	42 bb       	out	0x12, r20	; 18
+ d22:	80 e0       	ldi	r24, 0x00	; 0
+ d24:	08 95       	ret
+ d26:	61 b3       	in	r22, 0x11	; 17
+ d28:	41 e0       	ldi	r20, 0x01	; 1
+ d2a:	50 e0       	ldi	r21, 0x00	; 0
+ d2c:	fa 01       	movw	r30, r20
+ d2e:	02 c0       	rjmp	.+4      	; 0xd34 <DIO_enumSetCFG+0x302>
+ d30:	ee 0f       	add	r30, r30
+ d32:	ff 1f       	adc	r31, r31
+ d34:	3a 95       	dec	r19
+ d36:	e2 f7       	brpl	.-8      	; 0xd30 <DIO_enumSetCFG+0x2fe>
+ d38:	9f 01       	movw	r18, r30
+ d3a:	26 2b       	or	r18, r22
+ d3c:	21 bb       	out	0x11, r18	; 17
+ d3e:	22 b3       	in	r18, 0x12	; 18
+ d40:	fc 01       	movw	r30, r24
+ d42:	01 80       	ldd	r0, Z+1	; 0x01
+ d44:	02 c0       	rjmp	.+4      	; 0xd4a <DIO_enumSetCFG+0x318>
+ d46:	44 0f       	add	r20, r20
+ d48:	55 1f       	adc	r21, r21
+ d4a:	0a 94       	dec	r0
+ d4c:	e2 f7       	brpl	.-8      	; 0xd46 <DIO_enumSetCFG+0x314>
+ d4e:	40 95       	com	r20
+ d50:	42 23       	and	r20, r18
+ d52:	42 bb       	out	0x12, r20	; 18
+ d54:	80 e0       	ldi	r24, 0x00	; 0
+ d56:	08 95       	ret
+ d58:	21 b3       	in	r18, 0x11	; 17
+ d5a:	41 e0       	ldi	r20, 0x01	; 1
+ d5c:	50 e0       	ldi	r21, 0x00	; 0
+ d5e:	ba 01       	movw	r22, r20
+ d60:	02 c0       	rjmp	.+4      	; 0xd66 <DIO_enumSetCFG+0x334>
+ d62:	66 0f       	add	r22, r22
+ d64:	77 1f       	adc	r23, r23
+ d66:	3a 95       	dec	r19
+ d68:	e2 f7       	brpl	.-8      	; 0xd62 <DIO_enumSetCFG+0x330>
+ d6a:	60 95       	com	r22
+ d6c:	26 23       	and	r18, r22
+ d6e:	21 bb       	out	0x11, r18	; 17
+ d70:	22 b3       	in	r18, 0x12	; 18
+ d72:	fc 01       	movw	r30, r24
+ d74:	01 80       	ldd	r0, Z+1	; 0x01
+ d76:	02 c0       	rjmp	.+4      	; 0xd7c <DIO_enumSetCFG+0x34a>
+ d78:	44 0f       	add	r20, r20
+ d7a:	55 1f       	adc	r21, r21
+ d7c:	0a 94       	dec	r0
+ d7e:	e2 f7       	brpl	.-8      	; 0xd78 <DIO_enumSetCFG+0x346>
+ d80:	42 2b       	or	r20, r18
+ d82:	42 bb       	out	0x12, r20	; 18
+ d84:	80 e0       	ldi	r24, 0x00	; 0
+ d86:	08 95       	ret
+ d88:	21 b3       	in	r18, 0x11	; 17
+ d8a:	41 e0       	ldi	r20, 0x01	; 1
+ d8c:	50 e0       	ldi	r21, 0x00	; 0
+ d8e:	ba 01       	movw	r22, r20
+ d90:	02 c0       	rjmp	.+4      	; 0xd96 <DIO_enumSetCFG+0x364>
+ d92:	66 0f       	add	r22, r22
+ d94:	77 1f       	adc	r23, r23
+ d96:	3a 95       	dec	r19
+ d98:	e2 f7       	brpl	.-8      	; 0xd92 <DIO_enumSetCFG+0x360>
+ d9a:	60 95       	com	r22
+ d9c:	26 23       	and	r18, r22
+ d9e:	21 bb       	out	0x11, r18	; 17
+ da0:	22 b3       	in	r18, 0x12	; 18
+ da2:	fc 01       	movw	r30, r24
+ da4:	01 80       	ldd	r0, Z+1	; 0x01
+ da6:	02 c0       	rjmp	.+4      	; 0xdac <DIO_enumSetCFG+0x37a>
+ da8:	44 0f       	add	r20, r20
+ daa:	55 1f       	adc	r21, r21
+ dac:	0a 94       	dec	r0
+ dae:	e2 f7       	brpl	.-8      	; 0xda8 <DIO_enumSetCFG+0x376>
+ db0:	40 95       	com	r20
+ db2:	42 23       	and	r20, r18
+ db4:	42 bb       	out	0x12, r20	; 18
+ db6:	80 e0       	ldi	r24, 0x00	; 0
+ db8:	08 95       	ret
+ dba:	82 e0       	ldi	r24, 0x02	; 2
+ dbc:	08 95       	ret
+ dbe:	83 e0       	ldi	r24, 0x03	; 3
+ dc0:	08 95       	ret
+ dc2:	84 e0       	ldi	r24, 0x04	; 4
+ dc4:	08 95       	ret
+ dc6:	80 e0       	ldi	r24, 0x00	; 0
+ dc8:	08 95       	ret
+ dca:	80 e0       	ldi	r24, 0x00	; 0
+ dcc:	08 95       	ret
+ dce:	80 e0       	ldi	r24, 0x00	; 0
+ dd0:	08 95       	ret
+ dd2:	80 e0       	ldi	r24, 0x00	; 0
+ dd4:	08 95       	ret
+ dd6:	80 e0       	ldi	r24, 0x00	; 0
+ dd8:	08 95       	ret
+
+Disassembly of section .text.DIO_enumSetPinVal:
+
+00001008 <DIO_enumSetPinVal>:
+DIO_enumError_t DIO_enumSetPinVal(DIO_enumPorts_t Copy_enumPortNum , DIO_enumPins_t Copy_enumPinNum , DIO_enumLogicState_t Copy_enumLogicState)
+{
+	
+	DIO_enumError_t Ret_enumERRORStatus = DIO_enumOK  ; 
+	
+	if( (Copy_enumPortNum > DIO_enumPORTD) || (Copy_enumPortNum < DIO_enumPORTA))
+    1008:	84 30       	cpi	r24, 0x04	; 4
+    100a:	08 f0       	brcs	.+2      	; 0x100e <DIO_enumSetPinVal+0x6>
+    100c:	88 c0       	rjmp	.+272    	; 0x111e <DIO_enumSetPinVal+0x116>
+		{ 
+			Ret_enumERRORStatus = DIO_enumINVALID_PORT ;
+		}
+	else if( (Copy_enumPinNum > DIO_enumPIN7) || (Copy_enumPinNum < DIO_enumPIN0))
+    100e:	68 30       	cpi	r22, 0x08	; 8
+    1010:	08 f0       	brcs	.+2      	; 0x1014 <DIO_enumSetPinVal+0xc>
+    1012:	87 c0       	rjmp	.+270    	; 0x1122 <DIO_enumSetPinVal+0x11a>
+		{
+			Ret_enumERRORStatus = DIO_enumINVALID_PIN ;
+		}	
+	else if( (Copy_enumLogicState > DIO_enumHIGH) || (Copy_enumLogicState < DIO_eumLOW))
+    1014:	42 30       	cpi	r20, 0x02	; 2
+    1016:	08 f0       	brcs	.+2      	; 0x101a <DIO_enumSetPinVal+0x12>
+    1018:	86 c0       	rjmp	.+268    	; 0x1126 <DIO_enumSetPinVal+0x11e>
+		{
+			Ret_enumERRORStatus = DIO_enumINVALID_VALUE ;
+		}
+	else
+		{
+			switch(Copy_enumPortNum)
+    101a:	81 30       	cpi	r24, 0x01	; 1
+    101c:	31 f1       	breq	.+76     	; 0x106a <DIO_enumSetPinVal+0x62>
+    101e:	38 f0       	brcs	.+14     	; 0x102e <DIO_enumSetPinVal+0x26>
+    1020:	82 30       	cpi	r24, 0x02	; 2
+    1022:	09 f4       	brne	.+2      	; 0x1026 <DIO_enumSetPinVal+0x1e>
+    1024:	40 c0       	rjmp	.+128    	; 0x10a6 <DIO_enumSetPinVal+0x9e>
+    1026:	83 30       	cpi	r24, 0x03	; 3
+    1028:	09 f4       	brne	.+2      	; 0x102c <DIO_enumSetPinVal+0x24>
+    102a:	5b c0       	rjmp	.+182    	; 0x10e2 <DIO_enumSetPinVal+0xda>
+    102c:	7e c0       	rjmp	.+252    	; 0x112a <DIO_enumSetPinVal+0x122>
+			{
+				case DIO_enumPORTA:
+									
+									switch(Copy_enumLogicState)
+    102e:	44 23       	and	r20, r20
+    1030:	19 f0       	breq	.+6      	; 0x1038 <DIO_enumSetPinVal+0x30>
+    1032:	41 30       	cpi	r20, 0x01	; 1
+    1034:	71 f0       	breq	.+28     	; 0x1052 <DIO_enumSetPinVal+0x4a>
+    1036:	7b c0       	rjmp	.+246    	; 0x112e <DIO_enumSetPinVal+0x126>
+									{
+										case DIO_eumLOW:
+														/*clear bin in port A as ouput mode*/
+														CLR_BIT(PORTA,Copy_enumPinNum) ;	
+    1038:	2b b3       	in	r18, 0x1b	; 27
+    103a:	81 e0       	ldi	r24, 0x01	; 1
+    103c:	90 e0       	ldi	r25, 0x00	; 0
+    103e:	02 c0       	rjmp	.+4      	; 0x1044 <DIO_enumSetPinVal+0x3c>
+    1040:	88 0f       	add	r24, r24
+    1042:	99 1f       	adc	r25, r25
+    1044:	6a 95       	dec	r22
+    1046:	e2 f7       	brpl	.-8      	; 0x1040 <DIO_enumSetPinVal+0x38>
+    1048:	80 95       	com	r24
+    104a:	82 23       	and	r24, r18
+    104c:	8b bb       	out	0x1b, r24	; 27
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    104e:	80 e0       	ldi	r24, 0x00	; 0
+									switch(Copy_enumLogicState)
+									{
+										case DIO_eumLOW:
+														/*clear bin in port A as ouput mode*/
+														CLR_BIT(PORTA,Copy_enumPinNum) ;	
+										break;
+    1050:	08 95       	ret
+										case DIO_enumHIGH:
+														/*set bin in port A as ouput mode*/
+														SET_BIT(PORTA,Copy_enumPinNum) ;	
+    1052:	2b b3       	in	r18, 0x1b	; 27
+    1054:	81 e0       	ldi	r24, 0x01	; 1
+    1056:	90 e0       	ldi	r25, 0x00	; 0
+    1058:	02 c0       	rjmp	.+4      	; 0x105e <DIO_enumSetPinVal+0x56>
+    105a:	88 0f       	add	r24, r24
+    105c:	99 1f       	adc	r25, r25
+    105e:	6a 95       	dec	r22
+    1060:	e2 f7       	brpl	.-8      	; 0x105a <DIO_enumSetPinVal+0x52>
+    1062:	82 2b       	or	r24, r18
+    1064:	8b bb       	out	0x1b, r24	; 27
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    1066:	80 e0       	ldi	r24, 0x00	; 0
+														CLR_BIT(PORTA,Copy_enumPinNum) ;	
+										break;
+										case DIO_enumHIGH:
+														/*set bin in port A as ouput mode*/
+														SET_BIT(PORTA,Copy_enumPinNum) ;	
+										break;
+    1068:	08 95       	ret
+									
+				break;
+				case DIO_enumPORTB:
+									
+									
+									switch(Copy_enumLogicState)
+    106a:	44 23       	and	r20, r20
+    106c:	19 f0       	breq	.+6      	; 0x1074 <DIO_enumSetPinVal+0x6c>
+    106e:	41 30       	cpi	r20, 0x01	; 1
+    1070:	71 f0       	breq	.+28     	; 0x108e <DIO_enumSetPinVal+0x86>
+    1072:	5f c0       	rjmp	.+190    	; 0x1132 <DIO_enumSetPinVal+0x12a>
+									{
+										case DIO_eumLOW:
+														/*clear bin in port A as ouput mode*/
+														CLR_BIT(PORTB,Copy_enumPinNum) ;	
+    1074:	28 b3       	in	r18, 0x18	; 24
+    1076:	81 e0       	ldi	r24, 0x01	; 1
+    1078:	90 e0       	ldi	r25, 0x00	; 0
+    107a:	02 c0       	rjmp	.+4      	; 0x1080 <DIO_enumSetPinVal+0x78>
+    107c:	88 0f       	add	r24, r24
+    107e:	99 1f       	adc	r25, r25
+    1080:	6a 95       	dec	r22
+    1082:	e2 f7       	brpl	.-8      	; 0x107c <DIO_enumSetPinVal+0x74>
+    1084:	80 95       	com	r24
+    1086:	82 23       	and	r24, r18
+    1088:	88 bb       	out	0x18, r24	; 24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    108a:	80 e0       	ldi	r24, 0x00	; 0
+									switch(Copy_enumLogicState)
+									{
+										case DIO_eumLOW:
+														/*clear bin in port A as ouput mode*/
+														CLR_BIT(PORTB,Copy_enumPinNum) ;	
+										break;
+    108c:	08 95       	ret
+										case DIO_enumHIGH:
+														/*set bin in port A as ouput mode*/
+														SET_BIT(PORTB,Copy_enumPinNum) ;	
+    108e:	28 b3       	in	r18, 0x18	; 24
+    1090:	81 e0       	ldi	r24, 0x01	; 1
+    1092:	90 e0       	ldi	r25, 0x00	; 0
+    1094:	02 c0       	rjmp	.+4      	; 0x109a <DIO_enumSetPinVal+0x92>
+    1096:	88 0f       	add	r24, r24
+    1098:	99 1f       	adc	r25, r25
+    109a:	6a 95       	dec	r22
+    109c:	e2 f7       	brpl	.-8      	; 0x1096 <DIO_enumSetPinVal+0x8e>
+    109e:	82 2b       	or	r24, r18
+    10a0:	88 bb       	out	0x18, r24	; 24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    10a2:	80 e0       	ldi	r24, 0x00	; 0
+														CLR_BIT(PORTB,Copy_enumPinNum) ;	
+										break;
+										case DIO_enumHIGH:
+														/*set bin in port A as ouput mode*/
+														SET_BIT(PORTB,Copy_enumPinNum) ;	
+										break;
+    10a4:	08 95       	ret
+									
+										
+				break ;
+				case DIO_enumPORTC:
+									
+									switch(Copy_enumLogicState)
+    10a6:	44 23       	and	r20, r20
+    10a8:	19 f0       	breq	.+6      	; 0x10b0 <DIO_enumSetPinVal+0xa8>
+    10aa:	41 30       	cpi	r20, 0x01	; 1
+    10ac:	71 f0       	breq	.+28     	; 0x10ca <DIO_enumSetPinVal+0xc2>
+    10ae:	43 c0       	rjmp	.+134    	; 0x1136 <DIO_enumSetPinVal+0x12e>
+									{
+										case DIO_eumLOW:
+														/*clear bin in port A as ouput mode*/
+														CLR_BIT(PORTC,Copy_enumPinNum) ;	
+    10b0:	25 b3       	in	r18, 0x15	; 21
+    10b2:	81 e0       	ldi	r24, 0x01	; 1
+    10b4:	90 e0       	ldi	r25, 0x00	; 0
+    10b6:	02 c0       	rjmp	.+4      	; 0x10bc <DIO_enumSetPinVal+0xb4>
+    10b8:	88 0f       	add	r24, r24
+    10ba:	99 1f       	adc	r25, r25
+    10bc:	6a 95       	dec	r22
+    10be:	e2 f7       	brpl	.-8      	; 0x10b8 <DIO_enumSetPinVal+0xb0>
+    10c0:	80 95       	com	r24
+    10c2:	82 23       	and	r24, r18
+    10c4:	85 bb       	out	0x15, r24	; 21
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    10c6:	80 e0       	ldi	r24, 0x00	; 0
+									switch(Copy_enumLogicState)
+									{
+										case DIO_eumLOW:
+														/*clear bin in port A as ouput mode*/
+														CLR_BIT(PORTC,Copy_enumPinNum) ;	
+										break;
+    10c8:	08 95       	ret
+										case DIO_enumHIGH:
+														/*set bin in port A as ouput mode*/
+														SET_BIT(PORTC,Copy_enumPinNum) ;	
+    10ca:	25 b3       	in	r18, 0x15	; 21
+    10cc:	81 e0       	ldi	r24, 0x01	; 1
+    10ce:	90 e0       	ldi	r25, 0x00	; 0
+    10d0:	02 c0       	rjmp	.+4      	; 0x10d6 <DIO_enumSetPinVal+0xce>
+    10d2:	88 0f       	add	r24, r24
+    10d4:	99 1f       	adc	r25, r25
+    10d6:	6a 95       	dec	r22
+    10d8:	e2 f7       	brpl	.-8      	; 0x10d2 <DIO_enumSetPinVal+0xca>
+    10da:	82 2b       	or	r24, r18
+    10dc:	85 bb       	out	0x15, r24	; 21
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    10de:	80 e0       	ldi	r24, 0x00	; 0
+														CLR_BIT(PORTC,Copy_enumPinNum) ;	
+										break;
+										case DIO_enumHIGH:
+														/*set bin in port A as ouput mode*/
+														SET_BIT(PORTC,Copy_enumPinNum) ;	
+										break;
+    10e0:	08 95       	ret
+									
+										
+				break;
+				case DIO_enumPORTD:
+									
+									switch(Copy_enumLogicState)
+    10e2:	44 23       	and	r20, r20
+    10e4:	19 f0       	breq	.+6      	; 0x10ec <DIO_enumSetPinVal+0xe4>
+    10e6:	41 30       	cpi	r20, 0x01	; 1
+    10e8:	71 f0       	breq	.+28     	; 0x1106 <DIO_enumSetPinVal+0xfe>
+    10ea:	27 c0       	rjmp	.+78     	; 0x113a <DIO_enumSetPinVal+0x132>
+									{
+										case DIO_eumLOW:
+														/*clear bin in port A as ouput mode*/
+														CLR_BIT(PORTD,Copy_enumPinNum) ;	
+    10ec:	22 b3       	in	r18, 0x12	; 18
+    10ee:	81 e0       	ldi	r24, 0x01	; 1
+    10f0:	90 e0       	ldi	r25, 0x00	; 0
+    10f2:	02 c0       	rjmp	.+4      	; 0x10f8 <DIO_enumSetPinVal+0xf0>
+    10f4:	88 0f       	add	r24, r24
+    10f6:	99 1f       	adc	r25, r25
+    10f8:	6a 95       	dec	r22
+    10fa:	e2 f7       	brpl	.-8      	; 0x10f4 <DIO_enumSetPinVal+0xec>
+    10fc:	80 95       	com	r24
+    10fe:	82 23       	and	r24, r18
+    1100:	82 bb       	out	0x12, r24	; 18
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    1102:	80 e0       	ldi	r24, 0x00	; 0
+									switch(Copy_enumLogicState)
+									{
+										case DIO_eumLOW:
+														/*clear bin in port A as ouput mode*/
+														CLR_BIT(PORTD,Copy_enumPinNum) ;	
+										break;
+    1104:	08 95       	ret
+										case DIO_enumHIGH:
+														/*set bin in port A as ouput mode*/
+														SET_BIT(PORTD,Copy_enumPinNum) ;	
+    1106:	22 b3       	in	r18, 0x12	; 18
+    1108:	81 e0       	ldi	r24, 0x01	; 1
+    110a:	90 e0       	ldi	r25, 0x00	; 0
+    110c:	02 c0       	rjmp	.+4      	; 0x1112 <DIO_enumSetPinVal+0x10a>
+    110e:	88 0f       	add	r24, r24
+    1110:	99 1f       	adc	r25, r25
+    1112:	6a 95       	dec	r22
+    1114:	e2 f7       	brpl	.-8      	; 0x110e <DIO_enumSetPinVal+0x106>
+    1116:	82 2b       	or	r24, r18
+    1118:	82 bb       	out	0x12, r24	; 18
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    111a:	80 e0       	ldi	r24, 0x00	; 0
+														CLR_BIT(PORTD,Copy_enumPinNum) ;	
+										break;
+										case DIO_enumHIGH:
+														/*set bin in port A as ouput mode*/
+														SET_BIT(PORTD,Copy_enumPinNum) ;	
+										break;
+    111c:	08 95       	ret
+	
+	DIO_enumError_t Ret_enumERRORStatus = DIO_enumOK  ; 
+	
+	if( (Copy_enumPortNum > DIO_enumPORTD) || (Copy_enumPortNum < DIO_enumPORTA))
+		{ 
+			Ret_enumERRORStatus = DIO_enumINVALID_PORT ;
+    111e:	82 e0       	ldi	r24, 0x02	; 2
+    1120:	08 95       	ret
+		}
+	else if( (Copy_enumPinNum > DIO_enumPIN7) || (Copy_enumPinNum < DIO_enumPIN0))
+		{
+			Ret_enumERRORStatus = DIO_enumINVALID_PIN ;
+    1122:	83 e0       	ldi	r24, 0x03	; 3
+    1124:	08 95       	ret
+		}	
+	else if( (Copy_enumLogicState > DIO_enumHIGH) || (Copy_enumLogicState < DIO_eumLOW))
+		{
+			Ret_enumERRORStatus = DIO_enumINVALID_VALUE ;
+    1126:	85 e0       	ldi	r24, 0x05	; 5
+    1128:	08 95       	ret
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    112a:	80 e0       	ldi	r24, 0x00	; 0
+    112c:	08 95       	ret
+    112e:	80 e0       	ldi	r24, 0x00	; 0
+    1130:	08 95       	ret
+    1132:	80 e0       	ldi	r24, 0x00	; 0
+    1134:	08 95       	ret
+    1136:	80 e0       	ldi	r24, 0x00	; 0
+    1138:	08 95       	ret
+    113a:	80 e0       	ldi	r24, 0x00	; 0
+	
+	
+	
+	
+	
+}/*set bin value function*/
+    113c:	08 95       	ret
+
+Disassembly of section .text.DIO_enumGetPinVal:
+
+00001410 <DIO_enumGetPinVal>:
+DIO_enumError_t DIO_enumGetPinVal(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum , u8 * Pu8PinVal)
+{
+	
+	DIO_enumError_t Ret_enumERRORStatus = DIO_enumOK  ; 
+	
+	if( (Copy_enumPortNum > DIO_enumPORTD) || (Copy_enumPortNum < DIO_enumPORTA))
+    1410:	84 30       	cpi	r24, 0x04	; 4
+    1412:	d0 f5       	brcc	.+116    	; 0x1488 <DIO_enumGetPinVal+0x78>
+		{ 
+			Ret_enumERRORStatus = DIO_enumINVALID_PORT ;
+		}
+	else if( (Copy_enumPinNum > DIO_enumPIN7) || (Copy_enumPinNum < DIO_enumPIN0))
+    1414:	68 30       	cpi	r22, 0x08	; 8
+    1416:	d0 f5       	brcc	.+116    	; 0x148c <DIO_enumGetPinVal+0x7c>
+			Ret_enumERRORStatus = DIO_enumINVALID_PIN ;
+		}	
+	
+	else
+		{
+			switch(Copy_enumPortNum)
+    1418:	81 30       	cpi	r24, 0x01	; 1
+    141a:	91 f0       	breq	.+36     	; 0x1440 <DIO_enumGetPinVal+0x30>
+    141c:	28 f0       	brcs	.+10     	; 0x1428 <DIO_enumGetPinVal+0x18>
+    141e:	82 30       	cpi	r24, 0x02	; 2
+    1420:	d9 f0       	breq	.+54     	; 0x1458 <DIO_enumGetPinVal+0x48>
+    1422:	83 30       	cpi	r24, 0x03	; 3
+    1424:	29 f1       	breq	.+74     	; 0x1470 <DIO_enumGetPinVal+0x60>
+    1426:	34 c0       	rjmp	.+104    	; 0x1490 <DIO_enumGetPinVal+0x80>
+			{
+				case DIO_enumPORTA:
+									*Pu8PinVal = GET_BIT(PINA,Copy_enumPinNum);
+    1428:	89 b3       	in	r24, 0x19	; 25
+    142a:	90 e0       	ldi	r25, 0x00	; 0
+    142c:	02 c0       	rjmp	.+4      	; 0x1432 <DIO_enumGetPinVal+0x22>
+    142e:	95 95       	asr	r25
+    1430:	87 95       	ror	r24
+    1432:	6a 95       	dec	r22
+    1434:	e2 f7       	brpl	.-8      	; 0x142e <DIO_enumGetPinVal+0x1e>
+    1436:	81 70       	andi	r24, 0x01	; 1
+    1438:	fa 01       	movw	r30, r20
+    143a:	80 83       	st	Z, r24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    143c:	80 e0       	ldi	r24, 0x00	; 0
+			switch(Copy_enumPortNum)
+			{
+				case DIO_enumPORTA:
+									*Pu8PinVal = GET_BIT(PINA,Copy_enumPinNum);
+					
+				break;
+    143e:	08 95       	ret
+				case DIO_enumPORTB:
+									*Pu8PinVal = GET_BIT(PINB,Copy_enumPinNum);
+    1440:	86 b3       	in	r24, 0x16	; 22
+    1442:	90 e0       	ldi	r25, 0x00	; 0
+    1444:	02 c0       	rjmp	.+4      	; 0x144a <DIO_enumGetPinVal+0x3a>
+    1446:	95 95       	asr	r25
+    1448:	87 95       	ror	r24
+    144a:	6a 95       	dec	r22
+    144c:	e2 f7       	brpl	.-8      	; 0x1446 <DIO_enumGetPinVal+0x36>
+    144e:	81 70       	andi	r24, 0x01	; 1
+    1450:	fa 01       	movw	r30, r20
+    1452:	80 83       	st	Z, r24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    1454:	80 e0       	ldi	r24, 0x00	; 0
+					
+				break;
+				case DIO_enumPORTB:
+									*Pu8PinVal = GET_BIT(PINB,Copy_enumPinNum);
+										
+				break ;
+    1456:	08 95       	ret
+				case DIO_enumPORTC:
+									*Pu8PinVal = GET_BIT(PINC,Copy_enumPinNum);
+    1458:	83 b3       	in	r24, 0x13	; 19
+    145a:	90 e0       	ldi	r25, 0x00	; 0
+    145c:	02 c0       	rjmp	.+4      	; 0x1462 <DIO_enumGetPinVal+0x52>
+    145e:	95 95       	asr	r25
+    1460:	87 95       	ror	r24
+    1462:	6a 95       	dec	r22
+    1464:	e2 f7       	brpl	.-8      	; 0x145e <DIO_enumGetPinVal+0x4e>
+    1466:	81 70       	andi	r24, 0x01	; 1
+    1468:	fa 01       	movw	r30, r20
+    146a:	80 83       	st	Z, r24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    146c:	80 e0       	ldi	r24, 0x00	; 0
+										
+				break ;
+				case DIO_enumPORTC:
+									*Pu8PinVal = GET_BIT(PINC,Copy_enumPinNum);
+										
+				break;
+    146e:	08 95       	ret
+				case DIO_enumPORTD:
+									*Pu8PinVal = GET_BIT(PIND,Copy_enumPinNum);
+    1470:	80 b3       	in	r24, 0x10	; 16
+    1472:	90 e0       	ldi	r25, 0x00	; 0
+    1474:	02 c0       	rjmp	.+4      	; 0x147a <DIO_enumGetPinVal+0x6a>
+    1476:	95 95       	asr	r25
+    1478:	87 95       	ror	r24
+    147a:	6a 95       	dec	r22
+    147c:	e2 f7       	brpl	.-8      	; 0x1476 <DIO_enumGetPinVal+0x66>
+    147e:	81 70       	andi	r24, 0x01	; 1
+    1480:	fa 01       	movw	r30, r20
+    1482:	80 83       	st	Z, r24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    1484:	80 e0       	ldi	r24, 0x00	; 0
+										
+				break;
+				case DIO_enumPORTD:
+									*Pu8PinVal = GET_BIT(PIND,Copy_enumPinNum);
+										
+				break;
+    1486:	08 95       	ret
+	
+	DIO_enumError_t Ret_enumERRORStatus = DIO_enumOK  ; 
+	
+	if( (Copy_enumPortNum > DIO_enumPORTD) || (Copy_enumPortNum < DIO_enumPORTA))
+		{ 
+			Ret_enumERRORStatus = DIO_enumINVALID_PORT ;
+    1488:	82 e0       	ldi	r24, 0x02	; 2
+    148a:	08 95       	ret
+		}
+	else if( (Copy_enumPinNum > DIO_enumPIN7) || (Copy_enumPinNum < DIO_enumPIN0))
+		{
+			Ret_enumERRORStatus = DIO_enumINVALID_PIN ;
+    148c:	83 e0       	ldi	r24, 0x03	; 3
+    148e:	08 95       	ret
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+    1490:	80 e0       	ldi	r24, 0x00	; 0
+		}//els
+	return Ret_enumERRORStatus ;
+	
+	
+}/*get bin value function*/
+    1492:	08 95       	ret
+
+Disassembly of section .text.libgcc:
+
+0000156e <__tablejump2__>:
+    156e:	ee 0f       	add	r30, r30
+    1570:	ff 1f       	adc	r31, r31
+    1572:	05 90       	lpm	r0, Z+
+    1574:	f4 91       	lpm	r31, Z
+    1576:	e0 2d       	mov	r30, r0
+    1578:	09 94       	ijmp
+
+Disassembly of section .text.__dummy_fini:
+
+00001582 <_fini>:
+    1582:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+00001584 <__funcs_on_exit>:
+    1584:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+00001586 <__simulator_exit>:
+    1586:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+00001558 <exit>:
+    1558:	ec 01       	movw	r28, r24
+    155a:	0e 94 c2 0a 	call	0x1584	; 0x1584 <__funcs_on_exit>
+    155e:	0e 94 c1 0a 	call	0x1582	; 0x1582 <_fini>
+    1562:	ce 01       	movw	r24, r28
+    1564:	0e 94 c3 0a 	call	0x1586	; 0x1586 <__simulator_exit>
+    1568:	ce 01       	movw	r24, r28
+    156a:	0e 94 bf 0a 	call	0x157e	; 0x157e <_Exit>
+
+Disassembly of section .text._Exit:
+
+0000157e <_Exit>:
+    157e:	0e 94 6a 00 	call	0xd4	; 0xd4 <_exit>
