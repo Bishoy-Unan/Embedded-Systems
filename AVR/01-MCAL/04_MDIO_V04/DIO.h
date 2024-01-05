@@ -96,11 +96,11 @@ typedef enum {
 /**
 /@the port or pin is set to be output high
 */
-	DIO_enumOUTPUTHIGH,
+	DIO_enumOUTPUTLOW,
 /**
 /@the port or pin is set to be output low
 */	
-	DIO_enumOUTPUTLOW,
+	DIO_enumOUTPUTHIGH,
 /**
 *@the pin is set to be input and activating internal pull up resistor
 */
