@@ -1,0 +1,131 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  25              	main:
+  26              	.LFB0:
+  27              		.file 1 "../src/main.c"
+   1:../src/main.c **** 
+   2:../src/main.c **** 
+   3:../src/main.c **** 
+   4:../src/main.c **** #include "STD_TYPES.h"
+   5:../src/main.c **** #include "MRCC_Interface.h"
+   6:../src/main.c **** 
+   7:../src/main.c **** 
+   8:../src/main.c **** 
+   9:../src/main.c **** 
+  10:../src/main.c **** 
+  11:../src/main.c **** int main()
+  12:../src/main.c **** {
+  28              		.loc 1 12 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 24
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 30B5     		push	{r4, r5, lr}
+  33              		.cfi_def_cfa_offset 12
+  34              		.cfi_offset 4, -12
+  35              		.cfi_offset 5, -8
+  36              		.cfi_offset 14, -4
+  37 0002 87B0     		sub	sp, sp, #28
+  38              		.cfi_def_cfa_offset 40
+  13:../src/main.c **** 	RCC_structCLKPLL_t PLLCFG = {PLL_HSE_SRC,25,336,4,2};
+  39              		.loc 1 13 0
+  40 0004 01AC     		add	r4, sp, #4
+  41 0006 0E4D     		ldr	r5, .L4
+  42 0008 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+  43 000a 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+  44 000c 2B68     		ldr	r3, [r5]
+  45 000e 2360     		str	r3, [r4]
+  14:../src/main.c **** 	RCC_enuControlClk(RCC_HSE,RCC_CLK_ON);
+  46              		.loc 1 14 0
+  47 0010 0021     		movs	r1, #0
+  48 0012 0120     		movs	r0, #1
+  49 0014 FFF7FEFF 		bl	RCC_enuControlClk
+  50              	.LVL0:
+  15:../src/main.c **** 	RCC_enuSelectSystemClk(RCC_HSE);
+  51              		.loc 1 15 0
+  52 0018 0120     		movs	r0, #1
+  53 001a FFF7FEFF 		bl	RCC_enuSelectSystemClk
+  54              	.LVL1:
+  16:../src/main.c **** 
+  17:../src/main.c **** 	RCC_enuConfigPLL(&PLLCFG);
+  55              		.loc 1 17 0
+  56 001e 01A8     		add	r0, sp, #4
+  57 0020 FFF7FEFF 		bl	RCC_enuConfigPLL
+  58              	.LVL2:
+  18:../src/main.c **** 	RCC_enuEnablePeripheralClock(RCC_AHB1,GPIOA_RCC);
+  59              		.loc 1 18 0
+  60 0024 0021     		movs	r1, #0
+  61 0026 0846     		mov	r0, r1
+  62 0028 FFF7FEFF 		bl	RCC_enuEnablePeripheralClock
+  63              	.LVL3:
+  19:../src/main.c **** 	RCC_enuDisablePeripheralClock(RCC_AHB1,GPIOA_RCC);
+  64              		.loc 1 19 0
+  65 002c 0021     		movs	r1, #0
+  66 002e 0846     		mov	r0, r1
+  67 0030 FFF7FEFF 		bl	RCC_enuDisablePeripheralClock
+  68              	.LVL4:
+  20:../src/main.c **** 	RCC_enuControlBusesPrescaler(RCC_AHB1,AHB_SYSTEM_CLOCK_DIVIDED_BY_2);
+  69              		.loc 1 20 0
+  70 0034 8021     		movs	r1, #128
+  71 0036 0020     		movs	r0, #0
+  72 0038 FFF7FEFF 		bl	RCC_enuControlBusesPrescaler
+  73              	.LVL5:
+  74              	.L2:
+  75 003c FEE7     		b	.L2
+  76              	.L5:
+  77 003e 00BF     		.align	2
+  78              	.L4:
+  79 0040 00000000 		.word	.LANCHOR0
+  80              		.cfi_endproc
+  81              	.LFE0:
+  83              		.section	.rodata
+  84              		.align	2
+  85              		.set	.LANCHOR0,. + 0
+  86              	.LC0:
+  87 0000 01       		.byte	1
+  88 0001 000000   		.space	3
+  89 0004 19000000 		.word	25
+  90 0008 50010000 		.word	336
+  91 000c 04000000 		.word	4
+  92 0010 02000000 		.word	2
+  93              		.text
+  94              	.Letext0:
+  95              		.file 2 "../include/MRCC_Interface.h"
+  96              		.file 3 "../include/STD_TYPES.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\NoteBook\AppData\Local\Temp\ccOxThzg.s:20     .text.main:00000000 $t
+C:\Users\NoteBook\AppData\Local\Temp\ccOxThzg.s:25     .text.main:00000000 main
+C:\Users\NoteBook\AppData\Local\Temp\ccOxThzg.s:79     .text.main:00000040 $d
+C:\Users\NoteBook\AppData\Local\Temp\ccOxThzg.s:84     .rodata:00000000 $d
+                     .debug_frame:00000010 $d
+                           .group:00000000 wm4.0.a2f836f628cd58bfd83621916854a0d2
+                           .group:00000000 wm4.MRCC_Interface.h.27.365c037b0dfa896873eb786e33e489c4
+
+UNDEFINED SYMBOLS
+RCC_enuControlClk
+RCC_enuSelectSystemClk
+RCC_enuConfigPLL
+RCC_enuEnablePeripheralClock
+RCC_enuDisablePeripheralClock
+RCC_enuControlBusesPrescaler

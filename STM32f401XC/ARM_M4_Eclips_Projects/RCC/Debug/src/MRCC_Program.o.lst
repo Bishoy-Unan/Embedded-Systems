@@ -1,0 +1,1731 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"MRCC_Program.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.RCC_enuControlClk,"ax",%progbits
+  20              		.align	2
+  21              		.global	RCC_enuControlClk
+  22              		.thumb
+  23              		.thumb_func
+  25              	RCC_enuControlClk:
+  26              	.LFB0:
+  27              		.file 1 "../src/MRCC_Program.c"
+   1:../src/MRCC_Program.c **** /**************************************************************************************************
+   2:../src/MRCC_Program.c **** /* Author        : Bishoy Unan                                          
+   3:../src/MRCC_Program.c **** /* Version       : V0.0.0                                               
+   4:../src/MRCC_Program.c **** /* Date          : 5 Feb 2024                                           
+   5:../src/MRCC_Program.c **** /* Description   :            
+   6:../src/MRCC_Program.c **** /* Module Features  :                                                   
+   7:../src/MRCC_Program.c **** /*                 01- RCC_enuControlClk (RCC_enuSysClk_t Copy_enuClockSystem,RCC_enuClkStatus_t Co
+   8:../src/MRCC_Program.c **** /*                 02- RCC_enuSelectSystemClk (RCC_enuSysClk_t Copy_enuSystemClock)();            	
+   9:../src/MRCC_Program.c **** /*                 03- RCC_enuEnablePeripheralClock (RCC_Bus_t Copy_enuPeripheralBus, u8 Copy_u8Per
+  10:../src/MRCC_Program.c **** /*                 04- RCC_enuDisablePeripheralClock (RCC_Bus_t Copy_enuPeripheralBus, u8 Copy_u8Pe
+  11:../src/MRCC_Program.c **** /*                 05- RCC_enuConfigPLL (RCC_structCLKPLL_t * Copy_structPLLCongif)();  							
+  12:../src/MRCC_Program.c **** /*                 06- RCC_enuControlBusesPrescaler  (RCC_Bus_t Copy_enuBus ,u8 Copy_u32APB2Prescal
+  13:../src/MRCC_Program.c **** /**************************************************************************************************
+  14:../src/MRCC_Program.c **** 
+  15:../src/MRCC_Program.c **** #include "../include/STD_TYPES.h"
+  16:../src/MRCC_Program.c **** #include "../include/MRCC_Interface.h"
+  17:../src/MRCC_Program.c **** #include "../include/MRCC_Private.h"
+  18:../src/MRCC_Program.c **** 
+  19:../src/MRCC_Program.c **** RCC_enuErrorStatus_t RCC_enuControlClk (RCC_enuSysClk_t Copy_enuClockSystem,RCC_enuClkStatus_t Copy
+  20:../src/MRCC_Program.c **** {
+  28              		.loc 1 20 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  21:../src/MRCC_Program.c ****     RCC_enuErrorStatus_t Ret_enuErrorStatus = RCC_enuOK ;
+  22:../src/MRCC_Program.c ****     /**
+  23:../src/MRCC_Program.c ****     *@ get the runiung clock of system
+  24:../src/MRCC_Program.c ****     */
+  25:../src/MRCC_Program.c ****     u32 Loc_u32CurrSystemCLOCK = ((RCC_CFGR & MASK_GET_SYSCLK)>>2);
+  34              		.loc 1 25 0
+  35 0000 414B     		ldr	r3, .L31
+  36 0002 1B68     		ldr	r3, [r3]
+  37 0004 C3F38103 		ubfx	r3, r3, #2, #2
+  38              	.LVL1:
+  26:../src/MRCC_Program.c ****     /**
+  27:../src/MRCC_Program.c ****     *@ timout variable used in while loops
+  28:../src/MRCC_Program.c ****     */
+  29:../src/MRCC_Program.c ****     u32 Loc_u32TimeOut = 0;
+  30:../src/MRCC_Program.c **** 
+  31:../src/MRCC_Program.c ****     /**
+  32:../src/MRCC_Program.c ****     *@ validate the input clock
+  33:../src/MRCC_Program.c ****     */
+  34:../src/MRCC_Program.c ****     if((Copy_enuClockSystem > RCC_PLL) ||  (Copy_enuClockSystem < RCC_HSI))
+  39              		.loc 1 34 0
+  40 0008 0228     		cmp	r0, #2
+  41 000a 70D8     		bhi	.L21
+  35:../src/MRCC_Program.c ****       {
+  36:../src/MRCC_Program.c ****             Ret_enuErrorStatus = RCC_enuNOK;
+  37:../src/MRCC_Program.c ****       }
+  38:../src/MRCC_Program.c ****     /**
+  39:../src/MRCC_Program.c ****     *@ cannot control the clock if it the runing clock for the system
+  40:../src/MRCC_Program.c ****     */
+  41:../src/MRCC_Program.c ****     else if(Loc_u32CurrSystemCLOCK == Copy_enuClockSystem)
+  42              		.loc 1 41 0
+  43 000c 8342     		cmp	r3, r0
+  44 000e 70D0     		beq	.L22
+  42:../src/MRCC_Program.c ****       {
+  43:../src/MRCC_Program.c ****             Ret_enuErrorStatus = RCC_enuNOK;
+  44:../src/MRCC_Program.c ****       }
+  45:../src/MRCC_Program.c ****     else 
+  46:../src/MRCC_Program.c ****     {
+  47:../src/MRCC_Program.c ****         switch(Copy_enuClockSystem)
+  45              		.loc 1 47 0
+  46 0010 0128     		cmp	r0, #1
+  47 0012 26D0     		beq	.L3
+  48 0014 10B1     		cbz	r0, .L4
+  49 0016 0228     		cmp	r0, #2
+  50 0018 46D0     		beq	.L5
+  51 001a 6CE0     		b	.L30
+  52              	.L4:
+  48:../src/MRCC_Program.c ****         {
+  49:../src/MRCC_Program.c ****             /**
+  50:../src/MRCC_Program.c ****             *@ contrl HSI Clock ON/OFF
+  51:../src/MRCC_Program.c ****             */
+  52:../src/MRCC_Program.c ****             case RCC_HSI :
+  53:../src/MRCC_Program.c ****                     /**
+  54:../src/MRCC_Program.c ****                     *@ HSI ON
+  55:../src/MRCC_Program.c ****                     */
+  56:../src/MRCC_Program.c ****                     if(Copy_enuClkStatus == RCC_CLK_ON)
+  53              		.loc 1 56 0
+  54 001c 49B9     		cbnz	r1, .L6
+  57:../src/MRCC_Program.c ****                         {
+  58:../src/MRCC_Program.c ****                             RCC_CR |= (MASK_HSI_ON);
+  55              		.loc 1 58 0
+  56 001e 3B4A     		ldr	r2, .L31+4
+  57 0020 1368     		ldr	r3, [r2]
+  58              	.LVL2:
+  59 0022 43F00103 		orr	r3, r3, #1
+  60 0026 1360     		str	r3, [r2]
+  21:../src/MRCC_Program.c ****     /**
+  61              		.loc 1 21 0
+  62 0028 0020     		movs	r0, #0
+  63              	.LVL3:
+  64 002a 00E0     		b	.L8
+  65              	.LVL4:
+  66              	.L24:
+  59:../src/MRCC_Program.c ****                         }
+  60:../src/MRCC_Program.c ****                     /**
+  61:../src/MRCC_Program.c ****                     *@ HSI OFF
+  62:../src/MRCC_Program.c ****                     */
+  63:../src/MRCC_Program.c ****                     else if(Copy_enuClkStatus == RCC_CLK_OFF)
+  64:../src/MRCC_Program.c ****                         {
+  65:../src/MRCC_Program.c ****                             RCC_CR &= (~MASK_HSI_ON);
+  66:../src/MRCC_Program.c ****                         }   
+  67:../src/MRCC_Program.c ****                     else
+  68:../src/MRCC_Program.c ****                          Ret_enuErrorStatus = RCC_enuNOK;
+  67              		.loc 1 68 0
+  68 002c 0120     		movs	r0, #1
+  69              	.LVL5:
+  70              	.L8:
+  21:../src/MRCC_Program.c ****     /**
+  71              		.loc 1 21 0
+  72 002e 0023     		movs	r3, #0
+  73 0030 09E0     		b	.L7
+  74              	.LVL6:
+  75              	.L6:
+  63:../src/MRCC_Program.c ****                         {
+  76              		.loc 1 63 0
+  77 0032 0129     		cmp	r1, #1
+  78 0034 FAD1     		bne	.L24
+  65:../src/MRCC_Program.c ****                         }   
+  79              		.loc 1 65 0
+  80 0036 354A     		ldr	r2, .L31+4
+  81 0038 1368     		ldr	r3, [r2]
+  82              	.LVL7:
+  83 003a 23F00103 		bic	r3, r3, #1
+  84 003e 1360     		str	r3, [r2]
+  21:../src/MRCC_Program.c ****     /**
+  85              		.loc 1 21 0
+  86 0040 0020     		movs	r0, #0
+  87              	.LVL8:
+  88 0042 F4E7     		b	.L8
+  89              	.LVL9:
+  90              	.L10:
+  69:../src/MRCC_Program.c ****                     /**
+  70:../src/MRCC_Program.c ****                     *@ Waiting for the clock to be ready
+  71:../src/MRCC_Program.c ****                     */
+  72:../src/MRCC_Program.c ****                     while(((RCC_CR & MASK_HSI_RDY) == 0) && Loc_u32TimeOut < 10000)
+  73:../src/MRCC_Program.c ****                     {
+  74:../src/MRCC_Program.c ****                         Loc_u32TimeOut ++ ;
+  91              		.loc 1 74 0
+  92 0044 0133     		adds	r3, r3, #1
+  93              	.LVL10:
+  94              	.L7:
+  72:../src/MRCC_Program.c ****                     {
+  95              		.loc 1 72 0
+  96 0046 314A     		ldr	r2, .L31+4
+  97 0048 1268     		ldr	r2, [r2]
+  98 004a 12F0020F 		tst	r2, #2
+  99 004e 03D1     		bne	.L9
+  72:../src/MRCC_Program.c ****                     {
+ 100              		.loc 1 72 0 is_stmt 0 discriminator 1
+ 101 0050 42F20F72 		movw	r2, #9999
+ 102 0054 9342     		cmp	r3, r2
+ 103 0056 F5D9     		bls	.L10
+ 104              	.L9:
+  75:../src/MRCC_Program.c ****                     }   
+  76:../src/MRCC_Program.c ****                     /**
+  77:../src/MRCC_Program.c ****                     *@ TIME OUT
+  78:../src/MRCC_Program.c ****                     */ 
+  79:../src/MRCC_Program.c ****                     if(Loc_u32TimeOut >= 10000)
+ 105              		.loc 1 79 0 is_stmt 1
+ 106 0058 42F20F72 		movw	r2, #9999
+ 107 005c 9342     		cmp	r3, r2
+ 108 005e 4CD8     		bhi	.L25
+ 109 0060 7047     		bx	lr
+ 110              	.LVL11:
+ 111              	.L3:
+  80:../src/MRCC_Program.c ****                     {
+  81:../src/MRCC_Program.c ****                          Ret_enuErrorStatus = RCC_enuNOK;
+  82:../src/MRCC_Program.c ****                     }
+  83:../src/MRCC_Program.c ****             break ;
+  84:../src/MRCC_Program.c ****             /**
+  85:../src/MRCC_Program.c ****             *@ contrl HSE Clock ON/OFF
+  86:../src/MRCC_Program.c ****             */
+  87:../src/MRCC_Program.c ****             case RCC_HSE :
+  88:../src/MRCC_Program.c ****                     /**
+  89:../src/MRCC_Program.c ****                     *@ HSE ON
+  90:../src/MRCC_Program.c ****                     */
+  91:../src/MRCC_Program.c ****                     if(Copy_enuClkStatus == RCC_CLK_ON)
+ 112              		.loc 1 91 0
+ 113 0062 49B9     		cbnz	r1, .L11
+  92:../src/MRCC_Program.c ****                         {
+  93:../src/MRCC_Program.c ****                             RCC_CR |= (MASK_HSE_ON);
+ 114              		.loc 1 93 0
+ 115 0064 294A     		ldr	r2, .L31+4
+ 116 0066 1368     		ldr	r3, [r2]
+ 117              	.LVL12:
+ 118 0068 43F48033 		orr	r3, r3, #65536
+ 119 006c 1360     		str	r3, [r2]
+  21:../src/MRCC_Program.c ****     /**
+ 120              		.loc 1 21 0
+ 121 006e 0020     		movs	r0, #0
+ 122              	.LVL13:
+ 123 0070 00E0     		b	.L13
+ 124              	.LVL14:
+ 125              	.L26:
+  94:../src/MRCC_Program.c ****                         }
+  95:../src/MRCC_Program.c ****                     /**
+  96:../src/MRCC_Program.c ****                     *@ HSE OFF
+  97:../src/MRCC_Program.c ****                     */
+  98:../src/MRCC_Program.c ****                     else if(Copy_enuClkStatus == RCC_CLK_OFF)
+  99:../src/MRCC_Program.c ****                         {
+ 100:../src/MRCC_Program.c ****                             RCC_CR &= (~MASK_HSE_ON);
+ 101:../src/MRCC_Program.c ****                         }   
+ 102:../src/MRCC_Program.c ****                     else
+ 103:../src/MRCC_Program.c ****                          Ret_enuErrorStatus = RCC_enuNOK;
+ 126              		.loc 1 103 0
+ 127 0072 0120     		movs	r0, #1
+ 128              	.LVL15:
+ 129              	.L13:
+  21:../src/MRCC_Program.c ****     /**
+ 130              		.loc 1 21 0
+ 131 0074 0023     		movs	r3, #0
+ 132 0076 09E0     		b	.L12
+ 133              	.LVL16:
+ 134              	.L11:
+  98:../src/MRCC_Program.c ****                         {
+ 135              		.loc 1 98 0
+ 136 0078 0129     		cmp	r1, #1
+ 137 007a FAD1     		bne	.L26
+ 100:../src/MRCC_Program.c ****                         }   
+ 138              		.loc 1 100 0
+ 139 007c 234A     		ldr	r2, .L31+4
+ 140 007e 1368     		ldr	r3, [r2]
+ 141              	.LVL17:
+ 142 0080 23F48033 		bic	r3, r3, #65536
+ 143 0084 1360     		str	r3, [r2]
+  21:../src/MRCC_Program.c ****     /**
+ 144              		.loc 1 21 0
+ 145 0086 0020     		movs	r0, #0
+ 146              	.LVL18:
+ 147 0088 F4E7     		b	.L13
+ 148              	.LVL19:
+ 149              	.L15:
+ 104:../src/MRCC_Program.c ****                     /**
+ 105:../src/MRCC_Program.c ****                     *@ Waiting for the clock to be ready
+ 106:../src/MRCC_Program.c ****                     */
+ 107:../src/MRCC_Program.c ****                     while(((RCC_CR & MASK_HSE_RDY) == 0) && Loc_u32TimeOut < 10000)
+ 108:../src/MRCC_Program.c ****                     {
+ 109:../src/MRCC_Program.c ****                         Loc_u32TimeOut ++ ;
+ 150              		.loc 1 109 0
+ 151 008a 0133     		adds	r3, r3, #1
+ 152              	.LVL20:
+ 153              	.L12:
+ 107:../src/MRCC_Program.c ****                     {
+ 154              		.loc 1 107 0
+ 155 008c 1F4A     		ldr	r2, .L31+4
+ 156 008e 1268     		ldr	r2, [r2]
+ 157 0090 12F4003F 		tst	r2, #131072
+ 158 0094 03D1     		bne	.L14
+ 107:../src/MRCC_Program.c ****                     {
+ 159              		.loc 1 107 0 is_stmt 0 discriminator 1
+ 160 0096 42F20F72 		movw	r2, #9999
+ 161 009a 9342     		cmp	r3, r2
+ 162 009c F5D9     		bls	.L15
+ 163              	.L14:
+ 110:../src/MRCC_Program.c ****                     }   
+ 111:../src/MRCC_Program.c ****                     /**
+ 112:../src/MRCC_Program.c ****                     *@ TIME OUT
+ 113:../src/MRCC_Program.c ****                     */ 
+ 114:../src/MRCC_Program.c ****                     if(Loc_u32TimeOut >= 10000)
+ 164              		.loc 1 114 0 is_stmt 1
+ 165 009e 42F20F72 		movw	r2, #9999
+ 166 00a2 9342     		cmp	r3, r2
+ 167 00a4 2BD8     		bhi	.L27
+ 168 00a6 7047     		bx	lr
+ 169              	.LVL21:
+ 170              	.L5:
+ 115:../src/MRCC_Program.c ****                     {
+ 116:../src/MRCC_Program.c ****                          Ret_enuErrorStatus = RCC_enuNOK;
+ 117:../src/MRCC_Program.c ****                     }
+ 118:../src/MRCC_Program.c ****             break ;
+ 119:../src/MRCC_Program.c ****             /**
+ 120:../src/MRCC_Program.c ****             *@ contrl PLL Clock ON/OFF
+ 121:../src/MRCC_Program.c ****             */
+ 122:../src/MRCC_Program.c ****             case RCC_PLL :
+ 123:../src/MRCC_Program.c ****                      /**
+ 124:../src/MRCC_Program.c ****                     *@  PLL ON
+ 125:../src/MRCC_Program.c ****                     */
+ 126:../src/MRCC_Program.c ****                     if(Copy_enuClkStatus == RCC_CLK_ON)
+ 171              		.loc 1 126 0
+ 172 00a8 49B9     		cbnz	r1, .L16
+ 127:../src/MRCC_Program.c ****                         {
+ 128:../src/MRCC_Program.c ****                             RCC_CR |= (MASK_PLL_ON);
+ 173              		.loc 1 128 0
+ 174 00aa 184A     		ldr	r2, .L31+4
+ 175 00ac 1368     		ldr	r3, [r2]
+ 176              	.LVL22:
+ 177 00ae 43F08073 		orr	r3, r3, #16777216
+ 178 00b2 1360     		str	r3, [r2]
+  21:../src/MRCC_Program.c ****     /**
+ 179              		.loc 1 21 0
+ 180 00b4 0020     		movs	r0, #0
+ 181              	.LVL23:
+ 182 00b6 00E0     		b	.L18
+ 183              	.LVL24:
+ 184              	.L28:
+ 129:../src/MRCC_Program.c ****                         }
+ 130:../src/MRCC_Program.c ****                     /**
+ 131:../src/MRCC_Program.c ****                     *@ HSE OFF
+ 132:../src/MRCC_Program.c ****                     */
+ 133:../src/MRCC_Program.c ****                     else if(Copy_enuClkStatus == RCC_CLK_OFF)
+ 134:../src/MRCC_Program.c ****                         {
+ 135:../src/MRCC_Program.c ****                             RCC_CR &= (~MASK_PLL_ON);
+ 136:../src/MRCC_Program.c ****                         }   
+ 137:../src/MRCC_Program.c ****                     else
+ 138:../src/MRCC_Program.c ****                          Ret_enuErrorStatus = RCC_enuNOK;
+ 185              		.loc 1 138 0
+ 186 00b8 0120     		movs	r0, #1
+ 187              	.LVL25:
+ 188              	.L18:
+  21:../src/MRCC_Program.c ****     /**
+ 189              		.loc 1 21 0
+ 190 00ba 0023     		movs	r3, #0
+ 191 00bc 09E0     		b	.L17
+ 192              	.LVL26:
+ 193              	.L16:
+ 133:../src/MRCC_Program.c ****                         {
+ 194              		.loc 1 133 0
+ 195 00be 0129     		cmp	r1, #1
+ 196 00c0 FAD1     		bne	.L28
+ 135:../src/MRCC_Program.c ****                         }   
+ 197              		.loc 1 135 0
+ 198 00c2 124A     		ldr	r2, .L31+4
+ 199 00c4 1368     		ldr	r3, [r2]
+ 200              	.LVL27:
+ 201 00c6 23F08073 		bic	r3, r3, #16777216
+ 202 00ca 1360     		str	r3, [r2]
+  21:../src/MRCC_Program.c ****     /**
+ 203              		.loc 1 21 0
+ 204 00cc 0020     		movs	r0, #0
+ 205              	.LVL28:
+ 206 00ce F4E7     		b	.L18
+ 207              	.LVL29:
+ 208              	.L20:
+ 139:../src/MRCC_Program.c ****                     /**
+ 140:../src/MRCC_Program.c ****                     *@ Waiting for the clock to be ready
+ 141:../src/MRCC_Program.c ****                     */
+ 142:../src/MRCC_Program.c ****                     while(((RCC_CR & MASK_PLL_RDY) == 0) && Loc_u32TimeOut < 10000)
+ 143:../src/MRCC_Program.c ****                     {
+ 144:../src/MRCC_Program.c ****                         Loc_u32TimeOut ++ ;
+ 209              		.loc 1 144 0
+ 210 00d0 0133     		adds	r3, r3, #1
+ 211              	.LVL30:
+ 212              	.L17:
+ 142:../src/MRCC_Program.c ****                     {
+ 213              		.loc 1 142 0
+ 214 00d2 0E4A     		ldr	r2, .L31+4
+ 215 00d4 1268     		ldr	r2, [r2]
+ 216 00d6 12F0007F 		tst	r2, #33554432
+ 217 00da 03D1     		bne	.L19
+ 142:../src/MRCC_Program.c ****                     {
+ 218              		.loc 1 142 0 is_stmt 0 discriminator 1
+ 219 00dc 42F20F72 		movw	r2, #9999
+ 220 00e0 9342     		cmp	r3, r2
+ 221 00e2 F5D9     		bls	.L20
+ 222              	.L19:
+ 145:../src/MRCC_Program.c ****                     }   
+ 146:../src/MRCC_Program.c ****                     /**
+ 147:../src/MRCC_Program.c ****                     *@ TIME OUT
+ 148:../src/MRCC_Program.c ****                     */ 
+ 149:../src/MRCC_Program.c ****                     if(Loc_u32TimeOut >= 10000)
+ 223              		.loc 1 149 0 is_stmt 1
+ 224 00e4 42F20F72 		movw	r2, #9999
+ 225 00e8 9342     		cmp	r3, r2
+ 226 00ea 0AD8     		bhi	.L29
+ 227 00ec 7047     		bx	lr
+ 228              	.LVL31:
+ 229              	.L21:
+  36:../src/MRCC_Program.c ****       }
+ 230              		.loc 1 36 0
+ 231 00ee 0120     		movs	r0, #1
+ 232              	.LVL32:
+ 233 00f0 7047     		bx	lr
+ 234              	.LVL33:
+ 235              	.L22:
+  43:../src/MRCC_Program.c ****       }
+ 236              		.loc 1 43 0
+ 237 00f2 0120     		movs	r0, #1
+ 238              	.LVL34:
+ 239 00f4 7047     		bx	lr
+ 240              	.LVL35:
+ 241              	.L30:
+  21:../src/MRCC_Program.c ****     /**
+ 242              		.loc 1 21 0
+ 243 00f6 0020     		movs	r0, #0
+ 244              	.LVL36:
+ 245 00f8 7047     		bx	lr
+ 246              	.LVL37:
+ 247              	.L25:
+  81:../src/MRCC_Program.c ****                     }
+ 248              		.loc 1 81 0
+ 249 00fa 0120     		movs	r0, #1
+ 250              	.LVL38:
+ 251 00fc 7047     		bx	lr
+ 252              	.LVL39:
+ 253              	.L27:
+ 116:../src/MRCC_Program.c ****                     }
+ 254              		.loc 1 116 0
+ 255 00fe 0120     		movs	r0, #1
+ 256              	.LVL40:
+ 257 0100 7047     		bx	lr
+ 258              	.LVL41:
+ 259              	.L29:
+ 150:../src/MRCC_Program.c ****                     {
+ 151:../src/MRCC_Program.c ****                          Ret_enuErrorStatus = RCC_enuNOK;
+ 260              		.loc 1 151 0
+ 261 0102 0120     		movs	r0, #1
+ 262              	.LVL42:
+ 152:../src/MRCC_Program.c ****                     }
+ 153:../src/MRCC_Program.c ****             break ;
+ 154:../src/MRCC_Program.c ****             default :
+ 155:../src/MRCC_Program.c ****             break ;
+ 156:../src/MRCC_Program.c ****         }/*switch*/
+ 157:../src/MRCC_Program.c ****     }/*else*/
+ 158:../src/MRCC_Program.c **** 
+ 159:../src/MRCC_Program.c **** 
+ 160:../src/MRCC_Program.c **** 
+ 161:../src/MRCC_Program.c **** return Ret_enuErrorStatus ;
+ 162:../src/MRCC_Program.c **** }/*RCC_enuControlClk*/
+ 263              		.loc 1 162 0
+ 264 0104 7047     		bx	lr
+ 265              	.L32:
+ 266 0106 00BF     		.align	2
+ 267              	.L31:
+ 268 0108 08380240 		.word	1073887240
+ 269 010c 00380240 		.word	1073887232
+ 270              		.cfi_endproc
+ 271              	.LFE0:
+ 273              		.section	.text.RCC_enuSelectSystemClk,"ax",%progbits
+ 274              		.align	2
+ 275              		.global	RCC_enuSelectSystemClk
+ 276              		.thumb
+ 277              		.thumb_func
+ 279              	RCC_enuSelectSystemClk:
+ 280              	.LFB1:
+ 163:../src/MRCC_Program.c **** 
+ 164:../src/MRCC_Program.c **** RCC_enuErrorStatus_t RCC_enuSelectSystemClk (RCC_enuSysClk_t Copy_enuSystemClock)
+ 165:../src/MRCC_Program.c **** {
+ 281              		.loc 1 165 0
+ 282              		.cfi_startproc
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285              		@ link register save eliminated.
+ 286              	.LVL43:
+ 166:../src/MRCC_Program.c ****      RCC_enuErrorStatus_t Ret_enuErrorStatus = RCC_enuOK ;
+ 167:../src/MRCC_Program.c **** 
+ 168:../src/MRCC_Program.c ****      u32 Loc_u32CFGR_TempRegister;
+ 169:../src/MRCC_Program.c ****      /**
+ 170:../src/MRCC_Program.c ****      *@ timout variable used in while loops
+ 171:../src/MRCC_Program.c ****      */
+ 172:../src/MRCC_Program.c ****      u32 Loc_u32TimeOut = 0;
+ 173:../src/MRCC_Program.c ****     /**
+ 174:../src/MRCC_Program.c ****     *@ validate the input clock
+ 175:../src/MRCC_Program.c ****     */
+ 176:../src/MRCC_Program.c ****     if(!(Copy_enuSystemClock >= RCC_HSI) &&  (Copy_enuSystemClock <= RCC_PLL))
+ 177:../src/MRCC_Program.c ****       {
+ 178:../src/MRCC_Program.c ****             Ret_enuErrorStatus = RCC_enuNOK;
+ 179:../src/MRCC_Program.c ****       }
+ 180:../src/MRCC_Program.c ****     else 
+ 181:../src/MRCC_Program.c ****     {
+ 182:../src/MRCC_Program.c ****         switch(Copy_enuSystemClock)
+ 287              		.loc 1 182 0
+ 288 0000 0128     		cmp	r0, #1
+ 289 0002 22D0     		beq	.L35
+ 290 0004 10B1     		cbz	r0, .L36
+ 291 0006 0228     		cmp	r0, #2
+ 292 0008 41D0     		beq	.L37
+ 293 000a 62E0     		b	.L57
+ 294              	.L36:
+ 183:../src/MRCC_Program.c ****         {
+ 184:../src/MRCC_Program.c ****             /**
+ 185:../src/MRCC_Program.c ****             *@ select HSI Clock 
+ 186:../src/MRCC_Program.c ****             */
+ 187:../src/MRCC_Program.c ****             case RCC_HSI :
+ 188:../src/MRCC_Program.c ****                          /* CHECK ON */
+ 189:../src/MRCC_Program.c ****                       if( ((RCC_CR & MASK_HSI_ON) == MASK_HSI_ON) )
+ 295              		.loc 1 189 0
+ 296 000c 3B4B     		ldr	r3, .L58
+ 297 000e 1B68     		ldr	r3, [r3]
+ 298 0010 13F0010F 		tst	r3, #1
+ 299 0014 5FD0     		beq	.L48
+ 190:../src/MRCC_Program.c ****                       {
+ 191:../src/MRCC_Program.c ****                           /* CHECK READY FLAG */
+ 192:../src/MRCC_Program.c ****                           if((RCC_CR & MASK_HSI_RDY) == MASK_HSI_RDY)
+ 300              		.loc 1 192 0
+ 301 0016 394B     		ldr	r3, .L58
+ 302 0018 1B68     		ldr	r3, [r3]
+ 303 001a 13F0020F 		tst	r3, #2
+ 304 001e 5CD0     		beq	.L49
+ 193:../src/MRCC_Program.c ****                           {
+ 194:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister = RCC_CFGR ;
+ 305              		.loc 1 194 0
+ 306 0020 374A     		ldr	r2, .L58+4
+ 307 0022 1368     		ldr	r3, [r2]
+ 308              	.LVL44:
+ 195:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister &= (~MASK_SW) ;
+ 309              		.loc 1 195 0
+ 310 0024 23F00303 		bic	r3, r3, #3
+ 311              	.LVL45:
+ 196:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister |= RCC_HSI ;
+ 197:../src/MRCC_Program.c ****                             RCC_CFGR = Loc_u32CFGR_TempRegister ;
+ 312              		.loc 1 197 0
+ 313 0028 1360     		str	r3, [r2]
+ 172:../src/MRCC_Program.c ****     /**
+ 314              		.loc 1 172 0
+ 315 002a 0023     		movs	r3, #0
+ 316              	.LVL46:
+ 198:../src/MRCC_Program.c **** 							
+ 199:../src/MRCC_Program.c ****                             while( ((RCC_CFGR & MASK_GET_SWS) != MASK_SWS_HSI) && (Loc_u32TimeOut<1
+ 317              		.loc 1 199 0
+ 318 002c 00E0     		b	.L38
+ 319              	.LVL47:
+ 320              	.L40:
+ 200:../src/MRCC_Program.c ****                             {
+ 201:../src/MRCC_Program.c **** 						        Loc_u32TimeOut++;
+ 321              		.loc 1 201 0
+ 322 002e 0133     		adds	r3, r3, #1
+ 323              	.LVL48:
+ 324              	.L38:
+ 199:../src/MRCC_Program.c ****                             {
+ 325              		.loc 1 199 0
+ 326 0030 334A     		ldr	r2, .L58+4
+ 327              	.LVL49:
+ 328 0032 1268     		ldr	r2, [r2]
+ 329              	.LVL50:
+ 330 0034 12F00C0F 		tst	r2, #12
+ 331 0038 02D0     		beq	.L39
+ 199:../src/MRCC_Program.c ****                             {
+ 332              		.loc 1 199 0 is_stmt 0 discriminator 1
+ 333 003a 324A     		ldr	r2, .L58+8
+ 334 003c 9342     		cmp	r3, r2
+ 335 003e F6D9     		bls	.L40
+ 336              	.L39:
+ 202:../src/MRCC_Program.c **** 					        }
+ 203:../src/MRCC_Program.c ****                             if( Loc_u32TimeOut >= 100000 )
+ 337              		.loc 1 203 0 is_stmt 1
+ 338 0040 304A     		ldr	r2, .L58+8
+ 339 0042 9342     		cmp	r3, r2
+ 340 0044 4BD8     		bhi	.L50
+ 166:../src/MRCC_Program.c **** 
+ 341              		.loc 1 166 0
+ 342 0046 0020     		movs	r0, #0
+ 343              	.LVL51:
+ 344 0048 7047     		bx	lr
+ 345              	.LVL52:
+ 346              	.L35:
+ 204:../src/MRCC_Program.c ****                             {
+ 205:../src/MRCC_Program.c **** 						        /* TIMEOUT */
+ 206:../src/MRCC_Program.c **** 						        Ret_enuErrorStatus = RCC_enuNOK; 
+ 207:../src/MRCC_Program.c **** 					        }
+ 208:../src/MRCC_Program.c **** 
+ 209:../src/MRCC_Program.c ****                           }/*if2*/
+ 210:../src/MRCC_Program.c ****                           else
+ 211:../src/MRCC_Program.c ****                               Ret_enuErrorStatus = RCC_enuNOK;  
+ 212:../src/MRCC_Program.c ****                       }/*if1*/
+ 213:../src/MRCC_Program.c ****                       else
+ 214:../src/MRCC_Program.c ****                               Ret_enuErrorStatus = RCC_enuNOK;  
+ 215:../src/MRCC_Program.c ****             break;
+ 216:../src/MRCC_Program.c ****             case RCC_HSE :
+ 217:../src/MRCC_Program.c ****                             /* CHECK ON */
+ 218:../src/MRCC_Program.c ****                       if( ((RCC_CR & MASK_HSE_ON) == MASK_HSE_ON) )
+ 347              		.loc 1 218 0
+ 348 004a 2C4B     		ldr	r3, .L58
+ 349 004c 1B68     		ldr	r3, [r3]
+ 350 004e 13F4803F 		tst	r3, #65536
+ 351 0052 46D0     		beq	.L51
+ 219:../src/MRCC_Program.c ****                       {
+ 220:../src/MRCC_Program.c ****                           /* CHECK READY FLAG */
+ 221:../src/MRCC_Program.c ****                           if((RCC_CR & MASK_HSE_RDY) == MASK_HSE_RDY)
+ 352              		.loc 1 221 0
+ 353 0054 294B     		ldr	r3, .L58
+ 354 0056 1B68     		ldr	r3, [r3]
+ 355 0058 13F4003F 		tst	r3, #131072
+ 356 005c 43D0     		beq	.L52
+ 222:../src/MRCC_Program.c ****                           {
+ 223:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister = RCC_CFGR ;
+ 357              		.loc 1 223 0
+ 358 005e 284A     		ldr	r2, .L58+4
+ 359 0060 1368     		ldr	r3, [r2]
+ 360              	.LVL53:
+ 224:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister &= (~MASK_SW) ;
+ 361              		.loc 1 224 0
+ 362 0062 23F00303 		bic	r3, r3, #3
+ 363              	.LVL54:
+ 225:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister |= RCC_HSE ;
+ 364              		.loc 1 225 0
+ 365 0066 43F00103 		orr	r3, r3, #1
+ 366              	.LVL55:
+ 226:../src/MRCC_Program.c ****                             RCC_CFGR = Loc_u32CFGR_TempRegister ;
+ 367              		.loc 1 226 0
+ 368 006a 1360     		str	r3, [r2]
+ 172:../src/MRCC_Program.c ****     /**
+ 369              		.loc 1 172 0
+ 370 006c 0022     		movs	r2, #0
+ 227:../src/MRCC_Program.c **** 
+ 228:../src/MRCC_Program.c ****                             while( ((RCC_CFGR & MASK_GET_SWS) != MASK_SWS_HSE) && (Loc_u32TimeOut<1
+ 371              		.loc 1 228 0
+ 372 006e 00E0     		b	.L41
+ 373              	.LVL56:
+ 374              	.L43:
+ 229:../src/MRCC_Program.c ****                             {
+ 230:../src/MRCC_Program.c **** 						        Loc_u32TimeOut++;
+ 375              		.loc 1 230 0
+ 376 0070 0132     		adds	r2, r2, #1
+ 377              	.LVL57:
+ 378              	.L41:
+ 228:../src/MRCC_Program.c ****                             {
+ 379              		.loc 1 228 0
+ 380 0072 234B     		ldr	r3, .L58+4
+ 381              	.LVL58:
+ 382 0074 1B68     		ldr	r3, [r3]
+ 383              	.LVL59:
+ 384 0076 03F00C03 		and	r3, r3, #12
+ 385 007a 042B     		cmp	r3, #4
+ 386 007c 02D0     		beq	.L42
+ 228:../src/MRCC_Program.c ****                             {
+ 387              		.loc 1 228 0 is_stmt 0 discriminator 1
+ 388 007e 214B     		ldr	r3, .L58+8
+ 389 0080 9A42     		cmp	r2, r3
+ 390 0082 F5D9     		bls	.L43
+ 391              	.L42:
+ 231:../src/MRCC_Program.c **** 					        }
+ 232:../src/MRCC_Program.c ****                             if( Loc_u32TimeOut >= 100000 )
+ 392              		.loc 1 232 0 is_stmt 1
+ 393 0084 1F4B     		ldr	r3, .L58+8
+ 394 0086 9A42     		cmp	r2, r3
+ 395 0088 2FD8     		bhi	.L53
+ 166:../src/MRCC_Program.c **** 
+ 396              		.loc 1 166 0
+ 397 008a 0020     		movs	r0, #0
+ 398              	.LVL60:
+ 399 008c 7047     		bx	lr
+ 400              	.LVL61:
+ 401              	.L37:
+ 233:../src/MRCC_Program.c ****                             {
+ 234:../src/MRCC_Program.c **** 						        /* TIMEOUT */
+ 235:../src/MRCC_Program.c **** 						        Ret_enuErrorStatus = RCC_enuNOK; 
+ 236:../src/MRCC_Program.c **** 					        }
+ 237:../src/MRCC_Program.c **** 
+ 238:../src/MRCC_Program.c **** 
+ 239:../src/MRCC_Program.c ****                           }/*if2*/
+ 240:../src/MRCC_Program.c ****                           else
+ 241:../src/MRCC_Program.c ****                               Ret_enuErrorStatus = RCC_enuNOK;  
+ 242:../src/MRCC_Program.c ****                       }/*if1*/
+ 243:../src/MRCC_Program.c ****                       else
+ 244:../src/MRCC_Program.c ****                               Ret_enuErrorStatus = RCC_enuNOK;  
+ 245:../src/MRCC_Program.c ****             break;
+ 246:../src/MRCC_Program.c ****             case RCC_PLL :
+ 247:../src/MRCC_Program.c ****                                /* CHECK ON */
+ 248:../src/MRCC_Program.c ****                       if( ((RCC_CR & MASK_PLL_ON) == MASK_PLL_ON) )
+ 402              		.loc 1 248 0
+ 403 008e 1B4B     		ldr	r3, .L58
+ 404 0090 1B68     		ldr	r3, [r3]
+ 405 0092 13F0807F 		tst	r3, #16777216
+ 406 0096 2AD0     		beq	.L54
+ 249:../src/MRCC_Program.c ****                       {
+ 250:../src/MRCC_Program.c ****                           /* CHECK READY FLAG */
+ 251:../src/MRCC_Program.c ****                           if((RCC_CR & MASK_PLL_RDY) == MASK_PLL_RDY)
+ 407              		.loc 1 251 0
+ 408 0098 184B     		ldr	r3, .L58
+ 409 009a 1B68     		ldr	r3, [r3]
+ 410 009c 13F0007F 		tst	r3, #33554432
+ 411 00a0 27D0     		beq	.L55
+ 252:../src/MRCC_Program.c ****                           {
+ 253:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister = RCC_CFGR ;
+ 412              		.loc 1 253 0
+ 413 00a2 174A     		ldr	r2, .L58+4
+ 414 00a4 1368     		ldr	r3, [r2]
+ 415              	.LVL62:
+ 254:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister &= (~MASK_SW) ;
+ 416              		.loc 1 254 0
+ 417 00a6 23F00303 		bic	r3, r3, #3
+ 418              	.LVL63:
+ 255:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister |= RCC_PLL ;
+ 419              		.loc 1 255 0
+ 420 00aa 43F00203 		orr	r3, r3, #2
+ 421              	.LVL64:
+ 256:../src/MRCC_Program.c ****                             RCC_CFGR = Loc_u32CFGR_TempRegister ;
+ 422              		.loc 1 256 0
+ 423 00ae 1360     		str	r3, [r2]
+ 172:../src/MRCC_Program.c ****     /**
+ 424              		.loc 1 172 0
+ 425 00b0 0022     		movs	r2, #0
+ 257:../src/MRCC_Program.c **** 
+ 258:../src/MRCC_Program.c ****                             while( ((RCC_CFGR & MASK_GET_SWS) != MASK_SWS_PLL) && (Loc_u32TimeOut<1
+ 426              		.loc 1 258 0
+ 427 00b2 00E0     		b	.L44
+ 428              	.LVL65:
+ 429              	.L46:
+ 259:../src/MRCC_Program.c ****                             {
+ 260:../src/MRCC_Program.c **** 						        Loc_u32TimeOut++;
+ 430              		.loc 1 260 0
+ 431 00b4 0132     		adds	r2, r2, #1
+ 432              	.LVL66:
+ 433              	.L44:
+ 258:../src/MRCC_Program.c ****                             {
+ 434              		.loc 1 258 0
+ 435 00b6 124B     		ldr	r3, .L58+4
+ 436              	.LVL67:
+ 437 00b8 1B68     		ldr	r3, [r3]
+ 438              	.LVL68:
+ 439 00ba 03F00C03 		and	r3, r3, #12
+ 440 00be 082B     		cmp	r3, #8
+ 441 00c0 02D0     		beq	.L45
+ 258:../src/MRCC_Program.c ****                             {
+ 442              		.loc 1 258 0 is_stmt 0 discriminator 1
+ 443 00c2 104B     		ldr	r3, .L58+8
+ 444 00c4 9A42     		cmp	r2, r3
+ 445 00c6 F5D9     		bls	.L46
+ 446              	.L45:
+ 261:../src/MRCC_Program.c **** 					        }
+ 262:../src/MRCC_Program.c ****                             if( Loc_u32TimeOut >= 100000 )
+ 447              		.loc 1 262 0 is_stmt 1
+ 448 00c8 0E4B     		ldr	r3, .L58+8
+ 449 00ca 9A42     		cmp	r2, r3
+ 450 00cc 13D8     		bhi	.L56
+ 166:../src/MRCC_Program.c **** 
+ 451              		.loc 1 166 0
+ 452 00ce 0020     		movs	r0, #0
+ 453              	.LVL69:
+ 454 00d0 7047     		bx	lr
+ 455              	.LVL70:
+ 456              	.L57:
+ 457 00d2 0020     		movs	r0, #0
+ 458              	.LVL71:
+ 459 00d4 7047     		bx	lr
+ 460              	.LVL72:
+ 461              	.L48:
+ 214:../src/MRCC_Program.c ****             break;
+ 462              		.loc 1 214 0
+ 463 00d6 0120     		movs	r0, #1
+ 464              	.LVL73:
+ 465 00d8 7047     		bx	lr
+ 466              	.LVL74:
+ 467              	.L49:
+ 211:../src/MRCC_Program.c ****                       }/*if1*/
+ 468              		.loc 1 211 0
+ 469 00da 0120     		movs	r0, #1
+ 470              	.LVL75:
+ 471 00dc 7047     		bx	lr
+ 472              	.LVL76:
+ 473              	.L50:
+ 206:../src/MRCC_Program.c **** 					        }
+ 474              		.loc 1 206 0
+ 475 00de 0120     		movs	r0, #1
+ 476              	.LVL77:
+ 477 00e0 7047     		bx	lr
+ 478              	.LVL78:
+ 479              	.L51:
+ 244:../src/MRCC_Program.c ****             break;
+ 480              		.loc 1 244 0
+ 481 00e2 0120     		movs	r0, #1
+ 482              	.LVL79:
+ 483 00e4 7047     		bx	lr
+ 484              	.LVL80:
+ 485              	.L52:
+ 241:../src/MRCC_Program.c ****                       }/*if1*/
+ 486              		.loc 1 241 0
+ 487 00e6 0120     		movs	r0, #1
+ 488              	.LVL81:
+ 489 00e8 7047     		bx	lr
+ 490              	.LVL82:
+ 491              	.L53:
+ 235:../src/MRCC_Program.c **** 					        }
+ 492              		.loc 1 235 0
+ 493 00ea 0120     		movs	r0, #1
+ 494              	.LVL83:
+ 495 00ec 7047     		bx	lr
+ 496              	.LVL84:
+ 497              	.L54:
+ 263:../src/MRCC_Program.c ****                             {
+ 264:../src/MRCC_Program.c **** 						        /* TIMEOUT */
+ 265:../src/MRCC_Program.c **** 						        Ret_enuErrorStatus = RCC_enuNOK; 
+ 266:../src/MRCC_Program.c **** 					        }
+ 267:../src/MRCC_Program.c **** 
+ 268:../src/MRCC_Program.c **** 
+ 269:../src/MRCC_Program.c ****                           }/*if2*/
+ 270:../src/MRCC_Program.c ****                           else
+ 271:../src/MRCC_Program.c ****                               Ret_enuErrorStatus = RCC_enuNOK;  
+ 272:../src/MRCC_Program.c ****                       }/*if1*/
+ 273:../src/MRCC_Program.c ****                       else
+ 274:../src/MRCC_Program.c ****                               Ret_enuErrorStatus = RCC_enuNOK;  
+ 498              		.loc 1 274 0
+ 499 00ee 0120     		movs	r0, #1
+ 500              	.LVL85:
+ 501 00f0 7047     		bx	lr
+ 502              	.LVL86:
+ 503              	.L55:
+ 271:../src/MRCC_Program.c ****                       }/*if1*/
+ 504              		.loc 1 271 0
+ 505 00f2 0120     		movs	r0, #1
+ 506              	.LVL87:
+ 507 00f4 7047     		bx	lr
+ 508              	.LVL88:
+ 509              	.L56:
+ 265:../src/MRCC_Program.c **** 					        }
+ 510              		.loc 1 265 0
+ 511 00f6 0120     		movs	r0, #1
+ 512              	.LVL89:
+ 275:../src/MRCC_Program.c ****             break;
+ 276:../src/MRCC_Program.c ****             default :
+ 277:../src/MRCC_Program.c ****             break;
+ 278:../src/MRCC_Program.c ****         }/*SWITCH*/
+ 279:../src/MRCC_Program.c ****     }/*else*/    
+ 280:../src/MRCC_Program.c **** 
+ 281:../src/MRCC_Program.c **** return Ret_enuErrorStatus ;
+ 282:../src/MRCC_Program.c **** }/*RCC_enuSelectSystemClk*/
+ 513              		.loc 1 282 0
+ 514 00f8 7047     		bx	lr
+ 515              	.L59:
+ 516 00fa 00BF     		.align	2
+ 517              	.L58:
+ 518 00fc 00380240 		.word	1073887232
+ 519 0100 08380240 		.word	1073887240
+ 520 0104 9F860100 		.word	99999
+ 521              		.cfi_endproc
+ 522              	.LFE1:
+ 524              		.section	.text.RCC_enuEnablePeripheralClock,"ax",%progbits
+ 525              		.align	2
+ 526              		.global	RCC_enuEnablePeripheralClock
+ 527              		.thumb
+ 528              		.thumb_func
+ 530              	RCC_enuEnablePeripheralClock:
+ 531              	.LFB2:
+ 283:../src/MRCC_Program.c **** 
+ 284:../src/MRCC_Program.c **** RCC_enuErrorStatus_t RCC_enuEnablePeripheralClock (RCC_enuBus_t Copy_enuPeripheralBus, u8 Copy_u8Pe
+ 285:../src/MRCC_Program.c **** {
+ 532              		.loc 1 285 0
+ 533              		.cfi_startproc
+ 534              		@ args = 0, pretend = 0, frame = 0
+ 535              		@ frame_needed = 0, uses_anonymous_args = 0
+ 536              		@ link register save eliminated.
+ 537              	.LVL90:
+ 286:../src/MRCC_Program.c ****      RCC_enuErrorStatus_t Ret_enuErrorStatus = RCC_enuOK ;
+ 287:../src/MRCC_Program.c ****      /**
+ 288:../src/MRCC_Program.c ****      *@ Validate input Bus
+ 289:../src/MRCC_Program.c ****      */
+ 290:../src/MRCC_Program.c ****      if( Copy_enuPeripheralBus < RCC_AHB1 && Copy_enuPeripheralBus > RCC_APB2 )
+ 291:../src/MRCC_Program.c ****      {
+ 292:../src/MRCC_Program.c ****          Ret_enuErrorStatus = RCC_enuNOK ;
+ 293:../src/MRCC_Program.c ****      }/*if1*/
+ 294:../src/MRCC_Program.c ****      else
+ 295:../src/MRCC_Program.c ****      {
+ 296:../src/MRCC_Program.c ****         switch(Copy_enuPeripheralBus)
+ 538              		.loc 1 296 0
+ 539 0000 0328     		cmp	r0, #3
+ 540 0002 22D8     		bhi	.L61
+ 541 0004 DFE800F0 		tbb	[pc, r0]
+ 542              	.L63:
+ 543 0008 02       		.byte	(.L62-.L63)/2
+ 544 0009 0A       		.byte	(.L64-.L63)/2
+ 545 000a 12       		.byte	(.L65-.L63)/2
+ 546 000b 1A       		.byte	(.L66-.L63)/2
+ 547              		.p2align 1
+ 548              	.L62:
+ 297:../src/MRCC_Program.c ****         {
+ 298:../src/MRCC_Program.c ****             case RCC_AHB1 :
+ 299:../src/MRCC_Program.c ****                          RCC_AHB1ENR |= (1<<Copy_u8PeripheralNumber);
+ 549              		.loc 1 299 0
+ 550 000c 1048     		ldr	r0, .L67
+ 551              	.LVL91:
+ 552 000e 0368     		ldr	r3, [r0]
+ 553 0010 0122     		movs	r2, #1
+ 554 0012 02FA01F1 		lsl	r1, r2, r1
+ 555              	.LVL92:
+ 556 0016 1943     		orrs	r1, r1, r3
+ 557 0018 0160     		str	r1, [r0]
+ 300:../src/MRCC_Program.c ****             break;
+ 558              		.loc 1 300 0
+ 559 001a 16E0     		b	.L61
+ 560              	.LVL93:
+ 561              	.L64:
+ 301:../src/MRCC_Program.c ****             case RCC_AHB2 :
+ 302:../src/MRCC_Program.c ****                          RCC_AHB2ENR |= (1<<Copy_u8PeripheralNumber);
+ 562              		.loc 1 302 0
+ 563 001c 0D48     		ldr	r0, .L67+4
+ 564              	.LVL94:
+ 565 001e 0368     		ldr	r3, [r0]
+ 566 0020 0122     		movs	r2, #1
+ 567 0022 02FA01F1 		lsl	r1, r2, r1
+ 568              	.LVL95:
+ 569 0026 1943     		orrs	r1, r1, r3
+ 570 0028 0160     		str	r1, [r0]
+ 303:../src/MRCC_Program.c ****             break;
+ 571              		.loc 1 303 0
+ 572 002a 0EE0     		b	.L61
+ 573              	.LVL96:
+ 574              	.L65:
+ 304:../src/MRCC_Program.c ****             case RCC_APB1 :
+ 305:../src/MRCC_Program.c ****                          RCC_APB1ENR |= (1<<Copy_u8PeripheralNumber);
+ 575              		.loc 1 305 0
+ 576 002c 0A48     		ldr	r0, .L67+8
+ 577              	.LVL97:
+ 578 002e 0368     		ldr	r3, [r0]
+ 579 0030 0122     		movs	r2, #1
+ 580 0032 02FA01F1 		lsl	r1, r2, r1
+ 581              	.LVL98:
+ 582 0036 1943     		orrs	r1, r1, r3
+ 583 0038 0160     		str	r1, [r0]
+ 306:../src/MRCC_Program.c ****             break;
+ 584              		.loc 1 306 0
+ 585 003a 06E0     		b	.L61
+ 586              	.LVL99:
+ 587              	.L66:
+ 307:../src/MRCC_Program.c ****             case RCC_APB2 :
+ 308:../src/MRCC_Program.c ****                          RCC_APB2ENR |= (1<<Copy_u8PeripheralNumber);
+ 588              		.loc 1 308 0
+ 589 003c 0748     		ldr	r0, .L67+12
+ 590              	.LVL100:
+ 591 003e 0368     		ldr	r3, [r0]
+ 592 0040 0122     		movs	r2, #1
+ 593 0042 02FA01F1 		lsl	r1, r2, r1
+ 594              	.LVL101:
+ 595 0046 1943     		orrs	r1, r1, r3
+ 596 0048 0160     		str	r1, [r0]
+ 597              	.L61:
+ 309:../src/MRCC_Program.c ****             break;
+ 310:../src/MRCC_Program.c ****             default :
+ 311:../src/MRCC_Program.c ****             break;
+ 312:../src/MRCC_Program.c ****         }/*switch*/
+ 313:../src/MRCC_Program.c **** 
+ 314:../src/MRCC_Program.c ****      }/*else*/
+ 315:../src/MRCC_Program.c ****        
+ 316:../src/MRCC_Program.c **** 
+ 317:../src/MRCC_Program.c **** 
+ 318:../src/MRCC_Program.c **** return Ret_enuErrorStatus ;
+ 319:../src/MRCC_Program.c **** }/*RCC_enuEnablePeripheralClock*/
+ 598              		.loc 1 319 0
+ 599 004a 0020     		movs	r0, #0
+ 600 004c 7047     		bx	lr
+ 601              	.L68:
+ 602 004e 00BF     		.align	2
+ 603              	.L67:
+ 604 0050 30380240 		.word	1073887280
+ 605 0054 34380240 		.word	1073887284
+ 606 0058 40380240 		.word	1073887296
+ 607 005c 44380240 		.word	1073887300
+ 608              		.cfi_endproc
+ 609              	.LFE2:
+ 611              		.section	.text.RCC_enuDisablePeripheralClock,"ax",%progbits
+ 612              		.align	2
+ 613              		.global	RCC_enuDisablePeripheralClock
+ 614              		.thumb
+ 615              		.thumb_func
+ 617              	RCC_enuDisablePeripheralClock:
+ 618              	.LFB3:
+ 320:../src/MRCC_Program.c **** 
+ 321:../src/MRCC_Program.c **** RCC_enuErrorStatus_t RCC_enuDisablePeripheralClock (RCC_enuBus_t Copy_enuPeripheralBus, u8 Copy_u8P
+ 322:../src/MRCC_Program.c **** {
+ 619              		.loc 1 322 0
+ 620              		.cfi_startproc
+ 621              		@ args = 0, pretend = 0, frame = 0
+ 622              		@ frame_needed = 0, uses_anonymous_args = 0
+ 623              		@ link register save eliminated.
+ 624              	.LVL102:
+ 323:../src/MRCC_Program.c ****      RCC_enuErrorStatus_t Ret_enuErrorStatus = RCC_enuOK ;
+ 324:../src/MRCC_Program.c **** 
+ 325:../src/MRCC_Program.c ****       /**
+ 326:../src/MRCC_Program.c ****      *@ Validate input Bus
+ 327:../src/MRCC_Program.c ****      */
+ 328:../src/MRCC_Program.c ****      if( Copy_enuPeripheralBus < RCC_AHB1 && Copy_enuPeripheralBus > RCC_APB2 )
+ 329:../src/MRCC_Program.c ****      {
+ 330:../src/MRCC_Program.c ****          Ret_enuErrorStatus = RCC_enuNOK ;
+ 331:../src/MRCC_Program.c ****      }/*if1*/
+ 332:../src/MRCC_Program.c ****      else
+ 333:../src/MRCC_Program.c ****      {
+ 334:../src/MRCC_Program.c ****         switch(Copy_enuPeripheralBus)
+ 625              		.loc 1 334 0
+ 626 0000 0328     		cmp	r0, #3
+ 627 0002 26D8     		bhi	.L70
+ 628 0004 DFE800F0 		tbb	[pc, r0]
+ 629              	.L72:
+ 630 0008 02       		.byte	(.L71-.L72)/2
+ 631 0009 0B       		.byte	(.L73-.L72)/2
+ 632 000a 14       		.byte	(.L74-.L72)/2
+ 633 000b 1D       		.byte	(.L75-.L72)/2
+ 634              		.p2align 1
+ 635              	.L71:
+ 335:../src/MRCC_Program.c ****         {
+ 336:../src/MRCC_Program.c ****             case RCC_AHB1 :
+ 337:../src/MRCC_Program.c ****                          RCC_AHB1ENR &= (~(1<<Copy_u8PeripheralNumber));
+ 636              		.loc 1 337 0
+ 637 000c 1248     		ldr	r0, .L76
+ 638              	.LVL103:
+ 639 000e 0368     		ldr	r3, [r0]
+ 640 0010 0122     		movs	r2, #1
+ 641 0012 02FA01F1 		lsl	r1, r2, r1
+ 642              	.LVL104:
+ 643 0016 23EA0101 		bic	r1, r3, r1
+ 644 001a 0160     		str	r1, [r0]
+ 338:../src/MRCC_Program.c ****             break;
+ 645              		.loc 1 338 0
+ 646 001c 19E0     		b	.L70
+ 647              	.LVL105:
+ 648              	.L73:
+ 339:../src/MRCC_Program.c ****             case RCC_AHB2 :
+ 340:../src/MRCC_Program.c ****                          RCC_AHB2ENR &= (~(1<<Copy_u8PeripheralNumber));
+ 649              		.loc 1 340 0
+ 650 001e 0F48     		ldr	r0, .L76+4
+ 651              	.LVL106:
+ 652 0020 0368     		ldr	r3, [r0]
+ 653 0022 0122     		movs	r2, #1
+ 654 0024 02FA01F1 		lsl	r1, r2, r1
+ 655              	.LVL107:
+ 656 0028 23EA0101 		bic	r1, r3, r1
+ 657 002c 0160     		str	r1, [r0]
+ 341:../src/MRCC_Program.c ****             break;
+ 658              		.loc 1 341 0
+ 659 002e 10E0     		b	.L70
+ 660              	.LVL108:
+ 661              	.L74:
+ 342:../src/MRCC_Program.c ****             case RCC_APB1 :
+ 343:../src/MRCC_Program.c ****                          RCC_APB1ENR &= (~(1<<Copy_u8PeripheralNumber));
+ 662              		.loc 1 343 0
+ 663 0030 0B48     		ldr	r0, .L76+8
+ 664              	.LVL109:
+ 665 0032 0368     		ldr	r3, [r0]
+ 666 0034 0122     		movs	r2, #1
+ 667 0036 02FA01F1 		lsl	r1, r2, r1
+ 668              	.LVL110:
+ 669 003a 23EA0101 		bic	r1, r3, r1
+ 670 003e 0160     		str	r1, [r0]
+ 344:../src/MRCC_Program.c ****             break;
+ 671              		.loc 1 344 0
+ 672 0040 07E0     		b	.L70
+ 673              	.LVL111:
+ 674              	.L75:
+ 345:../src/MRCC_Program.c ****             case RCC_APB2 :
+ 346:../src/MRCC_Program.c ****                          RCC_APB2ENR &= (~(1<<Copy_u8PeripheralNumber));
+ 675              		.loc 1 346 0
+ 676 0042 0848     		ldr	r0, .L76+12
+ 677              	.LVL112:
+ 678 0044 0368     		ldr	r3, [r0]
+ 679 0046 0122     		movs	r2, #1
+ 680 0048 02FA01F1 		lsl	r1, r2, r1
+ 681              	.LVL113:
+ 682 004c 23EA0101 		bic	r1, r3, r1
+ 683 0050 0160     		str	r1, [r0]
+ 684              	.L70:
+ 347:../src/MRCC_Program.c ****             break;
+ 348:../src/MRCC_Program.c ****             default :
+ 349:../src/MRCC_Program.c ****             break;
+ 350:../src/MRCC_Program.c ****         }/*switch*/
+ 351:../src/MRCC_Program.c **** 
+ 352:../src/MRCC_Program.c ****      }/*else*/
+ 353:../src/MRCC_Program.c **** 
+ 354:../src/MRCC_Program.c **** 
+ 355:../src/MRCC_Program.c **** return Ret_enuErrorStatus ;
+ 356:../src/MRCC_Program.c **** }/*RCC_enuDisablePeripheralClock*/
+ 685              		.loc 1 356 0
+ 686 0052 0020     		movs	r0, #0
+ 687 0054 7047     		bx	lr
+ 688              	.L77:
+ 689 0056 00BF     		.align	2
+ 690              	.L76:
+ 691 0058 30380240 		.word	1073887280
+ 692 005c 34380240 		.word	1073887284
+ 693 0060 40380240 		.word	1073887296
+ 694 0064 44380240 		.word	1073887300
+ 695              		.cfi_endproc
+ 696              	.LFE3:
+ 698              		.section	.text.RCC_enuConfigPLL,"ax",%progbits
+ 699              		.align	2
+ 700              		.global	RCC_enuConfigPLL
+ 701              		.thumb
+ 702              		.thumb_func
+ 704              	RCC_enuConfigPLL:
+ 705              	.LFB4:
+ 357:../src/MRCC_Program.c **** 
+ 358:../src/MRCC_Program.c **** RCC_enuErrorStatus_t  RCC_enuConfigPLL (RCC_structCLKPLL_t * Copy_structPLLCongif)
+ 359:../src/MRCC_Program.c **** {
+ 706              		.loc 1 359 0
+ 707              		.cfi_startproc
+ 708              		@ args = 0, pretend = 0, frame = 0
+ 709              		@ frame_needed = 0, uses_anonymous_args = 0
+ 710              		@ link register save eliminated.
+ 711              	.LVL114:
+ 360:../src/MRCC_Program.c ****      RCC_enuErrorStatus_t Ret_enuErrorStatus = RCC_enuOK ;
+ 361:../src/MRCC_Program.c **** 
+ 362:../src/MRCC_Program.c ****        u32 Loc_u32PLLCFGR_TempRegister;
+ 363:../src/MRCC_Program.c **** 
+ 364:../src/MRCC_Program.c ****        /* CHICKING ERROR : PLL ON */
+ 365:../src/MRCC_Program.c ****          if(( RCC_CR & MASK_GET_ON_PLL) == ON)
+ 712              		.loc 1 365 0
+ 713 0000 244B     		ldr	r3, .L86
+ 714 0002 1B68     		ldr	r3, [r3]
+ 366:../src/MRCC_Program.c ****          {
+ 367:../src/MRCC_Program.c ****                 Ret_enuErrorStatus = RCC_enuNOK ;
+ 368:../src/MRCC_Program.c ****          }
+ 369:../src/MRCC_Program.c ****          /* CHECKING ERROR : CLOCK SOURCE */
+ 370:../src/MRCC_Program.c ****          else if(Copy_structPLLCongif->RCC_strPLLSCR > PLL_HSE_SRC ||  Copy_structPLLCongif->RCC_st
+ 715              		.loc 1 370 0
+ 716 0004 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 717 0006 012B     		cmp	r3, #1
+ 718 0008 39D8     		bhi	.L81
+ 371:../src/MRCC_Program.c ****          {
+ 372:../src/MRCC_Program.c ****                 Ret_enuErrorStatus = RCC_enuNOK ;
+ 373:../src/MRCC_Program.c ****          }
+ 374:../src/MRCC_Program.c ****          /* CHECKING ERROR : M CONFIGURATION */
+ 375:../src/MRCC_Program.c ****          else if(Copy_structPLLCongif->RCC_strPLL_M < 2 || Copy_structPLLCongif->RCC_strPLL_M > 63)
+ 719              		.loc 1 375 0
+ 720 000a 4268     		ldr	r2, [r0, #4]
+ 721 000c 931E     		subs	r3, r2, #2
+ 722 000e 3D2B     		cmp	r3, #61
+ 723 0010 37D8     		bhi	.L82
+ 376:../src/MRCC_Program.c ****          {
+ 377:../src/MRCC_Program.c ****                 Ret_enuErrorStatus = RCC_enuNOK ;
+ 378:../src/MRCC_Program.c ****          }
+ 379:../src/MRCC_Program.c ****          /* CHECKING ERROR : N CONFIGURATION */
+ 380:../src/MRCC_Program.c ****          else if(Copy_structPLLCongif->RCC_strPLL_N < 192 || Copy_structPLLCongif->RCC_strPLL_N > 4
+ 724              		.loc 1 380 0
+ 725 0012 8368     		ldr	r3, [r0, #8]
+ 726 0014 C03B     		subs	r3, r3, #192
+ 727 0016 F02B     		cmp	r3, #240
+ 728 0018 35D8     		bhi	.L83
+ 381:../src/MRCC_Program.c ****          {
+ 382:../src/MRCC_Program.c ****                 Ret_enuErrorStatus = RCC_enuNOK ;
+ 383:../src/MRCC_Program.c ****          }
+ 384:../src/MRCC_Program.c ****          /* CHECKING ERROR : P CONFIGURATION */
+ 385:../src/MRCC_Program.c ****          else if((Copy_structPLLCongif->RCC_strPLL_P != 2) && (Copy_structPLLCongif->RCC_strPLL_P !
+ 729              		.loc 1 385 0
+ 730 001a C368     		ldr	r3, [r0, #12]
+ 731 001c 022B     		cmp	r3, #2
+ 732 001e 05D0     		beq	.L80
+ 733              		.loc 1 385 0 is_stmt 0 discriminator 1
+ 734 0020 042B     		cmp	r3, #4
+ 735 0022 03D0     		beq	.L80
+ 736              		.loc 1 385 0 discriminator 2
+ 737 0024 062B     		cmp	r3, #6
+ 738 0026 01D0     		beq	.L80
+ 739              		.loc 1 385 0 discriminator 3
+ 740 0028 082B     		cmp	r3, #8
+ 741 002a 2ED1     		bne	.L84
+ 742              	.L80:
+ 386:../src/MRCC_Program.c ****          {
+ 387:../src/MRCC_Program.c ****                 Ret_enuErrorStatus = RCC_enuNOK ;
+ 388:../src/MRCC_Program.c ****          }
+ 389:../src/MRCC_Program.c **** 
+ 390:../src/MRCC_Program.c ****          /* CHECKING ERROR : Q CONFIGURATION */
+ 391:../src/MRCC_Program.c ****          else if(Copy_structPLLCongif->RCC_strPLL_P < 2 || Copy_structPLLCongif->RCC_strPLL_P > 15)
+ 743              		.loc 1 391 0 is_stmt 1
+ 744 002c 023B     		subs	r3, r3, #2
+ 745 002e 0D2B     		cmp	r3, #13
+ 746 0030 2DD8     		bhi	.L85
+ 392:../src/MRCC_Program.c ****          {
+ 393:../src/MRCC_Program.c ****                 Ret_enuErrorStatus = RCC_enuNOK ;
+ 394:../src/MRCC_Program.c ****          }
+ 395:../src/MRCC_Program.c ****          else 
+ 396:../src/MRCC_Program.c ****          {
+ 397:../src/MRCC_Program.c ****                  /* Configure PPL parameters */
+ 398:../src/MRCC_Program.c **** 				/*  CONFIGURE M */
+ 399:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister = RCC_PLLCFGR ;
+ 747              		.loc 1 399 0
+ 748 0032 194B     		ldr	r3, .L86+4
+ 749 0034 1968     		ldr	r1, [r3]
+ 750              	.LVL115:
+ 400:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister &= ~MASK_SET_PPL_M ;
+ 751              		.loc 1 400 0
+ 752 0036 21F03F01 		bic	r1, r1, #63
+ 753              	.LVL116:
+ 401:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister |= ( Copy_structPLLCongif->RCC_strPLL_M << SHIFT_PLL_M ) ;
+ 754              		.loc 1 401 0
+ 755 003a 0A43     		orrs	r2, r2, r1
+ 756              	.LVL117:
+ 402:../src/MRCC_Program.c **** 				RCC_PLLCFGR = Loc_u32PLLCFGR_TempRegister ;
+ 757              		.loc 1 402 0
+ 758 003c 1A60     		str	r2, [r3]
+ 403:../src/MRCC_Program.c **** 			
+ 404:../src/MRCC_Program.c **** 				/* 2: CONFIGURE N */
+ 405:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister = RCC_PLLCFGR ;
+ 759              		.loc 1 405 0
+ 760 003e 1A68     		ldr	r2, [r3]
+ 761              	.LVL118:
+ 406:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister &= ~MASK_SET_PPL_N ;
+ 762              		.loc 1 406 0
+ 763 0040 22F4FF42 		bic	r2, r2, #32640
+ 764              	.LVL119:
+ 765 0044 22F04002 		bic	r2, r2, #64
+ 766              	.LVL120:
+ 407:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister |= ( Copy_structPLLCongif->RCC_strPLL_N << SHIFT_PLL_N ) ;
+ 767              		.loc 1 407 0
+ 768 0048 8168     		ldr	r1, [r0, #8]
+ 769 004a 42EA8112 		orr	r2, r2, r1, lsl #6
+ 770              	.LVL121:
+ 408:../src/MRCC_Program.c **** 				RCC_PLLCFGR = Loc_u32PLLCFGR_TempRegister ;
+ 771              		.loc 1 408 0
+ 772 004e 1A60     		str	r2, [r3]
+ 409:../src/MRCC_Program.c **** 			
+ 410:../src/MRCC_Program.c **** 				/* 3: CONFIGURE P */
+ 411:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister = RCC_PLLCFGR ;
+ 773              		.loc 1 411 0
+ 774 0050 1A68     		ldr	r2, [r3]
+ 775              	.LVL122:
+ 412:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister &= ~MASK_SET_PPL_P ;
+ 776              		.loc 1 412 0
+ 777 0052 22F44032 		bic	r2, r2, #196608
+ 778              	.LVL123:
+ 413:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister |= ( Copy_structPLLCongif->RCC_strPLL_P << SHIFT_PLL_P ) ;
+ 779              		.loc 1 413 0
+ 780 0056 C168     		ldr	r1, [r0, #12]
+ 781 0058 42EA0142 		orr	r2, r2, r1, lsl #16
+ 782              	.LVL124:
+ 414:../src/MRCC_Program.c **** 				RCC_PLLCFGR = Loc_u32PLLCFGR_TempRegister ;
+ 783              		.loc 1 414 0
+ 784 005c 1A60     		str	r2, [r3]
+ 415:../src/MRCC_Program.c **** 			
+ 416:../src/MRCC_Program.c **** 				/* 4: CONFIGURE Q */
+ 417:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister = RCC_PLLCFGR ;
+ 785              		.loc 1 417 0
+ 786 005e 1A68     		ldr	r2, [r3]
+ 787              	.LVL125:
+ 418:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister &= ~ MASK_SET_PPL_Q ;
+ 788              		.loc 1 418 0
+ 789 0060 22F07062 		bic	r2, r2, #251658240
+ 790              	.LVL126:
+ 419:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister |= ( Copy_structPLLCongif->RCC_strPLL_Q << SHIFT_PLL_Q ) ;
+ 791              		.loc 1 419 0
+ 792 0064 0169     		ldr	r1, [r0, #16]
+ 793 0066 42EA0162 		orr	r2, r2, r1, lsl #24
+ 794              	.LVL127:
+ 420:../src/MRCC_Program.c **** 				RCC_PLLCFGR = Loc_u32PLLCFGR_TempRegister ;
+ 795              		.loc 1 420 0
+ 796 006a 1A60     		str	r2, [r3]
+ 421:../src/MRCC_Program.c **** 			
+ 422:../src/MRCC_Program.c **** 				/* 5: CONFIGURE CLOCK SOURCE */
+ 423:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister = RCC_PLLCFGR ;
+ 797              		.loc 1 423 0
+ 798 006c 1A68     		ldr	r2, [r3]
+ 799              	.LVL128:
+ 424:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister &= ~MASK_SET_PPL_SRC ;
+ 800              		.loc 1 424 0
+ 801 006e 22F48002 		bic	r2, r2, #4194304
+ 802              	.LVL129:
+ 425:../src/MRCC_Program.c **** 				Loc_u32PLLCFGR_TempRegister |= ( Copy_structPLLCongif->RCC_strPLLSCR << SHIFT_PLL_SRC ) ;
+ 803              		.loc 1 425 0
+ 804 0072 0178     		ldrb	r1, [r0]	@ zero_extendqisi2
+ 805 0074 42EA8152 		orr	r2, r2, r1, lsl #22
+ 806              	.LVL130:
+ 426:../src/MRCC_Program.c **** 				RCC_PLLCFGR = Loc_u32PLLCFGR_TempRegister ;
+ 807              		.loc 1 426 0
+ 808 0078 1A60     		str	r2, [r3]
+ 360:../src/MRCC_Program.c **** 
+ 809              		.loc 1 360 0
+ 810 007a 0020     		movs	r0, #0
+ 811              	.LVL131:
+ 812 007c 7047     		bx	lr
+ 813              	.LVL132:
+ 814              	.L81:
+ 372:../src/MRCC_Program.c ****          }
+ 815              		.loc 1 372 0
+ 816 007e 0120     		movs	r0, #1
+ 817              	.LVL133:
+ 818 0080 7047     		bx	lr
+ 819              	.LVL134:
+ 820              	.L82:
+ 377:../src/MRCC_Program.c ****          }
+ 821              		.loc 1 377 0
+ 822 0082 0120     		movs	r0, #1
+ 823              	.LVL135:
+ 824 0084 7047     		bx	lr
+ 825              	.LVL136:
+ 826              	.L83:
+ 382:../src/MRCC_Program.c ****          }
+ 827              		.loc 1 382 0
+ 828 0086 0120     		movs	r0, #1
+ 829              	.LVL137:
+ 830 0088 7047     		bx	lr
+ 831              	.LVL138:
+ 832              	.L84:
+ 387:../src/MRCC_Program.c ****          }
+ 833              		.loc 1 387 0
+ 834 008a 0120     		movs	r0, #1
+ 835              	.LVL139:
+ 836 008c 7047     		bx	lr
+ 837              	.LVL140:
+ 838              	.L85:
+ 393:../src/MRCC_Program.c ****          }
+ 839              		.loc 1 393 0
+ 840 008e 0120     		movs	r0, #1
+ 841              	.LVL141:
+ 427:../src/MRCC_Program.c ****          }
+ 428:../src/MRCC_Program.c **** 
+ 429:../src/MRCC_Program.c **** 
+ 430:../src/MRCC_Program.c **** 
+ 431:../src/MRCC_Program.c **** 
+ 432:../src/MRCC_Program.c **** return Ret_enuErrorStatus ;
+ 433:../src/MRCC_Program.c **** }/*RCC_enuConfigPLL*/
+ 842              		.loc 1 433 0
+ 843 0090 7047     		bx	lr
+ 844              	.L87:
+ 845 0092 00BF     		.align	2
+ 846              	.L86:
+ 847 0094 00380240 		.word	1073887232
+ 848 0098 04380240 		.word	1073887236
+ 849              		.cfi_endproc
+ 850              	.LFE4:
+ 852              		.section	.text.RCC_enuControlBusesPrescaler,"ax",%progbits
+ 853              		.align	2
+ 854              		.global	RCC_enuControlBusesPrescaler
+ 855              		.thumb
+ 856              		.thumb_func
+ 858              	RCC_enuControlBusesPrescaler:
+ 859              	.LFB5:
+ 434:../src/MRCC_Program.c **** 
+ 435:../src/MRCC_Program.c **** RCC_enuErrorStatus_t  RCC_enuControlBusesPrescaler  (RCC_enuBus_t Copy_enuPeripheralBus ,u8 Copy_u3
+ 436:../src/MRCC_Program.c **** {
+ 860              		.loc 1 436 0
+ 861              		.cfi_startproc
+ 862              		@ args = 0, pretend = 0, frame = 0
+ 863              		@ frame_needed = 0, uses_anonymous_args = 0
+ 864              		@ link register save eliminated.
+ 865              	.LVL142:
+ 437:../src/MRCC_Program.c ****      RCC_enuErrorStatus_t Ret_enuErrorStatus = RCC_enuOK ;
+ 438:../src/MRCC_Program.c **** 
+ 439:../src/MRCC_Program.c ****       u32 Loc_u32CFGR_TempRegister;
+ 440:../src/MRCC_Program.c ****      /**
+ 441:../src/MRCC_Program.c ****      *@ validate input bus
+ 442:../src/MRCC_Program.c ****      */
+ 443:../src/MRCC_Program.c ****      if( Copy_enuPeripheralBus < RCC_AHB1 && Copy_enuPeripheralBus > RCC_APB2 )
+ 444:../src/MRCC_Program.c ****      {
+ 445:../src/MRCC_Program.c ****          Ret_enuErrorStatus = RCC_enuNOK ;
+ 446:../src/MRCC_Program.c ****      }/*if1*/
+ 447:../src/MRCC_Program.c ****      else
+ 448:../src/MRCC_Program.c ****      {
+ 449:../src/MRCC_Program.c ****         switch(Copy_enuPeripheralBus)
+ 866              		.loc 1 449 0
+ 867 0000 0228     		cmp	r0, #2
+ 868 0002 44D0     		beq	.L90
+ 869 0004 0328     		cmp	r0, #3
+ 870 0006 4DD0     		beq	.L91
+ 871 0008 0028     		cmp	r0, #0
+ 872 000a 56D1     		bne	.L114
+ 450:../src/MRCC_Program.c ****         {
+ 451:../src/MRCC_Program.c ****             case RCC_AHB1 :
+ 452:../src/MRCC_Program.c **** 
+ 453:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister  = RCC_CFGR;
+ 873              		.loc 1 453 0
+ 874 000c 2C4B     		ldr	r3, .L115
+ 875 000e 1B68     		ldr	r3, [r3]
+ 876              	.LVL143:
+ 454:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister &= MASK_AHB_PRESCALER ;
+ 877              		.loc 1 454 0
+ 878 0010 23F0F003 		bic	r3, r3, #240
+ 879              	.LVL144:
+ 455:../src/MRCC_Program.c **** 
+ 456:../src/MRCC_Program.c ****                             switch(Copy_u32APB2Prescaler)
+ 880              		.loc 1 456 0
+ 881 0014 B029     		cmp	r1, #176
+ 882 0016 22D0     		beq	.L94
+ 883 0018 09D8     		bhi	.L95
+ 884 001a 8029     		cmp	r1, #128
+ 885 001c 13D0     		beq	.L96
+ 886 001e 01D8     		bhi	.L97
+ 887 0020 89B3     		cbz	r1, .L111
+ 888 0022 0EE0     		b	.L93
+ 889              	.L97:
+ 890 0024 9029     		cmp	r1, #144
+ 891 0026 12D0     		beq	.L99
+ 892 0028 A029     		cmp	r1, #160
+ 893 002a 14D0     		beq	.L100
+ 894 002c 09E0     		b	.L93
+ 895              	.L95:
+ 896 002e D029     		cmp	r1, #208
+ 897 0030 1DD0     		beq	.L101
+ 898 0032 02D8     		bhi	.L102
+ 899 0034 C029     		cmp	r1, #192
+ 900 0036 16D0     		beq	.L103
+ 901 0038 03E0     		b	.L93
+ 902              	.L102:
+ 903 003a E029     		cmp	r1, #224
+ 904 003c 1BD0     		beq	.L104
+ 905 003e F029     		cmp	r1, #240
+ 906 0040 1DD0     		beq	.L105
+ 907              	.L93:
+ 457:../src/MRCC_Program.c ****                             {
+ 458:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_NOT_DIVIDED  : 
+ 459:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= AHB_SYSTEM_CLOCK_NO
+ 460:../src/MRCC_Program.c ****                                 break;
+ 461:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_2 :
+ 462:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= AHB_SYSTEM_CLOCK_DI
+ 463:../src/MRCC_Program.c ****                                 break;
+ 464:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_4 :
+ 465:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= AHB_SYSTEM_CLOCK_DI
+ 466:../src/MRCC_Program.c ****                                 break;
+ 467:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_8 :
+ 468:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= AHB_SYSTEM_CLOCK_DI
+ 469:../src/MRCC_Program.c ****                                 break;
+ 470:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_16 :
+ 471:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= AHB_SYSTEM_CLOCK_DI
+ 472:../src/MRCC_Program.c ****                                 break;
+ 473:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_64 :
+ 474:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= AHB_SYSTEM_CLOCK_DI
+ 475:../src/MRCC_Program.c ****                                 break;
+ 476:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_128 :
+ 477:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= AHB_SYSTEM_CLOCK_DI
+ 478:../src/MRCC_Program.c ****                                 break;
+ 479:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_256 :
+ 480:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= AHB_SYSTEM_CLOCK_DI
+ 481:../src/MRCC_Program.c ****                                 break;
+ 482:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_512 :
+ 483:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= AHB_SYSTEM_CLOCK_DI
+ 484:../src/MRCC_Program.c ****                                 break;
+ 485:../src/MRCC_Program.c ****                                 default :
+ 486:../src/MRCC_Program.c ****                                         Ret_enuErrorStatus = RCC_enuNOK ;
+ 908              		.loc 1 486 0
+ 909 0042 0120     		movs	r0, #1
+ 910              	.LVL145:
+ 911 0044 20E0     		b	.L98
+ 912              	.LVL146:
+ 913              	.L96:
+ 462:../src/MRCC_Program.c ****                                 break;
+ 914              		.loc 1 462 0
+ 915 0046 43F08003 		orr	r3, r3, #128
+ 916              	.LVL147:
+ 437:../src/MRCC_Program.c **** 
+ 917              		.loc 1 437 0
+ 918 004a 0020     		movs	r0, #0
+ 919              	.LVL148:
+ 463:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_4 :
+ 920              		.loc 1 463 0
+ 921 004c 1CE0     		b	.L98
+ 922              	.LVL149:
+ 923              	.L99:
+ 465:../src/MRCC_Program.c ****                                 break;
+ 924              		.loc 1 465 0
+ 925 004e 43F09003 		orr	r3, r3, #144
+ 926              	.LVL150:
+ 437:../src/MRCC_Program.c **** 
+ 927              		.loc 1 437 0
+ 928 0052 0020     		movs	r0, #0
+ 929              	.LVL151:
+ 466:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_8 :
+ 930              		.loc 1 466 0
+ 931 0054 18E0     		b	.L98
+ 932              	.LVL152:
+ 933              	.L100:
+ 468:../src/MRCC_Program.c ****                                 break;
+ 934              		.loc 1 468 0
+ 935 0056 43F0A003 		orr	r3, r3, #160
+ 936              	.LVL153:
+ 437:../src/MRCC_Program.c **** 
+ 937              		.loc 1 437 0
+ 938 005a 0020     		movs	r0, #0
+ 939              	.LVL154:
+ 469:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_16 :
+ 940              		.loc 1 469 0
+ 941 005c 14E0     		b	.L98
+ 942              	.LVL155:
+ 943              	.L94:
+ 471:../src/MRCC_Program.c ****                                 break;
+ 944              		.loc 1 471 0
+ 945 005e 43F0B003 		orr	r3, r3, #176
+ 946              	.LVL156:
+ 437:../src/MRCC_Program.c **** 
+ 947              		.loc 1 437 0
+ 948 0062 0020     		movs	r0, #0
+ 949              	.LVL157:
+ 472:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_64 :
+ 950              		.loc 1 472 0
+ 951 0064 10E0     		b	.L98
+ 952              	.LVL158:
+ 953              	.L103:
+ 474:../src/MRCC_Program.c ****                                 break;
+ 954              		.loc 1 474 0
+ 955 0066 43F0C003 		orr	r3, r3, #192
+ 956              	.LVL159:
+ 437:../src/MRCC_Program.c **** 
+ 957              		.loc 1 437 0
+ 958 006a 0020     		movs	r0, #0
+ 959              	.LVL160:
+ 475:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_128 :
+ 960              		.loc 1 475 0
+ 961 006c 0CE0     		b	.L98
+ 962              	.LVL161:
+ 963              	.L101:
+ 477:../src/MRCC_Program.c ****                                 break;
+ 964              		.loc 1 477 0
+ 965 006e 43F0D003 		orr	r3, r3, #208
+ 966              	.LVL162:
+ 437:../src/MRCC_Program.c **** 
+ 967              		.loc 1 437 0
+ 968 0072 0020     		movs	r0, #0
+ 969              	.LVL163:
+ 478:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_256 :
+ 970              		.loc 1 478 0
+ 971 0074 08E0     		b	.L98
+ 972              	.LVL164:
+ 973              	.L104:
+ 480:../src/MRCC_Program.c ****                                 break;
+ 974              		.loc 1 480 0
+ 975 0076 43F0E003 		orr	r3, r3, #224
+ 976              	.LVL165:
+ 437:../src/MRCC_Program.c **** 
+ 977              		.loc 1 437 0
+ 978 007a 0020     		movs	r0, #0
+ 979              	.LVL166:
+ 481:../src/MRCC_Program.c ****                                 case AHB_SYSTEM_CLOCK_DIVIDED_BY_512 :
+ 980              		.loc 1 481 0
+ 981 007c 04E0     		b	.L98
+ 982              	.LVL167:
+ 983              	.L105:
+ 483:../src/MRCC_Program.c ****                                 break;
+ 984              		.loc 1 483 0
+ 985 007e 43F0F003 		orr	r3, r3, #240
+ 986              	.LVL168:
+ 437:../src/MRCC_Program.c **** 
+ 987              		.loc 1 437 0
+ 988 0082 0020     		movs	r0, #0
+ 989              	.LVL169:
+ 484:../src/MRCC_Program.c ****                                 default :
+ 990              		.loc 1 484 0
+ 991 0084 00E0     		b	.L98
+ 992              	.LVL170:
+ 993              	.L111:
+ 437:../src/MRCC_Program.c **** 
+ 994              		.loc 1 437 0
+ 995 0086 0020     		movs	r0, #0
+ 996              	.LVL171:
+ 997              	.L98:
+ 487:../src/MRCC_Program.c ****                                 break;
+ 488:../src/MRCC_Program.c **** 
+ 489:../src/MRCC_Program.c ****                             }/*switch2*/
+ 490:../src/MRCC_Program.c ****                          RCC_CFGR = Loc_u32CFGR_TempRegister;    
+ 998              		.loc 1 490 0
+ 999 0088 0D4A     		ldr	r2, .L115
+ 1000 008a 1360     		str	r3, [r2]
+ 491:../src/MRCC_Program.c ****                          
+ 492:../src/MRCC_Program.c ****             break;
+ 1001              		.loc 1 492 0
+ 1002 008c 7047     		bx	lr
+ 1003              	.LVL172:
+ 1004              	.L90:
+ 493:../src/MRCC_Program.c ****             case RCC_APB1 :
+ 494:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister  = RCC_CFGR;
+ 1005              		.loc 1 494 0
+ 1006 008e 0C4B     		ldr	r3, .L115
+ 1007 0090 1B68     		ldr	r3, [r3]
+ 1008              	.LVL173:
+ 495:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister &= MASK_APB1_PRESCALER ;
+ 1009              		.loc 1 495 0
+ 1010 0092 23F4E053 		bic	r3, r3, #7168
+ 1011              	.LVL174:
+ 496:../src/MRCC_Program.c **** 
+ 497:../src/MRCC_Program.c ****                             switch(Copy_u32APB2Prescaler)
+ 1012              		.loc 1 497 0
+ 1013 0096 09B1     		cbz	r1, .L112
+ 498:../src/MRCC_Program.c ****                             {
+ 499:../src/MRCC_Program.c ****                                 case APB1_AHB_CLOCK_NOT_DIVIDED  : 
+ 500:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= APB1_AHB_CLOCK_NOT_
+ 501:../src/MRCC_Program.c ****                                 break;
+ 502:../src/MRCC_Program.c ****                                 case APB1_AHB__CLOCK_DIVIDED_BY_2 :
+ 503:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= APB1_AHB__CLOCK_DIV
+ 504:../src/MRCC_Program.c ****                                 break;
+ 505:../src/MRCC_Program.c ****                                 case APB1_AHB__CLOCK_DIVIDED_BY_4 :
+ 506:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= APB1_AHB__CLOCK_DIV
+ 507:../src/MRCC_Program.c ****                                 break;
+ 508:../src/MRCC_Program.c ****                                 case APB1_AHB__CLOCK_DIVIDED_BY_8 :
+ 509:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= APB1_AHB__CLOCK_DIV
+ 510:../src/MRCC_Program.c ****                                 break;
+ 511:../src/MRCC_Program.c ****                                 case APB1_AHB__CLOCK_DIVIDED_BY_16:
+ 512:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= APB1_AHB__CLOCK_DIV
+ 513:../src/MRCC_Program.c ****                                 break;
+ 514:../src/MRCC_Program.c ****                                 default :
+ 515:../src/MRCC_Program.c ****                                         Ret_enuErrorStatus = RCC_enuNOK ;
+ 1014              		.loc 1 515 0
+ 1015 0098 0120     		movs	r0, #1
+ 1016              	.LVL175:
+ 1017 009a 00E0     		b	.L107
+ 1018              	.LVL176:
+ 1019              	.L112:
+ 437:../src/MRCC_Program.c **** 
+ 1020              		.loc 1 437 0
+ 1021 009c 0020     		movs	r0, #0
+ 1022              	.LVL177:
+ 1023              	.L107:
+ 516:../src/MRCC_Program.c ****                                 break;
+ 517:../src/MRCC_Program.c **** 
+ 518:../src/MRCC_Program.c ****                             }/*switch2*/
+ 519:../src/MRCC_Program.c ****                          RCC_CFGR = Loc_u32CFGR_TempRegister;    
+ 1024              		.loc 1 519 0
+ 1025 009e 084A     		ldr	r2, .L115
+ 1026 00a0 1360     		str	r3, [r2]
+ 520:../src/MRCC_Program.c ****                          
+ 521:../src/MRCC_Program.c ****                          
+ 522:../src/MRCC_Program.c ****             break;
+ 1027              		.loc 1 522 0
+ 1028 00a2 7047     		bx	lr
+ 1029              	.LVL178:
+ 1030              	.L91:
+ 523:../src/MRCC_Program.c ****             case RCC_APB2 :
+ 524:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister  = RCC_CFGR;
+ 1031              		.loc 1 524 0
+ 1032 00a4 064B     		ldr	r3, .L115
+ 1033 00a6 1B68     		ldr	r3, [r3]
+ 1034              	.LVL179:
+ 525:../src/MRCC_Program.c ****                             Loc_u32CFGR_TempRegister &= MASK_APB2_PRESCALER ;
+ 1035              		.loc 1 525 0
+ 1036 00a8 23F46043 		bic	r3, r3, #57344
+ 1037              	.LVL180:
+ 526:../src/MRCC_Program.c **** 
+ 527:../src/MRCC_Program.c ****                             switch(Copy_u32APB2Prescaler)
+ 1038              		.loc 1 527 0
+ 1039 00ac 09B1     		cbz	r1, .L113
+ 528:../src/MRCC_Program.c ****                             {
+ 529:../src/MRCC_Program.c ****                                 case APB2_AHB_CLOCK_NOT_DIVIDED   : 
+ 530:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= APB2_AHB_CLOCK_NOT_
+ 531:../src/MRCC_Program.c ****                                 break;
+ 532:../src/MRCC_Program.c ****                                 case APB2_AHB__CLOCK_DIVIDED_BY_2 :
+ 533:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= APB2_AHB__CLOCK_DIV
+ 534:../src/MRCC_Program.c ****                                 break;
+ 535:../src/MRCC_Program.c ****                                 case APB2_AHB__CLOCK_DIVIDED_BY_4 :
+ 536:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= APB2_AHB__CLOCK_DIV
+ 537:../src/MRCC_Program.c ****                                 break;
+ 538:../src/MRCC_Program.c ****                                 case APB2_AHB__CLOCK_DIVIDED_BY_8 :
+ 539:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= APB2_AHB__CLOCK_DIV
+ 540:../src/MRCC_Program.c ****                                 break;
+ 541:../src/MRCC_Program.c ****                                 case APB2_AHB__CLOCK_DIVIDED_BY_16:
+ 542:../src/MRCC_Program.c ****                                                     Loc_u32CFGR_TempRegister |= APB2_AHB__CLOCK_DIV
+ 543:../src/MRCC_Program.c ****                                 break;
+ 544:../src/MRCC_Program.c ****                                 default :
+ 545:../src/MRCC_Program.c ****                                                     Ret_enuErrorStatus = RCC_enuNOK ;
+ 1040              		.loc 1 545 0
+ 1041 00ae 0120     		movs	r0, #1
+ 1042              	.LVL181:
+ 1043 00b0 00E0     		b	.L109
+ 1044              	.LVL182:
+ 1045              	.L113:
+ 437:../src/MRCC_Program.c **** 
+ 1046              		.loc 1 437 0
+ 1047 00b2 0020     		movs	r0, #0
+ 1048              	.LVL183:
+ 1049              	.L109:
+ 546:../src/MRCC_Program.c ****                                 break;
+ 547:../src/MRCC_Program.c **** 
+ 548:../src/MRCC_Program.c ****                             }/*switch2*/
+ 549:../src/MRCC_Program.c ****                          RCC_CFGR = Loc_u32CFGR_TempRegister;    
+ 1050              		.loc 1 549 0
+ 1051 00b4 024A     		ldr	r2, .L115
+ 1052 00b6 1360     		str	r3, [r2]
+ 550:../src/MRCC_Program.c ****                          
+ 551:../src/MRCC_Program.c ****             break;
+ 1053              		.loc 1 551 0
+ 1054 00b8 7047     		bx	lr
+ 1055              	.LVL184:
+ 1056              	.L114:
+ 437:../src/MRCC_Program.c **** 
+ 1057              		.loc 1 437 0
+ 1058 00ba 0020     		movs	r0, #0
+ 1059              	.LVL185:
+ 552:../src/MRCC_Program.c ****             default :
+ 553:../src/MRCC_Program.c ****             break;
+ 554:../src/MRCC_Program.c ****         }/*switch*/
+ 555:../src/MRCC_Program.c **** 
+ 556:../src/MRCC_Program.c ****      }/*else*/
+ 557:../src/MRCC_Program.c **** 
+ 558:../src/MRCC_Program.c **** 
+ 559:../src/MRCC_Program.c **** 
+ 560:../src/MRCC_Program.c **** return Ret_enuErrorStatus ;
+ 561:../src/MRCC_Program.c **** }/*RCC_enuControlBusesPrescaler*/
+ 1060              		.loc 1 561 0
+ 1061 00bc 7047     		bx	lr
+ 1062              	.L116:
+ 1063 00be 00BF     		.align	2
+ 1064              	.L115:
+ 1065 00c0 08380240 		.word	1073887240
+ 1066              		.cfi_endproc
+ 1067              	.LFE5:
+ 1069              		.text
+ 1070              	.Letext0:
+ 1071              		.file 2 "../src/../include/STD_TYPES.h"
+ 1072              		.file 3 "../src/../include/MRCC_Interface.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 MRCC_Program.c
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:20     .text.RCC_enuControlClk:00000000 $t
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:25     .text.RCC_enuControlClk:00000000 RCC_enuControlClk
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:268    .text.RCC_enuControlClk:00000108 $d
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:274    .text.RCC_enuSelectSystemClk:00000000 $t
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:279    .text.RCC_enuSelectSystemClk:00000000 RCC_enuSelectSystemClk
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:518    .text.RCC_enuSelectSystemClk:000000fc $d
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:525    .text.RCC_enuEnablePeripheralClock:00000000 $t
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:530    .text.RCC_enuEnablePeripheralClock:00000000 RCC_enuEnablePeripheralClock
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:543    .text.RCC_enuEnablePeripheralClock:00000008 $d
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:547    .text.RCC_enuEnablePeripheralClock:0000000c $t
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:604    .text.RCC_enuEnablePeripheralClock:00000050 $d
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:612    .text.RCC_enuDisablePeripheralClock:00000000 $t
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:617    .text.RCC_enuDisablePeripheralClock:00000000 RCC_enuDisablePeripheralClock
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:630    .text.RCC_enuDisablePeripheralClock:00000008 $d
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:634    .text.RCC_enuDisablePeripheralClock:0000000c $t
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:691    .text.RCC_enuDisablePeripheralClock:00000058 $d
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:699    .text.RCC_enuConfigPLL:00000000 $t
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:704    .text.RCC_enuConfigPLL:00000000 RCC_enuConfigPLL
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:847    .text.RCC_enuConfigPLL:00000094 $d
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:853    .text.RCC_enuControlBusesPrescaler:00000000 $t
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:858    .text.RCC_enuControlBusesPrescaler:00000000 RCC_enuControlBusesPrescaler
+C:\Users\NoteBook\AppData\Local\Temp\ccgaPGfM.s:1065   .text.RCC_enuControlBusesPrescaler:000000c0 $d
+                     .debug_frame:00000010 $d
+                           .group:00000000 wm4.0.a2f836f628cd58bfd83621916854a0d2
+                           .group:00000000 wm4.MRCC_Interface.h.27.365c037b0dfa896873eb786e33e489c4
+                           .group:00000000 wm4.MRCC_Private.h.17.25471ae0b353d5901b531a294e6e8b58
+
+NO UNDEFINED SYMBOLS
