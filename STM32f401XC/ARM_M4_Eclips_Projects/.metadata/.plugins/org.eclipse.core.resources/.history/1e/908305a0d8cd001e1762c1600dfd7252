@@ -1,0 +1,15 @@
+
+int
+main(int argc, char* argv[])
+{
+	RCC_enuControlClk(RCC_HSE,RCC_CLK_ON);
+
+
+
+
+
+  while (1)
+    {
+
+    }
+}

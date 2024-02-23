@@ -1,0 +1,21 @@
+
+#include"STD_TYPES.h"
+#include"MRCC_Interface.h"
+#include"GPIO_Interface.h"
+
+
+int
+main(int argc, char* argv[])
+{
+	RCC_enuControlClk(RCC_HSE,RCC_CLK_ON);
+	RCC_enuSelectSystemClk(RCC_HSE);
+	RCC_enuEnablePeripheralClock(RCC_AHB1,GPIOA_RCC);
+
+
+
+
+  while (1)
+    {
+
+    }
+}

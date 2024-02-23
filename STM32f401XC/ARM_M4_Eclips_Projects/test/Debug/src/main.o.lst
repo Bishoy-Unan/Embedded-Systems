@@ -1,0 +1,182 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  25              	main:
+  26              	.LFB1:
+  27              		.file 1 "../src/main.c"
+   1:../src/main.c **** /*
+   2:../src/main.c ****  * This file is part of the µOS++ distribution.
+   3:../src/main.c ****  *   (https://github.com/micro-os-plus)
+   4:../src/main.c ****  * Copyright (c) 2014 Liviu Ionescu.
+   5:../src/main.c ****  *
+   6:../src/main.c ****  * Permission is hereby granted, free of charge, to any person
+   7:../src/main.c ****  * obtaining a copy of this software and associated documentation
+   8:../src/main.c ****  * files (the "Software"), to deal in the Software without
+   9:../src/main.c ****  * restriction, including without limitation the rights to use,
+  10:../src/main.c ****  * copy, modify, merge, publish, distribute, sublicense, and/or
+  11:../src/main.c ****  * sell copies of the Software, and to permit persons to whom
+  12:../src/main.c ****  * the Software is furnished to do so, subject to the following
+  13:../src/main.c ****  * conditions:
+  14:../src/main.c ****  *
+  15:../src/main.c ****  * The above copyright notice and this permission notice shall be
+  16:../src/main.c ****  * included in all copies or substantial portions of the Software.
+  17:../src/main.c ****  *
+  18:../src/main.c ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  19:../src/main.c ****  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+  20:../src/main.c ****  * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  21:../src/main.c ****  * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+  22:../src/main.c ****  * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  23:../src/main.c ****  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  24:../src/main.c ****  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+  25:../src/main.c ****  * OTHER DEALINGS IN THE SOFTWARE.
+  26:../src/main.c ****  */
+  27:../src/main.c **** 
+  28:../src/main.c **** // ----------------------------------------------------------------------------
+  29:../src/main.c **** 
+  30:../src/main.c **** #include <stdio.h>
+  31:../src/main.c **** #include <stdlib.h>
+  32:../src/main.c **** #include "diag/Trace.h"
+  33:../src/main.c **** 
+  34:../src/main.c **** // ----------------------------------------------------------------------------
+  35:../src/main.c **** //
+  36:../src/main.c **** // Standalone STM32F4 empty sample (trace via DEBUG).
+  37:../src/main.c **** //
+  38:../src/main.c **** // Trace support is enabled by adding the TRACE macro definition.
+  39:../src/main.c **** // By default the trace messages are forwarded to the DEBUG output,
+  40:../src/main.c **** // but can be rerouted to any device or completely suppressed, by
+  41:../src/main.c **** // changing the definitions required in system/src/diag/trace_impl.c
+  42:../src/main.c **** // (currently OS_USE_TRACE_ITM, OS_USE_TRACE_SEMIHOSTING_DEBUG/_STDOUT).
+  43:../src/main.c **** //
+  44:../src/main.c **** 
+  45:../src/main.c **** // ----- main() ---------------------------------------------------------------
+  46:../src/main.c **** 
+  47:../src/main.c **** // Sample pragmas to cope with warnings. Please note the related line at
+  48:../src/main.c **** // the end of this function, used to pop the compiler diagnostics status.
+  49:../src/main.c **** #pragma GCC diagnostic push
+  50:../src/main.c **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  51:../src/main.c **** #pragma GCC diagnostic ignored "-Wmissing-declarations"
+  52:../src/main.c **** #pragma GCC diagnostic ignored "-Wreturn-type"
+  53:../src/main.c **** 
+  54:../src/main.c **** register  var asm("r3");
+  55:../src/main.c **** 
+  56:../src/main.c **** int
+  57:../src/main.c **** main(int argc, char* argv[])
+  58:../src/main.c **** {
+  28              		.loc 1 58 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              	.LVL0:
+  34 0000 08B5     		push	{r3, lr}
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  38              	.LVL1:
+  39              	.L3:
+  59:../src/main.c ****   // At this stage the system clock should have already been configured
+  60:../src/main.c ****   // at high speed.
+  61:../src/main.c **** 
+  62:../src/main.c **** 
+  63:../src/main.c ****   // Infinite loop
+  64:../src/main.c ****   while (1)
+  65:../src/main.c ****     {
+  66:../src/main.c **** 	  var ++ ;
+  40              		.loc 1 66 0
+  41 0002 0133     		adds	r3, r3, #1
+  67:../src/main.c **** 	  if(var == 90)
+  42              		.loc 1 67 0
+  43 0004 5A2B     		cmp	r3, #90
+  44 0006 00D1     		bne	.L2
+  68:../src/main.c **** 		  var = 0;
+  45              		.loc 1 68 0
+  46 0008 0023     		movs	r3, #0
+  47              	.L2:
+  69:../src/main.c **** 	  trace_printf("hello poshposh");
+  48              		.loc 1 69 0
+  49 000a 0248     		ldr	r0, .L5
+  50 000c FFF7FEFF 		bl	trace_printf
+  51              	.LVL2:
+  70:../src/main.c ****        // Add your code here.
+  71:../src/main.c ****     }
+  52              		.loc 1 71 0
+  53 0010 F7E7     		b	.L3
+  54              	.L6:
+  55 0012 00BF     		.align	2
+  56              	.L5:
+  57 0014 00000000 		.word	.LC0
+  58              		.cfi_endproc
+  59              	.LFE1:
+  61              		.section	.rodata.str1.4,"aMS",%progbits,1
+  62              		.align	2
+  63              	.LC0:
+  64 0000 68656C6C 		.ascii	"hello poshposh\000"
+  64      6F20706F 
+  64      7368706F 
+  64      736800
+  65              		.text
+  66              	.Letext0:
+  67              		.file 2 "../system/include/diag/Trace.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\NoteBook\AppData\Local\Temp\ccfP8Ccc.s:20     .text.main:00000000 $t
+C:\Users\NoteBook\AppData\Local\Temp\ccfP8Ccc.s:25     .text.main:00000000 main
+C:\Users\NoteBook\AppData\Local\Temp\ccfP8Ccc.s:57     .text.main:00000014 $d
+C:\Users\NoteBook\AppData\Local\Temp\ccfP8Ccc.s:62     .rodata.str1.4:00000000 $d
+                     .debug_frame:00000010 $d
+                           .group:00000000 wm4.0.a2f836f628cd58bfd83621916854a0d2
+                           .group:00000000 wm4._newlib_version.h.4.ad342815780c8db09778091a421b5b5b
+                           .group:00000000 wm4.newlib.h.21.0b9fc973bddc8b940a18de2b6ea6adc7
+                           .group:00000000 wm4.features.h.22.5cdadbb3efe495d1c9e38350b8c376c7
+                           .group:00000000 wm4.config.h.219.65a553ab5bef5482f0d7880b0d33015e
+                           .group:00000000 wm4._ansi.h.23.9f8fcfa20193763fcf364fb91705c94b
+                           .group:00000000 wm4.stdio.h.31.7c0e28c411445f3f9c5b11accf882760
+                           .group:00000000 wm4._default_types.h.6.35ee9e747940367bf2a634907d1c2382
+                           .group:00000000 wm4.stddef.h.187.2ff233552538c6ff9b8575ca8ea52cb3
+                           .group:00000000 wm4.cdefs.h.47.ba62642086d429b4f95c2381cae1c0aa
+                           .group:00000000 wm4.stddef.h.39.ec95e8feac892e292b69dc7ae75b0d64
+                           .group:00000000 wm4.stdarg.h.34.3a23a216c0c293b3d2ea2e89281481e6
+                           .group:00000000 wm4.lock.h.2.9bc98482741e5e2a9450b12934a684ea
+                           .group:00000000 wm4._types.h.125.5cf8a495f1f7ef36777ad868a1e32068
+                           .group:00000000 wm4.stddef.h.161.5349cb105733e8777bfb0cf53c4e3f34
+                           .group:00000000 wm4._types.h.183.c226d164ceca1f2ecb9ae9360c54a098
+                           .group:00000000 wm4.reent.h.17.23b059516345f8f5abfa01ddc379570f
+                           .group:00000000 wm4.types.h.40.e8c16e7ec36ba55f133d0616070e25fc
+                           .group:00000000 wm4._stdint.h.10.7a5f60e6741af4a5594a3867d347e1f9
+                           .group:00000000 wm4._endian.h.31.65a10590763c3dde1ac4a7f66d7d4891
+                           .group:00000000 wm4.endian.h.9.49f3a4695c1b61e8a0808de3c4a106cb
+                           .group:00000000 wm4._timeval.h.30.0e8bfd94e85db17dda3286ee81496fe6
+                           .group:00000000 wm4.timespec.h.41.d855182eb0e690443ab8651bcedca6e1
+                           .group:00000000 wm4.select.h.30.bbece7fa40993a78092dcc5805132560
+                           .group:00000000 wm4.types.h.69.ed3eae3cf73030a737515151ebcab7a1
+                           .group:00000000 wm4.stdio.h.2.4aa87247282eca6c8f36f9de33d8df1a
+                           .group:00000000 wm4.stdio.h.81.8188691c2279eac7a223caa50f6694b9
+                           .group:00000000 wm4.stdlib.h.13.4ed386f5c1a80d71e72172885d946ef2
+                           .group:00000000 wm4.stddef.h.161.19e15733342b50ead2919490b095303e
+                           .group:00000000 wm4.alloca.h.8.dfc0c703c47ec3e69746825b17d9e66d
+                           .group:00000000 wm4.stdlib.h.56.f7bb76d8eb43fb7e79a949819dbf4bda
+                           .group:00000000 wm4.unistd.h.2.39165d5b7784d1815ef4b0c4be6df560
+                           .group:00000000 wm4.unistd.h.156.74e26bdd1b78d9a50719dd472125647d
+
+UNDEFINED SYMBOLS
+trace_printf

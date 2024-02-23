@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;io/src/GPIO_Program.c&apos; to &apos;MGPIO_Program.c&apos;" description="Rename resource &apos;GPIO_Program.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/GPIO_Program.c" name="MGPIO_Program.c" stamp="1708330585094" updateReferences="true"/>
+</session>
