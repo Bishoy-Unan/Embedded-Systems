@@ -52,7 +52,7 @@ typedef struct
 	u32 RESERVED3[24];        /**< Reserved */
 	u32 IABR[8];              /**< Interrupt Active bit Registers */
 	u32 RESERVED4[56];        /**< Reserved */
-	u8  IPR[240];             /**< Interrupt Priority Registers */
+	u8  IPR[58];             /**< Interrupt Priority Registers */
 	u32 RESERVED5[580];       /**< Reserved */
 	u32 STIR;                 /**< Software Trigger Interrupt Registers */
 } NVIC_REG_t;
