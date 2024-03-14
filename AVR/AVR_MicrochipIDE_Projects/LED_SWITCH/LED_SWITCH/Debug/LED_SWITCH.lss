@@ -1,0 +1,1495 @@
+
+LED_SWITCH.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000b0  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00000838  000008cc  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  000008cc  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  000008fb  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000e0  00000000  00000000  00000909  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000288e  00000000  00000000  000009e9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000a69  00000000  00000000  00003277  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000d22  00000000  00000000  00003ce0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000150  00000000  00000000  00004a04  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000288  00000000  00000000  00004b54  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000daf  00000000  00000000  00004ddc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000070  00000000  00000000  00005b8b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  0000081e  0000081e  000008b2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00005bfc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.main    000000c4  00000636  00000636  000006ca  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.LED_enumdInit 0000010c  00000458  00000458  000004ec  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.LED_enuSetLedState 0000006a  0000077e  0000077e  00000812  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .data.LEDS    00000006  00800060  0000082c  000008c0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 18 .text.SWITCH_enumdInit 000000d2  00000564  00000564  000005f8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.SWITCH_enuGetSwitchState 00000020  000007e8  000007e8  0000087c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .data.SWITCHS 00000006  00800066  00000832  000008c6  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 21 .text.DIO_enumSetCFG 000003a8  000000b0  000000b0  00000144  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.DIO_enumGetPinVal 00000084  000006fa  000006fa  0000078e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .text.__dummy_fini 00000002  00000826  00000826  000008ba  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .text.__dummy_funcs_on_exit 00000002  00000828  00000828  000008bc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 25 .text.__dummy_simulator_exit 00000002  0000082a  0000082a  000008be  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 26 .text.exit    00000016  00000808  00000808  0000089c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 27 .text._Exit   00000004  00000822  00000822  000008b6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2e 00 	jmp	0x5c	; 0x5c <__ctors_end>
+   4:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+   8:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+   c:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  10:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  14:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  18:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  1c:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  20:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  24:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  28:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  2c:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  30:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  34:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  38:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  3c:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  40:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  44:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  48:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  4c:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+  50:	0c 94 0f 04 	jmp	0x81e	; 0x81e <__bad_interrupt>
+
+00000054 <.dinit>:
+  54:	00 60       	ori	r16, 0x00	; 0
+  56:	00 6c       	ori	r16, 0xC0	; 192
+  58:	00 08       	sbc	r0, r0
+  5a:	2c 00       	.word	0x002c	; ????
+
+0000005c <__ctors_end>:
+  5c:	11 24       	eor	r1, r1
+  5e:	1f be       	out	0x3f, r1	; 63
+  60:	cf e5       	ldi	r28, 0x5F	; 95
+  62:	d8 e0       	ldi	r29, 0x08	; 8
+  64:	de bf       	out	0x3e, r29	; 62
+  66:	cd bf       	out	0x3d, r28	; 61
+
+00000068 <__do_copy_data>:
+  68:	e4 e5       	ldi	r30, 0x54	; 84
+  6a:	f0 e0       	ldi	r31, 0x00	; 0
+  6c:	40 e0       	ldi	r20, 0x00	; 0
+  6e:	17 c0       	rjmp	.+46     	; 0x9e <__do_clear_bss+0x8>
+  70:	b5 91       	lpm	r27, Z+
+  72:	a5 91       	lpm	r26, Z+
+  74:	35 91       	lpm	r19, Z+
+  76:	25 91       	lpm	r18, Z+
+  78:	05 91       	lpm	r16, Z+
+  7a:	07 fd       	sbrc	r16, 7
+  7c:	0c c0       	rjmp	.+24     	; 0x96 <__do_clear_bss>
+  7e:	95 91       	lpm	r25, Z+
+  80:	85 91       	lpm	r24, Z+
+  82:	ef 01       	movw	r28, r30
+  84:	f9 2f       	mov	r31, r25
+  86:	e8 2f       	mov	r30, r24
+  88:	05 90       	lpm	r0, Z+
+  8a:	0d 92       	st	X+, r0
+  8c:	a2 17       	cp	r26, r18
+  8e:	b3 07       	cpc	r27, r19
+  90:	d9 f7       	brne	.-10     	; 0x88 <__do_copy_data+0x20>
+  92:	fe 01       	movw	r30, r28
+  94:	04 c0       	rjmp	.+8      	; 0x9e <__do_clear_bss+0x8>
+
+00000096 <__do_clear_bss>:
+  96:	1d 92       	st	X+, r1
+  98:	a2 17       	cp	r26, r18
+  9a:	b3 07       	cpc	r27, r19
+  9c:	e1 f7       	brne	.-8      	; 0x96 <__do_clear_bss>
+  9e:	eb 35       	cpi	r30, 0x5B	; 91
+  a0:	f4 07       	cpc	r31, r20
+  a2:	31 f7       	brne	.-52     	; 0x70 <__do_copy_data+0x8>
+  a4:	0e 94 1b 03 	call	0x636	; 0x636 <main>
+  a8:	0c 94 04 04 	jmp	0x808	; 0x808 <exit>
+
+000000ac <_exit>:
+  ac:	f8 94       	cli
+
+000000ae <__stop_program>:
+  ae:	ff cf       	rjmp	.-2      	; 0xae <__stop_program>
+
+Disassembly of section .text:
+
+0000081e <__bad_interrupt>:
+ 81e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+Disassembly of section .text.main:
+
+00000636 <main>:
+extern LED_strCFG_t LEDS[NumOfLeds];
+extern SWITCH_strCFG_t SWITCHS[NumOfLSWITCHES];
+
+
+int main(void)
+{
+ 636:	cf 93       	push	r28
+ 638:	df 93       	push	r29
+ 63a:	00 d0       	rcall	.+0      	; 0x63c <main+0x6>
+ 63c:	cd b7       	in	r28, 0x3d	; 61
+ 63e:	de b7       	in	r29, 0x3e	; 62
+	/**
+	*@ LOCAL_u8Button1 variable to check switch1 one pressed or not , it initialized by 1 which mean switch unpressed
+	*/
+	u8 LOCAL_u8Button1 = 1 ;
+ 640:	81 e0       	ldi	r24, 0x01	; 1
+ 642:	89 83       	std	Y+1, r24	; 0x01
+	/**
+	*@ LOCAL_u8Button2 variable to check switch2 one pressed or not , it initialized by 1 which mean switch unpressed
+	*/
+	u8 LOCAL_u8Button2 = 1 ;
+ 644:	8a 83       	std	Y+2, r24	; 0x02
+	*@ FLAG used to toggle led
+	*/
+	u8 LOCAL_u8ToggleFlag = 0 ;
+	
+	
+	LED_enumdInit();
+ 646:	0e 94 2c 02 	call	0x458	; 0x458 <LED_enumdInit>
+	SWITCH_enumdInit();
+ 64a:	0e 94 b2 02 	call	0x564	; 0x564 <SWITCH_enumdInit>
+	*/
+	u8 LOCAL_u8Button2 = 1 ;
+	/**
+	*@ FLAG used to toggle led
+	*/
+	u8 LOCAL_u8ToggleFlag = 0 ;
+ 64e:	10 e0       	ldi	r17, 0x00	; 0
+	while(1)
+    {
+		/**
+		*@ Check if switch1 pressed or not
+		*/
+		   SWITCH_enuGetSwitchState( SWITCH2 , & LOCAL_u8Button1 ) ;
+ 650:	be 01       	movw	r22, r28
+ 652:	6f 5f       	subi	r22, 0xFF	; 255
+ 654:	7f 4f       	sbci	r23, 0xFF	; 255
+ 656:	81 e0       	ldi	r24, 0x01	; 1
+ 658:	0e 94 f4 03 	call	0x7e8	; 0x7e8 <SWITCH_enuGetSwitchState>
+		 
+		/**
+		*@ Check if switch1 pressed or not
+		*/
+		  SWITCH_enuGetSwitchState( SWITCH1 , & LOCAL_u8Button2 ) ;
+ 65c:	be 01       	movw	r22, r28
+ 65e:	6e 5f       	subi	r22, 0xFE	; 254
+ 660:	7f 4f       	sbci	r23, 0xFF	; 255
+ 662:	80 e0       	ldi	r24, 0x00	; 0
+ 664:	0e 94 f4 03 	call	0x7e8	; 0x7e8 <SWITCH_enuGetSwitchState>
+		  
+		/**
+		*@ IF switch 1 pressed toggle led 1 and if switch 2 pressed toggle led 2
+		*/  
+		if ( LOCAL_u8Button1 == Pressed )
+ 668:	89 81       	ldd	r24, Y+1	; 0x01
+ 66a:	81 11       	cpse	r24, r1
+ 66c:	21 c0       	rjmp	.+66     	; 0x6b0 <main+0x7a>
+		{
+			if(LOCAL_u8ToggleFlag == 0)
+ 66e:	11 11       	cpse	r17, r1
+ 670:	0f c0       	rjmp	.+30     	; 0x690 <main+0x5a>
+				{
+					LED_enuSetLedState(LED1,LED_enumActiveHigh_ON);
+ 672:	60 e0       	ldi	r22, 0x00	; 0
+ 674:	0e 94 bf 03 	call	0x77e	; 0x77e <LED_enuSetLedState>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 678:	2f e3       	ldi	r18, 0x3F	; 63
+ 67a:	8d e0       	ldi	r24, 0x0D	; 13
+ 67c:	93 e0       	ldi	r25, 0x03	; 3
+ 67e:	21 50       	subi	r18, 0x01	; 1
+ 680:	80 40       	sbci	r24, 0x00	; 0
+ 682:	90 40       	sbci	r25, 0x00	; 0
+ 684:	e1 f7       	brne	.-8      	; 0x67e <main+0x48>
+ 686:	00 c0       	rjmp	.+0      	; 0x688 <main+0x52>
+ 688:	00 00       	nop
+					_delay_ms(1000);
+					LOCAL_u8ToggleFlag ^= 1;		
+ 68a:	81 e0       	ldi	r24, 0x01	; 1
+ 68c:	18 27       	eor	r17, r24
+ 68e:	e0 cf       	rjmp	.-64     	; 0x650 <main+0x1a>
+				}
+			else
+				{	
+					LED_enuSetLedState(LED1,LED_enumActiveHigh_OFF);
+ 690:	61 e0       	ldi	r22, 0x01	; 1
+ 692:	80 e0       	ldi	r24, 0x00	; 0
+ 694:	0e 94 bf 03 	call	0x77e	; 0x77e <LED_enuSetLedState>
+ 698:	2f e3       	ldi	r18, 0x3F	; 63
+ 69a:	8d e0       	ldi	r24, 0x0D	; 13
+ 69c:	93 e0       	ldi	r25, 0x03	; 3
+ 69e:	21 50       	subi	r18, 0x01	; 1
+ 6a0:	80 40       	sbci	r24, 0x00	; 0
+ 6a2:	90 40       	sbci	r25, 0x00	; 0
+ 6a4:	e1 f7       	brne	.-8      	; 0x69e <main+0x68>
+ 6a6:	00 c0       	rjmp	.+0      	; 0x6a8 <main+0x72>
+ 6a8:	00 00       	nop
+					_delay_ms(1000);
+					LOCAL_u8ToggleFlag ^= 1;
+ 6aa:	81 e0       	ldi	r24, 0x01	; 1
+ 6ac:	18 27       	eor	r17, r24
+ 6ae:	d0 cf       	rjmp	.-96     	; 0x650 <main+0x1a>
+				}	
+		}
+		
+		else if (  LOCAL_u8Button2 == Pressed)
+ 6b0:	8a 81       	ldd	r24, Y+2	; 0x02
+ 6b2:	81 11       	cpse	r24, r1
+ 6b4:	cd cf       	rjmp	.-102    	; 0x650 <main+0x1a>
+		{
+			if(LOCAL_u8ToggleFlag == 0)
+ 6b6:	11 11       	cpse	r17, r1
+ 6b8:	10 c0       	rjmp	.+32     	; 0x6da <main+0xa4>
+			{
+				LED_enuSetLedState(LED2,LED_enumActiveHigh_ON);
+ 6ba:	60 e0       	ldi	r22, 0x00	; 0
+ 6bc:	81 e0       	ldi	r24, 0x01	; 1
+ 6be:	0e 94 bf 03 	call	0x77e	; 0x77e <LED_enuSetLedState>
+ 6c2:	2f e3       	ldi	r18, 0x3F	; 63
+ 6c4:	8d e0       	ldi	r24, 0x0D	; 13
+ 6c6:	93 e0       	ldi	r25, 0x03	; 3
+ 6c8:	21 50       	subi	r18, 0x01	; 1
+ 6ca:	80 40       	sbci	r24, 0x00	; 0
+ 6cc:	90 40       	sbci	r25, 0x00	; 0
+ 6ce:	e1 f7       	brne	.-8      	; 0x6c8 <main+0x92>
+ 6d0:	00 c0       	rjmp	.+0      	; 0x6d2 <main+0x9c>
+ 6d2:	00 00       	nop
+				_delay_ms(1000);
+				LOCAL_u8ToggleFlag ^= 1;
+ 6d4:	81 e0       	ldi	r24, 0x01	; 1
+ 6d6:	18 27       	eor	r17, r24
+ 6d8:	bb cf       	rjmp	.-138    	; 0x650 <main+0x1a>
+			}
+			else
+			{
+				LED_enuSetLedState(LED2,LED_enumActiveHigh_OFF);
+ 6da:	61 e0       	ldi	r22, 0x01	; 1
+ 6dc:	81 e0       	ldi	r24, 0x01	; 1
+ 6de:	0e 94 bf 03 	call	0x77e	; 0x77e <LED_enuSetLedState>
+ 6e2:	2f e3       	ldi	r18, 0x3F	; 63
+ 6e4:	8d e0       	ldi	r24, 0x0D	; 13
+ 6e6:	93 e0       	ldi	r25, 0x03	; 3
+ 6e8:	21 50       	subi	r18, 0x01	; 1
+ 6ea:	80 40       	sbci	r24, 0x00	; 0
+ 6ec:	90 40       	sbci	r25, 0x00	; 0
+ 6ee:	e1 f7       	brne	.-8      	; 0x6e8 <main+0xb2>
+ 6f0:	00 c0       	rjmp	.+0      	; 0x6f2 <main+0xbc>
+ 6f2:	00 00       	nop
+				_delay_ms(1000);
+				LOCAL_u8ToggleFlag ^= 1;
+ 6f4:	81 e0       	ldi	r24, 0x01	; 1
+ 6f6:	18 27       	eor	r17, r24
+ 6f8:	ab cf       	rjmp	.-170    	; 0x650 <main+0x1a>
+
+Disassembly of section .text.LED_enumdInit:
+
+00000458 <LED_enumdInit>:
+ *@brief  : Function to Configure the  LEDS Pins to be active high or active low .
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+LED_enumErrorState LED_enumdInit(void)
+{
+ 458:	ff 92       	push	r15
+ 45a:	0f 93       	push	r16
+ 45c:	1f 93       	push	r17
+ 45e:	cf 93       	push	r28
+ 460:	df 93       	push	r29
+ 462:	00 d0       	rcall	.+0      	; 0x464 <LED_enumdInit+0xc>
+ 464:	00 d0       	rcall	.+0      	; 0x466 <LED_enumdInit+0xe>
+ 466:	00 d0       	rcall	.+0      	; 0x468 <LED_enumdInit+0x10>
+ 468:	cd b7       	in	r28, 0x3d	; 61
+ 46a:	de b7       	in	r29, 0x3e	; 62
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentLed[NumOfLeds];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLeds ; LOCAL_u8Iterator++)
+ 46c:	f1 2c       	mov	r15, r1
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+LED_enumErrorState LED_enumdInit(void)
+{
+	LED_enumErrorState LOCAL_enumReturnStatus = LED_enumOK ;
+ 46e:	80 e0       	ldi	r24, 0x00	; 0
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentLed[NumOfLeds];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLeds ; LOCAL_u8Iterator++)
+ 470:	69 c0       	rjmp	.+210    	; 0x544 <LED_enumdInit+0xec>
+	{
+		LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strPORT = LEDS[LOCAL_u8Iterator].LED_strPORT ;
+ 472:	8f 2d       	mov	r24, r15
+ 474:	90 e0       	ldi	r25, 0x00	; 0
+ 476:	fc 01       	movw	r30, r24
+ 478:	ee 0f       	add	r30, r30
+ 47a:	ff 1f       	adc	r31, r31
+ 47c:	e8 0f       	add	r30, r24
+ 47e:	f9 1f       	adc	r31, r25
+ 480:	df 01       	movw	r26, r30
+ 482:	a0 5a       	subi	r26, 0xA0	; 160
+ 484:	bf 4f       	sbci	r27, 0xFF	; 255
+ 486:	2c 91       	ld	r18, X
+ 488:	41 e0       	ldi	r20, 0x01	; 1
+ 48a:	50 e0       	ldi	r21, 0x00	; 0
+ 48c:	4c 0f       	add	r20, r28
+ 48e:	5d 1f       	adc	r21, r29
+ 490:	e4 0f       	add	r30, r20
+ 492:	f5 1f       	adc	r31, r21
+ 494:	20 83       	st	Z, r18
+		
+		LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strPIN = LEDS[LOCAL_u8Iterator].LED_strPIN ;
+ 496:	11 96       	adiw	r26, 0x01	; 1
+ 498:	2c 91       	ld	r18, X
+ 49a:	11 97       	sbiw	r26, 0x01	; 1
+ 49c:	21 83       	std	Z+1, r18	; 0x01
+		
+		switch(LEDS[LOCAL_u8Iterator].LED_strSTATE){
+ 49e:	12 96       	adiw	r26, 0x02	; 2
+ 4a0:	2c 91       	ld	r18, X
+ 4a2:	21 30       	cpi	r18, 0x01	; 1
+ 4a4:	99 f0       	breq	.+38     	; 0x4cc <LED_enumdInit+0x74>
+ 4a6:	28 f0       	brcs	.+10     	; 0x4b2 <LED_enumdInit+0x5a>
+ 4a8:	22 30       	cpi	r18, 0x02	; 2
+ 4aa:	f1 f0       	breq	.+60     	; 0x4e8 <LED_enumdInit+0x90>
+ 4ac:	23 30       	cpi	r18, 0x03	; 3
+ 4ae:	51 f1       	breq	.+84     	; 0x504 <LED_enumdInit+0xac>
+ 4b0:	35 c0       	rjmp	.+106    	; 0x51c <LED_enumdInit+0xc4>
+										case LED_enumActiveHigh_ON:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTHIGH ;		
+ 4b2:	fc 01       	movw	r30, r24
+ 4b4:	ee 0f       	add	r30, r30
+ 4b6:	ff 1f       	adc	r31, r31
+ 4b8:	e8 0f       	add	r30, r24
+ 4ba:	f9 1f       	adc	r31, r25
+ 4bc:	21 e0       	ldi	r18, 0x01	; 1
+ 4be:	30 e0       	ldi	r19, 0x00	; 0
+ 4c0:	2c 0f       	add	r18, r28
+ 4c2:	3d 1f       	adc	r19, r29
+ 4c4:	e2 0f       	add	r30, r18
+ 4c6:	f3 1f       	adc	r31, r19
+ 4c8:	12 82       	std	Z+2, r1	; 0x02
+										break;
+ 4ca:	28 c0       	rjmp	.+80     	; 0x51c <LED_enumdInit+0xc4>
+										case LED_enumActiveHigh_OFF:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTLOW ;			
+ 4cc:	fc 01       	movw	r30, r24
+ 4ce:	ee 0f       	add	r30, r30
+ 4d0:	ff 1f       	adc	r31, r31
+ 4d2:	e8 0f       	add	r30, r24
+ 4d4:	f9 1f       	adc	r31, r25
+ 4d6:	41 e0       	ldi	r20, 0x01	; 1
+ 4d8:	50 e0       	ldi	r21, 0x00	; 0
+ 4da:	4c 0f       	add	r20, r28
+ 4dc:	5d 1f       	adc	r21, r29
+ 4de:	e4 0f       	add	r30, r20
+ 4e0:	f5 1f       	adc	r31, r21
+ 4e2:	21 e0       	ldi	r18, 0x01	; 1
+ 4e4:	22 83       	std	Z+2, r18	; 0x02
+										break;
+ 4e6:	1a c0       	rjmp	.+52     	; 0x51c <LED_enumdInit+0xc4>
+										case LED_enumActiveLow_ON:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTLOW ;
+ 4e8:	fc 01       	movw	r30, r24
+ 4ea:	ee 0f       	add	r30, r30
+ 4ec:	ff 1f       	adc	r31, r31
+ 4ee:	e8 0f       	add	r30, r24
+ 4f0:	f9 1f       	adc	r31, r25
+ 4f2:	21 e0       	ldi	r18, 0x01	; 1
+ 4f4:	30 e0       	ldi	r19, 0x00	; 0
+ 4f6:	2c 0f       	add	r18, r28
+ 4f8:	3d 1f       	adc	r19, r29
+ 4fa:	e2 0f       	add	r30, r18
+ 4fc:	f3 1f       	adc	r31, r19
+ 4fe:	21 e0       	ldi	r18, 0x01	; 1
+ 500:	22 83       	std	Z+2, r18	; 0x02
+										break;
+ 502:	0c c0       	rjmp	.+24     	; 0x51c <LED_enumdInit+0xc4>
+										case LED_enumActiveLOw_OFF:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTHIGH ;
+ 504:	fc 01       	movw	r30, r24
+ 506:	ee 0f       	add	r30, r30
+ 508:	ff 1f       	adc	r31, r31
+ 50a:	e8 0f       	add	r30, r24
+ 50c:	f9 1f       	adc	r31, r25
+ 50e:	41 e0       	ldi	r20, 0x01	; 1
+ 510:	50 e0       	ldi	r21, 0x00	; 0
+ 512:	4c 0f       	add	r20, r28
+ 514:	5d 1f       	adc	r21, r29
+ 516:	e4 0f       	add	r30, r20
+ 518:	f5 1f       	adc	r31, r21
+ 51a:	12 82       	std	Z+2, r1	; 0x02
+		
+	/**
+	*@ call DIO_enumSetCFG function to set configration in DIO Driver
+	*@ and check return of DIO_enumSetCFG function ok or not ok
+	*/		
+		 DIO_enumSetCFG( & LOCAL_strCurrentLed [LOCAL_u8Iterator] );
+ 51c:	8c 01       	movw	r16, r24
+ 51e:	00 0f       	add	r16, r16
+ 520:	11 1f       	adc	r17, r17
+ 522:	80 0f       	add	r24, r16
+ 524:	91 1f       	adc	r25, r17
+ 526:	01 e0       	ldi	r16, 0x01	; 1
+ 528:	10 e0       	ldi	r17, 0x00	; 0
+ 52a:	0c 0f       	add	r16, r28
+ 52c:	1d 1f       	adc	r17, r29
+ 52e:	08 0f       	add	r16, r24
+ 530:	19 1f       	adc	r17, r25
+ 532:	c8 01       	movw	r24, r16
+ 534:	0e 94 58 00 	call	0xb0	; 0xb0 <_etext>
+			
+		if( ! (DIO_enumSetCFG( & LOCAL_strCurrentLed [LOCAL_u8Iterator] ))){
+ 538:	c8 01       	movw	r24, r16
+ 53a:	0e 94 58 00 	call	0xb0	; 0xb0 <_etext>
+ 53e:	81 11       	cpse	r24, r1
+			LOCAL_enumReturnStatus = LED_enumOK ;
+		}/*if*/
+		else {
+			LOCAL_enumReturnStatus = LED_enumNOK ;
+ 540:	81 e0       	ldi	r24, 0x01	; 1
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentLed[NumOfLeds];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLeds ; LOCAL_u8Iterator++)
+ 542:	f3 94       	inc	r15
+ 544:	51 e0       	ldi	r21, 0x01	; 1
+ 546:	5f 15       	cp	r21, r15
+ 548:	08 f0       	brcs	.+2      	; 0x54c <LED_enumdInit+0xf4>
+ 54a:	93 cf       	rjmp	.-218    	; 0x472 <LED_enumdInit+0x1a>
+	
+
+return LOCAL_enumReturnStatus ;
+	
+	
+}/*led init function */
+ 54c:	26 96       	adiw	r28, 0x06	; 6
+ 54e:	0f b6       	in	r0, 0x3f	; 63
+ 550:	f8 94       	cli
+ 552:	de bf       	out	0x3e, r29	; 62
+ 554:	0f be       	out	0x3f, r0	; 63
+ 556:	cd bf       	out	0x3d, r28	; 61
+ 558:	df 91       	pop	r29
+ 55a:	cf 91       	pop	r28
+ 55c:	1f 91       	pop	r17
+ 55e:	0f 91       	pop	r16
+ 560:	ff 90       	pop	r15
+ 562:	08 95       	ret
+
+Disassembly of section .text.LED_enuSetLedState:
+
+0000077e <LED_enuSetLedState>:
+ *@param  : take led name and led state .
+ *@return : Error State                                               
+ */
+
+LED_enumErrorState LED_enuSetLedState(u8 Copy_u8LedName , u8 Copy_u8State)
+{
+ 77e:	cf 93       	push	r28
+ 780:	df 93       	push	r29
+ 782:	00 d0       	rcall	.+0      	; 0x784 <LED_enuSetLedState+0x6>
+ 784:	0f 92       	push	r0
+ 786:	cd b7       	in	r28, 0x3d	; 61
+ 788:	de b7       	in	r29, 0x3e	; 62
+	*/
+	PPRT_strCFG_t LOCAL_strCurrentLed;
+	/**
+	*@ reconfigure led state which is element of array of leds
+	*/
+	LEDS[Copy_u8LedName].LED_strSTATE = Copy_u8State ;
+ 78a:	90 e0       	ldi	r25, 0x00	; 0
+ 78c:	fc 01       	movw	r30, r24
+ 78e:	ee 0f       	add	r30, r30
+ 790:	ff 1f       	adc	r31, r31
+ 792:	8e 0f       	add	r24, r30
+ 794:	9f 1f       	adc	r25, r31
+ 796:	fc 01       	movw	r30, r24
+ 798:	e0 5a       	subi	r30, 0xA0	; 160
+ 79a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 79c:	62 83       	std	Z+2, r22	; 0x02
+	
+	LOCAL_strCurrentLed.PORT_strPORT = LEDS[Copy_u8LedName].LED_strPORT ;
+ 79e:	80 81       	ld	r24, Z
+ 7a0:	89 83       	std	Y+1, r24	; 0x01
+	
+	LOCAL_strCurrentLed.PORT_strPIN = LEDS[Copy_u8LedName].LED_strPIN ;
+ 7a2:	81 81       	ldd	r24, Z+1	; 0x01
+ 7a4:	8a 83       	std	Y+2, r24	; 0x02
+	
+	switch(LEDS[Copy_u8LedName].LED_strSTATE){
+ 7a6:	61 30       	cpi	r22, 0x01	; 1
+ 7a8:	41 f0       	breq	.+16     	; 0x7ba <LED_enuSetLedState+0x3c>
+ 7aa:	28 f0       	brcs	.+10     	; 0x7b6 <LED_enuSetLedState+0x38>
+ 7ac:	62 30       	cpi	r22, 0x02	; 2
+ 7ae:	41 f0       	breq	.+16     	; 0x7c0 <LED_enuSetLedState+0x42>
+ 7b0:	63 30       	cpi	r22, 0x03	; 3
+ 7b2:	49 f0       	breq	.+18     	; 0x7c6 <LED_enuSetLedState+0x48>
+ 7b4:	09 c0       	rjmp	.+18     	; 0x7c8 <LED_enuSetLedState+0x4a>
+		
+		case LED_enumActiveHigh_ON:
+	    LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTHIGH ;
+ 7b6:	1b 82       	std	Y+3, r1	; 0x03
+		break;
+ 7b8:	07 c0       	rjmp	.+14     	; 0x7c8 <LED_enuSetLedState+0x4a>
+		case LED_enumActiveHigh_OFF:
+		LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTLOW ;
+ 7ba:	81 e0       	ldi	r24, 0x01	; 1
+ 7bc:	8b 83       	std	Y+3, r24	; 0x03
+		break;
+ 7be:	04 c0       	rjmp	.+8      	; 0x7c8 <LED_enuSetLedState+0x4a>
+		case LED_enumActiveLow_ON:
+		LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTLOW ;
+ 7c0:	81 e0       	ldi	r24, 0x01	; 1
+ 7c2:	8b 83       	std	Y+3, r24	; 0x03
+		break;
+ 7c4:	01 c0       	rjmp	.+2      	; 0x7c8 <LED_enuSetLedState+0x4a>
+		case LED_enumActiveLOw_OFF:
+		LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTHIGH ;
+ 7c6:	1b 82       	std	Y+3, r1	; 0x03
+	
+	/**
+	*@ call DIO_enumSetCFG function to set configration in DIO Driver
+	*@ and check return of DIO_enumSetCFG function ok or not ok
+	*/		
+		 DIO_enumSetCFG( & LOCAL_strCurrentLed );
+ 7c8:	ce 01       	movw	r24, r28
+ 7ca:	01 96       	adiw	r24, 0x01	; 1
+ 7cc:	0e 94 58 00 	call	0xb0	; 0xb0 <_etext>
+			
+		if( ! (DIO_enumSetCFG( & LOCAL_strCurrentLed  )))
+ 7d0:	ce 01       	movw	r24, r28
+ 7d2:	01 96       	adiw	r24, 0x01	; 1
+ 7d4:	0e 94 58 00 	call	0xb0	; 0xb0 <_etext>
+ 7d8:	81 11       	cpse	r24, r1
+		{
+			LOCAL_enumReturnStatus = LED_enumOK ;
+		}/*if*/
+		else {
+			LOCAL_enumReturnStatus = LED_enumNOK ;
+ 7da:	81 e0       	ldi	r24, 0x01	; 1
+		}/*else*/
+	
+	
+return LOCAL_enumReturnStatus ;	
+	
+ 7dc:	0f 90       	pop	r0
+ 7de:	0f 90       	pop	r0
+ 7e0:	0f 90       	pop	r0
+ 7e2:	df 91       	pop	r29
+ 7e4:	cf 91       	pop	r28
+ 7e6:	08 95       	ret
+
+Disassembly of section .text.SWITCH_enumdInit:
+
+00000564 <SWITCH_enumdInit>:
+ *@brief  : Function to Configure the  SWITCHS Pins to be INPUT pull up or input external pull down resistor .
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+SWITCH_enumErrorState SWITCH_enumdInit(void)
+{
+ 564:	ff 92       	push	r15
+ 566:	0f 93       	push	r16
+ 568:	1f 93       	push	r17
+ 56a:	cf 93       	push	r28
+ 56c:	df 93       	push	r29
+ 56e:	00 d0       	rcall	.+0      	; 0x570 <SWITCH_enumdInit+0xc>
+ 570:	00 d0       	rcall	.+0      	; 0x572 <SWITCH_enumdInit+0xe>
+ 572:	00 d0       	rcall	.+0      	; 0x574 <SWITCH_enumdInit+0x10>
+ 574:	cd b7       	in	r28, 0x3d	; 61
+ 576:	de b7       	in	r29, 0x3e	; 62
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentSWITCH[NumOfLSWITCHES];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLSWITCHES ; LOCAL_u8Iterator++)
+ 578:	f1 2c       	mov	r15, r1
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+SWITCH_enumErrorState SWITCH_enumdInit(void)
+{
+	SWITCH_enumErrorState LOCAL_enumReturnStatus = SWITCH_enumOK ;
+ 57a:	80 e0       	ldi	r24, 0x00	; 0
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentSWITCH[NumOfLSWITCHES];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLSWITCHES ; LOCAL_u8Iterator++)
+ 57c:	4c c0       	rjmp	.+152    	; 0x616 <SWITCH_enumdInit+0xb2>
+	{
+		LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strPORT = SWITCHS[LOCAL_u8Iterator].SWITCH_strPORT ;
+ 57e:	8f 2d       	mov	r24, r15
+ 580:	90 e0       	ldi	r25, 0x00	; 0
+ 582:	fc 01       	movw	r30, r24
+ 584:	ee 0f       	add	r30, r30
+ 586:	ff 1f       	adc	r31, r31
+ 588:	e8 0f       	add	r30, r24
+ 58a:	f9 1f       	adc	r31, r25
+ 58c:	df 01       	movw	r26, r30
+ 58e:	aa 59       	subi	r26, 0x9A	; 154
+ 590:	bf 4f       	sbci	r27, 0xFF	; 255
+ 592:	2c 91       	ld	r18, X
+ 594:	41 e0       	ldi	r20, 0x01	; 1
+ 596:	50 e0       	ldi	r21, 0x00	; 0
+ 598:	4c 0f       	add	r20, r28
+ 59a:	5d 1f       	adc	r21, r29
+ 59c:	e4 0f       	add	r30, r20
+ 59e:	f5 1f       	adc	r31, r21
+ 5a0:	20 83       	st	Z, r18
+		
+		LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strPIN = SWITCHS[LOCAL_u8Iterator].SWITCH_strPIN ;
+ 5a2:	11 96       	adiw	r26, 0x01	; 1
+ 5a4:	2c 91       	ld	r18, X
+ 5a6:	11 97       	sbiw	r26, 0x01	; 1
+ 5a8:	21 83       	std	Z+1, r18	; 0x01
+		
+		switch(SWITCHS[LOCAL_u8Iterator].SWITCH_strSTATE){
+ 5aa:	12 96       	adiw	r26, 0x02	; 2
+ 5ac:	2c 91       	ld	r18, X
+ 5ae:	22 23       	and	r18, r18
+ 5b0:	19 f0       	breq	.+6      	; 0x5b8 <SWITCH_enumdInit+0x54>
+ 5b2:	21 30       	cpi	r18, 0x01	; 1
+ 5b4:	79 f0       	breq	.+30     	; 0x5d4 <SWITCH_enumdInit+0x70>
+ 5b6:	1b c0       	rjmp	.+54     	; 0x5ee <SWITCH_enumdInit+0x8a>
+										case SWITCH_enumINPUT_PULLUP:
+												LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumInputPullUp ;		
+ 5b8:	fc 01       	movw	r30, r24
+ 5ba:	ee 0f       	add	r30, r30
+ 5bc:	ff 1f       	adc	r31, r31
+ 5be:	e8 0f       	add	r30, r24
+ 5c0:	f9 1f       	adc	r31, r25
+ 5c2:	21 e0       	ldi	r18, 0x01	; 1
+ 5c4:	30 e0       	ldi	r19, 0x00	; 0
+ 5c6:	2c 0f       	add	r18, r28
+ 5c8:	3d 1f       	adc	r19, r29
+ 5ca:	e2 0f       	add	r30, r18
+ 5cc:	f3 1f       	adc	r31, r19
+ 5ce:	22 e0       	ldi	r18, 0x02	; 2
+ 5d0:	22 83       	std	Z+2, r18	; 0x02
+										break;
+ 5d2:	0d c0       	rjmp	.+26     	; 0x5ee <SWITCH_enumdInit+0x8a>
+										case SWITCH_enumINPUT_EXTERNALPULLDOWN:
+												LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumInputExternalPullDown  ;			
+ 5d4:	fc 01       	movw	r30, r24
+ 5d6:	ee 0f       	add	r30, r30
+ 5d8:	ff 1f       	adc	r31, r31
+ 5da:	e8 0f       	add	r30, r24
+ 5dc:	f9 1f       	adc	r31, r25
+ 5de:	41 e0       	ldi	r20, 0x01	; 1
+ 5e0:	50 e0       	ldi	r21, 0x00	; 0
+ 5e2:	4c 0f       	add	r20, r28
+ 5e4:	5d 1f       	adc	r21, r29
+ 5e6:	e4 0f       	add	r30, r20
+ 5e8:	f5 1f       	adc	r31, r21
+ 5ea:	23 e0       	ldi	r18, 0x03	; 3
+ 5ec:	22 83       	std	Z+2, r18	; 0x02
+		
+	/**
+	*@ call DIO_enumSetCFG function to set configration in DIO Driver
+	*@ and check return of DIO_enumSetCFG function ok or not ok
+	*/		
+		 DIO_enumSetCFG( & LOCAL_strCurrentSWITCH [LOCAL_u8Iterator] );
+ 5ee:	8c 01       	movw	r16, r24
+ 5f0:	00 0f       	add	r16, r16
+ 5f2:	11 1f       	adc	r17, r17
+ 5f4:	80 0f       	add	r24, r16
+ 5f6:	91 1f       	adc	r25, r17
+ 5f8:	01 e0       	ldi	r16, 0x01	; 1
+ 5fa:	10 e0       	ldi	r17, 0x00	; 0
+ 5fc:	0c 0f       	add	r16, r28
+ 5fe:	1d 1f       	adc	r17, r29
+ 600:	08 0f       	add	r16, r24
+ 602:	19 1f       	adc	r17, r25
+ 604:	c8 01       	movw	r24, r16
+ 606:	0e 94 58 00 	call	0xb0	; 0xb0 <_etext>
+			
+		if( ! (DIO_enumSetCFG( & LOCAL_strCurrentSWITCH [LOCAL_u8Iterator] )) ){
+ 60a:	c8 01       	movw	r24, r16
+ 60c:	0e 94 58 00 	call	0xb0	; 0xb0 <_etext>
+ 610:	81 11       	cpse	r24, r1
+			LOCAL_enumReturnStatus = SWITCH_enumOK ;
+		}/*if*/
+		else {
+			LOCAL_enumReturnStatus = SWITCH_enumNOK ;
+ 612:	81 e0       	ldi	r24, 0x01	; 1
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentSWITCH[NumOfLSWITCHES];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLSWITCHES ; LOCAL_u8Iterator++)
+ 614:	f3 94       	inc	r15
+ 616:	51 e0       	ldi	r21, 0x01	; 1
+ 618:	5f 15       	cp	r21, r15
+ 61a:	08 f0       	brcs	.+2      	; 0x61e <SWITCH_enumdInit+0xba>
+ 61c:	b0 cf       	rjmp	.-160    	; 0x57e <SWITCH_enumdInit+0x1a>
+	
+
+return LOCAL_enumReturnStatus ;
+	
+	
+}/*led init function */
+ 61e:	26 96       	adiw	r28, 0x06	; 6
+ 620:	0f b6       	in	r0, 0x3f	; 63
+ 622:	f8 94       	cli
+ 624:	de bf       	out	0x3e, r29	; 62
+ 626:	0f be       	out	0x3f, r0	; 63
+ 628:	cd bf       	out	0x3d, r28	; 61
+ 62a:	df 91       	pop	r29
+ 62c:	cf 91       	pop	r28
+ 62e:	1f 91       	pop	r17
+ 630:	0f 91       	pop	r16
+ 632:	ff 90       	pop	r15
+ 634:	08 95       	ret
+
+Disassembly of section .text.SWITCH_enuGetSwitchState:
+
+000007e8 <SWITCH_enuGetSwitchState>:
+ *@brief  : Function to get switch state .
+ *@param  : switch number and variable in which return switch state.
+ *@return : Error State                                               
+ */	
+SWITCH_enumErrorState SWITCH_enuGetSwitchState(u8 Copy_strSwitchPort , u8 * Add_u8State)
+{
+ 7e8:	ab 01       	movw	r20, r22
+SWITCH_enumErrorState LOCAL_enumReturnStatus = SWITCH_enumOK ;
+
+if( ! (DIO_enumGetPinVal( SWITCHS[Copy_strSwitchPort].SWITCH_strPORT , SWITCHS[Copy_strSwitchPort].SWITCH_strPIN  , Add_u8State)) )
+ 7ea:	90 e0       	ldi	r25, 0x00	; 0
+ 7ec:	fc 01       	movw	r30, r24
+ 7ee:	ee 0f       	add	r30, r30
+ 7f0:	ff 1f       	adc	r31, r31
+ 7f2:	8e 0f       	add	r24, r30
+ 7f4:	9f 1f       	adc	r25, r31
+ 7f6:	fc 01       	movw	r30, r24
+ 7f8:	ea 59       	subi	r30, 0x9A	; 154
+ 7fa:	ff 4f       	sbci	r31, 0xFF	; 255
+ 7fc:	61 81       	ldd	r22, Z+1	; 0x01
+ 7fe:	80 81       	ld	r24, Z
+ 800:	0e 94 7d 03 	call	0x6fa	; 0x6fa <DIO_enumGetPinVal>
+	}	
+	
+	
+return LOCAL_enumReturnStatus ;	
+	
+}/* SWITCH_enuGetSwitchState function*/
+ 804:	80 e0       	ldi	r24, 0x00	; 0
+ 806:	08 95       	ret
+
+Disassembly of section .text.DIO_enumSetCFG:
+
+000000b0 <DIO_enumSetCFG>:
+	
+	
+	
+	
+	
+}/*set bin value function*/
+  b0:	fc 01       	movw	r30, r24
+  b2:	20 81       	ld	r18, Z
+  b4:	24 30       	cpi	r18, 0x04	; 4
+  b6:	08 f0       	brcs	.+2      	; 0xba <DIO_enumSetCFG+0xa>
+  b8:	bf c1       	rjmp	.+894    	; 0x438 <__EEPROM_REGION_LENGTH__+0x38>
+  ba:	31 81       	ldd	r19, Z+1	; 0x01
+  bc:	38 30       	cpi	r19, 0x08	; 8
+  be:	08 f0       	brcs	.+2      	; 0xc2 <DIO_enumSetCFG+0x12>
+  c0:	bd c1       	rjmp	.+890    	; 0x43c <__EEPROM_REGION_LENGTH__+0x3c>
+  c2:	42 81       	ldd	r20, Z+2	; 0x02
+  c4:	44 30       	cpi	r20, 0x04	; 4
+  c6:	08 f0       	brcs	.+2      	; 0xca <DIO_enumSetCFG+0x1a>
+  c8:	bb c1       	rjmp	.+886    	; 0x440 <__EEPROM_REGION_LENGTH__+0x40>
+  ca:	21 30       	cpi	r18, 0x01	; 1
+  cc:	09 f4       	brne	.+2      	; 0xd0 <DIO_enumSetCFG+0x20>
+  ce:	73 c0       	rjmp	.+230    	; 0x1b6 <DIO_enumSetCFG+0x106>
+  d0:	38 f0       	brcs	.+14     	; 0xe0 <DIO_enumSetCFG+0x30>
+  d2:	22 30       	cpi	r18, 0x02	; 2
+  d4:	09 f4       	brne	.+2      	; 0xd8 <DIO_enumSetCFG+0x28>
+  d6:	da c0       	rjmp	.+436    	; 0x28c <DIO_enumSetCFG+0x1dc>
+  d8:	23 30       	cpi	r18, 0x03	; 3
+  da:	09 f4       	brne	.+2      	; 0xde <DIO_enumSetCFG+0x2e>
+  dc:	42 c1       	rjmp	.+644    	; 0x362 <DIO_enumSetCFG+0x2b2>
+  de:	b2 c1       	rjmp	.+868    	; 0x444 <__EEPROM_REGION_LENGTH__+0x44>
+  e0:	41 30       	cpi	r20, 0x01	; 1
+  e2:	f9 f0       	breq	.+62     	; 0x122 <DIO_enumSetCFG+0x72>
+  e4:	30 f0       	brcs	.+12     	; 0xf2 <DIO_enumSetCFG+0x42>
+  e6:	42 30       	cpi	r20, 0x02	; 2
+  e8:	a9 f1       	breq	.+106    	; 0x154 <DIO_enumSetCFG+0xa4>
+  ea:	43 30       	cpi	r20, 0x03	; 3
+  ec:	09 f4       	brne	.+2      	; 0xf0 <DIO_enumSetCFG+0x40>
+  ee:	4a c0       	rjmp	.+148    	; 0x184 <DIO_enumSetCFG+0xd4>
+  f0:	ab c1       	rjmp	.+854    	; 0x448 <__EEPROM_REGION_LENGTH__+0x48>
+  f2:	6a b3       	in	r22, 0x1a	; 26
+  f4:	41 e0       	ldi	r20, 0x01	; 1
+  f6:	50 e0       	ldi	r21, 0x00	; 0
+  f8:	fa 01       	movw	r30, r20
+  fa:	02 c0       	rjmp	.+4      	; 0x100 <DIO_enumSetCFG+0x50>
+  fc:	ee 0f       	add	r30, r30
+  fe:	ff 1f       	adc	r31, r31
+ 100:	3a 95       	dec	r19
+ 102:	e2 f7       	brpl	.-8      	; 0xfc <DIO_enumSetCFG+0x4c>
+ 104:	9f 01       	movw	r18, r30
+ 106:	26 2b       	or	r18, r22
+ 108:	2a bb       	out	0x1a, r18	; 26
+ 10a:	2b b3       	in	r18, 0x1b	; 27
+ 10c:	fc 01       	movw	r30, r24
+ 10e:	01 80       	ldd	r0, Z+1	; 0x01
+ 110:	02 c0       	rjmp	.+4      	; 0x116 <DIO_enumSetCFG+0x66>
+ 112:	44 0f       	add	r20, r20
+ 114:	55 1f       	adc	r21, r21
+ 116:	0a 94       	dec	r0
+ 118:	e2 f7       	brpl	.-8      	; 0x112 <DIO_enumSetCFG+0x62>
+ 11a:	42 2b       	or	r20, r18
+ 11c:	4b bb       	out	0x1b, r20	; 27
+ 11e:	80 e0       	ldi	r24, 0x00	; 0
+ 120:	08 95       	ret
+ 122:	6a b3       	in	r22, 0x1a	; 26
+ 124:	41 e0       	ldi	r20, 0x01	; 1
+ 126:	50 e0       	ldi	r21, 0x00	; 0
+ 128:	fa 01       	movw	r30, r20
+ 12a:	02 c0       	rjmp	.+4      	; 0x130 <DIO_enumSetCFG+0x80>
+ 12c:	ee 0f       	add	r30, r30
+ 12e:	ff 1f       	adc	r31, r31
+ 130:	3a 95       	dec	r19
+ 132:	e2 f7       	brpl	.-8      	; 0x12c <DIO_enumSetCFG+0x7c>
+ 134:	9f 01       	movw	r18, r30
+ 136:	26 2b       	or	r18, r22
+ 138:	2a bb       	out	0x1a, r18	; 26
+ 13a:	2b b3       	in	r18, 0x1b	; 27
+ 13c:	fc 01       	movw	r30, r24
+ 13e:	01 80       	ldd	r0, Z+1	; 0x01
+ 140:	02 c0       	rjmp	.+4      	; 0x146 <DIO_enumSetCFG+0x96>
+ 142:	44 0f       	add	r20, r20
+ 144:	55 1f       	adc	r21, r21
+ 146:	0a 94       	dec	r0
+ 148:	e2 f7       	brpl	.-8      	; 0x142 <DIO_enumSetCFG+0x92>
+ 14a:	40 95       	com	r20
+ 14c:	42 23       	and	r20, r18
+ 14e:	4b bb       	out	0x1b, r20	; 27
+ 150:	80 e0       	ldi	r24, 0x00	; 0
+ 152:	08 95       	ret
+ 154:	2a b3       	in	r18, 0x1a	; 26
+ 156:	41 e0       	ldi	r20, 0x01	; 1
+ 158:	50 e0       	ldi	r21, 0x00	; 0
+ 15a:	ba 01       	movw	r22, r20
+ 15c:	02 c0       	rjmp	.+4      	; 0x162 <DIO_enumSetCFG+0xb2>
+ 15e:	66 0f       	add	r22, r22
+ 160:	77 1f       	adc	r23, r23
+ 162:	3a 95       	dec	r19
+ 164:	e2 f7       	brpl	.-8      	; 0x15e <DIO_enumSetCFG+0xae>
+ 166:	60 95       	com	r22
+ 168:	26 23       	and	r18, r22
+ 16a:	2a bb       	out	0x1a, r18	; 26
+ 16c:	2b b3       	in	r18, 0x1b	; 27
+ 16e:	fc 01       	movw	r30, r24
+ 170:	01 80       	ldd	r0, Z+1	; 0x01
+ 172:	02 c0       	rjmp	.+4      	; 0x178 <DIO_enumSetCFG+0xc8>
+ 174:	44 0f       	add	r20, r20
+ 176:	55 1f       	adc	r21, r21
+ 178:	0a 94       	dec	r0
+ 17a:	e2 f7       	brpl	.-8      	; 0x174 <DIO_enumSetCFG+0xc4>
+ 17c:	42 2b       	or	r20, r18
+ 17e:	4b bb       	out	0x1b, r20	; 27
+ 180:	80 e0       	ldi	r24, 0x00	; 0
+ 182:	08 95       	ret
+ 184:	2a b3       	in	r18, 0x1a	; 26
+ 186:	41 e0       	ldi	r20, 0x01	; 1
+ 188:	50 e0       	ldi	r21, 0x00	; 0
+ 18a:	ba 01       	movw	r22, r20
+ 18c:	02 c0       	rjmp	.+4      	; 0x192 <DIO_enumSetCFG+0xe2>
+ 18e:	66 0f       	add	r22, r22
+ 190:	77 1f       	adc	r23, r23
+ 192:	3a 95       	dec	r19
+ 194:	e2 f7       	brpl	.-8      	; 0x18e <DIO_enumSetCFG+0xde>
+ 196:	60 95       	com	r22
+ 198:	26 23       	and	r18, r22
+ 19a:	2a bb       	out	0x1a, r18	; 26
+ 19c:	2b b3       	in	r18, 0x1b	; 27
+ 19e:	fc 01       	movw	r30, r24
+ 1a0:	01 80       	ldd	r0, Z+1	; 0x01
+ 1a2:	02 c0       	rjmp	.+4      	; 0x1a8 <DIO_enumSetCFG+0xf8>
+ 1a4:	44 0f       	add	r20, r20
+ 1a6:	55 1f       	adc	r21, r21
+ 1a8:	0a 94       	dec	r0
+ 1aa:	e2 f7       	brpl	.-8      	; 0x1a4 <DIO_enumSetCFG+0xf4>
+ 1ac:	40 95       	com	r20
+ 1ae:	42 23       	and	r20, r18
+ 1b0:	4b bb       	out	0x1b, r20	; 27
+ 1b2:	80 e0       	ldi	r24, 0x00	; 0
+ 1b4:	08 95       	ret
+ 1b6:	41 30       	cpi	r20, 0x01	; 1
+ 1b8:	f9 f0       	breq	.+62     	; 0x1f8 <DIO_enumSetCFG+0x148>
+ 1ba:	30 f0       	brcs	.+12     	; 0x1c8 <DIO_enumSetCFG+0x118>
+ 1bc:	42 30       	cpi	r20, 0x02	; 2
+ 1be:	a9 f1       	breq	.+106    	; 0x22a <DIO_enumSetCFG+0x17a>
+ 1c0:	43 30       	cpi	r20, 0x03	; 3
+ 1c2:	09 f4       	brne	.+2      	; 0x1c6 <DIO_enumSetCFG+0x116>
+ 1c4:	4a c0       	rjmp	.+148    	; 0x25a <DIO_enumSetCFG+0x1aa>
+ 1c6:	42 c1       	rjmp	.+644    	; 0x44c <__EEPROM_REGION_LENGTH__+0x4c>
+ 1c8:	67 b3       	in	r22, 0x17	; 23
+ 1ca:	41 e0       	ldi	r20, 0x01	; 1
+ 1cc:	50 e0       	ldi	r21, 0x00	; 0
+ 1ce:	fa 01       	movw	r30, r20
+ 1d0:	02 c0       	rjmp	.+4      	; 0x1d6 <DIO_enumSetCFG+0x126>
+ 1d2:	ee 0f       	add	r30, r30
+ 1d4:	ff 1f       	adc	r31, r31
+ 1d6:	3a 95       	dec	r19
+ 1d8:	e2 f7       	brpl	.-8      	; 0x1d2 <DIO_enumSetCFG+0x122>
+ 1da:	9f 01       	movw	r18, r30
+ 1dc:	26 2b       	or	r18, r22
+ 1de:	27 bb       	out	0x17, r18	; 23
+ 1e0:	28 b3       	in	r18, 0x18	; 24
+ 1e2:	fc 01       	movw	r30, r24
+ 1e4:	01 80       	ldd	r0, Z+1	; 0x01
+ 1e6:	02 c0       	rjmp	.+4      	; 0x1ec <DIO_enumSetCFG+0x13c>
+ 1e8:	44 0f       	add	r20, r20
+ 1ea:	55 1f       	adc	r21, r21
+ 1ec:	0a 94       	dec	r0
+ 1ee:	e2 f7       	brpl	.-8      	; 0x1e8 <DIO_enumSetCFG+0x138>
+ 1f0:	42 2b       	or	r20, r18
+ 1f2:	48 bb       	out	0x18, r20	; 24
+ 1f4:	80 e0       	ldi	r24, 0x00	; 0
+ 1f6:	08 95       	ret
+ 1f8:	67 b3       	in	r22, 0x17	; 23
+ 1fa:	41 e0       	ldi	r20, 0x01	; 1
+ 1fc:	50 e0       	ldi	r21, 0x00	; 0
+ 1fe:	fa 01       	movw	r30, r20
+ 200:	02 c0       	rjmp	.+4      	; 0x206 <DIO_enumSetCFG+0x156>
+ 202:	ee 0f       	add	r30, r30
+ 204:	ff 1f       	adc	r31, r31
+ 206:	3a 95       	dec	r19
+ 208:	e2 f7       	brpl	.-8      	; 0x202 <DIO_enumSetCFG+0x152>
+ 20a:	9f 01       	movw	r18, r30
+ 20c:	26 2b       	or	r18, r22
+ 20e:	27 bb       	out	0x17, r18	; 23
+ 210:	28 b3       	in	r18, 0x18	; 24
+ 212:	fc 01       	movw	r30, r24
+ 214:	01 80       	ldd	r0, Z+1	; 0x01
+ 216:	02 c0       	rjmp	.+4      	; 0x21c <DIO_enumSetCFG+0x16c>
+ 218:	44 0f       	add	r20, r20
+ 21a:	55 1f       	adc	r21, r21
+ 21c:	0a 94       	dec	r0
+ 21e:	e2 f7       	brpl	.-8      	; 0x218 <DIO_enumSetCFG+0x168>
+ 220:	40 95       	com	r20
+ 222:	42 23       	and	r20, r18
+ 224:	48 bb       	out	0x18, r20	; 24
+ 226:	80 e0       	ldi	r24, 0x00	; 0
+ 228:	08 95       	ret
+ 22a:	27 b3       	in	r18, 0x17	; 23
+ 22c:	41 e0       	ldi	r20, 0x01	; 1
+ 22e:	50 e0       	ldi	r21, 0x00	; 0
+ 230:	ba 01       	movw	r22, r20
+ 232:	02 c0       	rjmp	.+4      	; 0x238 <DIO_enumSetCFG+0x188>
+ 234:	66 0f       	add	r22, r22
+ 236:	77 1f       	adc	r23, r23
+ 238:	3a 95       	dec	r19
+ 23a:	e2 f7       	brpl	.-8      	; 0x234 <DIO_enumSetCFG+0x184>
+ 23c:	60 95       	com	r22
+ 23e:	26 23       	and	r18, r22
+ 240:	27 bb       	out	0x17, r18	; 23
+ 242:	28 b3       	in	r18, 0x18	; 24
+ 244:	fc 01       	movw	r30, r24
+ 246:	01 80       	ldd	r0, Z+1	; 0x01
+ 248:	02 c0       	rjmp	.+4      	; 0x24e <DIO_enumSetCFG+0x19e>
+ 24a:	44 0f       	add	r20, r20
+ 24c:	55 1f       	adc	r21, r21
+ 24e:	0a 94       	dec	r0
+ 250:	e2 f7       	brpl	.-8      	; 0x24a <DIO_enumSetCFG+0x19a>
+ 252:	42 2b       	or	r20, r18
+ 254:	48 bb       	out	0x18, r20	; 24
+ 256:	80 e0       	ldi	r24, 0x00	; 0
+ 258:	08 95       	ret
+ 25a:	27 b3       	in	r18, 0x17	; 23
+ 25c:	41 e0       	ldi	r20, 0x01	; 1
+ 25e:	50 e0       	ldi	r21, 0x00	; 0
+ 260:	ba 01       	movw	r22, r20
+ 262:	02 c0       	rjmp	.+4      	; 0x268 <DIO_enumSetCFG+0x1b8>
+ 264:	66 0f       	add	r22, r22
+ 266:	77 1f       	adc	r23, r23
+ 268:	3a 95       	dec	r19
+ 26a:	e2 f7       	brpl	.-8      	; 0x264 <DIO_enumSetCFG+0x1b4>
+ 26c:	60 95       	com	r22
+ 26e:	26 23       	and	r18, r22
+ 270:	27 bb       	out	0x17, r18	; 23
+ 272:	28 b3       	in	r18, 0x18	; 24
+ 274:	fc 01       	movw	r30, r24
+ 276:	01 80       	ldd	r0, Z+1	; 0x01
+ 278:	02 c0       	rjmp	.+4      	; 0x27e <DIO_enumSetCFG+0x1ce>
+ 27a:	44 0f       	add	r20, r20
+ 27c:	55 1f       	adc	r21, r21
+ 27e:	0a 94       	dec	r0
+ 280:	e2 f7       	brpl	.-8      	; 0x27a <DIO_enumSetCFG+0x1ca>
+ 282:	40 95       	com	r20
+ 284:	42 23       	and	r20, r18
+ 286:	48 bb       	out	0x18, r20	; 24
+ 288:	80 e0       	ldi	r24, 0x00	; 0
+ 28a:	08 95       	ret
+ 28c:	41 30       	cpi	r20, 0x01	; 1
+ 28e:	f9 f0       	breq	.+62     	; 0x2ce <DIO_enumSetCFG+0x21e>
+ 290:	30 f0       	brcs	.+12     	; 0x29e <DIO_enumSetCFG+0x1ee>
+ 292:	42 30       	cpi	r20, 0x02	; 2
+ 294:	a9 f1       	breq	.+106    	; 0x300 <DIO_enumSetCFG+0x250>
+ 296:	43 30       	cpi	r20, 0x03	; 3
+ 298:	09 f4       	brne	.+2      	; 0x29c <DIO_enumSetCFG+0x1ec>
+ 29a:	4a c0       	rjmp	.+148    	; 0x330 <DIO_enumSetCFG+0x280>
+ 29c:	d9 c0       	rjmp	.+434    	; 0x450 <__EEPROM_REGION_LENGTH__+0x50>
+ 29e:	64 b3       	in	r22, 0x14	; 20
+ 2a0:	41 e0       	ldi	r20, 0x01	; 1
+ 2a2:	50 e0       	ldi	r21, 0x00	; 0
+ 2a4:	fa 01       	movw	r30, r20
+ 2a6:	02 c0       	rjmp	.+4      	; 0x2ac <DIO_enumSetCFG+0x1fc>
+ 2a8:	ee 0f       	add	r30, r30
+ 2aa:	ff 1f       	adc	r31, r31
+ 2ac:	3a 95       	dec	r19
+ 2ae:	e2 f7       	brpl	.-8      	; 0x2a8 <DIO_enumSetCFG+0x1f8>
+ 2b0:	9f 01       	movw	r18, r30
+ 2b2:	26 2b       	or	r18, r22
+ 2b4:	24 bb       	out	0x14, r18	; 20
+ 2b6:	25 b3       	in	r18, 0x15	; 21
+ 2b8:	fc 01       	movw	r30, r24
+ 2ba:	01 80       	ldd	r0, Z+1	; 0x01
+ 2bc:	02 c0       	rjmp	.+4      	; 0x2c2 <DIO_enumSetCFG+0x212>
+ 2be:	44 0f       	add	r20, r20
+ 2c0:	55 1f       	adc	r21, r21
+ 2c2:	0a 94       	dec	r0
+ 2c4:	e2 f7       	brpl	.-8      	; 0x2be <DIO_enumSetCFG+0x20e>
+ 2c6:	42 2b       	or	r20, r18
+ 2c8:	45 bb       	out	0x15, r20	; 21
+ 2ca:	80 e0       	ldi	r24, 0x00	; 0
+ 2cc:	08 95       	ret
+ 2ce:	64 b3       	in	r22, 0x14	; 20
+ 2d0:	41 e0       	ldi	r20, 0x01	; 1
+ 2d2:	50 e0       	ldi	r21, 0x00	; 0
+ 2d4:	fa 01       	movw	r30, r20
+ 2d6:	02 c0       	rjmp	.+4      	; 0x2dc <DIO_enumSetCFG+0x22c>
+ 2d8:	ee 0f       	add	r30, r30
+ 2da:	ff 1f       	adc	r31, r31
+ 2dc:	3a 95       	dec	r19
+ 2de:	e2 f7       	brpl	.-8      	; 0x2d8 <DIO_enumSetCFG+0x228>
+ 2e0:	9f 01       	movw	r18, r30
+ 2e2:	26 2b       	or	r18, r22
+ 2e4:	24 bb       	out	0x14, r18	; 20
+ 2e6:	25 b3       	in	r18, 0x15	; 21
+ 2e8:	fc 01       	movw	r30, r24
+ 2ea:	01 80       	ldd	r0, Z+1	; 0x01
+ 2ec:	02 c0       	rjmp	.+4      	; 0x2f2 <DIO_enumSetCFG+0x242>
+ 2ee:	44 0f       	add	r20, r20
+ 2f0:	55 1f       	adc	r21, r21
+ 2f2:	0a 94       	dec	r0
+ 2f4:	e2 f7       	brpl	.-8      	; 0x2ee <DIO_enumSetCFG+0x23e>
+ 2f6:	40 95       	com	r20
+ 2f8:	42 23       	and	r20, r18
+ 2fa:	45 bb       	out	0x15, r20	; 21
+ 2fc:	80 e0       	ldi	r24, 0x00	; 0
+ 2fe:	08 95       	ret
+ 300:	24 b3       	in	r18, 0x14	; 20
+ 302:	41 e0       	ldi	r20, 0x01	; 1
+ 304:	50 e0       	ldi	r21, 0x00	; 0
+ 306:	ba 01       	movw	r22, r20
+ 308:	02 c0       	rjmp	.+4      	; 0x30e <DIO_enumSetCFG+0x25e>
+ 30a:	66 0f       	add	r22, r22
+ 30c:	77 1f       	adc	r23, r23
+ 30e:	3a 95       	dec	r19
+ 310:	e2 f7       	brpl	.-8      	; 0x30a <DIO_enumSetCFG+0x25a>
+ 312:	60 95       	com	r22
+ 314:	26 23       	and	r18, r22
+ 316:	24 bb       	out	0x14, r18	; 20
+ 318:	25 b3       	in	r18, 0x15	; 21
+ 31a:	fc 01       	movw	r30, r24
+ 31c:	01 80       	ldd	r0, Z+1	; 0x01
+ 31e:	02 c0       	rjmp	.+4      	; 0x324 <DIO_enumSetCFG+0x274>
+ 320:	44 0f       	add	r20, r20
+ 322:	55 1f       	adc	r21, r21
+ 324:	0a 94       	dec	r0
+ 326:	e2 f7       	brpl	.-8      	; 0x320 <DIO_enumSetCFG+0x270>
+ 328:	42 2b       	or	r20, r18
+ 32a:	45 bb       	out	0x15, r20	; 21
+ 32c:	80 e0       	ldi	r24, 0x00	; 0
+ 32e:	08 95       	ret
+ 330:	24 b3       	in	r18, 0x14	; 20
+ 332:	41 e0       	ldi	r20, 0x01	; 1
+ 334:	50 e0       	ldi	r21, 0x00	; 0
+ 336:	ba 01       	movw	r22, r20
+ 338:	02 c0       	rjmp	.+4      	; 0x33e <DIO_enumSetCFG+0x28e>
+ 33a:	66 0f       	add	r22, r22
+ 33c:	77 1f       	adc	r23, r23
+ 33e:	3a 95       	dec	r19
+ 340:	e2 f7       	brpl	.-8      	; 0x33a <DIO_enumSetCFG+0x28a>
+ 342:	60 95       	com	r22
+ 344:	26 23       	and	r18, r22
+ 346:	24 bb       	out	0x14, r18	; 20
+ 348:	25 b3       	in	r18, 0x15	; 21
+ 34a:	fc 01       	movw	r30, r24
+ 34c:	01 80       	ldd	r0, Z+1	; 0x01
+ 34e:	02 c0       	rjmp	.+4      	; 0x354 <DIO_enumSetCFG+0x2a4>
+ 350:	44 0f       	add	r20, r20
+ 352:	55 1f       	adc	r21, r21
+ 354:	0a 94       	dec	r0
+ 356:	e2 f7       	brpl	.-8      	; 0x350 <DIO_enumSetCFG+0x2a0>
+ 358:	40 95       	com	r20
+ 35a:	42 23       	and	r20, r18
+ 35c:	45 bb       	out	0x15, r20	; 21
+ 35e:	80 e0       	ldi	r24, 0x00	; 0
+ 360:	08 95       	ret
+ 362:	41 30       	cpi	r20, 0x01	; 1
+ 364:	f9 f0       	breq	.+62     	; 0x3a4 <DIO_enumSetCFG+0x2f4>
+ 366:	30 f0       	brcs	.+12     	; 0x374 <DIO_enumSetCFG+0x2c4>
+ 368:	42 30       	cpi	r20, 0x02	; 2
+ 36a:	a9 f1       	breq	.+106    	; 0x3d6 <DIO_enumSetCFG+0x326>
+ 36c:	43 30       	cpi	r20, 0x03	; 3
+ 36e:	09 f4       	brne	.+2      	; 0x372 <DIO_enumSetCFG+0x2c2>
+ 370:	4a c0       	rjmp	.+148    	; 0x406 <__EEPROM_REGION_LENGTH__+0x6>
+ 372:	70 c0       	rjmp	.+224    	; 0x454 <__EEPROM_REGION_LENGTH__+0x54>
+ 374:	61 b3       	in	r22, 0x11	; 17
+ 376:	41 e0       	ldi	r20, 0x01	; 1
+ 378:	50 e0       	ldi	r21, 0x00	; 0
+ 37a:	fa 01       	movw	r30, r20
+ 37c:	02 c0       	rjmp	.+4      	; 0x382 <DIO_enumSetCFG+0x2d2>
+ 37e:	ee 0f       	add	r30, r30
+ 380:	ff 1f       	adc	r31, r31
+ 382:	3a 95       	dec	r19
+ 384:	e2 f7       	brpl	.-8      	; 0x37e <DIO_enumSetCFG+0x2ce>
+ 386:	9f 01       	movw	r18, r30
+ 388:	26 2b       	or	r18, r22
+ 38a:	21 bb       	out	0x11, r18	; 17
+ 38c:	22 b3       	in	r18, 0x12	; 18
+ 38e:	fc 01       	movw	r30, r24
+ 390:	01 80       	ldd	r0, Z+1	; 0x01
+ 392:	02 c0       	rjmp	.+4      	; 0x398 <DIO_enumSetCFG+0x2e8>
+ 394:	44 0f       	add	r20, r20
+ 396:	55 1f       	adc	r21, r21
+ 398:	0a 94       	dec	r0
+ 39a:	e2 f7       	brpl	.-8      	; 0x394 <DIO_enumSetCFG+0x2e4>
+ 39c:	42 2b       	or	r20, r18
+ 39e:	42 bb       	out	0x12, r20	; 18
+ 3a0:	80 e0       	ldi	r24, 0x00	; 0
+ 3a2:	08 95       	ret
+ 3a4:	61 b3       	in	r22, 0x11	; 17
+ 3a6:	41 e0       	ldi	r20, 0x01	; 1
+ 3a8:	50 e0       	ldi	r21, 0x00	; 0
+ 3aa:	fa 01       	movw	r30, r20
+ 3ac:	02 c0       	rjmp	.+4      	; 0x3b2 <DIO_enumSetCFG+0x302>
+ 3ae:	ee 0f       	add	r30, r30
+ 3b0:	ff 1f       	adc	r31, r31
+ 3b2:	3a 95       	dec	r19
+ 3b4:	e2 f7       	brpl	.-8      	; 0x3ae <DIO_enumSetCFG+0x2fe>
+ 3b6:	9f 01       	movw	r18, r30
+ 3b8:	26 2b       	or	r18, r22
+ 3ba:	21 bb       	out	0x11, r18	; 17
+ 3bc:	22 b3       	in	r18, 0x12	; 18
+ 3be:	fc 01       	movw	r30, r24
+ 3c0:	01 80       	ldd	r0, Z+1	; 0x01
+ 3c2:	02 c0       	rjmp	.+4      	; 0x3c8 <DIO_enumSetCFG+0x318>
+ 3c4:	44 0f       	add	r20, r20
+ 3c6:	55 1f       	adc	r21, r21
+ 3c8:	0a 94       	dec	r0
+ 3ca:	e2 f7       	brpl	.-8      	; 0x3c4 <DIO_enumSetCFG+0x314>
+ 3cc:	40 95       	com	r20
+ 3ce:	42 23       	and	r20, r18
+ 3d0:	42 bb       	out	0x12, r20	; 18
+ 3d2:	80 e0       	ldi	r24, 0x00	; 0
+ 3d4:	08 95       	ret
+ 3d6:	21 b3       	in	r18, 0x11	; 17
+ 3d8:	41 e0       	ldi	r20, 0x01	; 1
+ 3da:	50 e0       	ldi	r21, 0x00	; 0
+ 3dc:	ba 01       	movw	r22, r20
+ 3de:	02 c0       	rjmp	.+4      	; 0x3e4 <DIO_enumSetCFG+0x334>
+ 3e0:	66 0f       	add	r22, r22
+ 3e2:	77 1f       	adc	r23, r23
+ 3e4:	3a 95       	dec	r19
+ 3e6:	e2 f7       	brpl	.-8      	; 0x3e0 <DIO_enumSetCFG+0x330>
+ 3e8:	60 95       	com	r22
+ 3ea:	26 23       	and	r18, r22
+ 3ec:	21 bb       	out	0x11, r18	; 17
+ 3ee:	22 b3       	in	r18, 0x12	; 18
+ 3f0:	fc 01       	movw	r30, r24
+ 3f2:	01 80       	ldd	r0, Z+1	; 0x01
+ 3f4:	02 c0       	rjmp	.+4      	; 0x3fa <DIO_enumSetCFG+0x34a>
+ 3f6:	44 0f       	add	r20, r20
+ 3f8:	55 1f       	adc	r21, r21
+ 3fa:	0a 94       	dec	r0
+ 3fc:	e2 f7       	brpl	.-8      	; 0x3f6 <DIO_enumSetCFG+0x346>
+ 3fe:	42 2b       	or	r20, r18
+ 400:	42 bb       	out	0x12, r20	; 18
+ 402:	80 e0       	ldi	r24, 0x00	; 0
+ 404:	08 95       	ret
+ 406:	21 b3       	in	r18, 0x11	; 17
+ 408:	41 e0       	ldi	r20, 0x01	; 1
+ 40a:	50 e0       	ldi	r21, 0x00	; 0
+ 40c:	ba 01       	movw	r22, r20
+ 40e:	02 c0       	rjmp	.+4      	; 0x414 <__EEPROM_REGION_LENGTH__+0x14>
+ 410:	66 0f       	add	r22, r22
+ 412:	77 1f       	adc	r23, r23
+ 414:	3a 95       	dec	r19
+ 416:	e2 f7       	brpl	.-8      	; 0x410 <__EEPROM_REGION_LENGTH__+0x10>
+ 418:	60 95       	com	r22
+ 41a:	26 23       	and	r18, r22
+ 41c:	21 bb       	out	0x11, r18	; 17
+ 41e:	22 b3       	in	r18, 0x12	; 18
+ 420:	fc 01       	movw	r30, r24
+ 422:	01 80       	ldd	r0, Z+1	; 0x01
+ 424:	02 c0       	rjmp	.+4      	; 0x42a <__EEPROM_REGION_LENGTH__+0x2a>
+ 426:	44 0f       	add	r20, r20
+ 428:	55 1f       	adc	r21, r21
+ 42a:	0a 94       	dec	r0
+ 42c:	e2 f7       	brpl	.-8      	; 0x426 <__EEPROM_REGION_LENGTH__+0x26>
+ 42e:	40 95       	com	r20
+ 430:	42 23       	and	r20, r18
+ 432:	42 bb       	out	0x12, r20	; 18
+ 434:	80 e0       	ldi	r24, 0x00	; 0
+ 436:	08 95       	ret
+ 438:	82 e0       	ldi	r24, 0x02	; 2
+ 43a:	08 95       	ret
+ 43c:	83 e0       	ldi	r24, 0x03	; 3
+ 43e:	08 95       	ret
+ 440:	84 e0       	ldi	r24, 0x04	; 4
+ 442:	08 95       	ret
+ 444:	80 e0       	ldi	r24, 0x00	; 0
+ 446:	08 95       	ret
+ 448:	80 e0       	ldi	r24, 0x00	; 0
+ 44a:	08 95       	ret
+ 44c:	80 e0       	ldi	r24, 0x00	; 0
+ 44e:	08 95       	ret
+ 450:	80 e0       	ldi	r24, 0x00	; 0
+ 452:	08 95       	ret
+ 454:	80 e0       	ldi	r24, 0x00	; 0
+ 456:	08 95       	ret
+
+Disassembly of section .text.DIO_enumGetPinVal:
+
+000006fa <DIO_enumGetPinVal>:
+DIO_enumError_t DIO_enumGetPinVal(DIO_enumPorts_t Copy_enumPortNum, DIO_enumPins_t Copy_enumPinNum , u8 * Pu8PinVal)
+{
+	
+	DIO_enumError_t Ret_enumERRORStatus = DIO_enumOK  ; 
+	
+	if( (Copy_enumPortNum > DIO_enumPORTD) || (Copy_enumPortNum < DIO_enumPORTA))
+ 6fa:	84 30       	cpi	r24, 0x04	; 4
+ 6fc:	d0 f5       	brcc	.+116    	; 0x772 <DIO_enumGetPinVal+0x78>
+		{ 
+			Ret_enumERRORStatus = DIO_enumINVALID_PORT ;
+		}
+	else if( (Copy_enumPinNum > DIO_enumPIN7) || (Copy_enumPinNum < DIO_enumPIN0))
+ 6fe:	68 30       	cpi	r22, 0x08	; 8
+ 700:	d0 f5       	brcc	.+116    	; 0x776 <DIO_enumGetPinVal+0x7c>
+			Ret_enumERRORStatus = DIO_enumINVALID_PIN ;
+		}	
+	
+	else
+		{
+			switch(Copy_enumPortNum)
+ 702:	81 30       	cpi	r24, 0x01	; 1
+ 704:	91 f0       	breq	.+36     	; 0x72a <DIO_enumGetPinVal+0x30>
+ 706:	28 f0       	brcs	.+10     	; 0x712 <DIO_enumGetPinVal+0x18>
+ 708:	82 30       	cpi	r24, 0x02	; 2
+ 70a:	d9 f0       	breq	.+54     	; 0x742 <DIO_enumGetPinVal+0x48>
+ 70c:	83 30       	cpi	r24, 0x03	; 3
+ 70e:	29 f1       	breq	.+74     	; 0x75a <DIO_enumGetPinVal+0x60>
+ 710:	34 c0       	rjmp	.+104    	; 0x77a <DIO_enumGetPinVal+0x80>
+			{
+				case DIO_enumPORTA:
+									*Pu8PinVal = GET_BIT(PINA,Copy_enumPinNum);
+ 712:	89 b3       	in	r24, 0x19	; 25
+ 714:	90 e0       	ldi	r25, 0x00	; 0
+ 716:	02 c0       	rjmp	.+4      	; 0x71c <DIO_enumGetPinVal+0x22>
+ 718:	95 95       	asr	r25
+ 71a:	87 95       	ror	r24
+ 71c:	6a 95       	dec	r22
+ 71e:	e2 f7       	brpl	.-8      	; 0x718 <DIO_enumGetPinVal+0x1e>
+ 720:	81 70       	andi	r24, 0x01	; 1
+ 722:	fa 01       	movw	r30, r20
+ 724:	80 83       	st	Z, r24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 726:	80 e0       	ldi	r24, 0x00	; 0
+			switch(Copy_enumPortNum)
+			{
+				case DIO_enumPORTA:
+									*Pu8PinVal = GET_BIT(PINA,Copy_enumPinNum);
+					
+				break;
+ 728:	08 95       	ret
+				case DIO_enumPORTB:
+									*Pu8PinVal = GET_BIT(PINB,Copy_enumPinNum);
+ 72a:	86 b3       	in	r24, 0x16	; 22
+ 72c:	90 e0       	ldi	r25, 0x00	; 0
+ 72e:	02 c0       	rjmp	.+4      	; 0x734 <DIO_enumGetPinVal+0x3a>
+ 730:	95 95       	asr	r25
+ 732:	87 95       	ror	r24
+ 734:	6a 95       	dec	r22
+ 736:	e2 f7       	brpl	.-8      	; 0x730 <DIO_enumGetPinVal+0x36>
+ 738:	81 70       	andi	r24, 0x01	; 1
+ 73a:	fa 01       	movw	r30, r20
+ 73c:	80 83       	st	Z, r24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 73e:	80 e0       	ldi	r24, 0x00	; 0
+					
+				break;
+				case DIO_enumPORTB:
+									*Pu8PinVal = GET_BIT(PINB,Copy_enumPinNum);
+										
+				break ;
+ 740:	08 95       	ret
+				case DIO_enumPORTC:
+									*Pu8PinVal = GET_BIT(PINC,Copy_enumPinNum);
+ 742:	83 b3       	in	r24, 0x13	; 19
+ 744:	90 e0       	ldi	r25, 0x00	; 0
+ 746:	02 c0       	rjmp	.+4      	; 0x74c <DIO_enumGetPinVal+0x52>
+ 748:	95 95       	asr	r25
+ 74a:	87 95       	ror	r24
+ 74c:	6a 95       	dec	r22
+ 74e:	e2 f7       	brpl	.-8      	; 0x748 <DIO_enumGetPinVal+0x4e>
+ 750:	81 70       	andi	r24, 0x01	; 1
+ 752:	fa 01       	movw	r30, r20
+ 754:	80 83       	st	Z, r24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 756:	80 e0       	ldi	r24, 0x00	; 0
+										
+				break ;
+				case DIO_enumPORTC:
+									*Pu8PinVal = GET_BIT(PINC,Copy_enumPinNum);
+										
+				break;
+ 758:	08 95       	ret
+				case DIO_enumPORTD:
+									*Pu8PinVal = GET_BIT(PIND,Copy_enumPinNum);
+ 75a:	80 b3       	in	r24, 0x10	; 16
+ 75c:	90 e0       	ldi	r25, 0x00	; 0
+ 75e:	02 c0       	rjmp	.+4      	; 0x764 <DIO_enumGetPinVal+0x6a>
+ 760:	95 95       	asr	r25
+ 762:	87 95       	ror	r24
+ 764:	6a 95       	dec	r22
+ 766:	e2 f7       	brpl	.-8      	; 0x760 <DIO_enumGetPinVal+0x66>
+ 768:	81 70       	andi	r24, 0x01	; 1
+ 76a:	fa 01       	movw	r30, r20
+ 76c:	80 83       	st	Z, r24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 76e:	80 e0       	ldi	r24, 0x00	; 0
+										
+				break;
+				case DIO_enumPORTD:
+									*Pu8PinVal = GET_BIT(PIND,Copy_enumPinNum);
+										
+				break;
+ 770:	08 95       	ret
+	
+	DIO_enumError_t Ret_enumERRORStatus = DIO_enumOK  ; 
+	
+	if( (Copy_enumPortNum > DIO_enumPORTD) || (Copy_enumPortNum < DIO_enumPORTA))
+		{ 
+			Ret_enumERRORStatus = DIO_enumINVALID_PORT ;
+ 772:	82 e0       	ldi	r24, 0x02	; 2
+ 774:	08 95       	ret
+		}
+	else if( (Copy_enumPinNum > DIO_enumPIN7) || (Copy_enumPinNum < DIO_enumPIN0))
+		{
+			Ret_enumERRORStatus = DIO_enumINVALID_PIN ;
+ 776:	83 e0       	ldi	r24, 0x03	; 3
+ 778:	08 95       	ret
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 77a:	80 e0       	ldi	r24, 0x00	; 0
+		}//els
+	return Ret_enumERRORStatus ;
+	
+	
+}/*get bin value function*/
+ 77c:	08 95       	ret
+
+Disassembly of section .text.__dummy_fini:
+
+00000826 <_fini>:
+ 826:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+00000828 <__funcs_on_exit>:
+ 828:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+0000082a <__simulator_exit>:
+ 82a:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+00000808 <exit>:
+ 808:	ec 01       	movw	r28, r24
+ 80a:	0e 94 14 04 	call	0x828	; 0x828 <__funcs_on_exit>
+ 80e:	0e 94 13 04 	call	0x826	; 0x826 <_fini>
+ 812:	ce 01       	movw	r24, r28
+ 814:	0e 94 15 04 	call	0x82a	; 0x82a <__simulator_exit>
+ 818:	ce 01       	movw	r24, r28
+ 81a:	0e 94 11 04 	call	0x822	; 0x822 <_Exit>
+
+Disassembly of section .text._Exit:
+
+00000822 <_Exit>:
+ 822:	0e 94 56 00 	call	0xac	; 0xac <_exit>

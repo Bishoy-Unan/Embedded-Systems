@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;RCC/include/MRCC_Iterface.h&apos; to &apos;MRCC_Interface.h&apos;" description="Rename resource &apos;MRCC_Iterface.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="include/MRCC_Iterface.h" name="MRCC_Interface.h" stamp="1707569632229" updateReferences="true"/>
-</session>

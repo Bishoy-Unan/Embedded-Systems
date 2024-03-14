@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Alarm_APP", "..\ExtInt_7Seg_App\Alarm_APP\Alarm_APP.cproj", "{DB28E5A3-640E-48FE-9C8D-46CCFA2E4D40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB28E5A3-640E-48FE-9C8D-46CCFA2E4D40}.Debug|AVR.ActiveCfg = Debug|AVR
+		{DB28E5A3-640E-48FE-9C8D-46CCFA2E4D40}.Debug|AVR.Build.0 = Debug|AVR
+		{DB28E5A3-640E-48FE-9C8D-46CCFA2E4D40}.Release|AVR.ActiveCfg = Release|AVR
+		{DB28E5A3-640E-48FE-9C8D-46CCFA2E4D40}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,761 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+                              HAL/7_SEGMENTS/SevenSegments.o (__tablejump2__)
+c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+                              HAL/LED/LED_Config.o (__do_copy_data)
+c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                              C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o (exit)
+c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
+                              c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o) (_Exit)
+c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+                              c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o) (_exit)
+
+Discarded input sections
+
+ .data          0x0000000000000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+ .bss           0x0000000000000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+ .text          0x0000000000000000        0x0 APP/main.o
+ .data          0x0000000000000000        0x0 APP/main.o
+ .bss           0x0000000000000000        0x0 APP/main.o
+ .text.Start    0x0000000000000000       0xf2 APP/main.o
+ .bss.LOCAL_u8ToggleFlag
+                0x0000000000000000        0x1 APP/main.o
+ .bss.LOCAL_u8StartStopFlag
+                0x0000000000000000        0x1 APP/main.o
+ .text          0x0000000000000000        0x0 HAL/LED/LED.o
+ .data          0x0000000000000000        0x0 HAL/LED/LED.o
+ .bss           0x0000000000000000        0x0 HAL/LED/LED.o
+ .text.LED_enuSetLedState
+                0x0000000000000000       0x6a HAL/LED/LED.o
+ .text          0x0000000000000000        0x0 HAL/LED/LED_Config.o
+ .data          0x0000000000000000        0x0 HAL/LED/LED_Config.o
+ .bss           0x0000000000000000        0x0 HAL/LED/LED_Config.o
+ .text          0x0000000000000000        0x0 HAL/7_SEGMENTS/SevenSegments.o
+ .data          0x0000000000000000        0x0 HAL/7_SEGMENTS/SevenSegments.o
+ .bss           0x0000000000000000        0x0 HAL/7_SEGMENTS/SevenSegments.o
+ .text.SevenSegments_enumVal
+                0x0000000000000000       0x48 HAL/7_SEGMENTS/SevenSegments.o
+ .text          0x0000000000000000        0x0 HAL/7_SEGMENTS/SevenSegments_Config.o
+ .data          0x0000000000000000        0x0 HAL/7_SEGMENTS/SevenSegments_Config.o
+ .bss           0x0000000000000000        0x0 HAL/7_SEGMENTS/SevenSegments_Config.o
+ .text          0x0000000000000000        0x0 HAL/SWITCH/SWITCH.o
+ .data          0x0000000000000000        0x0 HAL/SWITCH/SWITCH.o
+ .bss           0x0000000000000000        0x0 HAL/SWITCH/SWITCH.o
+ .text.SWITCH_enuGetSwitchState
+                0x0000000000000000       0x22 HAL/SWITCH/SWITCH.o
+ .text          0x0000000000000000        0x0 HAL/SWITCH/SWITCH_Config.o
+ .data          0x0000000000000000        0x0 HAL/SWITCH/SWITCH_Config.o
+ .bss           0x0000000000000000        0x0 HAL/SWITCH/SWITCH_Config.o
+ .text          0x0000000000000000        0x0 MCAL/DIO_04/DIO.o
+ .data          0x0000000000000000        0x0 MCAL/DIO_04/DIO.o
+ .bss           0x0000000000000000        0x0 MCAL/DIO_04/DIO.o
+ .text.DIO_enumSetPortConfig
+                0x0000000000000000      0x112 MCAL/DIO_04/DIO.o
+ .text.DIO_enumGetPinVal
+                0x0000000000000000       0x84 MCAL/DIO_04/DIO.o
+ .text.DIO_enumSetPortVal
+                0x0000000000000000       0x94 MCAL/DIO_04/DIO.o
+ .text          0x0000000000000000        0x0 MCAL/ExtInterrupt/ExtInterrupt.o
+ .data          0x0000000000000000        0x0 MCAL/ExtInterrupt/ExtInterrupt.o
+ .bss           0x0000000000000000        0x0 MCAL/ExtInterrupt/ExtInterrupt.o
+ .text.ExtINT_voidSetExtINT2
+                0x0000000000000000       0x14 MCAL/ExtInterrupt/ExtInterrupt.o
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+ .stack.descriptors
+                0x0000000000000000       0x1c c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ .stack.descriptors
+                0x0000000000000000       0x13 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x0000000000000000 0x0000000000008000 xr
+data             0x0000000000800060 0x0000000000000800 rw !x
+eeprom           0x0000000000810000 0x0000000000000400 rw !x
+fuse             0x0000000000820000 0x0000000000000002 rw !x
+lock             0x0000000000830000 0x0000000000000400 rw !x
+signature        0x0000000000840000 0x0000000000000400 rw !x
+user_signatures  0x0000000000850000 0x0000000000000400 rw !x
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+LOAD APP/main.o
+LOAD HAL/LED/LED.o
+LOAD HAL/LED/LED_Config.o
+LOAD HAL/7_SEGMENTS/SevenSegments.o
+LOAD HAL/7_SEGMENTS/SevenSegments_Config.o
+LOAD HAL/SWITCH/SWITCH.o
+LOAD HAL/SWITCH/SWITCH_Config.o
+LOAD MCAL/DIO_04/DIO.o
+LOAD MCAL/ExtInterrupt/ExtInterrupt.o
+START GROUP
+LOAD c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a
+END GROUP
+START GROUP
+LOAD c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a
+LOAD c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a
+LOAD c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a
+LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const\libatmega32.a
+END GROUP
+                0x0000000000000000                __TEXT_REGION_ORIGIN__ = DEFINED (__TEXT_REGION_ORIGIN__)?__TEXT_REGION_ORIGIN__:0x0
+                [0x0000000000800060]                __DATA_REGION_ORIGIN__ = DEFINED (__DATA_REGION_ORIGIN__)?__DATA_REGION_ORIGIN__:0x800060
+                [0x0000000000008000]                __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x20000
+                [0x0000000000000800]                __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
+                [0x0000000000000400]                __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
+                [0x0000000000000002]                __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
+                0x0000000000000400                __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
+                0x0000000000000400                __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
+                0x0000000000000400                __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x0000000000000000       0xdc
+ *(.vectors)
+ .vectors       0x0000000000000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+                0x0000000000000000                __vector_default
+                0x0000000000000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+ .progmem.gcc_sw_table.SevenSegments_enumSetVal
+                0x0000000000000054       0x28 HAL/7_SEGMENTS/SevenSegments.o
+ *(.dinit)
+ .dinit         0x000000000000007c        0xc data_init
+                0x0000000000000088                . = ALIGN (0x2)
+                0x0000000000000088                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000000000000088        0x0 linker stubs
+ *(.trampolines*)
+                0x0000000000000088                __trampolines_end = .
+ *libprintf_flt.a:*(.progmem.data)
+ *libc.a:*(.progmem.data)
+                0x0000000000000088                . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000000000000088                __ctors_start = .
+ *(.ctors)
+                0x0000000000000088                __ctors_end = .
+                0x0000000000000088                __dtors_start = .
+ *(.dtors)
+                0x0000000000000088                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000000000000088        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+                0x0000000000000088                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000000000000088        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000000000000094       0x3c c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+                0x0000000000000094                __do_copy_data
+                0x00000000000000c2                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000000000000d0        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+ *(.init9)
+                0x00000000000000d8                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000000000000d8        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+                0x00000000000000d8                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000000000000d8        0x4 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000000000000dc                _etext = .
+
+.data           0x0000000000800060        0x0 load address 0x00000000000000dc
+                [!provide]                        PROVIDE (__data_start, .)
+ *(.gnu.linkonce.d*)
+ *(.gnu.linkonce.r*)
+                0x0000000000800060                . = ALIGN (0x2)
+                0x0000000000800060                _edata = .
+                [!provide]                        PROVIDE (__data_end, .)
+
+.bss            0x0000000000800060        0x0
+                [!provide]                        PROVIDE (__bss_start, .)
+ *(COMMON)
+                [!provide]                        PROVIDE (__bss_end, .)
+                0x00000000000000dc                __data_load_start = LOADADDR (.data)
+                0x00000000000000dc                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0000000000800060        0x0
+                [!provide]                        PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                [!provide]                        PROVIDE (__noinit_end, .)
+                0x0000000000800060                _end = .
+
+.eeprom         0x0000000000810000        0x0
+ *(.eeprom*)
+                0x0000000000810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x2f
+ *(.comment)
+ .comment       0x0000000000000000       0x2f APP/main.o
+                                         0x30 (size before relaxing)
+ .comment       0x000000000000002f       0x30 HAL/LED/LED.o
+ .comment       0x000000000000002f       0x30 HAL/LED/LED_Config.o
+ .comment       0x000000000000002f       0x30 HAL/7_SEGMENTS/SevenSegments.o
+ .comment       0x000000000000002f       0x30 HAL/7_SEGMENTS/SevenSegments_Config.o
+ .comment       0x000000000000002f       0x30 HAL/SWITCH/SWITCH.o
+ .comment       0x000000000000002f       0x30 HAL/SWITCH/SWITCH_Config.o
+ .comment       0x000000000000002f       0x30 MCAL/DIO_04/DIO.o
+ .comment       0x000000000000002f       0x30 MCAL/ExtInterrupt/ExtInterrupt.o
+ .comment       0x000000000000002f       0x30 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+ .comment       0x000000000000002f       0x30 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
+
+.stack.descriptors.hdr
+                0x0000000000000000       0x1c
+ .stack.descriptors.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+ .stack.descriptors.hdr
+                0x000000000000000e        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x198
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x40 APP/main.o
+ .debug_aranges
+                0x0000000000000040       0x28 HAL/LED/LED.o
+ .debug_aranges
+                0x0000000000000068       0x18 HAL/LED/LED_Config.o
+ .debug_aranges
+                0x0000000000000080       0x30 HAL/7_SEGMENTS/SevenSegments.o
+ .debug_aranges
+                0x00000000000000b0       0x18 HAL/7_SEGMENTS/SevenSegments_Config.o
+ .debug_aranges
+                0x00000000000000c8       0x28 HAL/SWITCH/SWITCH.o
+ .debug_aranges
+                0x00000000000000f0       0x18 HAL/SWITCH/SWITCH_Config.o
+ .debug_aranges
+                0x0000000000000108       0x40 MCAL/DIO_04/DIO.o
+ .debug_aranges
+                0x0000000000000148       0x50 MCAL/ExtInterrupt/ExtInterrupt.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0x4a6c
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+ .debug_info    0x00000000000004e6      0x875 APP/main.o
+ .debug_info    0x0000000000000d5b      0x6f8 HAL/LED/LED.o
+ .debug_info    0x0000000000001453      0x46b HAL/LED/LED_Config.o
+ .debug_info    0x00000000000018be     0x1508 HAL/7_SEGMENTS/SevenSegments.o
+ .debug_info    0x0000000000002dc6      0x4f2 HAL/7_SEGMENTS/SevenSegments_Config.o
+ .debug_info    0x00000000000032b8      0x703 HAL/SWITCH/SWITCH.o
+ .debug_info    0x00000000000039bb      0x461 HAL/SWITCH/SWITCH_Config.o
+ .debug_info    0x0000000000003e1c      0x767 MCAL/DIO_04/DIO.o
+ .debug_info    0x0000000000004583      0x4e9 MCAL/ExtInterrupt/ExtInterrupt.o
+
+.debug_abbrev   0x0000000000000000      0xcd0
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+ .debug_abbrev  0x00000000000004a3      0x101 APP/main.o
+ .debug_abbrev  0x00000000000005a4      0x113 HAL/LED/LED.o
+ .debug_abbrev  0x00000000000006b7       0x7f HAL/LED/LED_Config.o
+ .debug_abbrev  0x0000000000000736      0x167 HAL/7_SEGMENTS/SevenSegments.o
+ .debug_abbrev  0x000000000000089d       0x7f HAL/7_SEGMENTS/SevenSegments_Config.o
+ .debug_abbrev  0x000000000000091c      0x138 HAL/SWITCH/SWITCH.o
+ .debug_abbrev  0x0000000000000a54       0x7f HAL/SWITCH/SWITCH_Config.o
+ .debug_abbrev  0x0000000000000ad3      0x135 MCAL/DIO_04/DIO.o
+ .debug_abbrev  0x0000000000000c08       0xc8 MCAL/ExtInterrupt/ExtInterrupt.o
+
+.debug_line     0x0000000000000000     0x177e
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000      0x119 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+ .debug_line    0x0000000000000119      0x3a0 APP/main.o
+ .debug_line    0x00000000000004b9      0x188 HAL/LED/LED.o
+ .debug_line    0x0000000000000641       0x6b HAL/LED/LED_Config.o
+ .debug_line    0x00000000000006ac      0x608 HAL/7_SEGMENTS/SevenSegments.o
+ .debug_line    0x0000000000000cb4       0x8d HAL/7_SEGMENTS/SevenSegments_Config.o
+ .debug_line    0x0000000000000d41      0x13a HAL/SWITCH/SWITCH.o
+ .debug_line    0x0000000000000e7b       0x77 HAL/SWITCH/SWITCH_Config.o
+ .debug_line    0x0000000000000ef2      0x698 MCAL/DIO_04/DIO.o
+ .debug_line    0x000000000000158a      0x1f4 MCAL/ExtInterrupt/ExtInterrupt.o
+
+.debug_frame    0x0000000000000000      0x370
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x74 APP/main.o
+ .debug_frame   0x0000000000000074       0x64 HAL/LED/LED.o
+ .debug_frame   0x00000000000000d8       0x84 HAL/7_SEGMENTS/SevenSegments.o
+ .debug_frame   0x000000000000015c       0x54 HAL/SWITCH/SWITCH.o
+ .debug_frame   0x00000000000001b0       0x64 MCAL/DIO_04/DIO.o
+ .debug_frame   0x0000000000000214      0x15c MCAL/ExtInterrupt/ExtInterrupt.o
+
+.debug_str      0x0000000000000000      0x32c
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+ .debug_str     0x0000000000000196       0xa4 APP/main.o
+ .debug_str     0x000000000000023a       0x3a HAL/LED/LED.o
+ .debug_str     0x0000000000000274        0x0 HAL/LED/LED_Config.o
+ .debug_str     0x0000000000000274       0x38 HAL/7_SEGMENTS/SevenSegments.o
+ .debug_str     0x00000000000002ac        0x0 HAL/7_SEGMENTS/SevenSegments_Config.o
+ .debug_str     0x00000000000002ac       0x38 HAL/SWITCH/SWITCH.o
+ .debug_str     0x00000000000002e4        0x0 HAL/SWITCH/SWITCH_Config.o
+ .debug_str     0x00000000000002e4       0x35 MCAL/DIO_04/DIO.o
+ .debug_str     0x0000000000000319       0x13 MCAL/ExtInterrupt/ExtInterrupt.o
+
+.debug_loc      0x0000000000000000     0x19d7
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000       0x6e APP/main.o
+ .debug_loc     0x000000000000006e      0x161 HAL/LED/LED.o
+ .debug_loc     0x00000000000001cf      0x911 HAL/7_SEGMENTS/SevenSegments.o
+ .debug_loc     0x0000000000000ae0      0x12d HAL/SWITCH/SWITCH.o
+ .debug_loc     0x0000000000000c0d      0x9b8 MCAL/DIO_04/DIO.o
+ .debug_loc     0x00000000000015c5      0x412 MCAL/ExtInterrupt/ExtInterrupt.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000       0xf0
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000       0x30 APP/main.o
+ .debug_ranges  0x0000000000000030       0x18 HAL/LED/LED.o
+ .debug_ranges  0x0000000000000048       0x20 HAL/7_SEGMENTS/SevenSegments.o
+ .debug_ranges  0x0000000000000068       0x18 HAL/SWITCH/SWITCH.o
+ .debug_ranges  0x0000000000000080       0x30 MCAL/DIO_04/DIO.o
+ .debug_ranges  0x00000000000000b0       0x40 MCAL/ExtInterrupt/ExtInterrupt.o
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(Alarm_APP.elf elf32-avr)
+LOAD linker stubs
+LOAD data_init
+
+.note.gnu.avr.deviceinfo
+                0x0000000000000000       0x3c
+ .note.gnu.avr.deviceinfo
+                0x0000000000000000       0x3c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+
+.bss.LOCAL_u8SevenSegment2_Val
+                0x0000000000800094        0x1
+ .bss.LOCAL_u8SevenSegment2_Val
+                0x0000000000800094        0x1 APP/main.o
+                0x0000000000800094                LOCAL_u8SevenSegment2_Val
+
+.bss.LOCAL_u8SevenSegment1_Val
+                0x0000000000800095        0x1
+ .bss.LOCAL_u8SevenSegment1_Val
+                0x0000000000800095        0x1 APP/main.o
+                0x0000000000800095                LOCAL_u8SevenSegment1_Val
+
+.bss.ExtInt2_AddCallBack
+                0x000000000080008e        0x2
+ .bss.ExtInt2_AddCallBack
+                0x000000000080008e        0x2 MCAL/ExtInterrupt/ExtInterrupt.o
+                0x000000000080008e                ExtInt2_AddCallBack
+
+.bss.ExtInt1_AddCallBack
+                0x0000000000800090        0x2
+ .bss.ExtInt1_AddCallBack
+                0x0000000000800090        0x2 MCAL/ExtInterrupt/ExtInterrupt.o
+                0x0000000000800090                ExtInt1_AddCallBack
+
+.bss.ExtInt0_AddCallBack
+                0x0000000000800092        0x2
+ .bss.ExtInt0_AddCallBack
+                0x0000000000800092        0x2 MCAL/ExtInterrupt/ExtInterrupt.o
+                0x0000000000800092                ExtInt0_AddCallBack
+
+.text.SevenSegments_enumSetVal
+                0x00000000000000dc      0x95a
+ .text.SevenSegments_enumSetVal
+                0x00000000000000dc      0x95a HAL/7_SEGMENTS/SevenSegments.o
+                0x00000000000000dc                SevenSegments_enumSetVal
+
+.text.DIO_enumSetCFG
+                0x0000000000000a36      0x3a8
+ .text.DIO_enumSetCFG
+                0x0000000000000a36      0x3a8 MCAL/DIO_04/DIO.o
+                0x0000000000000a36                DIO_enumSetCFG
+
+.text.DIO_enumSetPinVal
+                0x0000000000000dde      0x136
+ .text.DIO_enumSetPinVal
+                0x0000000000000dde      0x136 MCAL/DIO_04/DIO.o
+                0x0000000000000dde                DIO_enumSetPinVal
+
+.text.LED_enumdInit
+                0x0000000000000f14      0x102
+ .text.LED_enumdInit
+                0x0000000000000f14      0x102 HAL/LED/LED.o
+                0x0000000000000f14                LED_enumdInit
+
+.text.SevenSegments_enumInit
+                0x0000000000001016       0xf8
+ .text.SevenSegments_enumInit
+                0x0000000000001016       0xf8 HAL/7_SEGMENTS/SevenSegments.o
+                0x0000000000001016                SevenSegments_enumInit
+
+.text.SWITCH_enumdInit
+                0x000000000000110e       0xd8
+ .text.SWITCH_enumdInit
+                0x000000000000110e       0xd8 HAL/SWITCH/SWITCH.o
+                0x000000000000110e                SWITCH_enumdInit
+
+.text.Decrement
+                0x00000000000011e6       0xc6
+ .text.Decrement
+                0x00000000000011e6       0xc6 APP/main.o
+                0x00000000000011e6                Decrement
+
+.text.Increment
+                0x00000000000012ac       0xba
+ .text.Increment
+                0x00000000000012ac       0xba APP/main.o
+                0x00000000000012ac                Increment
+
+.text.__vector_1
+                0x0000000000001366       0x54
+ .text.__vector_1
+                0x0000000000001366       0x54 MCAL/ExtInterrupt/ExtInterrupt.o
+                0x0000000000001366                __vector_1
+
+.text.__vector_2
+                0x00000000000013ba       0x54
+ .text.__vector_2
+                0x00000000000013ba       0x54 MCAL/ExtInterrupt/ExtInterrupt.o
+                0x00000000000013ba                __vector_2
+
+.text.__vector_3
+                0x000000000000140e       0x54
+ .text.__vector_3
+                0x000000000000140e       0x54 MCAL/ExtInterrupt/ExtInterrupt.o
+                0x000000000000140e                __vector_3
+
+.text._delay_ms
+                0x0000000000001462       0x38
+ .text._delay_ms
+                0x0000000000001462       0x38 APP/main.o
+                0x0000000000001462                _delay_ms
+
+.text.main      0x000000000000149a       0x32
+ .text.main     0x000000000000149a       0x32 APP/main.o
+                0x000000000000149a                main
+
+.text.ExtInterrupt_voidInit
+                0x00000000000014cc       0x26
+ .text.ExtInterrupt_voidInit
+                0x00000000000014cc       0x26 MCAL/ExtInterrupt/ExtInterrupt.o
+                0x00000000000014cc                ExtInterrupt_voidInit
+
+.text.exit      0x00000000000014f2       0x16
+ .text.exit     0x00000000000014f2       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x00000000000014f2                exit
+
+.text.ExtINT_voidSetExtINT0
+                0x0000000000001508       0x14
+ .text.ExtINT_voidSetExtINT0
+                0x0000000000001508       0x14 MCAL/ExtInterrupt/ExtInterrupt.o
+                0x0000000000001508                ExtINT_voidSetExtINT0
+
+.text.ExtINT_voidSetExtINT1
+                0x000000000000151c       0x14
+ .text.ExtINT_voidSetExtINT1
+                0x000000000000151c       0x14 MCAL/ExtInterrupt/ExtInterrupt.o
+                0x000000000000151c                ExtINT_voidSetExtINT1
+
+.text.libgcc    0x0000000000001530        0xc
+ .text.libgcc   0x0000000000001530        0xc c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_tablejump2.o)
+                0x0000000000001530                __tablejump2__
+
+.text           0x000000000000153c        0x4
+ .text          0x000000000000153c        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
+                0x000000000000153c                __vector_12
+                0x000000000000153c                __bad_interrupt
+                0x000000000000153c                __vector_6
+                0x000000000000153c                __vector_11
+                0x000000000000153c                __vector_13
+                0x000000000000153c                __vector_17
+                0x000000000000153c                __vector_19
+                0x000000000000153c                __vector_7
+                0x000000000000153c                __vector_5
+                0x000000000000153c                __vector_4
+                0x000000000000153c                __vector_9
+                0x000000000000153c                __vector_15
+                0x000000000000153c                __vector_8
+                0x000000000000153c                __vector_14
+                0x000000000000153c                __vector_10
+                0x000000000000153c                __vector_16
+                0x000000000000153c                __vector_18
+                0x000000000000153c                __vector_20
+
+.text._Exit     0x0000000000001540        0x4
+ .text._Exit    0x0000000000001540        0x4 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
+                0x0000000000001540                _Exit
+
+.text.__dummy_fini
+                0x0000000000001544        0x2
+ .text.__dummy_fini
+                0x0000000000001544        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x0000000000001544                _fini
+
+.text.__dummy_funcs_on_exit
+                0x0000000000001546        0x2
+ .text.__dummy_funcs_on_exit
+                0x0000000000001546        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x0000000000001546                __funcs_on_exit
+
+.text.__dummy_simulator_exit
+                0x0000000000001548        0x2
+ .text.__dummy_simulator_exit
+                0x0000000000001548        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x0000000000001548                __simulator_exit
+
+.data.SevenSegments
+                0x0000000000800060       0x22 load address 0x000000000000154a
+ .data.SevenSegments
+                0x0000000000800060       0x22 HAL/7_SEGMENTS/SevenSegments_Config.o
+                0x0000000000800060                SevenSegments
+
+.data.SWITCHS   0x0000000000800082        0x9 load address 0x000000000000156c
+ .data.SWITCHS  0x0000000000800082        0x9 HAL/SWITCH/SWITCH_Config.o
+                0x0000000000800082                SWITCHS
+
+.data.LEDS      0x000000000080008b        0x3 load address 0x0000000000001575
+ .data.LEDS     0x000000000080008b        0x3 HAL/LED/LED_Config.o
+                0x000000000080008b                LEDS

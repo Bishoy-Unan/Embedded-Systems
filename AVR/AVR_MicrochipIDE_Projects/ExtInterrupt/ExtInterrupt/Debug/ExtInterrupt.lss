@@ -1,0 +1,2184 @@
+
+ExtInterrupt.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000b4  00000000  00000000  000000b4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  000009e6  00000a9a  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  00000a9a  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  00000ac9  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000190  00000000  00000000  00000ad7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000470c  00000000  00000000  00000c67  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000cb2  00000000  00000000  00005373  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00001568  00000000  00000000  00006025  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000360  00000000  00000000  00007590  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000313  00000000  00000000  000078f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000019d8  00000000  00000000  00007c03  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 000000e8  00000000  00000000  000095db  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  000009aa  000009aa  00000a5e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000096c4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text._delay_ms 00000038  00000898  00000898  0000094c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.func1   00000022  00000928  00000928  000009dc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.func2   00000022  0000094a  0000094a  000009fe  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.main    00000032  000008d0  000008d0  00000984  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.SevenSegments_enumInit 000000f8  00000568  00000568  0000061c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .data.SevenSegments 00000022  00800060  000009b8  00000a6c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 20 .text.LED_enumdInit 0000010c  0000045c  0000045c  00000510  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.LED_enuSetLedState 0000006a  00000732  00000732  000007e6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .data.LEDS    00000006  00800082  000009da  00000a8e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 23 .text.SWITCH_enumdInit 000000d2  00000660  00000660  00000714  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .data.SWITCHS 00000006  00800088  000009e0  00000a94  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 25 .text.DIO_enumSetCFG 000003a8  000000b4  000000b4  00000168  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 26 .text.ExtINT_voidSetExtINT0 00000014  00000982  00000982  00000a36  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 27 .text.ExtINT_voidSetExtINT1 00000014  00000996  00000996  00000a4a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 28 .text.ExtInterrupt_voidInit 00000026  00000902  00000902  000009b6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 29 .text.__vector_1 00000054  0000079c  0000079c  00000850  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 30 .text.__vector_2 00000054  000007f0  000007f0  000008a4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 31 .text.__vector_3 00000054  00000844  00000844  000008f8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 32 .bss.ExtInt2_AddCallBack 00000002  0080008e  0080008e  00000a9a  2**0
+                  ALLOC
+ 33 .bss.ExtInt1_AddCallBack 00000002  00800090  00800090  00000a9a  2**0
+                  ALLOC
+ 34 .bss.ExtInt0_AddCallBack 00000002  00800092  00800092  00000a9a  2**0
+                  ALLOC
+ 35 .text.__dummy_fini 00000002  000009b2  000009b2  00000a66  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 36 .text.__dummy_funcs_on_exit 00000002  000009b4  000009b4  00000a68  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 37 .text.__dummy_simulator_exit 00000002  000009b6  000009b6  00000a6a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 38 .text.exit    00000016  0000096c  0000096c  00000a20  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 39 .text._Exit   00000004  000009ae  000009ae  00000a62  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 30 00 	jmp	0x60	; 0x60 <__ctors_end>
+   4:	0c 94 ce 03 	jmp	0x79c	; 0x79c <__vector_1>
+   8:	0c 94 f8 03 	jmp	0x7f0	; 0x7f0 <__vector_2>
+   c:	0c 94 22 04 	jmp	0x844	; 0x844 <__vector_3>
+  10:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  14:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  18:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  1c:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  20:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  24:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  28:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  2c:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  30:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  34:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  38:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  3c:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  40:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  44:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  48:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  4c:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+  50:	0c 94 d5 04 	jmp	0x9aa	; 0x9aa <__bad_interrupt>
+
+00000054 <.dinit>:
+  54:	00 60       	ori	r16, 0x00	; 0
+  56:	00 8e       	std	Z+24, r0	; 0x18
+  58:	00 09       	sbc	r16, r0
+  5a:	b8 00       	.word	0x00b8	; ????
+  5c:	8e 00       	.word	0x008e	; ????
+  5e:	94 80       	ldd	r9, Z+4	; 0x04
+
+00000060 <__ctors_end>:
+  60:	11 24       	eor	r1, r1
+  62:	1f be       	out	0x3f, r1	; 63
+  64:	cf e5       	ldi	r28, 0x5F	; 95
+  66:	d8 e0       	ldi	r29, 0x08	; 8
+  68:	de bf       	out	0x3e, r29	; 62
+  6a:	cd bf       	out	0x3d, r28	; 61
+
+0000006c <__do_copy_data>:
+  6c:	e4 e5       	ldi	r30, 0x54	; 84
+  6e:	f0 e0       	ldi	r31, 0x00	; 0
+  70:	40 e0       	ldi	r20, 0x00	; 0
+  72:	17 c0       	rjmp	.+46     	; 0xa2 <__do_clear_bss+0x8>
+  74:	b5 91       	lpm	r27, Z+
+  76:	a5 91       	lpm	r26, Z+
+  78:	35 91       	lpm	r19, Z+
+  7a:	25 91       	lpm	r18, Z+
+  7c:	05 91       	lpm	r16, Z+
+  7e:	07 fd       	sbrc	r16, 7
+  80:	0c c0       	rjmp	.+24     	; 0x9a <__do_clear_bss>
+  82:	95 91       	lpm	r25, Z+
+  84:	85 91       	lpm	r24, Z+
+  86:	ef 01       	movw	r28, r30
+  88:	f9 2f       	mov	r31, r25
+  8a:	e8 2f       	mov	r30, r24
+  8c:	05 90       	lpm	r0, Z+
+  8e:	0d 92       	st	X+, r0
+  90:	a2 17       	cp	r26, r18
+  92:	b3 07       	cpc	r27, r19
+  94:	d9 f7       	brne	.-10     	; 0x8c <__do_copy_data+0x20>
+  96:	fe 01       	movw	r30, r28
+  98:	04 c0       	rjmp	.+8      	; 0xa2 <__do_clear_bss+0x8>
+
+0000009a <__do_clear_bss>:
+  9a:	1d 92       	st	X+, r1
+  9c:	a2 17       	cp	r26, r18
+  9e:	b3 07       	cpc	r27, r19
+  a0:	e1 f7       	brne	.-8      	; 0x9a <__do_clear_bss>
+  a2:	e0 36       	cpi	r30, 0x60	; 96
+  a4:	f4 07       	cpc	r31, r20
+  a6:	31 f7       	brne	.-52     	; 0x74 <__do_copy_data+0x8>
+  a8:	0e 94 68 04 	call	0x8d0	; 0x8d0 <main>
+  ac:	0c 94 b6 04 	jmp	0x96c	; 0x96c <exit>
+
+000000b0 <_exit>:
+  b0:	f8 94       	cli
+
+000000b2 <__stop_program>:
+  b2:	ff cf       	rjmp	.-2      	; 0xb2 <__stop_program>
+
+Disassembly of section .text:
+
+000009aa <__bad_interrupt>:
+ 9aa:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text._delay_ms:
+
+00000898 <_delay_ms>:
+
+ /**
+ *@ delay function implemented in assembly code
+ */
+void _delay_ms( int volatile milliseconds)
+{
+ 898:	cf 93       	push	r28
+ 89a:	df 93       	push	r29
+ 89c:	00 d0       	rcall	.+0      	; 0x89e <_delay_ms+0x6>
+ 89e:	cd b7       	in	r28, 0x3d	; 61
+ 8a0:	de b7       	in	r29, 0x3e	; 62
+ 8a2:	9a 83       	std	Y+2, r25	; 0x02
+ 8a4:	89 83       	std	Y+1, r24	; 0x01
+	assembly code auto generated by utility
+	from bret mulvey 
+	delay 8 000 cycles
+	1ms at 8.0 MZ
+	*/
+	while(milliseconds--)
+ 8a6:	06 c0       	rjmp	.+12     	; 0x8b4 <_delay_ms+0x1c>
+	{
+	asm volatile(
+ 8a8:	2b e0       	ldi	r18, 0x0B	; 11
+ 8aa:	33 e6       	ldi	r19, 0x63	; 99
+ 8ac:	3a 95       	dec	r19
+ 8ae:	f1 f7       	brne	.-4      	; 0x8ac <_delay_ms+0x14>
+ 8b0:	2a 95       	dec	r18
+ 8b2:	e1 f7       	brne	.-8      	; 0x8ac <_delay_ms+0x14>
+	assembly code auto generated by utility
+	from bret mulvey 
+	delay 8 000 cycles
+	1ms at 8.0 MZ
+	*/
+	while(milliseconds--)
+ 8b4:	89 81       	ldd	r24, Y+1	; 0x01
+ 8b6:	9a 81       	ldd	r25, Y+2	; 0x02
+ 8b8:	9c 01       	movw	r18, r24
+ 8ba:	21 50       	subi	r18, 0x01	; 1
+ 8bc:	31 09       	sbc	r19, r1
+ 8be:	3a 83       	std	Y+2, r19	; 0x02
+ 8c0:	29 83       	std	Y+1, r18	; 0x01
+ 8c2:	89 2b       	or	r24, r25
+ 8c4:	89 f7       	brne	.-30     	; 0x8a8 <_delay_ms+0x10>
+	);
+	
+	}
+	
+
+}
+ 8c6:	0f 90       	pop	r0
+ 8c8:	0f 90       	pop	r0
+ 8ca:	df 91       	pop	r29
+ 8cc:	cf 91       	pop	r28
+ 8ce:	08 95       	ret
+
+Disassembly of section .text.func1:
+
+00000928 <func1>:
+void func1(void)
+{
+		/**
+		*@ toggle led and break loop
+		*/
+			LED_enuSetLedState(LED1,LED_enumActiveHigh_ON);
+ 928:	60 e0       	ldi	r22, 0x00	; 0
+ 92a:	80 e0       	ldi	r24, 0x00	; 0
+ 92c:	0e 94 99 03 	call	0x732	; 0x732 <LED_enuSetLedState>
+			_delay_ms(250);
+ 930:	8a ef       	ldi	r24, 0xFA	; 250
+ 932:	90 e0       	ldi	r25, 0x00	; 0
+ 934:	0e 94 4c 04 	call	0x898	; 0x898 <_delay_ms>
+			
+			LED_enuSetLedState(LED2,LED_enumActiveHigh_OFF);
+ 938:	61 e0       	ldi	r22, 0x01	; 1
+ 93a:	81 e0       	ldi	r24, 0x01	; 1
+ 93c:	0e 94 99 03 	call	0x732	; 0x732 <LED_enuSetLedState>
+			_delay_ms(250);
+ 940:	8a ef       	ldi	r24, 0xFA	; 250
+ 942:	90 e0       	ldi	r25, 0x00	; 0
+ 944:	0e 94 4c 04 	call	0x898	; 0x898 <_delay_ms>
+ 948:	08 95       	ret
+
+Disassembly of section .text.func2:
+
+0000094a <func2>:
+void func2(void)
+{		
+		/**
+		*@ toggle led and break loop
+		*/
+			LED_enuSetLedState(LED2,LED_enumActiveHigh_ON);
+ 94a:	60 e0       	ldi	r22, 0x00	; 0
+ 94c:	81 e0       	ldi	r24, 0x01	; 1
+ 94e:	0e 94 99 03 	call	0x732	; 0x732 <LED_enuSetLedState>
+			_delay_ms(250);
+ 952:	8a ef       	ldi	r24, 0xFA	; 250
+ 954:	90 e0       	ldi	r25, 0x00	; 0
+ 956:	0e 94 4c 04 	call	0x898	; 0x898 <_delay_ms>
+				
+			LED_enuSetLedState(LED1,LED_enumActiveHigh_OFF);
+ 95a:	61 e0       	ldi	r22, 0x01	; 1
+ 95c:	80 e0       	ldi	r24, 0x00	; 0
+ 95e:	0e 94 99 03 	call	0x732	; 0x732 <LED_enuSetLedState>
+			_delay_ms(250);
+ 962:	8a ef       	ldi	r24, 0xFA	; 250
+ 964:	90 e0       	ldi	r25, 0x00	; 0
+ 966:	0e 94 4c 04 	call	0x898	; 0x898 <_delay_ms>
+ 96a:	08 95       	ret
+
+Disassembly of section .text.main:
+
+000008d0 <main>:
+int main(void)
+{
+	/**
+	*@ set call back function for external interrupt 0
+	*/
+	ExtINT_voidSetExtINT0(func1);
+ 8d0:	84 e9       	ldi	r24, 0x94	; 148
+ 8d2:	94 e0       	ldi	r25, 0x04	; 4
+ 8d4:	0e 94 c1 04 	call	0x982	; 0x982 <ExtINT_voidSetExtINT0>
+	/**
+	*@ set call back function for external interrupt 1
+	*/
+	ExtINT_voidSetExtINT1(func2);
+ 8d8:	85 ea       	ldi	r24, 0xA5	; 165
+ 8da:	94 e0       	ldi	r25, 0x04	; 4
+ 8dc:	0e 94 cb 04 	call	0x996	; 0x996 <ExtINT_voidSetExtINT1>
+	
+	/**
+	*@ external interrupt init function
+	*/
+	ExtInterrupt_voidInit();
+ 8e0:	0e 94 81 04 	call	0x902	; 0x902 <ExtInterrupt_voidInit>
+	/**
+	*@ LED init function
+	*/
+	LED_enumdInit();
+ 8e4:	0e 94 2e 02 	call	0x45c	; 0x45c <LED_enumdInit>
+	/**
+	*@ switch init function
+	*/
+	SWITCH_enumdInit();
+ 8e8:	0e 94 30 03 	call	0x660	; 0x660 <SWITCH_enumdInit>
+	/**
+	*@ seven segments init function
+	*/
+	SevenSegments_enumInit();
+ 8ec:	0e 94 b4 02 	call	0x568	; 0x568 <SevenSegments_enumInit>
+	/**
+	*@ set call back function for external interrupt 0
+	*/
+	ExtINT_voidSetExtINT0(func1);
+ 8f0:	84 e9       	ldi	r24, 0x94	; 148
+ 8f2:	94 e0       	ldi	r25, 0x04	; 4
+ 8f4:	0e 94 c1 04 	call	0x982	; 0x982 <ExtINT_voidSetExtINT0>
+	/**
+	*@ set call back function for external interrupt 1
+	*/
+	ExtINT_voidSetExtINT1(func2);
+ 8f8:	85 ea       	ldi	r24, 0xA5	; 165
+ 8fa:	94 e0       	ldi	r25, 0x04	; 4
+ 8fc:	0e 94 cb 04 	call	0x996	; 0x996 <ExtINT_voidSetExtINT1>
+ 900:	ff cf       	rjmp	.-2      	; 0x900 <main+0x30>
+
+Disassembly of section .text.SevenSegments_enumInit:
+
+00000568 <SevenSegments_enumInit>:
+ *@brief  : Function to Configure the  SevenSgments port and Pins and connection .
+ *@param  : Address to struct in which i configure port and Pins and connection.
+ *@return : Error State                                               
+ */
+SevenSegments_enumErrorState_t SevenSegments_enumInit(void)
+{
+ 568:	ef 92       	push	r14
+ 56a:	ff 92       	push	r15
+ 56c:	0f 93       	push	r16
+ 56e:	1f 93       	push	r17
+ 570:	cf 93       	push	r28
+ 572:	df 93       	push	r29
+ 574:	00 d0       	rcall	.+0      	; 0x576 <SevenSegments_enumInit+0xe>
+ 576:	00 d0       	rcall	.+0      	; 0x578 <SevenSegments_enumInit+0x10>
+ 578:	00 d0       	rcall	.+0      	; 0x57a <SevenSegments_enumInit+0x12>
+ 57a:	cd b7       	in	r28, 0x3d	; 61
+ 57c:	de b7       	in	r29, 0x3e	; 62
+	PPRT_strCFG_t LOCAL_strCurrentSevenSegments[NumOf_SevenSegments];
+	
+	/**
+	*@ for looping in each elemnt of array
+	*/
+	for( LOCAL_u8SegmentIterator1 = 0 ; LOCAL_u8SegmentIterator1 < NumOf_SevenSegments ; LOCAL_u8SegmentIterator1++)
+ 57e:	e1 2c       	mov	r14, r1
+ *@param  : Address to struct in which i configure port and Pins and connection.
+ *@return : Error State                                               
+ */
+SevenSegments_enumErrorState_t SevenSegments_enumInit(void)
+{
+	SevenSegments_enumErrorState_t LOCAL_enumReturnStatus = SevenSegments_enumOK ;
+ 580:	80 e0       	ldi	r24, 0x00	; 0
+	PPRT_strCFG_t LOCAL_strCurrentSevenSegments[NumOf_SevenSegments];
+	
+	/**
+	*@ for looping in each elemnt of array
+	*/
+	for( LOCAL_u8SegmentIterator1 = 0 ; LOCAL_u8SegmentIterator1 < NumOf_SevenSegments ; LOCAL_u8SegmentIterator1++)
+ 582:	5e c0       	rjmp	.+188    	; 0x640 <SevenSegments_enumInit+0xd8>
+		*@ for looping in each led configration of the seven segment
+		*/
+		for( LOCAL_u8LedIterator2 = 0 ; LOCAL_u8LedIterator2 < SevenSegments_Leds_num ; LOCAL_u8LedIterator2++ ){
+			
+			
+			LOCAL_strCurrentSevenSegments[LOCAL_u8SegmentIterator1].PORT_strPORT = SevenSegments[LOCAL_u8SegmentIterator1].SevenSegments_strLED[LOCAL_u8LedIterator2].SevenSegments_strPORT ;
+ 584:	8e 2d       	mov	r24, r14
+ 586:	90 e0       	ldi	r25, 0x00	; 0
+ 588:	ef 2d       	mov	r30, r15
+ 58a:	f0 e0       	ldi	r31, 0x00	; 0
+ 58c:	ee 0f       	add	r30, r30
+ 58e:	ff 1f       	adc	r31, r31
+ 590:	41 e1       	ldi	r20, 0x11	; 17
+ 592:	48 9f       	mul	r20, r24
+ 594:	90 01       	movw	r18, r0
+ 596:	49 9f       	mul	r20, r25
+ 598:	30 0d       	add	r19, r0
+ 59a:	11 24       	eor	r1, r1
+ 59c:	e2 0f       	add	r30, r18
+ 59e:	f3 1f       	adc	r31, r19
+ 5a0:	e0 5a       	subi	r30, 0xA0	; 160
+ 5a2:	ff 4f       	sbci	r31, 0xFF	; 255
+ 5a4:	40 81       	ld	r20, Z
+ 5a6:	dc 01       	movw	r26, r24
+ 5a8:	aa 0f       	add	r26, r26
+ 5aa:	bb 1f       	adc	r27, r27
+ 5ac:	a8 0f       	add	r26, r24
+ 5ae:	b9 1f       	adc	r27, r25
+ 5b0:	61 e0       	ldi	r22, 0x01	; 1
+ 5b2:	70 e0       	ldi	r23, 0x00	; 0
+ 5b4:	6c 0f       	add	r22, r28
+ 5b6:	7d 1f       	adc	r23, r29
+ 5b8:	a6 0f       	add	r26, r22
+ 5ba:	b7 1f       	adc	r27, r23
+ 5bc:	4c 93       	st	X, r20
+			
+			LOCAL_strCurrentSevenSegments[LOCAL_u8SegmentIterator1].PORT_strPIN  =  SevenSegments[LOCAL_u8SegmentIterator1].SevenSegments_strLED[LOCAL_u8LedIterator2].SevenSegments_strPIN ;
+ 5be:	41 81       	ldd	r20, Z+1	; 0x01
+ 5c0:	11 96       	adiw	r26, 0x01	; 1
+ 5c2:	4c 93       	st	X, r20
+			
+			switch (SevenSegments[LOCAL_u8SegmentIterator1].SevenSegments_strSTATE){
+ 5c4:	f9 01       	movw	r30, r18
+ 5c6:	e0 5a       	subi	r30, 0xA0	; 160
+ 5c8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 5ca:	20 89       	ldd	r18, Z+16	; 0x10
+ 5cc:	22 23       	and	r18, r18
+ 5ce:	19 f0       	breq	.+6      	; 0x5d6 <SevenSegments_enumInit+0x6e>
+ 5d0:	21 30       	cpi	r18, 0x01	; 1
+ 5d2:	79 f0       	breq	.+30     	; 0x5f2 <SevenSegments_enumInit+0x8a>
+ 5d4:	1a c0       	rjmp	.+52     	; 0x60a <SevenSegments_enumInit+0xa2>
+				
+						case SevenSegments_enumCommonAnode :
+								LOCAL_strCurrentSevenSegments[LOCAL_u8SegmentIterator1].PORT_strCFGType =  DIO_enumOUTPUTLOW ;
+ 5d6:	fc 01       	movw	r30, r24
+ 5d8:	ee 0f       	add	r30, r30
+ 5da:	ff 1f       	adc	r31, r31
+ 5dc:	e8 0f       	add	r30, r24
+ 5de:	f9 1f       	adc	r31, r25
+ 5e0:	21 e0       	ldi	r18, 0x01	; 1
+ 5e2:	30 e0       	ldi	r19, 0x00	; 0
+ 5e4:	2c 0f       	add	r18, r28
+ 5e6:	3d 1f       	adc	r19, r29
+ 5e8:	e2 0f       	add	r30, r18
+ 5ea:	f3 1f       	adc	r31, r19
+ 5ec:	21 e0       	ldi	r18, 0x01	; 1
+ 5ee:	22 83       	std	Z+2, r18	; 0x02
+						break;
+ 5f0:	0c c0       	rjmp	.+24     	; 0x60a <SevenSegments_enumInit+0xa2>
+						case SevenSegments_enumCommonCathod:
+								LOCAL_strCurrentSevenSegments[LOCAL_u8SegmentIterator1].PORT_strCFGType =  DIO_enumOUTPUTHIGH ;
+ 5f2:	fc 01       	movw	r30, r24
+ 5f4:	ee 0f       	add	r30, r30
+ 5f6:	ff 1f       	adc	r31, r31
+ 5f8:	e8 0f       	add	r30, r24
+ 5fa:	f9 1f       	adc	r31, r25
+ 5fc:	61 e0       	ldi	r22, 0x01	; 1
+ 5fe:	70 e0       	ldi	r23, 0x00	; 0
+ 600:	6c 0f       	add	r22, r28
+ 602:	7d 1f       	adc	r23, r29
+ 604:	e6 0f       	add	r30, r22
+ 606:	f7 1f       	adc	r31, r23
+ 608:	12 82       	std	Z+2, r1	; 0x02
+			
+			/**
+			*@ call DIO_enumSetCFG function to set configration of each led of seven segment in DIO Driver
+			*@ and check return of DIO_enumSetCFG function ok or not ok
+			*/		
+			DIO_enumSetCFG( & LOCAL_strCurrentSevenSegments [LOCAL_u8SegmentIterator1] );
+ 60a:	8c 01       	movw	r16, r24
+ 60c:	00 0f       	add	r16, r16
+ 60e:	11 1f       	adc	r17, r17
+ 610:	80 0f       	add	r24, r16
+ 612:	91 1f       	adc	r25, r17
+ 614:	01 e0       	ldi	r16, 0x01	; 1
+ 616:	10 e0       	ldi	r17, 0x00	; 0
+ 618:	0c 0f       	add	r16, r28
+ 61a:	1d 1f       	adc	r17, r29
+ 61c:	08 0f       	add	r16, r24
+ 61e:	19 1f       	adc	r17, r25
+ 620:	c8 01       	movw	r24, r16
+ 622:	0e 94 5a 00 	call	0xb4	; 0xb4 <__data_load_end>
+				
+			if( ! (DIO_enumSetCFG( & LOCAL_strCurrentSevenSegments [LOCAL_u8SegmentIterator1] ))){
+ 626:	c8 01       	movw	r24, r16
+ 628:	0e 94 5a 00 	call	0xb4	; 0xb4 <__data_load_end>
+ 62c:	81 11       	cpse	r24, r1
+				LOCAL_enumReturnStatus = SevenSegments_enumOK ;
+			}/*if*/
+			else {
+				LOCAL_enumReturnStatus = SevenSegments_enumNOK ;
+ 62e:	81 e0       	ldi	r24, 0x01	; 1
+		//LOCAL_strCurrentSevenSegments[LOCAL_u8SegmentIterator1].PORT_strPIN  =  SevenSegments[LOCAL_u8SegmentIterator1].SevenSegments_strLED.SevenSegments_strLED_A ;
+		
+		/**
+		*@ for looping in each led configration of the seven segment
+		*/
+		for( LOCAL_u8LedIterator2 = 0 ; LOCAL_u8LedIterator2 < SevenSegments_Leds_num ; LOCAL_u8LedIterator2++ ){
+ 630:	f3 94       	inc	r15
+ 632:	01 c0       	rjmp	.+2      	; 0x636 <SevenSegments_enumInit+0xce>
+ 634:	f1 2c       	mov	r15, r1
+ 636:	77 e0       	ldi	r23, 0x07	; 7
+ 638:	7f 15       	cp	r23, r15
+ 63a:	08 f0       	brcs	.+2      	; 0x63e <SevenSegments_enumInit+0xd6>
+ 63c:	a3 cf       	rjmp	.-186    	; 0x584 <SevenSegments_enumInit+0x1c>
+	PPRT_strCFG_t LOCAL_strCurrentSevenSegments[NumOf_SevenSegments];
+	
+	/**
+	*@ for looping in each elemnt of array
+	*/
+	for( LOCAL_u8SegmentIterator1 = 0 ; LOCAL_u8SegmentIterator1 < NumOf_SevenSegments ; LOCAL_u8SegmentIterator1++)
+ 63e:	e3 94       	inc	r14
+ 640:	91 e0       	ldi	r25, 0x01	; 1
+ 642:	9e 15       	cp	r25, r14
+ 644:	b8 f7       	brcc	.-18     	; 0x634 <SevenSegments_enumInit+0xcc>
+	
+
+return LOCAL_enumReturnStatus ;
+	
+	
+}/*led init function */
+ 646:	26 96       	adiw	r28, 0x06	; 6
+ 648:	0f b6       	in	r0, 0x3f	; 63
+ 64a:	f8 94       	cli
+ 64c:	de bf       	out	0x3e, r29	; 62
+ 64e:	0f be       	out	0x3f, r0	; 63
+ 650:	cd bf       	out	0x3d, r28	; 61
+ 652:	df 91       	pop	r29
+ 654:	cf 91       	pop	r28
+ 656:	1f 91       	pop	r17
+ 658:	0f 91       	pop	r16
+ 65a:	ff 90       	pop	r15
+ 65c:	ef 90       	pop	r14
+ 65e:	08 95       	ret
+
+Disassembly of section .text.LED_enumdInit:
+
+0000045c <LED_enumdInit>:
+ *@brief  : Function to Configure the  LEDS Pins to be active high or active low .
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+LED_enumErrorState LED_enumdInit(void)
+{
+ 45c:	ff 92       	push	r15
+ 45e:	0f 93       	push	r16
+ 460:	1f 93       	push	r17
+ 462:	cf 93       	push	r28
+ 464:	df 93       	push	r29
+ 466:	00 d0       	rcall	.+0      	; 0x468 <LED_enumdInit+0xc>
+ 468:	00 d0       	rcall	.+0      	; 0x46a <LED_enumdInit+0xe>
+ 46a:	00 d0       	rcall	.+0      	; 0x46c <LED_enumdInit+0x10>
+ 46c:	cd b7       	in	r28, 0x3d	; 61
+ 46e:	de b7       	in	r29, 0x3e	; 62
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentLed[NumOfLeds];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLeds ; LOCAL_u8Iterator++)
+ 470:	f1 2c       	mov	r15, r1
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+LED_enumErrorState LED_enumdInit(void)
+{
+	LED_enumErrorState LOCAL_enumReturnStatus = LED_enumOK ;
+ 472:	80 e0       	ldi	r24, 0x00	; 0
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentLed[NumOfLeds];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLeds ; LOCAL_u8Iterator++)
+ 474:	69 c0       	rjmp	.+210    	; 0x548 <LED_enumdInit+0xec>
+	{
+		LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strPORT = LEDS[LOCAL_u8Iterator].LED_strPORT ;
+ 476:	8f 2d       	mov	r24, r15
+ 478:	90 e0       	ldi	r25, 0x00	; 0
+ 47a:	fc 01       	movw	r30, r24
+ 47c:	ee 0f       	add	r30, r30
+ 47e:	ff 1f       	adc	r31, r31
+ 480:	e8 0f       	add	r30, r24
+ 482:	f9 1f       	adc	r31, r25
+ 484:	df 01       	movw	r26, r30
+ 486:	ae 57       	subi	r26, 0x7E	; 126
+ 488:	bf 4f       	sbci	r27, 0xFF	; 255
+ 48a:	2c 91       	ld	r18, X
+ 48c:	41 e0       	ldi	r20, 0x01	; 1
+ 48e:	50 e0       	ldi	r21, 0x00	; 0
+ 490:	4c 0f       	add	r20, r28
+ 492:	5d 1f       	adc	r21, r29
+ 494:	e4 0f       	add	r30, r20
+ 496:	f5 1f       	adc	r31, r21
+ 498:	20 83       	st	Z, r18
+		
+		LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strPIN = LEDS[LOCAL_u8Iterator].LED_strPIN ;
+ 49a:	11 96       	adiw	r26, 0x01	; 1
+ 49c:	2c 91       	ld	r18, X
+ 49e:	11 97       	sbiw	r26, 0x01	; 1
+ 4a0:	21 83       	std	Z+1, r18	; 0x01
+		
+		switch(LEDS[LOCAL_u8Iterator].LED_strSTATE){
+ 4a2:	12 96       	adiw	r26, 0x02	; 2
+ 4a4:	2c 91       	ld	r18, X
+ 4a6:	21 30       	cpi	r18, 0x01	; 1
+ 4a8:	99 f0       	breq	.+38     	; 0x4d0 <LED_enumdInit+0x74>
+ 4aa:	28 f0       	brcs	.+10     	; 0x4b6 <LED_enumdInit+0x5a>
+ 4ac:	22 30       	cpi	r18, 0x02	; 2
+ 4ae:	f1 f0       	breq	.+60     	; 0x4ec <LED_enumdInit+0x90>
+ 4b0:	23 30       	cpi	r18, 0x03	; 3
+ 4b2:	51 f1       	breq	.+84     	; 0x508 <LED_enumdInit+0xac>
+ 4b4:	35 c0       	rjmp	.+106    	; 0x520 <LED_enumdInit+0xc4>
+										case LED_enumActiveHigh_ON:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTHIGH ;		
+ 4b6:	fc 01       	movw	r30, r24
+ 4b8:	ee 0f       	add	r30, r30
+ 4ba:	ff 1f       	adc	r31, r31
+ 4bc:	e8 0f       	add	r30, r24
+ 4be:	f9 1f       	adc	r31, r25
+ 4c0:	21 e0       	ldi	r18, 0x01	; 1
+ 4c2:	30 e0       	ldi	r19, 0x00	; 0
+ 4c4:	2c 0f       	add	r18, r28
+ 4c6:	3d 1f       	adc	r19, r29
+ 4c8:	e2 0f       	add	r30, r18
+ 4ca:	f3 1f       	adc	r31, r19
+ 4cc:	12 82       	std	Z+2, r1	; 0x02
+										break;
+ 4ce:	28 c0       	rjmp	.+80     	; 0x520 <LED_enumdInit+0xc4>
+										case LED_enumActiveHigh_OFF:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTLOW ;			
+ 4d0:	fc 01       	movw	r30, r24
+ 4d2:	ee 0f       	add	r30, r30
+ 4d4:	ff 1f       	adc	r31, r31
+ 4d6:	e8 0f       	add	r30, r24
+ 4d8:	f9 1f       	adc	r31, r25
+ 4da:	41 e0       	ldi	r20, 0x01	; 1
+ 4dc:	50 e0       	ldi	r21, 0x00	; 0
+ 4de:	4c 0f       	add	r20, r28
+ 4e0:	5d 1f       	adc	r21, r29
+ 4e2:	e4 0f       	add	r30, r20
+ 4e4:	f5 1f       	adc	r31, r21
+ 4e6:	21 e0       	ldi	r18, 0x01	; 1
+ 4e8:	22 83       	std	Z+2, r18	; 0x02
+										break;
+ 4ea:	1a c0       	rjmp	.+52     	; 0x520 <LED_enumdInit+0xc4>
+										case LED_enumActiveLow_ON:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTLOW ;
+ 4ec:	fc 01       	movw	r30, r24
+ 4ee:	ee 0f       	add	r30, r30
+ 4f0:	ff 1f       	adc	r31, r31
+ 4f2:	e8 0f       	add	r30, r24
+ 4f4:	f9 1f       	adc	r31, r25
+ 4f6:	21 e0       	ldi	r18, 0x01	; 1
+ 4f8:	30 e0       	ldi	r19, 0x00	; 0
+ 4fa:	2c 0f       	add	r18, r28
+ 4fc:	3d 1f       	adc	r19, r29
+ 4fe:	e2 0f       	add	r30, r18
+ 500:	f3 1f       	adc	r31, r19
+ 502:	21 e0       	ldi	r18, 0x01	; 1
+ 504:	22 83       	std	Z+2, r18	; 0x02
+										break;
+ 506:	0c c0       	rjmp	.+24     	; 0x520 <LED_enumdInit+0xc4>
+										case LED_enumActiveLOw_OFF:
+												LOCAL_strCurrentLed[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumOUTPUTHIGH ;
+ 508:	fc 01       	movw	r30, r24
+ 50a:	ee 0f       	add	r30, r30
+ 50c:	ff 1f       	adc	r31, r31
+ 50e:	e8 0f       	add	r30, r24
+ 510:	f9 1f       	adc	r31, r25
+ 512:	41 e0       	ldi	r20, 0x01	; 1
+ 514:	50 e0       	ldi	r21, 0x00	; 0
+ 516:	4c 0f       	add	r20, r28
+ 518:	5d 1f       	adc	r21, r29
+ 51a:	e4 0f       	add	r30, r20
+ 51c:	f5 1f       	adc	r31, r21
+ 51e:	12 82       	std	Z+2, r1	; 0x02
+		
+	/**
+	*@ call DIO_enumSetCFG function to set configration in DIO Driver
+	*@ and check return of DIO_enumSetCFG function ok or not ok
+	*/		
+		 DIO_enumSetCFG( & LOCAL_strCurrentLed [LOCAL_u8Iterator] );
+ 520:	8c 01       	movw	r16, r24
+ 522:	00 0f       	add	r16, r16
+ 524:	11 1f       	adc	r17, r17
+ 526:	80 0f       	add	r24, r16
+ 528:	91 1f       	adc	r25, r17
+ 52a:	01 e0       	ldi	r16, 0x01	; 1
+ 52c:	10 e0       	ldi	r17, 0x00	; 0
+ 52e:	0c 0f       	add	r16, r28
+ 530:	1d 1f       	adc	r17, r29
+ 532:	08 0f       	add	r16, r24
+ 534:	19 1f       	adc	r17, r25
+ 536:	c8 01       	movw	r24, r16
+ 538:	0e 94 5a 00 	call	0xb4	; 0xb4 <__data_load_end>
+			
+		if( ! (DIO_enumSetCFG( & LOCAL_strCurrentLed [LOCAL_u8Iterator] ))){
+ 53c:	c8 01       	movw	r24, r16
+ 53e:	0e 94 5a 00 	call	0xb4	; 0xb4 <__data_load_end>
+ 542:	81 11       	cpse	r24, r1
+			LOCAL_enumReturnStatus = LED_enumOK ;
+		}/*if*/
+		else {
+			LOCAL_enumReturnStatus = LED_enumNOK ;
+ 544:	81 e0       	ldi	r24, 0x01	; 1
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentLed[NumOfLeds];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLeds ; LOCAL_u8Iterator++)
+ 546:	f3 94       	inc	r15
+ 548:	51 e0       	ldi	r21, 0x01	; 1
+ 54a:	5f 15       	cp	r21, r15
+ 54c:	08 f0       	brcs	.+2      	; 0x550 <LED_enumdInit+0xf4>
+ 54e:	93 cf       	rjmp	.-218    	; 0x476 <LED_enumdInit+0x1a>
+	
+
+return LOCAL_enumReturnStatus ;
+	
+	
+}/*led init function */
+ 550:	26 96       	adiw	r28, 0x06	; 6
+ 552:	0f b6       	in	r0, 0x3f	; 63
+ 554:	f8 94       	cli
+ 556:	de bf       	out	0x3e, r29	; 62
+ 558:	0f be       	out	0x3f, r0	; 63
+ 55a:	cd bf       	out	0x3d, r28	; 61
+ 55c:	df 91       	pop	r29
+ 55e:	cf 91       	pop	r28
+ 560:	1f 91       	pop	r17
+ 562:	0f 91       	pop	r16
+ 564:	ff 90       	pop	r15
+ 566:	08 95       	ret
+
+Disassembly of section .text.LED_enuSetLedState:
+
+00000732 <LED_enuSetLedState>:
+ *@param  : take led name and led state .
+ *@return : Error State                                               
+ */
+
+LED_enumErrorState LED_enuSetLedState(u8 Copy_u8LedName , u8 Copy_u8State)
+{
+ 732:	cf 93       	push	r28
+ 734:	df 93       	push	r29
+ 736:	00 d0       	rcall	.+0      	; 0x738 <LED_enuSetLedState+0x6>
+ 738:	0f 92       	push	r0
+ 73a:	cd b7       	in	r28, 0x3d	; 61
+ 73c:	de b7       	in	r29, 0x3e	; 62
+	*/
+	PPRT_strCFG_t LOCAL_strCurrentLed;
+	/**
+	*@ reconfigure led state which is element of array of leds
+	*/
+	LEDS[Copy_u8LedName].LED_strSTATE = Copy_u8State ;
+ 73e:	90 e0       	ldi	r25, 0x00	; 0
+ 740:	fc 01       	movw	r30, r24
+ 742:	ee 0f       	add	r30, r30
+ 744:	ff 1f       	adc	r31, r31
+ 746:	8e 0f       	add	r24, r30
+ 748:	9f 1f       	adc	r25, r31
+ 74a:	fc 01       	movw	r30, r24
+ 74c:	ee 57       	subi	r30, 0x7E	; 126
+ 74e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 750:	62 83       	std	Z+2, r22	; 0x02
+	
+	LOCAL_strCurrentLed.PORT_strPORT = LEDS[Copy_u8LedName].LED_strPORT ;
+ 752:	80 81       	ld	r24, Z
+ 754:	89 83       	std	Y+1, r24	; 0x01
+	
+	LOCAL_strCurrentLed.PORT_strPIN = LEDS[Copy_u8LedName].LED_strPIN ;
+ 756:	81 81       	ldd	r24, Z+1	; 0x01
+ 758:	8a 83       	std	Y+2, r24	; 0x02
+	
+	switch(LEDS[Copy_u8LedName].LED_strSTATE){
+ 75a:	61 30       	cpi	r22, 0x01	; 1
+ 75c:	41 f0       	breq	.+16     	; 0x76e <LED_enuSetLedState+0x3c>
+ 75e:	28 f0       	brcs	.+10     	; 0x76a <LED_enuSetLedState+0x38>
+ 760:	62 30       	cpi	r22, 0x02	; 2
+ 762:	41 f0       	breq	.+16     	; 0x774 <LED_enuSetLedState+0x42>
+ 764:	63 30       	cpi	r22, 0x03	; 3
+ 766:	49 f0       	breq	.+18     	; 0x77a <LED_enuSetLedState+0x48>
+ 768:	09 c0       	rjmp	.+18     	; 0x77c <LED_enuSetLedState+0x4a>
+		
+		case LED_enumActiveHigh_ON:
+	    LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTHIGH ;
+ 76a:	1b 82       	std	Y+3, r1	; 0x03
+		break;
+ 76c:	07 c0       	rjmp	.+14     	; 0x77c <LED_enuSetLedState+0x4a>
+		case LED_enumActiveHigh_OFF:
+		LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTLOW ;
+ 76e:	81 e0       	ldi	r24, 0x01	; 1
+ 770:	8b 83       	std	Y+3, r24	; 0x03
+		break;
+ 772:	04 c0       	rjmp	.+8      	; 0x77c <LED_enuSetLedState+0x4a>
+		case LED_enumActiveLow_ON:
+		LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTLOW ;
+ 774:	81 e0       	ldi	r24, 0x01	; 1
+ 776:	8b 83       	std	Y+3, r24	; 0x03
+		break;
+ 778:	01 c0       	rjmp	.+2      	; 0x77c <LED_enuSetLedState+0x4a>
+		case LED_enumActiveLOw_OFF:
+		LOCAL_strCurrentLed.PORT_strCFGType = DIO_enumOUTPUTHIGH ;
+ 77a:	1b 82       	std	Y+3, r1	; 0x03
+	
+	/**
+	*@ call DIO_enumSetCFG function to set configration in DIO Driver
+	*@ and check return of DIO_enumSetCFG function ok or not ok
+	*/		
+		 DIO_enumSetCFG( & LOCAL_strCurrentLed );
+ 77c:	ce 01       	movw	r24, r28
+ 77e:	01 96       	adiw	r24, 0x01	; 1
+ 780:	0e 94 5a 00 	call	0xb4	; 0xb4 <__data_load_end>
+			
+		if( ! (DIO_enumSetCFG( & LOCAL_strCurrentLed  )))
+ 784:	ce 01       	movw	r24, r28
+ 786:	01 96       	adiw	r24, 0x01	; 1
+ 788:	0e 94 5a 00 	call	0xb4	; 0xb4 <__data_load_end>
+ 78c:	81 11       	cpse	r24, r1
+		{
+			LOCAL_enumReturnStatus = LED_enumOK ;
+		}/*if*/
+		else {
+			LOCAL_enumReturnStatus = LED_enumNOK ;
+ 78e:	81 e0       	ldi	r24, 0x01	; 1
+		}/*else*/
+	
+	
+return LOCAL_enumReturnStatus ;	
+	
+ 790:	0f 90       	pop	r0
+ 792:	0f 90       	pop	r0
+ 794:	0f 90       	pop	r0
+ 796:	df 91       	pop	r29
+ 798:	cf 91       	pop	r28
+ 79a:	08 95       	ret
+
+Disassembly of section .text.SWITCH_enumdInit:
+
+00000660 <SWITCH_enumdInit>:
+ *@brief  : Function to Configure the  SWITCHS Pins to be INPUT pull up or input external pull down resistor .
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+SWITCH_enumErrorState SWITCH_enumdInit(void)
+{
+ 660:	ff 92       	push	r15
+ 662:	0f 93       	push	r16
+ 664:	1f 93       	push	r17
+ 666:	cf 93       	push	r28
+ 668:	df 93       	push	r29
+ 66a:	00 d0       	rcall	.+0      	; 0x66c <SWITCH_enumdInit+0xc>
+ 66c:	00 d0       	rcall	.+0      	; 0x66e <SWITCH_enumdInit+0xe>
+ 66e:	00 d0       	rcall	.+0      	; 0x670 <SWITCH_enumdInit+0x10>
+ 670:	cd b7       	in	r28, 0x3d	; 61
+ 672:	de b7       	in	r29, 0x3e	; 62
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentSWITCH[NumOfLSWITCHES];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLSWITCHES ; LOCAL_u8Iterator++)
+ 674:	f1 2c       	mov	r15, r1
+ *@param  : Address to struct in which i configure port num and pin num and pin configration.
+ *@return : Error State                                               
+ */
+SWITCH_enumErrorState SWITCH_enumdInit(void)
+{
+	SWITCH_enumErrorState LOCAL_enumReturnStatus = SWITCH_enumOK ;
+ 676:	80 e0       	ldi	r24, 0x00	; 0
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentSWITCH[NumOfLSWITCHES];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLSWITCHES ; LOCAL_u8Iterator++)
+ 678:	4c c0       	rjmp	.+152    	; 0x712 <SWITCH_enumdInit+0xb2>
+	{
+		LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strPORT = SWITCHS[LOCAL_u8Iterator].SWITCH_strPORT ;
+ 67a:	8f 2d       	mov	r24, r15
+ 67c:	90 e0       	ldi	r25, 0x00	; 0
+ 67e:	fc 01       	movw	r30, r24
+ 680:	ee 0f       	add	r30, r30
+ 682:	ff 1f       	adc	r31, r31
+ 684:	e8 0f       	add	r30, r24
+ 686:	f9 1f       	adc	r31, r25
+ 688:	df 01       	movw	r26, r30
+ 68a:	a8 57       	subi	r26, 0x78	; 120
+ 68c:	bf 4f       	sbci	r27, 0xFF	; 255
+ 68e:	2c 91       	ld	r18, X
+ 690:	41 e0       	ldi	r20, 0x01	; 1
+ 692:	50 e0       	ldi	r21, 0x00	; 0
+ 694:	4c 0f       	add	r20, r28
+ 696:	5d 1f       	adc	r21, r29
+ 698:	e4 0f       	add	r30, r20
+ 69a:	f5 1f       	adc	r31, r21
+ 69c:	20 83       	st	Z, r18
+		
+		LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strPIN = SWITCHS[LOCAL_u8Iterator].SWITCH_strPIN ;
+ 69e:	11 96       	adiw	r26, 0x01	; 1
+ 6a0:	2c 91       	ld	r18, X
+ 6a2:	11 97       	sbiw	r26, 0x01	; 1
+ 6a4:	21 83       	std	Z+1, r18	; 0x01
+		
+		switch(SWITCHS[LOCAL_u8Iterator].SWITCH_strSTATE){
+ 6a6:	12 96       	adiw	r26, 0x02	; 2
+ 6a8:	2c 91       	ld	r18, X
+ 6aa:	22 23       	and	r18, r18
+ 6ac:	19 f0       	breq	.+6      	; 0x6b4 <SWITCH_enumdInit+0x54>
+ 6ae:	21 30       	cpi	r18, 0x01	; 1
+ 6b0:	79 f0       	breq	.+30     	; 0x6d0 <SWITCH_enumdInit+0x70>
+ 6b2:	1b c0       	rjmp	.+54     	; 0x6ea <SWITCH_enumdInit+0x8a>
+										case SWITCH_enumINPUT_PULLUP:
+												LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumInputPullUp ;		
+ 6b4:	fc 01       	movw	r30, r24
+ 6b6:	ee 0f       	add	r30, r30
+ 6b8:	ff 1f       	adc	r31, r31
+ 6ba:	e8 0f       	add	r30, r24
+ 6bc:	f9 1f       	adc	r31, r25
+ 6be:	21 e0       	ldi	r18, 0x01	; 1
+ 6c0:	30 e0       	ldi	r19, 0x00	; 0
+ 6c2:	2c 0f       	add	r18, r28
+ 6c4:	3d 1f       	adc	r19, r29
+ 6c6:	e2 0f       	add	r30, r18
+ 6c8:	f3 1f       	adc	r31, r19
+ 6ca:	22 e0       	ldi	r18, 0x02	; 2
+ 6cc:	22 83       	std	Z+2, r18	; 0x02
+										break;
+ 6ce:	0d c0       	rjmp	.+26     	; 0x6ea <SWITCH_enumdInit+0x8a>
+										case SWITCH_enumINPUT_EXTERNALPULLDOWN:
+												LOCAL_strCurrentSWITCH[LOCAL_u8Iterator].PORT_strCFGType = DIO_enumInputExternalPullDown  ;			
+ 6d0:	fc 01       	movw	r30, r24
+ 6d2:	ee 0f       	add	r30, r30
+ 6d4:	ff 1f       	adc	r31, r31
+ 6d6:	e8 0f       	add	r30, r24
+ 6d8:	f9 1f       	adc	r31, r25
+ 6da:	41 e0       	ldi	r20, 0x01	; 1
+ 6dc:	50 e0       	ldi	r21, 0x00	; 0
+ 6de:	4c 0f       	add	r20, r28
+ 6e0:	5d 1f       	adc	r21, r29
+ 6e2:	e4 0f       	add	r30, r20
+ 6e4:	f5 1f       	adc	r31, r21
+ 6e6:	23 e0       	ldi	r18, 0x03	; 3
+ 6e8:	22 83       	std	Z+2, r18	; 0x02
+		
+	/**
+	*@ call DIO_enumSetCFG function to set configration in DIO Driver
+	*@ and check return of DIO_enumSetCFG function ok or not ok
+	*/		
+		 DIO_enumSetCFG( & LOCAL_strCurrentSWITCH [LOCAL_u8Iterator] );
+ 6ea:	8c 01       	movw	r16, r24
+ 6ec:	00 0f       	add	r16, r16
+ 6ee:	11 1f       	adc	r17, r17
+ 6f0:	80 0f       	add	r24, r16
+ 6f2:	91 1f       	adc	r25, r17
+ 6f4:	01 e0       	ldi	r16, 0x01	; 1
+ 6f6:	10 e0       	ldi	r17, 0x00	; 0
+ 6f8:	0c 0f       	add	r16, r28
+ 6fa:	1d 1f       	adc	r17, r29
+ 6fc:	08 0f       	add	r16, r24
+ 6fe:	19 1f       	adc	r17, r25
+ 700:	c8 01       	movw	r24, r16
+ 702:	0e 94 5a 00 	call	0xb4	; 0xb4 <__data_load_end>
+			
+		if( ! (DIO_enumSetCFG( & LOCAL_strCurrentSWITCH [LOCAL_u8Iterator] )) ){
+ 706:	c8 01       	movw	r24, r16
+ 708:	0e 94 5a 00 	call	0xb4	; 0xb4 <__data_load_end>
+ 70c:	81 11       	cpse	r24, r1
+			LOCAL_enumReturnStatus = SWITCH_enumOK ;
+		}/*if*/
+		else {
+			LOCAL_enumReturnStatus = SWITCH_enumNOK ;
+ 70e:	81 e0       	ldi	r24, 0x01	; 1
+	
+	u8 LOCAL_u8Iterator = 0 ;
+	
+	PPRT_strCFG_t LOCAL_strCurrentSWITCH[NumOfLSWITCHES];
+
+	for( LOCAL_u8Iterator = 0 ; LOCAL_u8Iterator < NumOfLSWITCHES ; LOCAL_u8Iterator++)
+ 710:	f3 94       	inc	r15
+ 712:	51 e0       	ldi	r21, 0x01	; 1
+ 714:	5f 15       	cp	r21, r15
+ 716:	08 f0       	brcs	.+2      	; 0x71a <SWITCH_enumdInit+0xba>
+ 718:	b0 cf       	rjmp	.-160    	; 0x67a <SWITCH_enumdInit+0x1a>
+	
+
+return LOCAL_enumReturnStatus ;
+	
+	
+}/*led init function */
+ 71a:	26 96       	adiw	r28, 0x06	; 6
+ 71c:	0f b6       	in	r0, 0x3f	; 63
+ 71e:	f8 94       	cli
+ 720:	de bf       	out	0x3e, r29	; 62
+ 722:	0f be       	out	0x3f, r0	; 63
+ 724:	cd bf       	out	0x3d, r28	; 61
+ 726:	df 91       	pop	r29
+ 728:	cf 91       	pop	r28
+ 72a:	1f 91       	pop	r17
+ 72c:	0f 91       	pop	r16
+ 72e:	ff 90       	pop	r15
+ 730:	08 95       	ret
+
+Disassembly of section .text.DIO_enumSetCFG:
+
+000000b4 <DIO_enumSetCFG>:
+ */	
+DIO_enumError_t DIO_enumSetCFG( PPRT_strCFG_t * ADD_strPORT_CFG )
+{
+	DIO_enumError_t Ret_enumERRORStatus = DIO_enumOK  ; 
+	
+	if( ((ADD_strPORT_CFG -> PORT_strPORT) > DIO_enumPORTD) || ((ADD_strPORT_CFG -> PORT_strPORT) < DIO_enumPORTA) )
+  b4:	fc 01       	movw	r30, r24
+  b6:	20 81       	ld	r18, Z
+  b8:	24 30       	cpi	r18, 0x04	; 4
+  ba:	08 f0       	brcs	.+2      	; 0xbe <DIO_enumSetCFG+0xa>
+  bc:	bf c1       	rjmp	.+894    	; 0x43c <__EEPROM_REGION_LENGTH__+0x3c>
+		{ 
+			Ret_enumERRORStatus = DIO_enumINVALID_PORT ;
+		}
+	else if( ((ADD_strPORT_CFG -> PORT_strPIN) > DIO_enumPIN7) || ((ADD_strPORT_CFG -> PORT_strPIN) < DIO_enumPIN0) )
+  be:	31 81       	ldd	r19, Z+1	; 0x01
+  c0:	38 30       	cpi	r19, 0x08	; 8
+  c2:	08 f0       	brcs	.+2      	; 0xc6 <DIO_enumSetCFG+0x12>
+  c4:	bd c1       	rjmp	.+890    	; 0x440 <__EEPROM_REGION_LENGTH__+0x40>
+		{
+			Ret_enumERRORStatus = DIO_enumINVALID_PIN ;
+		}	
+	else if( ((ADD_strPORT_CFG -> PORT_strCFGType) > DIO_enumInputExternalPullDown) || ((ADD_strPORT_CFG -> PORT_strCFGType) < DIO_enumOUTPUTHIGH) )
+  c6:	42 81       	ldd	r20, Z+2	; 0x02
+  c8:	44 30       	cpi	r20, 0x04	; 4
+  ca:	08 f0       	brcs	.+2      	; 0xce <DIO_enumSetCFG+0x1a>
+  cc:	bb c1       	rjmp	.+886    	; 0x444 <__EEPROM_REGION_LENGTH__+0x44>
+		{
+			Ret_enumERRORStatus = DIO_enumINVALID_MODE ;
+		}
+	else
+		{
+			switch(ADD_strPORT_CFG -> PORT_strPORT)
+  ce:	21 30       	cpi	r18, 0x01	; 1
+  d0:	09 f4       	brne	.+2      	; 0xd4 <DIO_enumSetCFG+0x20>
+  d2:	73 c0       	rjmp	.+230    	; 0x1ba <DIO_enumSetCFG+0x106>
+  d4:	38 f0       	brcs	.+14     	; 0xe4 <DIO_enumSetCFG+0x30>
+  d6:	22 30       	cpi	r18, 0x02	; 2
+  d8:	09 f4       	brne	.+2      	; 0xdc <DIO_enumSetCFG+0x28>
+  da:	da c0       	rjmp	.+436    	; 0x290 <DIO_enumSetCFG+0x1dc>
+  dc:	23 30       	cpi	r18, 0x03	; 3
+  de:	09 f4       	brne	.+2      	; 0xe2 <DIO_enumSetCFG+0x2e>
+  e0:	42 c1       	rjmp	.+644    	; 0x366 <DIO_enumSetCFG+0x2b2>
+  e2:	b2 c1       	rjmp	.+868    	; 0x448 <__EEPROM_REGION_LENGTH__+0x48>
+			{
+				case DIO_enumPORTA:
+									switch(ADD_strPORT_CFG -> PORT_strCFGType){
+  e4:	41 30       	cpi	r20, 0x01	; 1
+  e6:	f9 f0       	breq	.+62     	; 0x126 <DIO_enumSetCFG+0x72>
+  e8:	30 f0       	brcs	.+12     	; 0xf6 <DIO_enumSetCFG+0x42>
+  ea:	42 30       	cpi	r20, 0x02	; 2
+  ec:	a9 f1       	breq	.+106    	; 0x158 <DIO_enumSetCFG+0xa4>
+  ee:	43 30       	cpi	r20, 0x03	; 3
+  f0:	09 f4       	brne	.+2      	; 0xf4 <DIO_enumSetCFG+0x40>
+  f2:	4a c0       	rjmp	.+148    	; 0x188 <DIO_enumSetCFG+0xd4>
+  f4:	ab c1       	rjmp	.+854    	; 0x44c <__EEPROM_REGION_LENGTH__+0x4c>
+										case DIO_enumOUTPUTHIGH:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRA,ADD_strPORT_CFG -> PORT_strPIN) ;		
+  f6:	6a b3       	in	r22, 0x1a	; 26
+  f8:	41 e0       	ldi	r20, 0x01	; 1
+  fa:	50 e0       	ldi	r21, 0x00	; 0
+  fc:	fa 01       	movw	r30, r20
+  fe:	02 c0       	rjmp	.+4      	; 0x104 <DIO_enumSetCFG+0x50>
+ 100:	ee 0f       	add	r30, r30
+ 102:	ff 1f       	adc	r31, r31
+ 104:	3a 95       	dec	r19
+ 106:	e2 f7       	brpl	.-8      	; 0x100 <DIO_enumSetCFG+0x4c>
+ 108:	9f 01       	movw	r18, r30
+ 10a:	26 2b       	or	r18, r22
+ 10c:	2a bb       	out	0x1a, r18	; 26
+												SET_BIT(PORTA,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 10e:	2b b3       	in	r18, 0x1b	; 27
+ 110:	fc 01       	movw	r30, r24
+ 112:	01 80       	ldd	r0, Z+1	; 0x01
+ 114:	02 c0       	rjmp	.+4      	; 0x11a <DIO_enumSetCFG+0x66>
+ 116:	44 0f       	add	r20, r20
+ 118:	55 1f       	adc	r21, r21
+ 11a:	0a 94       	dec	r0
+ 11c:	e2 f7       	brpl	.-8      	; 0x116 <DIO_enumSetCFG+0x62>
+ 11e:	42 2b       	or	r20, r18
+ 120:	4b bb       	out	0x1b, r20	; 27
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 122:	80 e0       	ldi	r24, 0x00	; 0
+									switch(ADD_strPORT_CFG -> PORT_strCFGType){
+										case DIO_enumOUTPUTHIGH:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRA,ADD_strPORT_CFG -> PORT_strPIN) ;		
+												SET_BIT(PORTA,ADD_strPORT_CFG -> PORT_strPIN) ;		
+										break;
+ 124:	08 95       	ret
+										case DIO_enumOUTPUTLOW:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRA,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 126:	6a b3       	in	r22, 0x1a	; 26
+ 128:	41 e0       	ldi	r20, 0x01	; 1
+ 12a:	50 e0       	ldi	r21, 0x00	; 0
+ 12c:	fa 01       	movw	r30, r20
+ 12e:	02 c0       	rjmp	.+4      	; 0x134 <DIO_enumSetCFG+0x80>
+ 130:	ee 0f       	add	r30, r30
+ 132:	ff 1f       	adc	r31, r31
+ 134:	3a 95       	dec	r19
+ 136:	e2 f7       	brpl	.-8      	; 0x130 <DIO_enumSetCFG+0x7c>
+ 138:	9f 01       	movw	r18, r30
+ 13a:	26 2b       	or	r18, r22
+ 13c:	2a bb       	out	0x1a, r18	; 26
+												CLR_BIT(PORTA,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 13e:	2b b3       	in	r18, 0x1b	; 27
+ 140:	fc 01       	movw	r30, r24
+ 142:	01 80       	ldd	r0, Z+1	; 0x01
+ 144:	02 c0       	rjmp	.+4      	; 0x14a <DIO_enumSetCFG+0x96>
+ 146:	44 0f       	add	r20, r20
+ 148:	55 1f       	adc	r21, r21
+ 14a:	0a 94       	dec	r0
+ 14c:	e2 f7       	brpl	.-8      	; 0x146 <DIO_enumSetCFG+0x92>
+ 14e:	40 95       	com	r20
+ 150:	42 23       	and	r20, r18
+ 152:	4b bb       	out	0x1b, r20	; 27
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 154:	80 e0       	ldi	r24, 0x00	; 0
+										break;
+										case DIO_enumOUTPUTLOW:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRA,ADD_strPORT_CFG -> PORT_strPIN) ;		
+												CLR_BIT(PORTA,ADD_strPORT_CFG -> PORT_strPIN) ;		
+										break;
+ 156:	08 95       	ret
+										case DIO_enumInputPullUp:
+												/*set this bit as input */
+												CLR_BIT(DDRA,ADD_strPORT_CFG -> PORT_strPIN) ;
+ 158:	2a b3       	in	r18, 0x1a	; 26
+ 15a:	41 e0       	ldi	r20, 0x01	; 1
+ 15c:	50 e0       	ldi	r21, 0x00	; 0
+ 15e:	ba 01       	movw	r22, r20
+ 160:	02 c0       	rjmp	.+4      	; 0x166 <DIO_enumSetCFG+0xb2>
+ 162:	66 0f       	add	r22, r22
+ 164:	77 1f       	adc	r23, r23
+ 166:	3a 95       	dec	r19
+ 168:	e2 f7       	brpl	.-8      	; 0x162 <DIO_enumSetCFG+0xae>
+ 16a:	60 95       	com	r22
+ 16c:	26 23       	and	r18, r22
+ 16e:	2a bb       	out	0x1a, r18	; 26
+												/*Enable pull up resistor for this pin*/
+												SET_BIT(PORTA,ADD_strPORT_CFG -> PORT_strPIN) ;			
+ 170:	2b b3       	in	r18, 0x1b	; 27
+ 172:	fc 01       	movw	r30, r24
+ 174:	01 80       	ldd	r0, Z+1	; 0x01
+ 176:	02 c0       	rjmp	.+4      	; 0x17c <DIO_enumSetCFG+0xc8>
+ 178:	44 0f       	add	r20, r20
+ 17a:	55 1f       	adc	r21, r21
+ 17c:	0a 94       	dec	r0
+ 17e:	e2 f7       	brpl	.-8      	; 0x178 <DIO_enumSetCFG+0xc4>
+ 180:	42 2b       	or	r20, r18
+ 182:	4b bb       	out	0x1b, r20	; 27
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 184:	80 e0       	ldi	r24, 0x00	; 0
+										case DIO_enumInputPullUp:
+												/*set this bit as input */
+												CLR_BIT(DDRA,ADD_strPORT_CFG -> PORT_strPIN) ;
+												/*Enable pull up resistor for this pin*/
+												SET_BIT(PORTA,ADD_strPORT_CFG -> PORT_strPIN) ;			
+										break;
+ 186:	08 95       	ret
+										case DIO_enumInputExternalPullDown:
+												/*set this bit as input*/
+												CLR_BIT(DDRA,ADD_strPORT_CFG -> PORT_strPIN) ;
+ 188:	2a b3       	in	r18, 0x1a	; 26
+ 18a:	41 e0       	ldi	r20, 0x01	; 1
+ 18c:	50 e0       	ldi	r21, 0x00	; 0
+ 18e:	ba 01       	movw	r22, r20
+ 190:	02 c0       	rjmp	.+4      	; 0x196 <DIO_enumSetCFG+0xe2>
+ 192:	66 0f       	add	r22, r22
+ 194:	77 1f       	adc	r23, r23
+ 196:	3a 95       	dec	r19
+ 198:	e2 f7       	brpl	.-8      	; 0x192 <DIO_enumSetCFG+0xde>
+ 19a:	60 95       	com	r22
+ 19c:	26 23       	and	r18, r22
+ 19e:	2a bb       	out	0x1a, r18	; 26
+												/*diable pull up resistors*/
+												CLR_BIT(PORTA,ADD_strPORT_CFG -> PORT_strPIN); 
+ 1a0:	2b b3       	in	r18, 0x1b	; 27
+ 1a2:	fc 01       	movw	r30, r24
+ 1a4:	01 80       	ldd	r0, Z+1	; 0x01
+ 1a6:	02 c0       	rjmp	.+4      	; 0x1ac <DIO_enumSetCFG+0xf8>
+ 1a8:	44 0f       	add	r20, r20
+ 1aa:	55 1f       	adc	r21, r21
+ 1ac:	0a 94       	dec	r0
+ 1ae:	e2 f7       	brpl	.-8      	; 0x1a8 <DIO_enumSetCFG+0xf4>
+ 1b0:	40 95       	com	r20
+ 1b2:	42 23       	and	r20, r18
+ 1b4:	4b bb       	out	0x1b, r20	; 27
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 1b6:	80 e0       	ldi	r24, 0x00	; 0
+										case DIO_enumInputExternalPullDown:
+												/*set this bit as input*/
+												CLR_BIT(DDRA,ADD_strPORT_CFG -> PORT_strPIN) ;
+												/*diable pull up resistors*/
+												CLR_BIT(PORTA,ADD_strPORT_CFG -> PORT_strPIN); 
+										break;
+ 1b8:	08 95       	ret
+										default:
+										break;
+									}//switch2
+				break;
+				case DIO_enumPORTB:
+									switch(ADD_strPORT_CFG -> PORT_strCFGType){
+ 1ba:	41 30       	cpi	r20, 0x01	; 1
+ 1bc:	f9 f0       	breq	.+62     	; 0x1fc <DIO_enumSetCFG+0x148>
+ 1be:	30 f0       	brcs	.+12     	; 0x1cc <DIO_enumSetCFG+0x118>
+ 1c0:	42 30       	cpi	r20, 0x02	; 2
+ 1c2:	a9 f1       	breq	.+106    	; 0x22e <DIO_enumSetCFG+0x17a>
+ 1c4:	43 30       	cpi	r20, 0x03	; 3
+ 1c6:	09 f4       	brne	.+2      	; 0x1ca <DIO_enumSetCFG+0x116>
+ 1c8:	4a c0       	rjmp	.+148    	; 0x25e <DIO_enumSetCFG+0x1aa>
+ 1ca:	42 c1       	rjmp	.+644    	; 0x450 <__EEPROM_REGION_LENGTH__+0x50>
+										case DIO_enumOUTPUTHIGH:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRB,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 1cc:	67 b3       	in	r22, 0x17	; 23
+ 1ce:	41 e0       	ldi	r20, 0x01	; 1
+ 1d0:	50 e0       	ldi	r21, 0x00	; 0
+ 1d2:	fa 01       	movw	r30, r20
+ 1d4:	02 c0       	rjmp	.+4      	; 0x1da <DIO_enumSetCFG+0x126>
+ 1d6:	ee 0f       	add	r30, r30
+ 1d8:	ff 1f       	adc	r31, r31
+ 1da:	3a 95       	dec	r19
+ 1dc:	e2 f7       	brpl	.-8      	; 0x1d6 <DIO_enumSetCFG+0x122>
+ 1de:	9f 01       	movw	r18, r30
+ 1e0:	26 2b       	or	r18, r22
+ 1e2:	27 bb       	out	0x17, r18	; 23
+												SET_BIT(PORTB,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 1e4:	28 b3       	in	r18, 0x18	; 24
+ 1e6:	fc 01       	movw	r30, r24
+ 1e8:	01 80       	ldd	r0, Z+1	; 0x01
+ 1ea:	02 c0       	rjmp	.+4      	; 0x1f0 <DIO_enumSetCFG+0x13c>
+ 1ec:	44 0f       	add	r20, r20
+ 1ee:	55 1f       	adc	r21, r21
+ 1f0:	0a 94       	dec	r0
+ 1f2:	e2 f7       	brpl	.-8      	; 0x1ec <DIO_enumSetCFG+0x138>
+ 1f4:	42 2b       	or	r20, r18
+ 1f6:	48 bb       	out	0x18, r20	; 24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 1f8:	80 e0       	ldi	r24, 0x00	; 0
+									switch(ADD_strPORT_CFG -> PORT_strCFGType){
+										case DIO_enumOUTPUTHIGH:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRB,ADD_strPORT_CFG -> PORT_strPIN) ;		
+												SET_BIT(PORTB,ADD_strPORT_CFG -> PORT_strPIN) ;		
+										break;
+ 1fa:	08 95       	ret
+										case DIO_enumOUTPUTLOW:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRB,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 1fc:	67 b3       	in	r22, 0x17	; 23
+ 1fe:	41 e0       	ldi	r20, 0x01	; 1
+ 200:	50 e0       	ldi	r21, 0x00	; 0
+ 202:	fa 01       	movw	r30, r20
+ 204:	02 c0       	rjmp	.+4      	; 0x20a <DIO_enumSetCFG+0x156>
+ 206:	ee 0f       	add	r30, r30
+ 208:	ff 1f       	adc	r31, r31
+ 20a:	3a 95       	dec	r19
+ 20c:	e2 f7       	brpl	.-8      	; 0x206 <DIO_enumSetCFG+0x152>
+ 20e:	9f 01       	movw	r18, r30
+ 210:	26 2b       	or	r18, r22
+ 212:	27 bb       	out	0x17, r18	; 23
+												CLR_BIT(PORTB,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 214:	28 b3       	in	r18, 0x18	; 24
+ 216:	fc 01       	movw	r30, r24
+ 218:	01 80       	ldd	r0, Z+1	; 0x01
+ 21a:	02 c0       	rjmp	.+4      	; 0x220 <DIO_enumSetCFG+0x16c>
+ 21c:	44 0f       	add	r20, r20
+ 21e:	55 1f       	adc	r21, r21
+ 220:	0a 94       	dec	r0
+ 222:	e2 f7       	brpl	.-8      	; 0x21c <DIO_enumSetCFG+0x168>
+ 224:	40 95       	com	r20
+ 226:	42 23       	and	r20, r18
+ 228:	48 bb       	out	0x18, r20	; 24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 22a:	80 e0       	ldi	r24, 0x00	; 0
+										break;
+										case DIO_enumOUTPUTLOW:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRB,ADD_strPORT_CFG -> PORT_strPIN) ;		
+												CLR_BIT(PORTB,ADD_strPORT_CFG -> PORT_strPIN) ;		
+										break;
+ 22c:	08 95       	ret
+										case DIO_enumInputPullUp:
+												/*set this bit as input */
+												CLR_BIT(DDRB,ADD_strPORT_CFG -> PORT_strPIN) ;
+ 22e:	27 b3       	in	r18, 0x17	; 23
+ 230:	41 e0       	ldi	r20, 0x01	; 1
+ 232:	50 e0       	ldi	r21, 0x00	; 0
+ 234:	ba 01       	movw	r22, r20
+ 236:	02 c0       	rjmp	.+4      	; 0x23c <DIO_enumSetCFG+0x188>
+ 238:	66 0f       	add	r22, r22
+ 23a:	77 1f       	adc	r23, r23
+ 23c:	3a 95       	dec	r19
+ 23e:	e2 f7       	brpl	.-8      	; 0x238 <DIO_enumSetCFG+0x184>
+ 240:	60 95       	com	r22
+ 242:	26 23       	and	r18, r22
+ 244:	27 bb       	out	0x17, r18	; 23
+												/*Enable pull up resistor for this pin*/
+												SET_BIT(PORTB,ADD_strPORT_CFG -> PORT_strPIN) ;			
+ 246:	28 b3       	in	r18, 0x18	; 24
+ 248:	fc 01       	movw	r30, r24
+ 24a:	01 80       	ldd	r0, Z+1	; 0x01
+ 24c:	02 c0       	rjmp	.+4      	; 0x252 <DIO_enumSetCFG+0x19e>
+ 24e:	44 0f       	add	r20, r20
+ 250:	55 1f       	adc	r21, r21
+ 252:	0a 94       	dec	r0
+ 254:	e2 f7       	brpl	.-8      	; 0x24e <DIO_enumSetCFG+0x19a>
+ 256:	42 2b       	or	r20, r18
+ 258:	48 bb       	out	0x18, r20	; 24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 25a:	80 e0       	ldi	r24, 0x00	; 0
+										case DIO_enumInputPullUp:
+												/*set this bit as input */
+												CLR_BIT(DDRB,ADD_strPORT_CFG -> PORT_strPIN) ;
+												/*Enable pull up resistor for this pin*/
+												SET_BIT(PORTB,ADD_strPORT_CFG -> PORT_strPIN) ;			
+										break;
+ 25c:	08 95       	ret
+										case DIO_enumInputExternalPullDown:
+												/*set this bit as input*/
+												CLR_BIT(DDRB,ADD_strPORT_CFG -> PORT_strPIN) ;
+ 25e:	27 b3       	in	r18, 0x17	; 23
+ 260:	41 e0       	ldi	r20, 0x01	; 1
+ 262:	50 e0       	ldi	r21, 0x00	; 0
+ 264:	ba 01       	movw	r22, r20
+ 266:	02 c0       	rjmp	.+4      	; 0x26c <DIO_enumSetCFG+0x1b8>
+ 268:	66 0f       	add	r22, r22
+ 26a:	77 1f       	adc	r23, r23
+ 26c:	3a 95       	dec	r19
+ 26e:	e2 f7       	brpl	.-8      	; 0x268 <DIO_enumSetCFG+0x1b4>
+ 270:	60 95       	com	r22
+ 272:	26 23       	and	r18, r22
+ 274:	27 bb       	out	0x17, r18	; 23
+												/*diable pull up resistors*/
+												CLR_BIT(PORTB,ADD_strPORT_CFG -> PORT_strPIN); 
+ 276:	28 b3       	in	r18, 0x18	; 24
+ 278:	fc 01       	movw	r30, r24
+ 27a:	01 80       	ldd	r0, Z+1	; 0x01
+ 27c:	02 c0       	rjmp	.+4      	; 0x282 <DIO_enumSetCFG+0x1ce>
+ 27e:	44 0f       	add	r20, r20
+ 280:	55 1f       	adc	r21, r21
+ 282:	0a 94       	dec	r0
+ 284:	e2 f7       	brpl	.-8      	; 0x27e <DIO_enumSetCFG+0x1ca>
+ 286:	40 95       	com	r20
+ 288:	42 23       	and	r20, r18
+ 28a:	48 bb       	out	0x18, r20	; 24
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 28c:	80 e0       	ldi	r24, 0x00	; 0
+										case DIO_enumInputExternalPullDown:
+												/*set this bit as input*/
+												CLR_BIT(DDRB,ADD_strPORT_CFG -> PORT_strPIN) ;
+												/*diable pull up resistors*/
+												CLR_BIT(PORTB,ADD_strPORT_CFG -> PORT_strPIN); 
+										break;
+ 28e:	08 95       	ret
+										break;
+									}//switch2
+										
+				break ;
+				case DIO_enumPORTC:
+									switch(ADD_strPORT_CFG -> PORT_strCFGType){
+ 290:	41 30       	cpi	r20, 0x01	; 1
+ 292:	f9 f0       	breq	.+62     	; 0x2d2 <DIO_enumSetCFG+0x21e>
+ 294:	30 f0       	brcs	.+12     	; 0x2a2 <DIO_enumSetCFG+0x1ee>
+ 296:	42 30       	cpi	r20, 0x02	; 2
+ 298:	a9 f1       	breq	.+106    	; 0x304 <DIO_enumSetCFG+0x250>
+ 29a:	43 30       	cpi	r20, 0x03	; 3
+ 29c:	09 f4       	brne	.+2      	; 0x2a0 <DIO_enumSetCFG+0x1ec>
+ 29e:	4a c0       	rjmp	.+148    	; 0x334 <DIO_enumSetCFG+0x280>
+ 2a0:	d9 c0       	rjmp	.+434    	; 0x454 <__EEPROM_REGION_LENGTH__+0x54>
+										case DIO_enumOUTPUTHIGH:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRC,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 2a2:	64 b3       	in	r22, 0x14	; 20
+ 2a4:	41 e0       	ldi	r20, 0x01	; 1
+ 2a6:	50 e0       	ldi	r21, 0x00	; 0
+ 2a8:	fa 01       	movw	r30, r20
+ 2aa:	02 c0       	rjmp	.+4      	; 0x2b0 <DIO_enumSetCFG+0x1fc>
+ 2ac:	ee 0f       	add	r30, r30
+ 2ae:	ff 1f       	adc	r31, r31
+ 2b0:	3a 95       	dec	r19
+ 2b2:	e2 f7       	brpl	.-8      	; 0x2ac <DIO_enumSetCFG+0x1f8>
+ 2b4:	9f 01       	movw	r18, r30
+ 2b6:	26 2b       	or	r18, r22
+ 2b8:	24 bb       	out	0x14, r18	; 20
+												SET_BIT(PORTC,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 2ba:	25 b3       	in	r18, 0x15	; 21
+ 2bc:	fc 01       	movw	r30, r24
+ 2be:	01 80       	ldd	r0, Z+1	; 0x01
+ 2c0:	02 c0       	rjmp	.+4      	; 0x2c6 <DIO_enumSetCFG+0x212>
+ 2c2:	44 0f       	add	r20, r20
+ 2c4:	55 1f       	adc	r21, r21
+ 2c6:	0a 94       	dec	r0
+ 2c8:	e2 f7       	brpl	.-8      	; 0x2c2 <DIO_enumSetCFG+0x20e>
+ 2ca:	42 2b       	or	r20, r18
+ 2cc:	45 bb       	out	0x15, r20	; 21
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 2ce:	80 e0       	ldi	r24, 0x00	; 0
+									switch(ADD_strPORT_CFG -> PORT_strCFGType){
+										case DIO_enumOUTPUTHIGH:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRC,ADD_strPORT_CFG -> PORT_strPIN) ;		
+												SET_BIT(PORTC,ADD_strPORT_CFG -> PORT_strPIN) ;		
+										break;
+ 2d0:	08 95       	ret
+										case DIO_enumOUTPUTLOW:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRC,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 2d2:	64 b3       	in	r22, 0x14	; 20
+ 2d4:	41 e0       	ldi	r20, 0x01	; 1
+ 2d6:	50 e0       	ldi	r21, 0x00	; 0
+ 2d8:	fa 01       	movw	r30, r20
+ 2da:	02 c0       	rjmp	.+4      	; 0x2e0 <DIO_enumSetCFG+0x22c>
+ 2dc:	ee 0f       	add	r30, r30
+ 2de:	ff 1f       	adc	r31, r31
+ 2e0:	3a 95       	dec	r19
+ 2e2:	e2 f7       	brpl	.-8      	; 0x2dc <DIO_enumSetCFG+0x228>
+ 2e4:	9f 01       	movw	r18, r30
+ 2e6:	26 2b       	or	r18, r22
+ 2e8:	24 bb       	out	0x14, r18	; 20
+												CLR_BIT(PORTC,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 2ea:	25 b3       	in	r18, 0x15	; 21
+ 2ec:	fc 01       	movw	r30, r24
+ 2ee:	01 80       	ldd	r0, Z+1	; 0x01
+ 2f0:	02 c0       	rjmp	.+4      	; 0x2f6 <DIO_enumSetCFG+0x242>
+ 2f2:	44 0f       	add	r20, r20
+ 2f4:	55 1f       	adc	r21, r21
+ 2f6:	0a 94       	dec	r0
+ 2f8:	e2 f7       	brpl	.-8      	; 0x2f2 <DIO_enumSetCFG+0x23e>
+ 2fa:	40 95       	com	r20
+ 2fc:	42 23       	and	r20, r18
+ 2fe:	45 bb       	out	0x15, r20	; 21
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 300:	80 e0       	ldi	r24, 0x00	; 0
+										break;
+										case DIO_enumOUTPUTLOW:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRC,ADD_strPORT_CFG -> PORT_strPIN) ;		
+												CLR_BIT(PORTC,ADD_strPORT_CFG -> PORT_strPIN) ;		
+										break;
+ 302:	08 95       	ret
+										case DIO_enumInputPullUp:
+												/*set this bit as input */
+												CLR_BIT(DDRC,ADD_strPORT_CFG -> PORT_strPIN) ;
+ 304:	24 b3       	in	r18, 0x14	; 20
+ 306:	41 e0       	ldi	r20, 0x01	; 1
+ 308:	50 e0       	ldi	r21, 0x00	; 0
+ 30a:	ba 01       	movw	r22, r20
+ 30c:	02 c0       	rjmp	.+4      	; 0x312 <DIO_enumSetCFG+0x25e>
+ 30e:	66 0f       	add	r22, r22
+ 310:	77 1f       	adc	r23, r23
+ 312:	3a 95       	dec	r19
+ 314:	e2 f7       	brpl	.-8      	; 0x30e <DIO_enumSetCFG+0x25a>
+ 316:	60 95       	com	r22
+ 318:	26 23       	and	r18, r22
+ 31a:	24 bb       	out	0x14, r18	; 20
+												/*Enable pull up resistor for this pin*/
+												SET_BIT(PORTC,ADD_strPORT_CFG -> PORT_strPIN) ;			
+ 31c:	25 b3       	in	r18, 0x15	; 21
+ 31e:	fc 01       	movw	r30, r24
+ 320:	01 80       	ldd	r0, Z+1	; 0x01
+ 322:	02 c0       	rjmp	.+4      	; 0x328 <DIO_enumSetCFG+0x274>
+ 324:	44 0f       	add	r20, r20
+ 326:	55 1f       	adc	r21, r21
+ 328:	0a 94       	dec	r0
+ 32a:	e2 f7       	brpl	.-8      	; 0x324 <DIO_enumSetCFG+0x270>
+ 32c:	42 2b       	or	r20, r18
+ 32e:	45 bb       	out	0x15, r20	; 21
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 330:	80 e0       	ldi	r24, 0x00	; 0
+										case DIO_enumInputPullUp:
+												/*set this bit as input */
+												CLR_BIT(DDRC,ADD_strPORT_CFG -> PORT_strPIN) ;
+												/*Enable pull up resistor for this pin*/
+												SET_BIT(PORTC,ADD_strPORT_CFG -> PORT_strPIN) ;			
+										break;
+ 332:	08 95       	ret
+										case DIO_enumInputExternalPullDown:
+												/*set this bit as input*/
+												CLR_BIT(DDRC,ADD_strPORT_CFG -> PORT_strPIN) ;
+ 334:	24 b3       	in	r18, 0x14	; 20
+ 336:	41 e0       	ldi	r20, 0x01	; 1
+ 338:	50 e0       	ldi	r21, 0x00	; 0
+ 33a:	ba 01       	movw	r22, r20
+ 33c:	02 c0       	rjmp	.+4      	; 0x342 <DIO_enumSetCFG+0x28e>
+ 33e:	66 0f       	add	r22, r22
+ 340:	77 1f       	adc	r23, r23
+ 342:	3a 95       	dec	r19
+ 344:	e2 f7       	brpl	.-8      	; 0x33e <DIO_enumSetCFG+0x28a>
+ 346:	60 95       	com	r22
+ 348:	26 23       	and	r18, r22
+ 34a:	24 bb       	out	0x14, r18	; 20
+												/*diable pull up resistors*/
+												CLR_BIT(PORTC,ADD_strPORT_CFG -> PORT_strPIN); 
+ 34c:	25 b3       	in	r18, 0x15	; 21
+ 34e:	fc 01       	movw	r30, r24
+ 350:	01 80       	ldd	r0, Z+1	; 0x01
+ 352:	02 c0       	rjmp	.+4      	; 0x358 <DIO_enumSetCFG+0x2a4>
+ 354:	44 0f       	add	r20, r20
+ 356:	55 1f       	adc	r21, r21
+ 358:	0a 94       	dec	r0
+ 35a:	e2 f7       	brpl	.-8      	; 0x354 <DIO_enumSetCFG+0x2a0>
+ 35c:	40 95       	com	r20
+ 35e:	42 23       	and	r20, r18
+ 360:	45 bb       	out	0x15, r20	; 21
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 362:	80 e0       	ldi	r24, 0x00	; 0
+										case DIO_enumInputExternalPullDown:
+												/*set this bit as input*/
+												CLR_BIT(DDRC,ADD_strPORT_CFG -> PORT_strPIN) ;
+												/*diable pull up resistors*/
+												CLR_BIT(PORTC,ADD_strPORT_CFG -> PORT_strPIN); 
+										break;
+ 364:	08 95       	ret
+										default:
+										break;
+									}//switch2
+				break;
+				case DIO_enumPORTD:
+									switch(ADD_strPORT_CFG -> PORT_strCFGType){
+ 366:	41 30       	cpi	r20, 0x01	; 1
+ 368:	f9 f0       	breq	.+62     	; 0x3a8 <DIO_enumSetCFG+0x2f4>
+ 36a:	30 f0       	brcs	.+12     	; 0x378 <DIO_enumSetCFG+0x2c4>
+ 36c:	42 30       	cpi	r20, 0x02	; 2
+ 36e:	a9 f1       	breq	.+106    	; 0x3da <DIO_enumSetCFG+0x326>
+ 370:	43 30       	cpi	r20, 0x03	; 3
+ 372:	09 f4       	brne	.+2      	; 0x376 <DIO_enumSetCFG+0x2c2>
+ 374:	4a c0       	rjmp	.+148    	; 0x40a <__EEPROM_REGION_LENGTH__+0xa>
+ 376:	70 c0       	rjmp	.+224    	; 0x458 <__EEPROM_REGION_LENGTH__+0x58>
+										case DIO_enumOUTPUTHIGH:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRD,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 378:	61 b3       	in	r22, 0x11	; 17
+ 37a:	41 e0       	ldi	r20, 0x01	; 1
+ 37c:	50 e0       	ldi	r21, 0x00	; 0
+ 37e:	fa 01       	movw	r30, r20
+ 380:	02 c0       	rjmp	.+4      	; 0x386 <DIO_enumSetCFG+0x2d2>
+ 382:	ee 0f       	add	r30, r30
+ 384:	ff 1f       	adc	r31, r31
+ 386:	3a 95       	dec	r19
+ 388:	e2 f7       	brpl	.-8      	; 0x382 <DIO_enumSetCFG+0x2ce>
+ 38a:	9f 01       	movw	r18, r30
+ 38c:	26 2b       	or	r18, r22
+ 38e:	21 bb       	out	0x11, r18	; 17
+												SET_BIT(PORTD,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 390:	22 b3       	in	r18, 0x12	; 18
+ 392:	fc 01       	movw	r30, r24
+ 394:	01 80       	ldd	r0, Z+1	; 0x01
+ 396:	02 c0       	rjmp	.+4      	; 0x39c <DIO_enumSetCFG+0x2e8>
+ 398:	44 0f       	add	r20, r20
+ 39a:	55 1f       	adc	r21, r21
+ 39c:	0a 94       	dec	r0
+ 39e:	e2 f7       	brpl	.-8      	; 0x398 <DIO_enumSetCFG+0x2e4>
+ 3a0:	42 2b       	or	r20, r18
+ 3a2:	42 bb       	out	0x12, r20	; 18
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 3a4:	80 e0       	ldi	r24, 0x00	; 0
+									switch(ADD_strPORT_CFG -> PORT_strCFGType){
+										case DIO_enumOUTPUTHIGH:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRD,ADD_strPORT_CFG -> PORT_strPIN) ;		
+												SET_BIT(PORTD,ADD_strPORT_CFG -> PORT_strPIN) ;		
+										break;
+ 3a6:	08 95       	ret
+										case DIO_enumOUTPUTLOW:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRD,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 3a8:	61 b3       	in	r22, 0x11	; 17
+ 3aa:	41 e0       	ldi	r20, 0x01	; 1
+ 3ac:	50 e0       	ldi	r21, 0x00	; 0
+ 3ae:	fa 01       	movw	r30, r20
+ 3b0:	02 c0       	rjmp	.+4      	; 0x3b6 <DIO_enumSetCFG+0x302>
+ 3b2:	ee 0f       	add	r30, r30
+ 3b4:	ff 1f       	adc	r31, r31
+ 3b6:	3a 95       	dec	r19
+ 3b8:	e2 f7       	brpl	.-8      	; 0x3b2 <DIO_enumSetCFG+0x2fe>
+ 3ba:	9f 01       	movw	r18, r30
+ 3bc:	26 2b       	or	r18, r22
+ 3be:	21 bb       	out	0x11, r18	; 17
+												CLR_BIT(PORTD,ADD_strPORT_CFG -> PORT_strPIN) ;		
+ 3c0:	22 b3       	in	r18, 0x12	; 18
+ 3c2:	fc 01       	movw	r30, r24
+ 3c4:	01 80       	ldd	r0, Z+1	; 0x01
+ 3c6:	02 c0       	rjmp	.+4      	; 0x3cc <DIO_enumSetCFG+0x318>
+ 3c8:	44 0f       	add	r20, r20
+ 3ca:	55 1f       	adc	r21, r21
+ 3cc:	0a 94       	dec	r0
+ 3ce:	e2 f7       	brpl	.-8      	; 0x3c8 <DIO_enumSetCFG+0x314>
+ 3d0:	40 95       	com	r20
+ 3d2:	42 23       	and	r20, r18
+ 3d4:	42 bb       	out	0x12, r20	; 18
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 3d6:	80 e0       	ldi	r24, 0x00	; 0
+										break;
+										case DIO_enumOUTPUTLOW:
+												/*set port A(0:7) as ouput mode*/
+												SET_BIT(DDRD,ADD_strPORT_CFG -> PORT_strPIN) ;		
+												CLR_BIT(PORTD,ADD_strPORT_CFG -> PORT_strPIN) ;		
+										break;
+ 3d8:	08 95       	ret
+										case DIO_enumInputPullUp:
+												/*set this bit as input */
+												CLR_BIT(DDRD,ADD_strPORT_CFG -> PORT_strPIN) ;
+ 3da:	21 b3       	in	r18, 0x11	; 17
+ 3dc:	41 e0       	ldi	r20, 0x01	; 1
+ 3de:	50 e0       	ldi	r21, 0x00	; 0
+ 3e0:	ba 01       	movw	r22, r20
+ 3e2:	02 c0       	rjmp	.+4      	; 0x3e8 <DIO_enumSetCFG+0x334>
+ 3e4:	66 0f       	add	r22, r22
+ 3e6:	77 1f       	adc	r23, r23
+ 3e8:	3a 95       	dec	r19
+ 3ea:	e2 f7       	brpl	.-8      	; 0x3e4 <DIO_enumSetCFG+0x330>
+ 3ec:	60 95       	com	r22
+ 3ee:	26 23       	and	r18, r22
+ 3f0:	21 bb       	out	0x11, r18	; 17
+												/*Enable pull up resistor for this pin*/
+												SET_BIT(PORTD,ADD_strPORT_CFG -> PORT_strPIN) ;			
+ 3f2:	22 b3       	in	r18, 0x12	; 18
+ 3f4:	fc 01       	movw	r30, r24
+ 3f6:	01 80       	ldd	r0, Z+1	; 0x01
+ 3f8:	02 c0       	rjmp	.+4      	; 0x3fe <DIO_enumSetCFG+0x34a>
+ 3fa:	44 0f       	add	r20, r20
+ 3fc:	55 1f       	adc	r21, r21
+ 3fe:	0a 94       	dec	r0
+ 400:	e2 f7       	brpl	.-8      	; 0x3fa <DIO_enumSetCFG+0x346>
+ 402:	42 2b       	or	r20, r18
+ 404:	42 bb       	out	0x12, r20	; 18
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 406:	80 e0       	ldi	r24, 0x00	; 0
+										case DIO_enumInputPullUp:
+												/*set this bit as input */
+												CLR_BIT(DDRD,ADD_strPORT_CFG -> PORT_strPIN) ;
+												/*Enable pull up resistor for this pin*/
+												SET_BIT(PORTD,ADD_strPORT_CFG -> PORT_strPIN) ;			
+										break;
+ 408:	08 95       	ret
+										case DIO_enumInputExternalPullDown:
+												/*set this bit as input*/
+												CLR_BIT(DDRD,ADD_strPORT_CFG -> PORT_strPIN) ;
+ 40a:	21 b3       	in	r18, 0x11	; 17
+ 40c:	41 e0       	ldi	r20, 0x01	; 1
+ 40e:	50 e0       	ldi	r21, 0x00	; 0
+ 410:	ba 01       	movw	r22, r20
+ 412:	02 c0       	rjmp	.+4      	; 0x418 <__EEPROM_REGION_LENGTH__+0x18>
+ 414:	66 0f       	add	r22, r22
+ 416:	77 1f       	adc	r23, r23
+ 418:	3a 95       	dec	r19
+ 41a:	e2 f7       	brpl	.-8      	; 0x414 <__EEPROM_REGION_LENGTH__+0x14>
+ 41c:	60 95       	com	r22
+ 41e:	26 23       	and	r18, r22
+ 420:	21 bb       	out	0x11, r18	; 17
+												/*diable pull up resistors*/
+												CLR_BIT(PORTD,ADD_strPORT_CFG -> PORT_strPIN); 
+ 422:	22 b3       	in	r18, 0x12	; 18
+ 424:	fc 01       	movw	r30, r24
+ 426:	01 80       	ldd	r0, Z+1	; 0x01
+ 428:	02 c0       	rjmp	.+4      	; 0x42e <__EEPROM_REGION_LENGTH__+0x2e>
+ 42a:	44 0f       	add	r20, r20
+ 42c:	55 1f       	adc	r21, r21
+ 42e:	0a 94       	dec	r0
+ 430:	e2 f7       	brpl	.-8      	; 0x42a <__EEPROM_REGION_LENGTH__+0x2a>
+ 432:	40 95       	com	r20
+ 434:	42 23       	and	r20, r18
+ 436:	42 bb       	out	0x12, r20	; 18
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 438:	80 e0       	ldi	r24, 0x00	; 0
+										case DIO_enumInputExternalPullDown:
+												/*set this bit as input*/
+												CLR_BIT(DDRD,ADD_strPORT_CFG -> PORT_strPIN) ;
+												/*diable pull up resistors*/
+												CLR_BIT(PORTD,ADD_strPORT_CFG -> PORT_strPIN); 
+										break;
+ 43a:	08 95       	ret
+{
+	DIO_enumError_t Ret_enumERRORStatus = DIO_enumOK  ; 
+	
+	if( ((ADD_strPORT_CFG -> PORT_strPORT) > DIO_enumPORTD) || ((ADD_strPORT_CFG -> PORT_strPORT) < DIO_enumPORTA) )
+		{ 
+			Ret_enumERRORStatus = DIO_enumINVALID_PORT ;
+ 43c:	82 e0       	ldi	r24, 0x02	; 2
+ 43e:	08 95       	ret
+		}
+	else if( ((ADD_strPORT_CFG -> PORT_strPIN) > DIO_enumPIN7) || ((ADD_strPORT_CFG -> PORT_strPIN) < DIO_enumPIN0) )
+		{
+			Ret_enumERRORStatus = DIO_enumINVALID_PIN ;
+ 440:	83 e0       	ldi	r24, 0x03	; 3
+ 442:	08 95       	ret
+		}	
+	else if( ((ADD_strPORT_CFG -> PORT_strCFGType) > DIO_enumInputExternalPullDown) || ((ADD_strPORT_CFG -> PORT_strCFGType) < DIO_enumOUTPUTHIGH) )
+		{
+			Ret_enumERRORStatus = DIO_enumINVALID_MODE ;
+ 444:	84 e0       	ldi	r24, 0x04	; 4
+ 446:	08 95       	ret
+			
+			
+			
+			
+			
+			Ret_enumERRORStatus = DIO_enumOK ;
+ 448:	80 e0       	ldi	r24, 0x00	; 0
+ 44a:	08 95       	ret
+ 44c:	80 e0       	ldi	r24, 0x00	; 0
+ 44e:	08 95       	ret
+ 450:	80 e0       	ldi	r24, 0x00	; 0
+ 452:	08 95       	ret
+ 454:	80 e0       	ldi	r24, 0x00	; 0
+ 456:	08 95       	ret
+ 458:	80 e0       	ldi	r24, 0x00	; 0
+	
+	
+	
+	
+	
+}/*set pin configration function*/
+ 45a:	08 95       	ret
+
+Disassembly of section .text.ExtINT_voidSetExtINT0:
+
+00000982 <ExtINT_voidSetExtINT0>:
+		ExtInterrupt_enumError_t Return_ErrorStatus = ExtInterrupt_enumOK ;
+	
+		/**
+		*@ check if the user pass correct function or not
+		*/
+		if( ptr == NULL )
+ 982:	00 97       	sbiw	r24, 0x00	; 0
+ 984:	31 f0       	breq	.+12     	; 0x992 <ExtINT_voidSetExtINT0+0x10>
+		{
+			Return_ErrorStatus = ExtInterrupt_enumNOK ;
+		}
+		else
+		{
+			ExtInt0_AddCallBack = ptr ;
+ 986:	90 93 93 00 	sts	0x0093, r25	; 0x800093 <ExtInt0_AddCallBack+0x1>
+ 98a:	80 93 92 00 	sts	0x0092, r24	; 0x800092 <ExtInt0_AddCallBack>
+ExtInterrupt_enumError_t ExtINT_voidSetExtINT0(void(*ptr)(void))
+{
+		/**
+		*@ return variable to check the behavior of the function
+		*/
+		ExtInterrupt_enumError_t Return_ErrorStatus = ExtInterrupt_enumOK ;
+ 98e:	80 e0       	ldi	r24, 0x00	; 0
+ 990:	08 95       	ret
+		/**
+		*@ check if the user pass correct function or not
+		*/
+		if( ptr == NULL )
+		{
+			Return_ErrorStatus = ExtInterrupt_enumNOK ;
+ 992:	81 e0       	ldi	r24, 0x01	; 1
+	
+
+
+
+return Return_ErrorStatus ;		
+}/*ExtINT_voidSetExtINT0*/
+ 994:	08 95       	ret
+
+Disassembly of section .text.ExtINT_voidSetExtINT1:
+
+00000996 <ExtINT_voidSetExtINT1>:
+		ExtInterrupt_enumError_t Return_ErrorStatus = ExtInterrupt_enumOK ;
+		
+		/**
+		*@ check if the user pass correct function or not
+		*/
+		if( ptr == NULL )
+ 996:	00 97       	sbiw	r24, 0x00	; 0
+ 998:	31 f0       	breq	.+12     	; 0x9a6 <ExtINT_voidSetExtINT1+0x10>
+		{
+			Return_ErrorStatus = ExtInterrupt_enumNOK ;
+		}
+		else
+		{
+			ExtInt1_AddCallBack = ptr ;
+ 99a:	90 93 91 00 	sts	0x0091, r25	; 0x800091 <ExtInt1_AddCallBack+0x1>
+ 99e:	80 93 90 00 	sts	0x0090, r24	; 0x800090 <ExtInt1_AddCallBack>
+ExtInterrupt_enumError_t ExtINT_voidSetExtINT1(void(*ptr)(void))
+{
+		/**
+		*@ return variable to check the behavior of the function
+		*/
+		ExtInterrupt_enumError_t Return_ErrorStatus = ExtInterrupt_enumOK ;
+ 9a2:	80 e0       	ldi	r24, 0x00	; 0
+ 9a4:	08 95       	ret
+		/**
+		*@ check if the user pass correct function or not
+		*/
+		if( ptr == NULL )
+		{
+			Return_ErrorStatus = ExtInterrupt_enumNOK ;
+ 9a6:	81 e0       	ldi	r24, 0x01	; 1
+	
+	
+
+
+return Return_ErrorStatus ;		
+}/*ExtINT_voidSetExtINT1*/
+ 9a8:	08 95       	ret
+
+Disassembly of section .text.ExtInterrupt_voidInit:
+
+00000902 <ExtInterrupt_voidInit>:
+				/**
+				*@ enable external interrupt0 by setting PIE bit in GICR Register
+				*@ assign GICR register value to temp variable to set the whole register at one time
+				*/
+		
+				Local_u8TempRegVal = GICR ;
+ 902:	8b b7       	in	r24, 0x3b	; 59
+				*/
+				Local_u8TempRegVal &= GICR_INT0_MASK ;
+				/**
+				*@ assign the desigred value only in the specific bits
+				*/
+				Local_u8TempRegVal |= GICR_INT0_ENABLE ;
+ 904:	80 64       	ori	r24, 0x40	; 64
+				/**
+				*@ assign the variable back to the register with the desigred value 
+				*/
+				GICR = Local_u8TempRegVal ;
+ 906:	8b bf       	out	0x3b, r24	; 59
+				/**
+				*@ MCUCR register used to set trigring mode
+				*@ assign MCUCR register value to temp variable to set the whole register at one time
+				*/
+		
+				Local_u8TempRegVal = MCUCR ;
+ 908:	85 b7       	in	r24, 0x35	; 53
+				/**
+				*@ masking the variable to affect only the desired bits
+				*/
+				Local_u8TempRegVal &= MCUCR_INT0_MASK ;
+ 90a:	8c 7f       	andi	r24, 0xFC	; 252
+		
+				#elif  ( EXT_INT0_Triggring_Type == The_falling_edge)
+						/**
+						*@ assign the desigred value only in the specific bits
+						*/
+						Local_u8TempRegVal |= MCUCR_INT0_FE ;
+ 90c:	82 60       	ori	r24, 0x02	; 2
+						Return_ErrorStatus = ExtInterrupt_enumNOK ;
+				#endif
+				/**
+				*@ assign the variable back to the register with the desigred value 
+				*/
+				MCUCR = Local_u8TempRegVal ;
+ 90e:	85 bf       	out	0x35, r24	; 53
+				/**
+				*@ enable external interrupt1 by setting PIE bit in GICR Register
+				*@ assign GICR register value to temp variable to set the whole register at one time
+				*/
+		
+				Local_u8TempRegVal = GICR ;
+ 910:	8b b7       	in	r24, 0x3b	; 59
+				*/
+				Local_u8TempRegVal &= GICR_INT1_MASK ;
+				/**
+				*@ assign the desigred value only in the specific bits
+				*/
+				Local_u8TempRegVal |= GICR_INT1_ENABLE ;
+ 912:	80 6e       	ori	r24, 0xE0	; 224
+				/**
+				*@ assign the variable back to the register with the desigred value 
+				*/
+				GICR = Local_u8TempRegVal ;
+ 914:	8b bf       	out	0x3b, r24	; 59
+				/**
+				*@ MCUCR register used to set trigring mode
+				*@ assign MCUCR register value to temp variable to set the whole register at one time
+				*/
+		
+				Local_u8TempRegVal = MCUCR ;
+ 916:	85 b7       	in	r24, 0x35	; 53
+				/**
+				*@ masking the variable to affect only the desired bits
+				*/
+				Local_u8TempRegVal &= MCUCR_INT1_MASK ;
+ 918:	83 7f       	andi	r24, 0xF3	; 243
+		
+				#elif  ( EXT_INT1_Triggring_Type == The_falling_edge)
+						/**
+						*@ assign the desigred value only in the specific bits
+						*/
+						Local_u8TempRegVal |= MCUCR_INT1_FE ;
+ 91a:	82 60       	ori	r24, 0x02	; 2
+						Return_ErrorStatus = ExtInterrupt_enumNOK ;
+				#endif
+				/**
+				*@ assign the variable back to the register with the desigred value 
+				*/
+				MCUCR = Local_u8TempRegVal ;
+ 91c:	85 bf       	out	0x35, r24	; 53
+			Return_ErrorStatus = ExtInterrupt_enumNOK ;
+		#endif	
+		/**
+		*@ Set GIE global Interrupt enable  
+		*/		
+		Local_u8TempRegVal = SREG ;
+ 91e:	8f b7       	in	r24, 0x3f	; 63
+		*/
+		Local_u8TempRegVal &= SREG_MASK ;
+		/**
+		*@ assign the desigred value only in the specific bits
+		*/
+		Local_u8TempRegVal |= SREG_ENABLE_MASK ;
+ 920:	80 68       	ori	r24, 0x80	; 128
+		/**
+		*@ assign the variable back to the register with the desigred value 
+		*/
+		SREG = Local_u8TempRegVal ;
+ 922:	8f bf       	out	0x3f, r24	; 63
+		
+		
+		
+		
+return Return_ErrorStatus ;		
+}/* ExtInterrupt_voidInit function */
+ 924:	81 e0       	ldi	r24, 0x01	; 1
+ 926:	08 95       	ret
+
+Disassembly of section .text.__vector_1:
+
+0000079c <__vector_1>:
+	
+
+
+
+return Return_ErrorStatus ;		
+}/*ExtINT_voidSetExtINT2*/
+ 79c:	1f 92       	push	r1
+ 79e:	0f 92       	push	r0
+ 7a0:	0f b6       	in	r0, 0x3f	; 63
+ 7a2:	0f 92       	push	r0
+ 7a4:	11 24       	eor	r1, r1
+ 7a6:	2f 93       	push	r18
+ 7a8:	3f 93       	push	r19
+ 7aa:	4f 93       	push	r20
+ 7ac:	5f 93       	push	r21
+ 7ae:	6f 93       	push	r22
+ 7b0:	7f 93       	push	r23
+ 7b2:	8f 93       	push	r24
+ 7b4:	9f 93       	push	r25
+ 7b6:	af 93       	push	r26
+ 7b8:	bf 93       	push	r27
+ 7ba:	ef 93       	push	r30
+ 7bc:	ff 93       	push	r31
+ 7be:	e0 91 92 00 	lds	r30, 0x0092	; 0x800092 <ExtInt0_AddCallBack>
+ 7c2:	f0 91 93 00 	lds	r31, 0x0093	; 0x800093 <ExtInt0_AddCallBack+0x1>
+ 7c6:	09 95       	icall
+ 7c8:	8a b7       	in	r24, 0x3a	; 58
+ 7ca:	80 64       	ori	r24, 0x40	; 64
+ 7cc:	8a bf       	out	0x3a, r24	; 58
+ 7ce:	ff 91       	pop	r31
+ 7d0:	ef 91       	pop	r30
+ 7d2:	bf 91       	pop	r27
+ 7d4:	af 91       	pop	r26
+ 7d6:	9f 91       	pop	r25
+ 7d8:	8f 91       	pop	r24
+ 7da:	7f 91       	pop	r23
+ 7dc:	6f 91       	pop	r22
+ 7de:	5f 91       	pop	r21
+ 7e0:	4f 91       	pop	r20
+ 7e2:	3f 91       	pop	r19
+ 7e4:	2f 91       	pop	r18
+ 7e6:	0f 90       	pop	r0
+ 7e8:	0f be       	out	0x3f, r0	; 63
+ 7ea:	0f 90       	pop	r0
+ 7ec:	1f 90       	pop	r1
+ 7ee:	18 95       	reti
+
+Disassembly of section .text.__vector_2:
+
+000007f0 <__vector_2>:
+ 7f0:	1f 92       	push	r1
+ 7f2:	0f 92       	push	r0
+ 7f4:	0f b6       	in	r0, 0x3f	; 63
+ 7f6:	0f 92       	push	r0
+ 7f8:	11 24       	eor	r1, r1
+ 7fa:	2f 93       	push	r18
+ 7fc:	3f 93       	push	r19
+ 7fe:	4f 93       	push	r20
+ 800:	5f 93       	push	r21
+ 802:	6f 93       	push	r22
+ 804:	7f 93       	push	r23
+ 806:	8f 93       	push	r24
+ 808:	9f 93       	push	r25
+ 80a:	af 93       	push	r26
+ 80c:	bf 93       	push	r27
+ 80e:	ef 93       	push	r30
+ 810:	ff 93       	push	r31
+ 812:	e0 91 90 00 	lds	r30, 0x0090	; 0x800090 <ExtInt1_AddCallBack>
+ 816:	f0 91 91 00 	lds	r31, 0x0091	; 0x800091 <ExtInt1_AddCallBack+0x1>
+ 81a:	09 95       	icall
+ 81c:	8a b7       	in	r24, 0x3a	; 58
+ 81e:	80 68       	ori	r24, 0x80	; 128
+ 820:	8a bf       	out	0x3a, r24	; 58
+ 822:	ff 91       	pop	r31
+ 824:	ef 91       	pop	r30
+ 826:	bf 91       	pop	r27
+ 828:	af 91       	pop	r26
+ 82a:	9f 91       	pop	r25
+ 82c:	8f 91       	pop	r24
+ 82e:	7f 91       	pop	r23
+ 830:	6f 91       	pop	r22
+ 832:	5f 91       	pop	r21
+ 834:	4f 91       	pop	r20
+ 836:	3f 91       	pop	r19
+ 838:	2f 91       	pop	r18
+ 83a:	0f 90       	pop	r0
+ 83c:	0f be       	out	0x3f, r0	; 63
+ 83e:	0f 90       	pop	r0
+ 840:	1f 90       	pop	r1
+ 842:	18 95       	reti
+
+Disassembly of section .text.__vector_3:
+
+00000844 <__vector_3>:
+ 844:	1f 92       	push	r1
+ 846:	0f 92       	push	r0
+ 848:	0f b6       	in	r0, 0x3f	; 63
+ 84a:	0f 92       	push	r0
+ 84c:	11 24       	eor	r1, r1
+ 84e:	2f 93       	push	r18
+ 850:	3f 93       	push	r19
+ 852:	4f 93       	push	r20
+ 854:	5f 93       	push	r21
+ 856:	6f 93       	push	r22
+ 858:	7f 93       	push	r23
+ 85a:	8f 93       	push	r24
+ 85c:	9f 93       	push	r25
+ 85e:	af 93       	push	r26
+ 860:	bf 93       	push	r27
+ 862:	ef 93       	push	r30
+ 864:	ff 93       	push	r31
+ 866:	e0 91 8e 00 	lds	r30, 0x008E	; 0x80008e <ExtInt2_AddCallBack>
+ 86a:	f0 91 8f 00 	lds	r31, 0x008F	; 0x80008f <ExtInt2_AddCallBack+0x1>
+ 86e:	09 95       	icall
+ 870:	8a b7       	in	r24, 0x3a	; 58
+ 872:	80 62       	ori	r24, 0x20	; 32
+ 874:	8a bf       	out	0x3a, r24	; 58
+ 876:	ff 91       	pop	r31
+ 878:	ef 91       	pop	r30
+ 87a:	bf 91       	pop	r27
+ 87c:	af 91       	pop	r26
+ 87e:	9f 91       	pop	r25
+ 880:	8f 91       	pop	r24
+ 882:	7f 91       	pop	r23
+ 884:	6f 91       	pop	r22
+ 886:	5f 91       	pop	r21
+ 888:	4f 91       	pop	r20
+ 88a:	3f 91       	pop	r19
+ 88c:	2f 91       	pop	r18
+ 88e:	0f 90       	pop	r0
+ 890:	0f be       	out	0x3f, r0	; 63
+ 892:	0f 90       	pop	r0
+ 894:	1f 90       	pop	r1
+ 896:	18 95       	reti
+
+Disassembly of section .text.__dummy_fini:
+
+000009b2 <_fini>:
+ 9b2:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+000009b4 <__funcs_on_exit>:
+ 9b4:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+000009b6 <__simulator_exit>:
+ 9b6:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+0000096c <exit>:
+ 96c:	ec 01       	movw	r28, r24
+ 96e:	0e 94 da 04 	call	0x9b4	; 0x9b4 <__funcs_on_exit>
+ 972:	0e 94 d9 04 	call	0x9b2	; 0x9b2 <_fini>
+ 976:	ce 01       	movw	r24, r28
+ 978:	0e 94 db 04 	call	0x9b6	; 0x9b6 <__simulator_exit>
+ 97c:	ce 01       	movw	r24, r28
+ 97e:	0e 94 d7 04 	call	0x9ae	; 0x9ae <_Exit>
+
+Disassembly of section .text._Exit:
+
+000009ae <_Exit>:
+ 9ae:	0e 94 58 00 	call	0xb0	; 0xb0 <_exit>
