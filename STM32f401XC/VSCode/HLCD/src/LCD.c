@@ -96,7 +96,8 @@ typedef enum
 typedef enum
 {
 	LCD_enuEnableReady	,
-	LCD_enuEnableBuzzy
+	LCD_enuEnableBuzzy	,
+	LCD_enuEnableDone
 }LCD_enuEnableSignalSM_t ;
 
 /**
@@ -358,26 +359,30 @@ LCD_enuErrorStatus_t LCD_voidWriteCharacter_CG_DDRAM(u8 Copy_u8Data)
 				GPIO_enuSetPinValue(LCDPINS[LOCAL_u8Iterator].GPIOPort , (LCDPINS[LOCAL_u8Iterator].GPIOPin),(GET_BIT(Copy_u8Data,LOCAL_u8Iterator)));
 			
 			}/*for loop*/	
-			/*LCD check state every two milliseconds*/
-			switch(LCD_enuEnableSignalSM )
+			/*set enable signal*/
+			if( LCD_enuEnableSignalSM != LCD_enuEnableDone)
 			{
-			case LCD_enuEnableReady:
-									LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
-									/**
-									*@ Enable Rising edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
-			break ;						
-			case LCD_enuEnableBuzzy :
-									LCD_enuEnableSignalSM = LCD_enuEnableReady ;
-									/**
-									*@ Enable falling edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
-			break;
-			default:
-			break;
-			}
+				/*LCD check state every two milliseconds*/
+				switch(LCD_enuEnableSignalSM )
+				{
+				case LCD_enuEnableReady:
+										LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
+										/**
+										*@ Enable Rising edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
+				break ;						
+				case LCD_enuEnableBuzzy :
+										LCD_enuEnableSignalSM = LCD_enuEnableDone ;
+										/**
+										*@ Enable falling edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
+				break;
+				default:
+				break;
+				}/*switch*/
+			}/*if*/
 	
 		#elif (DATA_LENGTH == FOUR_BITS_MODE)
 			
@@ -395,26 +400,30 @@ LCD_enuErrorStatus_t LCD_voidWriteCharacter_CG_DDRAM(u8 Copy_u8Data)
 			
 			}/*for loop*/		
 		/*LCD check state every two milliseconds*/
-			switch(LCD_enuEnableSignalSM )
+			/*set enable signal*/
+			if( LCD_enuEnableSignalSM != LCD_enuEnableDone)
 			{
-			case LCD_enuEnableReady:
-									LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
-									/**
-									*@ Enable Rising edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
-			break ;						
-			case LCD_enuEnableBuzzy :
-									LCD_enuEnableSignalSM = LCD_enuEnableReady ;
-									/**
-									*@ Enable falling edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
-			break;
-			default:
-			break;
-			}
-			/**
+				/*LCD check state every two milliseconds*/
+				switch(LCD_enuEnableSignalSM )
+				{
+				case LCD_enuEnableReady:
+										LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
+										/**
+										*@ Enable Rising edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
+				break ;						
+				case LCD_enuEnableBuzzy :
+										LCD_enuEnableSignalSM = LCD_enuEnableDone ;
+										/**
+										*@ Enable falling edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
+				break;
+				default:
+				break;
+				}/*switch*/
+			}/*if*/			/**
 			*@ sending the low nibble
 			*/			
 			for( LOCAL_u8Iterator = DATA_BIT4 ; LOCAL_u8Iterator <= DATA_BIT7 ; LOCAL_u8Iterator++)
@@ -427,25 +436,30 @@ LCD_enuErrorStatus_t LCD_voidWriteCharacter_CG_DDRAM(u8 Copy_u8Data)
 			
 			}/*for loop*/		
 			/*LCD check state every two milliseconds*/
-			switch(LCD_enuEnableSignalSM )
+			/*set enable signal*/
+			if( LCD_enuEnableSignalSM != LCD_enuEnableDone)
 			{
-			case LCD_enuEnableReady:
-									LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
-									/**
-									*@ Enable Rising edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
-			break ;						
-			case LCD_enuEnableBuzzy :
-									LCD_enuEnableSignalSM = LCD_enuEnableReady ;
-									/**
-									*@ Enable falling edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
-			break;
-			default:
-			break;
-			}			
+				/*LCD check state every two milliseconds*/
+				switch(LCD_enuEnableSignalSM )
+				{
+				case LCD_enuEnableReady:
+										LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
+										/**
+										*@ Enable Rising edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
+				break ;						
+				case LCD_enuEnableBuzzy :
+										LCD_enuEnableSignalSM = LCD_enuEnableDone ;
+										/**
+										*@ Enable falling edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
+				break;
+				default:
+				break;
+				}/*switch*/
+			}/*if*/
 		#else
 			
 		#endif			   			
@@ -499,25 +513,30 @@ LCD_enuErrorStatus_t LCD_enuWriteCommand(u8 Copy_u8Command)
 			
 			}/*for loop*/		
 			/*LCD check state every two milliseconds*/
-			switch(LCD_enuEnableSignalSM )
+			/*set enable signal*/
+			if( LCD_enuEnableSignalSM != LCD_enuEnableDone)
 			{
-			case LCD_enuEnableReady:
-									LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
-									/**
-									*@ Enable Rising edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
-			break ;						
-			case LCD_enuEnableBuzzy :
-									LCD_enuEnableSignalSM = LCD_enuEnableReady ;
-									/**
-									*@ Enable falling edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
-			break;
-			default:
-			break;
-			}
+				/*LCD check state every two milliseconds*/
+				switch(LCD_enuEnableSignalSM )
+				{
+				case LCD_enuEnableReady:
+										LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
+										/**
+										*@ Enable Rising edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
+				break ;						
+				case LCD_enuEnableBuzzy :
+										LCD_enuEnableSignalSM = LCD_enuEnableDone ;
+										/**
+										*@ Enable falling edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
+				break;
+				default:
+				break;
+				}/*switch*/
+			}/*if*/
 			
 		#elif (DATA_LENGTH == FOUR_BITS_MODE)
 			
@@ -533,25 +552,30 @@ LCD_enuErrorStatus_t LCD_enuWriteCommand(u8 Copy_u8Command)
 			
 			}/*for loop*/	
 			/*LCD check state every two milliseconds*/
-			switch(LCD_enuEnableSignalSM )
+			/*set enable signal*/
+			if( LCD_enuEnableSignalSM != LCD_enuEnableDone)
 			{
-			case LCD_enuEnableReady:
-									LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
-									/**
-									*@ Enable Rising edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
-			break ;						
-			case LCD_enuEnableBuzzy :
-									LCD_enuEnableSignalSM = LCD_enuEnableReady ;
-									/**
-									*@ Enable falling edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
-			break;
-			default:
-			break;
-			}
+				/*LCD check state every two milliseconds*/
+				switch(LCD_enuEnableSignalSM )
+				{
+				case LCD_enuEnableReady:
+										LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
+										/**
+										*@ Enable Rising edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
+				break ;						
+				case LCD_enuEnableBuzzy :
+										LCD_enuEnableSignalSM = LCD_enuEnableDone ;
+										/**
+										*@ Enable falling edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
+				break;
+				default:
+				break;
+				}/*switch*/
+			}/*if*/
 			/**
 			*@ sending the low nibble
 			*/			
@@ -567,25 +591,30 @@ LCD_enuErrorStatus_t LCD_enuWriteCommand(u8 Copy_u8Command)
 			
 			}/*for loop*/
 /*LCD check state every two milliseconds*/
-			switch(LCD_enuEnableSignalSM )
+			/*set enable signal*/
+			if( LCD_enuEnableSignalSM != LCD_enuEnableDone)
 			{
-			case LCD_enuEnableReady:
-									LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
-									/**
-									*@ Enable Rising edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
-			break ;						
-			case LCD_enuEnableBuzzy :
-									LCD_enuEnableSignalSM = LCD_enuEnableReady ;
-									/**
-									*@ Enable falling edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
-			break;
-			default:
-			break;
-			}			
+				/*LCD check state every two milliseconds*/
+				switch(LCD_enuEnableSignalSM )
+				{
+				case LCD_enuEnableReady:
+										LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
+										/**
+										*@ Enable Rising edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
+				break ;						
+				case LCD_enuEnableBuzzy :
+										LCD_enuEnableSignalSM = LCD_enuEnableDone ;
+										/**
+										*@ Enable falling edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
+				break;
+				default:
+				break;
+				}/*switch*/
+			}/*if*/	
 		#else
 				 LCD_RETURN_ERRORSTATUS = LCD_enuNOK;
 		#endif			   			
@@ -645,25 +674,30 @@ LCD_enuErrorStatus_t LCD_enuInit(void)
 			
 			}/*for loop*/
 			/*LCD check state every two milliseconds*/
-			switch(LCD_enuEnableSignalSM )
+			/*set enable signal*/
+			if( LCD_enuEnableSignalSM != LCD_enuEnableDone)
 			{
-			case LCD_enuEnableReady:
-									LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
-									/**
-									*@ Enable Rising edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
-			break ;						
-			case LCD_enuEnableBuzzy :
-									LCD_enuEnableSignalSM = LCD_enuEnableReady ;
-									/**
-									*@ Enable falling edge
-									*/
-									GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
-			break;
-			default:
-			break;
-			}
+				/*LCD check state every two milliseconds*/
+				switch(LCD_enuEnableSignalSM )
+				{
+				case LCD_enuEnableReady:
+										LCD_enuEnableSignalSM = LCD_enuEnableBuzzy ;
+										/**
+										*@ Enable Rising edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_HIGH);
+				break ;						
+				case LCD_enuEnableBuzzy :
+										LCD_enuEnableSignalSM = LCD_enuEnableDone ;
+										/**
+										*@ Enable falling edge
+										*/
+										GPIO_enuSetPinValue(LCDPINS[ENABLE].GPIOPort,LCDPINS[ENABLE].GPIOPin,GPIO_LOW);
+				break;
+				default:
+				break;
+				}/*switch*/
+			}/*if*/
 			
 #if	(DATA_LENGTH == EIGHT_BITS_MODE)			
 			/**
