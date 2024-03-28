@@ -22,6 +22,7 @@ typedef struct{
 	u16 GPIOPin;
 	u8 GPIOMode;
 	u8 GPIOSpeed;
+	u8 AF_Num;
 	
 }GPIO_strPinConfg_t;
 

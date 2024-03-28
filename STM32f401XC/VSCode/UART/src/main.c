@@ -26,22 +26,6 @@ main(int argc, char* argv[])
 	
 	//u8 LOCAL_u8Button1 = 1 ;
 	//u8 LOCAL_u8Button2 = 1 ;
-	
-	/*==================================configure uart1 transmiiter pin B6============================*/
-	GPIO_strPinConfg_t UART_TX_PIN ;
-	UART_TX_PIN.GPIOPort= GPIOB ;
-	UART_TX_PIN.GPIOPin= GPIO_PIN6;
-	UART_TX_PIN.GPIOMode = GPIO_MODE_OUTPUT_PP;
-	UART_TX_PIN.GPIOSpeed = GPIO_OUTPUT_SPEED_LOW ;
-	GPIO_enuInit( & UART_TX_PIN );
-	/*configure uart1 receiving pin B7*/
-	GPIO_strPinConfg_t UART_RX_PIN ;
-	UART_RX_PIN.GPIOPort= GPIOB ;
-	UART_RX_PIN.GPIOPin= GPIO_PIN7;
-	UART_RX_PIN.GPIOMode = GPIO_MODE_INPUT_FLOATING;
-	UART_RX_PIN.GPIOSpeed = GPIO_OUTPUT_SPEED_LOW ;
-	GPIO_enuInit( & UART_RX_PIN );
-	/*==================================================================================================*/
 
 
 	/*============================RCC Configuration for UART=============================================*/
@@ -49,8 +33,30 @@ main(int argc, char* argv[])
 	RCC_enuSelectSystemClk(RCC_HSE);
 	RCC_enuEnablePeripheralClock(RCC_AHB1,GPIOA_RCC);
 	RCC_enuEnablePeripheralClock(RCC_AHB1,GPIOB_RCC);
+	RCC_enuEnablePeripheralClock(RCC_APB2,USART1_RCC);
 	/*======================================================================================================*/
 
+	
+	/*==================================configure uart1 transmiiter pin B6============================*/
+	GPIO_strPinConfg_t UART_TX_PIN ;
+	UART_TX_PIN.GPIOPort= GPIOB ;
+	UART_TX_PIN.GPIOPin= GPIO_PIN6;
+	UART_TX_PIN.GPIOMode = GPIO_MODE_AF_PP;
+	UART_TX_PIN.GPIOSpeed = GPIO_OUTPUT_SPEED_LOW ;
+	UART_TX_PIN.AF_Num = 7;
+	GPIO_enuInit( & UART_TX_PIN );
+	/*configure uart1 receiving pin B7*/
+	GPIO_strPinConfg_t UART_RX_PIN ;
+	UART_RX_PIN.GPIOPort= GPIOB ;
+	UART_RX_PIN.GPIOPin= GPIO_PIN7;
+	UART_RX_PIN.GPIOMode = GPIO_MODE_AF_PP;
+	UART_RX_PIN.GPIOSpeed = GPIO_OUTPUT_SPEED_LOW ;
+	UART_RX_PIN.AF_Num = 7 ;
+	GPIO_enuInit( & UART_RX_PIN );
+	/*==================================================================================================*/
+
+
+	
 	/*======================================NVIC configuration for UART========================================*/
 	NVIC_enuEnableInterrupt(NVIC_USART1_INTERRUPT);
 	/*====================================================================================================*/
@@ -69,7 +75,7 @@ main(int argc, char* argv[])
 
 	/*====================configure transmitting and receiving buffers===================================*/
 	TXRequest_t Transmiiting_Request ;
-	u8  data[6] = "bishoy";
+	u8  data[6] = {1,2,3,4,5,6};
 	Transmiiting_Request.CBF = app ;
 	Transmiiting_Request.Channel = UART_1 ;
 	Transmiiting_Request.State = UART_enuReady ;
@@ -106,6 +112,12 @@ main(int argc, char* argv[])
   while (1)
     {
 		UART_SendByteAsynchronous(UART_1,12);
+		// any code to avoid optimization
+		for(u16 rx=0;rx<1000;rx++){
+			u16 x = 2;
+			x++;
+			NVIC_enuEnableInterrupt(NVIC_EXTI18_INTERRUPT);
+		}
 		/*
 		SWITCH_enuGetSwitchState( SWITCH2 , & LOCAL_u8Button1 ) ;
 		SWITCH_enuGetSwitchState( SWITCH1 , & LOCAL_u8Button2 ) ;

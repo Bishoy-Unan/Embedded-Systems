@@ -105,6 +105,18 @@ GPIO_enuErrorStatus_t GPIO_enuInit(GPIO_strPinConfg_t * Add_strPintConfg)
 				/* SET Speed Register  */
 				Add_strPintConfg -> GPIOPort->OSPEEDR = ((Add_strPintConfg->GPIOSpeed)<<((Add_strPintConfg->GPIOPin)*2));
 			}/*if*/
+			
+			/*set the alternate function in case of alternate function mode*/
+			if((Add_strPintConfg->GPIOMode == GPIO_MODE_AF_PP) || (Add_strPintConfg->GPIOMode == GPIO_MODE_AF_PP_PU) || (Add_strPintConfg->GPIOMode == GPIO_MODE_AF_PP_PD) || (Add_strPintConfg->GPIOMode == GPIO_MODE_AF_OPENDRAIN) || (Add_strPintConfg->GPIOMode == GPIO_MODE_AF_OPENDRAIN_PU) || (Add_strPintConfg->GPIOMode == GPIO_MODE_AF_OPENDRAIN_PD) )
+			{
+				if(Add_strPintConfg->AF_Num <=7)
+				{
+					Add_strPintConfg -> GPIOPort->AFRL|=(Add_strPintConfg->AF_Num<<(4*Add_strPintConfg->GPIOPin));
+				}else{
+					Add_strPintConfg -> GPIOPort->AFRH|=(Add_strPintConfg->AF_Num<<(4*Add_strPintConfg->GPIOPin));
+				}	
+		
+			}
 		
 	}/*else*/
 	

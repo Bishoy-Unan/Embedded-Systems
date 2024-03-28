@@ -68,19 +68,19 @@ extern UART_enuErrorStatus_t UART_enudInit(const UART_strConfigType_t * Copy_add
 
 		    	UART1->CR1 |= Copy_addCFG->WordLength    << 12;
 		    	UART1->CR1 |= Copy_addCFG->ParityControl << 10;
-                UART1->CR1 |= Copy_addCFG->ParityType << 9;
+                UART1->CR1 |= Copy_addCFG->ParityType    << 9;
                 /*PEIE: PE interrupt enable*/
                 UART1->CR1 |= ENABLE << 8;
                 /*TXEIE: TXE interrupt enable*/
-		    	UART1->CR1 |= ENABLE << 7;
+		    	//UART1->CR1 |= ENABLE << 7;
                 /*TCIE: Transmission complete interrupt enable*/
                 UART1->CR1 |= ENABLE << 6;
                 /*RXNEIE: RXNE interrupt enable*/
-                //UART1->CR1 |= ENABLE << 5;
+                UART1->CR1 |= ENABLE << 5;
                 /*TE: Transmitter enable*/
-                UART1->CR1 |= ENABLE << 3;
+                //UART1->CR1 |= ENABLE << 3;
                 /*RE: Receiver enable*/
-                UART1->CR1 |= ENABLE << 2;
+                //UART1->CR1 |= ENABLE << 2;
 
                 /*set baud rate*/
                 UART1->BRR |=  Loc_u16TempFraction ;
@@ -108,15 +108,15 @@ extern UART_enuErrorStatus_t UART_enudInit(const UART_strConfigType_t * Copy_add
                 /*PEIE: PE interrupt enable*/
                 UART2->CR1 |= ENABLE << 8;
                 /*TXEIE: TXE interrupt enable*/
-		    	UART2->CR1 |= ENABLE << 7;
+		    	//UART2->CR1 |= ENABLE << 7;
                 /*TCIE: Transmission complete interrupt enable*/
                 UART2->CR1 |= ENABLE << 6;
                 /*RXNEIE: RXNE interrupt enable*/
                // UART2->CR1 |= ENABLE << 5;
                 /*TE: Transmitter enable*/
-                UART2->CR1 |= ENABLE << 3;
+                //UART2->CR1 |= ENABLE << 3;
                 /*RE: Receiver enable*/
-                UART2->CR1 |= ENABLE << 2;
+                //UART2->CR1 |= ENABLE << 2;
 
                 /*set baud rate*/
                 UART2->BRR |=  Loc_u16TempFraction ;
@@ -144,15 +144,15 @@ extern UART_enuErrorStatus_t UART_enudInit(const UART_strConfigType_t * Copy_add
                 /*PEIE: PE interrupt enable*/
                 UART6->CR1 |= ENABLE << 8;
                 /*TXEIE: TXE interrupt enable*/
-		    	UART6->CR1 |= ENABLE << 7;
+		    	//UART6->CR1 |= ENABLE << 7;
                 /*TCIE: Transmission complete interrupt enable*/
                 UART6->CR1 |= ENABLE << 6;
                 /*RXNEIE: RXNE interrupt enable*/
                // UART6->CR1 |= ENABLE << 5;
                 /*TE: Transmitter enable*/
-                UART6->CR1 |= ENABLE << 3;
+                //UART6->CR1 |= ENABLE << 3;
                 /*RE: Receiver enable*/
-                UART6->CR1 |= ENABLE << 2;
+                //UART6->CR1 |= ENABLE << 2;
 
                 /*set baud rate*/
                 UART6->BRR |=  Loc_u16TempFraction ;
@@ -171,8 +171,6 @@ return Local_enuRetSatus;
 }/*UART_vidInit*/
 
 
-
-
 extern UART_enuErrorStatus_t UART_SendByteAsynchronous(UART_enuChannels_t Copy_enuChannel, u8 Copy_u8Data)
 {
 	UART_enuErrorStatus_t Local_enuRetSatus = UART_enuOK  ;
@@ -188,16 +186,22 @@ extern UART_enuErrorStatus_t UART_SendByteAsynchronous(UART_enuChannels_t Copy_e
 		case UART_1:
 
 			UART1->DR = Copy_u8Data;
+            /*TE: Transmitter enable*/
+            UART1->CR1 |= ENABLE << 3;
 			break;
 
 		case UART_2:
 
 			UART2->DR = Copy_u8Data;
+            /*TE: Transmitter enable*/
+            UART2->CR1 |= ENABLE << 3;
 			break;
 
 		case UART_6:
 
 			UART6->DR = Copy_u8Data;
+            /*TE: Transmitter enable*/
+            UART6->CR1 |= ENABLE << 3;
 			break;
 
 		}/*end of switch*/
@@ -206,8 +210,7 @@ extern UART_enuErrorStatus_t UART_SendByteAsynchronous(UART_enuChannels_t Copy_e
 
 	return Local_enuRetSatus;
 
-}/*end of if*/
-
+}/*UART_SendByteAsynchronous*/
 
 
 extern UART_enuErrorStatus_t UART_SendBufferZeroCopy(const TXRequest_t * Copy_addRequest)
@@ -234,6 +237,8 @@ extern UART_enuErrorStatus_t UART_SendBufferZeroCopy(const TXRequest_t * Copy_ad
                         /* first triggring to enter handler mode*/
                         UART1->DR = TransmitBuffer[0]->TXBuffer.Data[0] ;
                         TransmitBuffer[0]->TXBuffer.Pos ++ ;
+                        /*TE: Transmitter enable*/
+                        UART1->CR1 |= ENABLE << 3;
                     }
 			break;
 
@@ -248,6 +253,8 @@ extern UART_enuErrorStatus_t UART_SendBufferZeroCopy(const TXRequest_t * Copy_ad
                         /* first triggring to enter handler mode*/
                         UART2->DR = TransmitBuffer[1]->TXBuffer.Data[0] ;
                         TransmitBuffer[1]->TXBuffer.Pos ++ ;
+                        /*TE: Transmitter enable*/
+                         UART2->CR1 |= ENABLE << 3;
                     }
 
 			
@@ -264,6 +271,8 @@ extern UART_enuErrorStatus_t UART_SendBufferZeroCopy(const TXRequest_t * Copy_ad
                         /* first triggring to enter handler mode*/
                         UART6->DR = TransmitBuffer[2]->TXBuffer.Data[0] ;
                         TransmitBuffer[2]->TXBuffer.Pos ++ ;
+                        /*TE: Transmitter enable*/
+                        UART6->CR1 |= ENABLE << 3;
                     }
 
 			
@@ -279,8 +288,6 @@ extern UART_enuErrorStatus_t UART_SendBufferZeroCopy(const TXRequest_t * Copy_ad
 }/*end of Uart_SendBufferZeroCopy*/
 
 
-
-
 extern UART_enuErrorStatus_t UART_ReceiveBuffer(const RXRequest_t * Copy_addRequest)
 {
 		UART_enuErrorStatus_t Local_enuRetSatus = UART_enuOK  ;
@@ -292,11 +299,9 @@ extern UART_enuErrorStatus_t UART_ReceiveBuffer(const RXRequest_t * Copy_addRequ
 	}
 	else
 	{
-
 	        if(ReciveBuffer[Copy_addRequest->Channel]->State == UART_enuReady)
 	        {
                 /*clear not empty flag */
-
 	        	/*initizalize the receiving buffer*/
 	        	ReciveBuffer[Copy_addRequest->Channel]->TXBuffer.Data = Copy_addRequest->TXBuffer.Data;
 	        	ReciveBuffer[Copy_addRequest->Channel]->TXBuffer.Pos = Copy_addRequest->TXBuffer.Pos; 
@@ -311,6 +316,8 @@ extern UART_enuErrorStatus_t UART_ReceiveBuffer(const RXRequest_t * Copy_addRequ
                     UART1->SR & ~(1<<5);
 	        		/*RXNEIE: RXNE interrupt enable*/
                      UART1->CR1 |= ENABLE << 5;
+                     /*RE: Receiver enable*/
+                    UART1->CR1 |= ENABLE << 2;
 
 	        		break;
 
@@ -319,6 +326,9 @@ extern UART_enuErrorStatus_t UART_ReceiveBuffer(const RXRequest_t * Copy_addRequ
                     UART2->SR & ~(1<<5);
 	        		/*RXNEIE: RXNE interrupt enable*/
                     UART2->CR1 |= ENABLE << 5;
+                    /*RE: Receiver enable*/
+                    UART2->CR1 |= ENABLE << 2;
+
 
 	        		break;
 
@@ -327,7 +337,8 @@ extern UART_enuErrorStatus_t UART_ReceiveBuffer(const RXRequest_t * Copy_addRequ
                     UART6->SR & ~(1<<5);
 	        		/*RXNEIE: RXNE interrupt enable*/
                     UART6->CR1 |= ENABLE << 5;
-
+                    /*RE: Receiver enable*/
+                    UART6->CR1 |= ENABLE << 2;
 	        		break;
 	        	}
 	        }
@@ -337,18 +348,33 @@ extern UART_enuErrorStatus_t UART_ReceiveBuffer(const RXRequest_t * Copy_addRequ
 }
 
 
+UART_enuErrorStatus_t UART_enuSendBuffer_DMA(void)
+{
+	UART_enuErrorStatus_t Loc_enuErroStatus = UART_enuOK;
+
+	/*enable DMA Transmitting in Uart*/
+	UART1->CR3 |= 1 << 7;
 
 
+	return Loc_enuErroStatus;
+}
 
 
+UART_enuErrorStatus_t UART_enuReceiveBuffer_DMA(void)
+{
+	UART_enuErrorStatus_t Loc_enuErroStatus = UART_enuOK;
+
+	/*enable DMA receiving in Uart*/
+	UART1->CR3 |= 1 << 6;
 
 
+	return Loc_enuErroStatus;
+}
 
 
 /**
  *@ UART1 Interupt Handler  
 */
-
 void USART1_IRQHandler(void)
 {
     /*Check transmit empt flag*/
@@ -402,7 +428,6 @@ void USART1_IRQHandler(void)
 /**
  *@ UART2 Interupt Handler  
 */
-
 void USART2_IRQHandler(void)
 {
 	 /*Check transmit empt flag*/
@@ -455,7 +480,6 @@ void USART2_IRQHandler(void)
 /**
  *@ UART6 Interupt Handler  
 */
-
 void USART6_IRQHandler(void)
 {
 	 /*Check transmit empt flag*/
