@@ -13,12 +13,6 @@
 #include "SWITCH.h"
 #include"SWITCH_Config.h"
 
-
-
-
-
-
-
 ;
 int
 main(int argc, char* argv[])
@@ -26,16 +20,18 @@ main(int argc, char* argv[])
 	
 	//u8 LOCAL_u8Button1 = 1 ;
 	//u8 LOCAL_u8Button2 = 1 ;
+	u8 receive = 0;
 
 
 	/*============================RCC Configuration for UART=============================================*/
-	RCC_enuControlClk(RCC_HSE,RCC_CLK_ON);
-	RCC_enuSelectSystemClk(RCC_HSE);
+	RCC_enuControlClk(RCC_HSI,RCC_CLK_ON);
+	RCC_enuSelectSystemClk(RCC_HSI);
 	RCC_enuEnablePeripheralClock(RCC_AHB1,GPIOA_RCC);
 	RCC_enuEnablePeripheralClock(RCC_AHB1,GPIOB_RCC);
 	RCC_enuEnablePeripheralClock(RCC_APB2,USART1_RCC);
 	/*======================================================================================================*/
 
+		LED_enumdInit();
 	
 	/*==================================configure uart1 transmiiter pin B6============================*/
 	GPIO_strPinConfg_t UART_TX_PIN ;
@@ -68,8 +64,10 @@ main(int argc, char* argv[])
 	UART1_CFG.Channel = UART_1;
 	UART1_CFG.ParityControl = UART_enuDisable_Parity ;
 	UART1_CFG.ParityType = UART_enuEvenParity ;
+	UART1_CFG.OverSampling = UART_enuOVERSAMPLING_16 ;
 	UART1_CFG.UartEnable = UART_enuEnable ;
 	UART1_CFG.WordLength = UART_enu_1_Start_8_Data_N_Stop_Bits ;
+
 	UART_enudInit( & UART1_CFG);
 	/*====================================================================================================*/
 
@@ -82,7 +80,7 @@ main(int argc, char* argv[])
 	Transmiiting_Request.TXBuffer.Data = data ;
 	Transmiiting_Request.TXBuffer.Pos = 0 ;
 	Transmiiting_Request.TXBuffer.Size = 6 ;
-	UART_SendBufferZeroCopy( & Transmiiting_Request );
+	//UART_SendBufferZeroCopy( & Transmiiting_Request );
 
 	RXRequest_t Receiving_Request ;
 	u8  d[10] = {0};
@@ -92,7 +90,7 @@ main(int argc, char* argv[])
 	Receiving_Request.TXBuffer.Data = d ;
 	Receiving_Request.TXBuffer.Pos = 0 ;
 	Receiving_Request.TXBuffer.Size = 10 ;
-	UART_ReceiveBuffer( & Receiving_Request );
+	//UART_ReceiveBuffer( & Receiving_Request );
 
 
 	/*====================================================================================================*/
@@ -109,15 +107,26 @@ main(int argc, char* argv[])
     //SCHED_vidStart();
 	
 
+
   while (1)
     {
-		UART_SendByteAsynchronous(UART_1,12);
-		// any code to avoid optimization
-		for(u16 rx=0;rx<1000;rx++){
-			u16 x = 2;
-			x++;
-			NVIC_enuEnableInterrupt(NVIC_EXTI18_INTERRUPT);
-		}
+
+	  			UART_ReceiveByteAsynchronous(UART_1 , & receive);
+	  				  			if(receive == '5')
+	  				  			{
+	  				  				LED_enuSetLedState(LED_RED,LED_STATE_ON);
+	  				  			UART_SendByteAsynchronous(UART_1,'A');
+	  				  			}
+	  				  			else
+	  				  			{
+	  				  				LED_enuSetLedState(LED_BLUE,LED_STATE_ON);
+	  				  			//UART_SendByteAsynchronous(UART_1,'H');
+	  				  			}
+
+
+
+		
+
 		/*
 		SWITCH_enuGetSwitchState( SWITCH2 , & LOCAL_u8Button1 ) ;
 		SWITCH_enuGetSwitchState( SWITCH1 , & LOCAL_u8Button2 ) ;

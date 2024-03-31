@@ -61,7 +61,12 @@ typedef enum
     UART_enuEvenParity    ,
     UART_enuOddParity 
 }UART_enuParityType_t ;
+typedef enum 
+{
+    UART_enuOVERSAMPLING_16 = 0      ,
+    UART_enuOVERSAMPLING_8
 
+}UART_enuOVERSAMPLING_t;
 typedef enum 
 {
     UART_enuDisable  ,
@@ -83,6 +88,7 @@ typedef struct
 	UART_enuChannels_t           Channel ;
 	UART_enuEnableMode_t         UartEnable;
 	UART_enuDataFrame_t          WordLength;
+    UART_enuOVERSAMPLING_t       OverSampling;
 	UART_enuParityControl_t      ParityControl;
     UART_enuParityType_t         ParityType  ;
 	u16                          BaudRate;
@@ -140,6 +146,10 @@ typedef struct
 extern UART_enuErrorStatus_t UART_enudInit(const UART_strConfigType_t * Copy_addCFG);
 
 extern UART_enuErrorStatus_t UART_SendByteAsynchronous(UART_enuChannels_t Copy_enuChannel, u8 Copy_u8Data);
+
+extern UART_enuErrorStatus_t UART_ReceiveByteSynchronous(UART_enuChannels_t Copy_enuChannel, u8  * Copy_addData);
+
+extern UART_enuErrorStatus_t UART_ReceiveByteAsynchronous(UART_enuChannels_t Copy_enuChannel, u8  * Copy_addData);
 
 extern UART_enuErrorStatus_t UART_SendBufferZeroCopy(const TXRequest_t * Copy_addRequest);
 

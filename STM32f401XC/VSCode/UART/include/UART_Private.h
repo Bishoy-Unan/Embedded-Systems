@@ -13,13 +13,13 @@
 */
 typedef struct
 {
-	u32 SR;
-	u32 DR;
-	u32 BRR;
-	u32 CR1;
-	u32 CR2;
-	u32 CR3;
-	u32 CR4;
+	volatile u32 SR;
+	volatile u32 DR;
+	volatile u32 BRR;
+	volatile u32 CR1;
+	volatile u32 CR2;
+	volatile u32 CR3;
+	volatile u32 CR4;
 
 }UART_strRegisters_t;
 

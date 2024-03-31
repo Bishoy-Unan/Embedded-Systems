@@ -23,8 +23,8 @@ typedef enum
 	LED_GREEN      ,
 	LED_YELLOW     ,
 	LED_RED        ,
-
-	LED_ORANGE ,
+	LED_BLUE	   ,
+	LED_ORANGE     ,
 	
 	
 	

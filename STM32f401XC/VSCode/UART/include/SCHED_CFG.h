@@ -22,7 +22,7 @@
 /**
  *@ Number of tasks runs by the scheduler 
 */
-#define SCHED_RUNNABLE_NUM  4
+#define SCHED_RUNNABLE_NUM  7
 
 
 #endif
