@@ -21,10 +21,10 @@
 	/**
 	*@ araay of LED_strCFG_t data type in which we configure ports of leds and configure pins of leds and leds status
 	*/
-const SWITCH_strCFG_t SWITCHS[_NUM_OF_SWITHs] =  { [SWITCH1] = {.SWITCH_strPORT  = GPIOA 					  , 
-																.SWITCH_strPIN   = GPIO_PIN4 				  , 
+const SWITCH_strCFG_t SWITCHS[_NUM_OF_SWITHs] =  { [SWITCH1] = {.SWITCH_strPORT  = GPIOC 					  , 
+																.SWITCH_strPIN   = GPIO_PIN15 				  , 
 																.SWITCH_strSTATE = SWITCH_enumINPUT_PULLUP }  ,
 												   [SWITCH2] = {.SWITCH_strPORT  = GPIOA 					  , 
-																.SWITCH_strPIN   = GPIO_PIN5				  , 
+																.SWITCH_strPIN   = GPIO_PIN14				  , 
 																.SWITCH_strSTATE = SWITCH_enumINPUT_PULLUP }			
 									   			 }; /* LEDS ARRAY*/

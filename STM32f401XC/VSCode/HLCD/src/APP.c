@@ -2,6 +2,7 @@
 #include"STD_TYPES.h"
 #include "app.h"
 #include "LED.h"
+#include"LCD.h"
 #include"LED_Config.h"
 #include"SWITCH.h"
 #include"SWITCH_Config.h"
@@ -16,7 +17,6 @@ void app(void)
     //test lcd with scheduler
   
 	u8  str1[]="Bishoy\0";
-	LCD_VidClearScreen();
 	LCD_VidClearScreen();
 	LCD_enuGotoDDRAM_XY(0,1);
 	LCD_enuWriteString(str1);

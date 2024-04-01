@@ -17,7 +17,7 @@
 															  }	   ,	  
 		                                                [2] = {
 				                                                .RunnableCallBack = app ,
-				                                                .Sched_enuPeriodicTimeMs = 1000
+				                                                .Sched_enuPeriodicTimeMs = 100
 		                                                      }		,
 														[3] = {
 				                                                .RunnableCallBack = app1 ,
