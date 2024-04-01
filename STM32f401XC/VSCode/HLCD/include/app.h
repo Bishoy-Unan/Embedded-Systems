@@ -17,6 +17,7 @@ void app(void);
 void app1(void);
 void app2(void);
 void app3(void);
+void app4(void);
 
 void TrafficLight(void);
 

@@ -33,8 +33,12 @@ const LED_strCFG_t LEDS[_NUM_OF_LEDs] =  { [LED_GREEN]  = {.LED_PORT          = 
 														 .LED_PIN   		= GPIO_PIN2 ,   
 														 .LED_Connection   	= LED_CONNECTION_FORWARD ,   
 														 .LED_STATE 		= LED_STATE_OFF 	}	,
-											 [LED_ORANGE] = {.LED_PORT  		= GPIOA , 
+										   [LED_ORANGE] = {.LED_PORT  		= GPIOA , 
 														 .LED_PIN   		= GPIO_PIN7 ,   
 														 .LED_Connection   	= LED_CONNECTION_FORWARD ,   
-														 .LED_STATE 		= LED_STATE_OFF 	}				 			
+														 .LED_STATE 		= LED_STATE_OFF 	}	,
+										   [LED_BLUE] = {.LED_PORT  		= GPIOC , 
+														 .LED_PIN   		= GPIO_PIN15 ,   
+														 .LED_Connection   	= LED_CONNECTION_FORWARD ,   
+														 .LED_STATE 		= LED_STATE_OFF 	}			 			 			
 							    }; /* LEDS ARRAY*/

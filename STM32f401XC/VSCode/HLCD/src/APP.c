@@ -3,14 +3,25 @@
 #include "app.h"
 #include "LED.h"
 #include"LED_Config.h"
+#include"SWITCH.h"
+#include"SWITCH_Config.h"
 //#include "diag/Trace.h"
 
 
-
+;
 void app(void)
 {
 	
 	static u8 LOCAL_u8ToggleFlag = 0 ;
+    //test lcd with scheduler
+  
+	u8  str1[]="Bishoy\0";
+	LCD_VidClearScreen();
+	LCD_VidClearScreen();
+	LCD_enuGotoDDRAM_XY(0,1);
+	LCD_enuWriteString(str1);
+    LCD_enuGotoDDRAM_XY(1,1);
+	LCD_enuWriteNumber(5);
 
 	if(LOCAL_u8ToggleFlag == 0)
 	{
@@ -64,15 +75,37 @@ void app3(void)
 
 	if(LOCAL_u8ToggleFlag == 0)
 	{
-		LED_enuSetLedState(LED_GREEN,LED_STATE_ON);
+		LED_enuSetLedState(LED_BLUE,LED_STATE_ON);
 		LOCAL_u8ToggleFlag = LOCAL_u8ToggleFlag ^ 1 ;
 	}
 	else
 	{
-		LED_enuSetLedState(LED_GREEN,LED_STATE_OFF);
+		LED_enuSetLedState(LED_BLUE,LED_STATE_OFF);
 		LOCAL_u8ToggleFlag = LOCAL_u8ToggleFlag ^ 1 ;
 	}
 }
+
+//application to test runnable switch
+void app4(void)
+{
+    u8 button1 = 1;
+    static u8 LOCAL_u8ToggleFlag = 0 ;
+    SWITCH_enuGetSwitchState_task(SWITCH1,&button1);
+     //check if switch 1 pressed or not
+    if(button1 == 0)
+    {
+        if(LOCAL_u8ToggleFlag == 0)
+        {
+        	LED_enuSetLedState(LED_GREEN,LED_STATE_ON);
+        	LOCAL_u8ToggleFlag = LOCAL_u8ToggleFlag ^ 1 ;
+        }
+        else
+        {
+        	LED_enuSetLedState(LED_GREEN,LED_STATE_OFF);
+        	LOCAL_u8ToggleFlag = LOCAL_u8ToggleFlag ^ 1 ;
+        }
+    }
+} 
 
 
 

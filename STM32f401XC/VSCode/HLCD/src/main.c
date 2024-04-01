@@ -31,13 +31,8 @@ main(int argc, char* argv[])
 	RCC_enuEnablePeripheralClock(RCC_AHB1,GPIOA_RCC);
 
 	LED_enumdInit();
-	//SWITCH_enumdInit();
-	/*
-	SYSTICK_enuInit();
-	SYSTICK_enuSetTime_mS(1000);
-	SYSTICK_enuSetCallback(app);
-	SYSTICK_enuStart();
-	*/
+	SWITCH_enumdInit();
+	
 	SCHED_vidInit();
     SCHED_vidStart();
 	
