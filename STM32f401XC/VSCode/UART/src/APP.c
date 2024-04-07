@@ -2,10 +2,10 @@
 #include"STD_TYPES.h"
 #include "app.h"
 #include "LED.h"
+#include"LCD.h"
 #include"LED_Config.h"
 #include"SWITCH.h"
 #include"SWITCH_Config.h"
-#include"LCD.h"
 //#include "diag/Trace.h"
 
 
@@ -16,13 +16,40 @@ void app(void)
 	static u8 LOCAL_u8ToggleFlag = 0 ;
     //test lcd with scheduler
   
-	u8  str1[]="Bishoy\0";
-	LCD_VidClearScreen();
-	LCD_VidClearScreen();
-	LCD_enuGotoDDRAM_XY(0,1);
-	LCD_enuWriteString(str1);
-    LCD_enuGotoDDRAM_XY(1,1);
-	LCD_enuWriteNumber(5);
+	
+     static u32 time=0;
+    time ++ ;
+   
+    if (time==1)
+    {
+        
+     LCD_enuWriteString("Bishoy",6);
+    //LCD_enuWriteNumber(55);
+    }
+    else if (time==2)
+    {
+     // LCD_Clear_ScreenAsync();
+    }
+    else if (time==3)
+    {
+      LCD_enuGotoDDRAM_XY(2,0);
+    }
+    else if (time==4)
+    {
+     
+      LCD_enuWriteString("Unan ",5);
+    }
+    else if(time == 5)
+    {
+        LCD_enuGotoDDRAM_XY(2,6);
+    }
+    else if (time==6)
+    {
+     LCD_enuWriteNumber(14);
+    }
+	
+    
+	
 
 	if(LOCAL_u8ToggleFlag == 0)
 	{

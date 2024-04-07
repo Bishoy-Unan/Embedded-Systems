@@ -2,10 +2,10 @@
 #include"UART_Interface.h"
 #include"UART_Private.h"
 
-
+volatile UART_strRegisters_t *const USART[3] = {UART1, UART2, UART6};
 static TXRequest_t* TransmitBuffer[3] ;
-static RXRequest_t* ReciveBuffer[3] ;
-
+RXRequest_t* ReciveBuffer[3] ;
+static u8 Uart_u8DataReceived = 0 ;
 
 
 
@@ -227,7 +227,6 @@ extern UART_enuErrorStatus_t UART_enudInit(const UART_strConfigType_t * Copy_add
 return Local_enuRetSatus; 
 }/*UART_vidInit*/
 
-
 extern UART_enuErrorStatus_t UART_SendByteAsynchronous(UART_enuChannels_t Copy_enuChannel, u8 Copy_u8Data)
 {
 	UART_enuErrorStatus_t Local_enuRetSatus = UART_enuOK  ;
@@ -281,6 +280,56 @@ extern UART_enuErrorStatus_t UART_SendByteAsynchronous(UART_enuChannels_t Copy_e
 }/*UART_SendByteAsynchronous*/
 
 
+extern UART_enuErrorStatus_t UART_ReceiveByteAsync(UART_enuChannels_t Copy_enuChannel, u8  * Copy_addData)
+{
+      UART_enuErrorStatus_t Local_enuRetSatus = UART_enuOK  ;
+
+
+	if(Copy_enuChannel != UART_1 && Copy_enuChannel != UART_2 && Copy_enuChannel != UART_6 )
+	{
+		Local_enuRetSatus = UART_enuNOK  ;
+	}
+    else if( Copy_addData == NULL)
+    {
+        Local_enuRetSatus = UART_enuNOK  ;
+    }
+	else
+	{
+		switch(Copy_enuChannel)
+		{
+		case UART_1:
+
+                    if(UART1->SR & (1<<5))
+                    {
+                        *(Copy_addData) = UART1->DR;
+                    }
+			break;
+
+		case UART_2:
+
+                    if(UART2->SR & (1<<5))
+                    {
+                        *(Copy_addData) = UART2->DR;
+                    }
+			
+			break;
+
+		case UART_6:
+
+                    if(UART6->SR & (1<<5))
+                    {
+                        *(Copy_addData) = UART6->DR;
+                    }
+			break;
+
+		}/*end of switch*/
+
+	}/*end of else*/
+
+	return Local_enuRetSatus;
+
+}
+
 
 extern UART_enuErrorStatus_t UART_ReceiveByteSynchronous(UART_enuChannels_t Copy_enuChannel, u8  * Copy_addData)
 {
@@ -330,63 +379,60 @@ extern UART_enuErrorStatus_t UART_ReceiveByteSynchronous(UART_enuChannels_t Copy
 
 }
 
-
-
-
-extern UART_enuErrorStatus_t UART_ReceiveByteAsynchronous(UART_enuChannels_t Copy_enuChannel, u8  * Copy_addData)
+extern UART_enuErrorStatus_t UART_ReceiveByteAsynchronous(const RXRequest_t * Copy_addRequest)
 {
     UART_enuErrorStatus_t Local_enuRetSatus = UART_enuOK  ;
-
-
-	if(Copy_enuChannel != UART_1 && Copy_enuChannel != UART_2 && Copy_enuChannel != UART_6 )
-	{
-		Local_enuRetSatus = UART_enuNOK  ;
-	}
-    else if( Copy_addData == NULL)
+/*
+    if( Copy_addRequest == NULL)
     {
         Local_enuRetSatus = UART_enuNOK  ;
     }
-	else
+	else if(Copy_addRequest->Channel != UART_1 && Copy_addRequest->Channel != UART_2 && Copy_addRequest->Channel != UART_6 )
 	{
-		switch(Copy_enuChannel)
-		{
-		case UART_1:
+		Local_enuRetSatus = UART_enuNOK  ;
+	}
+     else if(Copy_addRequest->TXBuffer.Size > 1)
+    {
+        Local_enuRetSatus = UART_enuNOK  ;
+    }
+    else if(ReciveBuffer[Copy_addRequest->Channel]->State == UART_enuReady)
+    {
+         volatile u16 Loc_u16TimeOut = 1000;
 
-                    if ( (UART1->SR & (1<<5)) == 1)
-                    {
-                    	*(Copy_addData) = UART1->DR;
-                    }
-			break;
-
-		case UART_2:
-
-
-            if ( (UART2->SR & (1<<5)) == 1)
+        ReciveBuffer[Copy_addRequest->Channel]->State = UART_enuBuzy;
+        //UART_RX_ENABLE_MASK
+       (USART[Copy_addRequest->Channel])->CR1 |= 0X00000004;
+        while (((((USART[Copy_addRequest->Channel])->SR) & UART_RX_NOT_EMPTY_FLAG) == 0) && Loc_u16TimeOut)
+        {
+            Loc_u16TimeOut--;
+        }
+        if (Loc_u16TimeOut == 0)
+        {
+            if ((((USART[Copy_addRequest->Channel])->SR) & UART_RX_NOT_EMPTY_FLAG) == 0)
             {
-            	*(Copy_addData) = UART2->DR;
+                Local_enuRetSatus = UART_enuNOK  ;
             }
-			break;
-
-		case UART_6:
-
-
-            if ( (UART6->SR & (1<<5)) == 1)
+            else
             {
-            	*(Copy_addData) = UART6->DR;
+                *(Copy_addRequest->TXBuffer.Data) = (USART[Copy_addRequest->Channel])->DR;
             }
-
-			break;
-
-		}/*end of switch*/
-
-	}/*end of else*/
-
+        }
+        else
+        {
+            *(Copy_addRequest->TXBuffer.Data) = (USART[Copy_addRequest->Channel])->DR;
+        }
+        //UART_RX_ENABLE_MASK
+        (USART[Copy_addRequest->Channel])->CR1 &= ~0X00000004;
+        ReciveBuffer[Copy_addRequest->Channel]->State = UART_enuReady;
+    }
+	else
+    {
+        Local_enuRetSatus = UART_enuNOK ;
+    }
+*/
 	return Local_enuRetSatus;
 
 }
-
-
-
 
 extern UART_enuErrorStatus_t UART_SendBufferZeroCopy(const TXRequest_t * Copy_addRequest)
 {
@@ -404,20 +450,20 @@ extern UART_enuErrorStatus_t UART_SendBufferZeroCopy(const TXRequest_t * Copy_ad
 		case UART_1:
                     if(Copy_addRequest ->State == UART_enuReady )
                     {
+                        TransmitBuffer[0]->State = UART_enuBuzzy ;
                         TransmitBuffer[0]->TXBuffer.Data = Copy_addRequest->TXBuffer.Data ;
                         TransmitBuffer[0]->TXBuffer.Size = Copy_addRequest->TXBuffer.Size ;
                         TransmitBuffer[0]->TXBuffer.Pos = 0;
-                        TransmitBuffer[0]->State = UART_enuBuzzy ;
                         TransmitBuffer[0]->CBF = Copy_addRequest->CBF;
-                        /*TXEIE: TXE interrupt enable*/
-		    	        UART1->CR1 |= ENABLE << 7;
-                         /*TCIE: Transmission complete interrupt enable*/
-                        UART1->CR1 |= ENABLE << 6;
                         /* first triggring to enter handler mode*/
                         UART1->DR = TransmitBuffer[0]->TXBuffer.Data[0] ;
                         TransmitBuffer[0]->TXBuffer.Pos ++ ;
+                        /*TCIE: Transmission complete interrupt enable*/
+                       // UART1->CR1 |= ENABLE << 6;
                         /*TE: Transmitter enable*/
                         UART1->CR1 |= ENABLE << 3;
+                        /*TXEIE: TXE interrupt enable*/
+		    	        UART1->CR1 |= ENABLE << 7;
                     }
 			break;
 
@@ -474,7 +520,6 @@ extern UART_enuErrorStatus_t UART_SendBufferZeroCopy(const TXRequest_t * Copy_ad
 
 }/*end of Uart_SendBufferZeroCopy*/
 
-
 extern UART_enuErrorStatus_t UART_ReceiveBuffer(const RXRequest_t * Copy_addRequest)
 {
 		UART_enuErrorStatus_t Local_enuRetSatus = UART_enuOK  ;
@@ -490,10 +535,11 @@ extern UART_enuErrorStatus_t UART_ReceiveBuffer(const RXRequest_t * Copy_addRequ
 	        {
                 /*clear not empty flag */
 	        	/*initizalize the receiving buffer*/
-	        	ReciveBuffer[Copy_addRequest->Channel]->TXBuffer.Data = Copy_addRequest->TXBuffer.Data;
-	        	ReciveBuffer[Copy_addRequest->Channel]->TXBuffer.Pos = Copy_addRequest->TXBuffer.Pos; 
-	        	ReciveBuffer[Copy_addRequest->Channel]->TXBuffer.Size =  Copy_addRequest->TXBuffer.Size;
 	        	ReciveBuffer[Copy_addRequest->Channel]->State = UART_enuBuzzy;
+                ReciveBuffer[Copy_addRequest->Channel]->TXBuffer.Data = Copy_addRequest->TXBuffer.Data;
+	        	ReciveBuffer[Copy_addRequest->Channel]->TXBuffer.Pos = 0 ; //Copy_addRequest->TXBuffer.Pos; 
+	        	ReciveBuffer[Copy_addRequest->Channel]->TXBuffer.Size =  Copy_addRequest->TXBuffer.Size;
+	        	ReciveBuffer[Copy_addRequest->Channel]->CBF = Copy_addRequest->CBF;
 
 	        	switch(Copy_addRequest->Channel)
 	        	{
@@ -534,7 +580,6 @@ extern UART_enuErrorStatus_t UART_ReceiveBuffer(const RXRequest_t * Copy_addRequ
 	return Local_enuRetSatus;
 }
 
-
 UART_enuErrorStatus_t UART_enuSendBuffer_DMA(void)
 {
 	UART_enuErrorStatus_t Loc_enuErroStatus = UART_enuOK;
@@ -546,7 +591,6 @@ UART_enuErrorStatus_t UART_enuSendBuffer_DMA(void)
 	return Loc_enuErroStatus;
 }
 
-
 UART_enuErrorStatus_t UART_enuReceiveBuffer_DMA(void)
 {
 	UART_enuErrorStatus_t Loc_enuErroStatus = UART_enuOK;
@@ -557,7 +601,6 @@ UART_enuErrorStatus_t UART_enuReceiveBuffer_DMA(void)
 
 	return Loc_enuErroStatus;
 }
-
 
 /**
  *@ UART1 Interupt Handler  
@@ -611,7 +654,6 @@ void USART1_IRQHandler(void)
 	}
 }/*end of function USART1_IRQHandler*/
 
-
 /**
  *@ UART2 Interupt Handler  
 */
@@ -662,7 +704,6 @@ void USART2_IRQHandler(void)
 		}/*end of else*/
 	}
 }/*end of function USART2_IRQHandler*/
-
 
 /**
  *@ UART6 Interupt Handler  
@@ -715,7 +756,3 @@ void USART6_IRQHandler(void)
 		}/*end of else*/
 	}
 }/*end of function USART2_IRQHandler*/
-
-
-
-

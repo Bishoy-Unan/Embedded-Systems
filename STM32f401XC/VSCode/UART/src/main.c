@@ -12,6 +12,9 @@
 #include"LED_Config.h"
 #include "SWITCH.h"
 #include"SWITCH_Config.h"
+;
+extern  RXRequest_t* ReciveBuffer[3] ;
+
 
 ;
 int
@@ -72,6 +75,7 @@ main(int argc, char* argv[])
 	/*====================================================================================================*/
 
 	/*====================configure transmitting and receiving buffers===================================*/
+/*
 	TXRequest_t Transmiiting_Request ;
 	u8  data[6] = {1,2,3,4,5,6};
 	Transmiiting_Request.CBF = app ;
@@ -81,16 +85,18 @@ main(int argc, char* argv[])
 	Transmiiting_Request.TXBuffer.Pos = 0 ;
 	Transmiiting_Request.TXBuffer.Size = 6 ;
 	//UART_SendBufferZeroCopy( & Transmiiting_Request );
+*/
 
+	ReciveBuffer[0]->State = UART_enuReady ;
 	RXRequest_t Receiving_Request ;
 	u8  d[10] = {0};
-	Receiving_Request.CBF = app1 ;
+	Receiving_Request.CBF = app ;
 	Receiving_Request.Channel = UART_1 ;
 	Receiving_Request.State = UART_enuReady ;
 	Receiving_Request.TXBuffer.Data = d ;
 	Receiving_Request.TXBuffer.Pos = 0 ;
-	Receiving_Request.TXBuffer.Size = 10 ;
-	//UART_ReceiveBuffer( & Receiving_Request );
+	Receiving_Request.TXBuffer.Size = 1 ;
+	UART_ReceiveBuffer( & Receiving_Request );
 
 
 	/*====================================================================================================*/
@@ -107,15 +113,17 @@ main(int argc, char* argv[])
     //SCHED_vidStart();
 	
 
-
+	UART_SendByteAsynchronous(UART_1,'H');
   while (1)
     {
 
-	  			UART_ReceiveByteAsynchronous(UART_1 , & receive);
+	  			UART_ReceiveByteAsync(UART_1 , & receive);
+			//	UART_SendByteAsynchronous(UART_1,receive);
 	  				  			if(receive == '5')
 	  				  			{
 	  				  				LED_enuSetLedState(LED_RED,LED_STATE_ON);
-	  				  			UART_SendByteAsynchronous(UART_1,'A');
+	  				  				UART_SendByteAsynchronous(UART_1,'A');
+									receive = 0;
 	  				  			}
 	  				  			else
 	  				  			{

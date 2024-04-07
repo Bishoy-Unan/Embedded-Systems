@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "UART",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"gpio_interface.h": "c"
+		}
+	}
+}

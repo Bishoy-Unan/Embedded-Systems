@@ -149,7 +149,9 @@ extern UART_enuErrorStatus_t UART_SendByteAsynchronous(UART_enuChannels_t Copy_e
 
 extern UART_enuErrorStatus_t UART_ReceiveByteSynchronous(UART_enuChannels_t Copy_enuChannel, u8  * Copy_addData);
 
-extern UART_enuErrorStatus_t UART_ReceiveByteAsynchronous(UART_enuChannels_t Copy_enuChannel, u8  * Copy_addData);
+extern UART_enuErrorStatus_t UART_ReceiveByteAsynchronous(const RXRequest_t * Copy_addRequest);
+
+extern UART_enuErrorStatus_t UART_ReceiveByteAsync(UART_enuChannels_t Copy_enuChannel, u8  * Copy_addData);
 
 extern UART_enuErrorStatus_t UART_SendBufferZeroCopy(const TXRequest_t * Copy_addRequest);
 

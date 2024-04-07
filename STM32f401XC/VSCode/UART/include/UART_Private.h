@@ -6,7 +6,7 @@
 #define  ENABLE       1
 #define  DISABLE      0
 
-
+#define UART_RX_NOT_EMPTY_FLAG 0X00000020
 
 /**
  *@ uart periphral registers 
