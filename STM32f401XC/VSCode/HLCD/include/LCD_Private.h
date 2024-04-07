@@ -41,7 +41,7 @@
 *@ index of LCD E pin at the array which would 
 *@ be configred by user at LCD_Config.c file
 */
-#define ENABLE			8
+#define ENABLE			10
 
 /**
 *@ index of LCD R/W (Read Write) pin at the array which would 
@@ -53,14 +53,35 @@
 *@ be configred by user at LCD_Config.c file
 *@ choose between instruction register or data register
 */
-#define REG_SEL				10
+#define REG_SEL				8
+
+/*omar code definations*/
+/**********Commands Options************************/
+#define LCD_ZERO_COMMAND                         0x00
+#define FOUR_BITS_DATA_MODE                      0x02
+#define LCD_CLEAR_COMMAND                        0x01
+#define LCD_GO_TO_HOME                           0x02
+#define LCD_TWO_LINES_EIGHT_BITS_MODE            0x38
+#define LCD_TWO_LINES_FOUR_BITS_MODE             0x28
+#define LCD_CURSOR_OFF                           0x0C
+#define LCD_CURSOR_ON                            0x0E
+#define LCD_SET_CURSOR_LOCATION                  0x80
+#define LCD_INCREMENT_CRUSOR_SHIFT_RIGHT_MODE    0x06
+#define LCD_ENABLE_OFF                           0
+#define LCD_ENABLE_ON                            1
+#define INTEGER_OVER_FLOW   0xFF
+
+
+#define one  1
+#define zero 0
+
 
 /**
 *@ the operation mode it may be one of two modes (Data Length)
 *@ 4_BITS_MODE
 *@ 8_BITS_MODE
 */
-#define  FOUR_BITS_MODE	0
+#define  FOUR_BITS_MODE	0x02
 #define  EIGHT_BITS_MODE	1
 /**
 *@ one or two lines display
@@ -97,8 +118,6 @@
 */
 #define DISPLAY_SHIFTING_ON		1
 #define DISPLAY_SHIFTING_OFF	0
-
-
 /**
 *@ to configure read or write operation
 */

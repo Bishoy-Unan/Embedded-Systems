@@ -13,9 +13,6 @@
 
 
 
-
-
-
 ;
 int
 main(int argc, char* argv[])
@@ -29,6 +26,7 @@ main(int argc, char* argv[])
 	RCC_enuControlClk(RCC_HSE,RCC_CLK_ON);
 	RCC_enuSelectSystemClk(RCC_HSE);
 	RCC_enuEnablePeripheralClock(RCC_AHB1,GPIOA_RCC);
+	RCC_enuEnablePeripheralClock(RCC_AHB1,GPIOB_RCC);
 
 	LED_enumdInit();
 	SWITCH_enumdInit();
@@ -37,8 +35,8 @@ main(int argc, char* argv[])
     SCHED_vidStart();
 	
 
-  while (1)
-    {
+  //while (1)
+    //{
 		/*
 		SWITCH_enuGetSwitchState( SWITCH2 , & LOCAL_u8Button1 ) ;
 		SWITCH_enuGetSwitchState( SWITCH1 , & LOCAL_u8Button2 ) ;
@@ -57,7 +55,7 @@ main(int argc, char* argv[])
 			LED_enuSetLedState(LED_RED,LED_STATE_OFF);
 		}
 		*/
-    }
+    //}
 
 
 

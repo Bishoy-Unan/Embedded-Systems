@@ -59,7 +59,7 @@ LCD_enuErrorStatus_t LCD_enuGotoDDRAM_XY(u8 Copy_u8X, u8 Copy_u8Y);
 
 LCD_enuErrorStatus_t LCD_enuWriteNumber(s32 Copy_u8Number);
 
-LCD_enuErrorStatus_t LCD_enuWriteString(u8 * Copy_pchPattern);
+LCD_enuErrorStatus_t LCD_enuWriteString(const u8 * Copy_pchPattern , u8 Copy_u8Length);
 
 LCD_enuErrorStatus_t LCD_enuDisplaySpecialPattern(u8* Copy_pu8Pattern, u8 Copy_u8CGRAMBlockNumber, u8 Copy_u8X, u8 Copy_u8Y);
 
@@ -70,6 +70,6 @@ LCD_enuErrorStatus_t LCD_enuDisplaySpecialPattern(u8* Copy_pu8Pattern, u8 Copy_u
 /**
  *@ LCD Task that would be invoked in the scheduler 
 */
-void LCD_vidTask(void);
+void LCD_vidRunnable(void);
 
 #endif

@@ -47,11 +47,11 @@
 												 				 .GPIOPin = GPIO_PIN6 }		, 
 												 [DATA_BIT7] = { .GPIOPort = GPIOA , 
 												 				 .GPIOPin = GPIO_PIN7 }		, 
-												 [ENABLE]    = { .GPIOPort = GPIOB , 
-												 		         .GPIOPin = GPIO_PIN0 }		, 
-												 [REG_SEL]   = { .GPIOPort = GPIOB , 
-												 				 .GPIOPin = GPIO_PIN1 }		, 
-												 [READ_WRITE]= { .GPIOPort = GPIOB , 
-												 				 .GPIOPin = GPIO_PIN2 }								   			 
+												 [ENABLE]    = { .GPIOPort = GPIOA , 
+												 		         .GPIOPin = GPIO_PIN10 }	, 
+												 [REG_SEL]   = { .GPIOPort = GPIOA , 
+												 				 .GPIOPin = GPIO_PIN8 }		, 
+												 [READ_WRITE]= { .GPIOPort = GPIOA , 
+												 				 .GPIOPin = GPIO_PIN9 }								   			 
 								  }; /* LCDPINS ARRAY*/
 
