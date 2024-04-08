@@ -191,6 +191,9 @@ static void LCD_WriteNumb(void);
 static void LCD_DisplaySpecialPattern(void);
 static void LCD_WriteString(void);
 static void LCD_PowerOn(void);
+static void LCD_DisplayOn(void);
+static void LCD_DisplayOFF(void);
+static void LCD_ClearScreen(void);
 static void LCD_Helper_SetPosition(u8 *PTR_PostionDDRAM);
 /*===================================================================================================================*/
 
@@ -954,16 +957,16 @@ void LCD_vidRunnable(void)
 								{
 									case LCD_enuDisplay_ON:
 															/* call LCD_VidDisplay_ON thread*/
-															LCD_enuWriteCommand(DISPLAY_OPENED);
+															LCD_DisplayOn();
 									break;
 									case LCD_enuDisplay_OFF:
 															/* call LCD_VidDisplay_OFF thread*/
-															LCD_enuWriteCommand(DISPLAY_CLOSED);
+															LCD_DisplayOFF();
 
 									break;
 									case LCD_enuClearScreen:
 															/* call LCD_VidDisplay_OFF thread*/
-															LCD_enuWriteCommand(DISPLAY_CLEAR);
+															LCD_ClearScreen();
 									break;
 									case LCD_enuShiftLeft:
 															/* call LCD_ShiftLeft thread*/
@@ -1017,7 +1020,14 @@ void LCD_ShiftLeft(void)
 			}	
 			
 		}
-
+		if (LCD_EnablePinState == LCD_ENABLE_OFF)
+    	{
+    	   LCD_enuUserRequestCFG.LCD_enuRequestType = LCD_enuNoRequest ;
+			/**
+			 *@ set request state variable to display off state 
+			*/
+			LCD_enuUserRequestCFG.LCD_enuRequestState = LCD_enuRequestState_Ready;
+    	}
 
 }
 
@@ -1035,6 +1045,14 @@ void LCD_RightShift(void)
 			}	
 			
 		}
+		if (LCD_EnablePinState == LCD_ENABLE_OFF)
+    	{
+    	   LCD_enuUserRequestCFG.LCD_enuRequestType = LCD_enuNoRequest ;
+			/**
+			 *@ set request state variable to display off state 
+			*/
+			LCD_enuUserRequestCFG.LCD_enuRequestState = LCD_enuRequestState_Ready;
+    	}
 
 
 }
@@ -1190,6 +1208,45 @@ void LCD_PowerOn(void)
 			}/*for loop*/
 
 }
+
+ void LCD_ClearScreen(void)
+ {
+	LCD_enuWriteCommand(DISPLAY_CLEAR);
+    if (LCD_EnablePinState == LCD_ENABLE_OFF)
+    {
+       LCD_enuUserRequestCFG.LCD_enuRequestType = LCD_enuNoRequest ;
+		/**
+		 *@ set request state variable to display off state 
+		*/
+		LCD_enuUserRequestCFG.LCD_enuRequestState = LCD_enuRequestState_Ready;
+    }
+ }
+
+ void LCD_DisplayOn(void)
+ {
+	LCD_enuWriteCommand(DISPLAY_OPENED);
+    if (LCD_EnablePinState == LCD_ENABLE_OFF)
+    {
+       LCD_enuUserRequestCFG.LCD_enuRequestType = LCD_enuNoRequest ;
+		/**
+		 *@ set request state variable to display off state 
+		*/
+		LCD_enuUserRequestCFG.LCD_enuRequestState = LCD_enuRequestState_Ready;
+    }
+ }
+
+ void LCD_DisplayOFF(void)
+ {
+	LCD_enuWriteCommand(DISPLAY_CLOSED);
+    if (LCD_EnablePinState == LCD_ENABLE_OFF)
+    {
+       LCD_enuUserRequestCFG.LCD_enuRequestType = LCD_enuNoRequest ;
+		/**
+		 *@ set request state variable to display off state 
+		*/
+		LCD_enuUserRequestCFG.LCD_enuRequestState = LCD_enuRequestState_Ready;
+    }
+ }
 
 static void LCD_Helper_SetPosition(u8 *PTR_PostionDDRAM)
 {
