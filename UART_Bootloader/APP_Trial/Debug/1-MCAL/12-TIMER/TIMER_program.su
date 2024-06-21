@@ -1,0 +1,17 @@
+../1-MCAL/12-TIMER/TIMER_program.c:25:18:Get_timer	0	static
+../1-MCAL/12-TIMER/TIMER_program.c:205:18:GET_TIM_CH	0	static
+../1-MCAL/12-TIMER/TIMER_program.c:38:6:TIMER_voidTimerConfig	8	static
+../1-MCAL/12-TIMER/TIMER_program.c:139:5:TIMER_u8GetCaptureValue	8	static
+../1-MCAL/12-TIMER/TIMER_program.c:159:6:TIMER_voidSelectEdge	8	static
+../1-MCAL/12-TIMER/TIMER_program.c:176:6:TIMER_u8StopChannel	8	static
+../1-MCAL/12-TIMER/TIMER_program.c:193:6:TIMER_StartTimer	8	static
+../1-MCAL/12-TIMER/TIMER_program.c:102:6:TIMER_voidCapture	24	static
+../1-MCAL/12-TIMER/TIMER_program.c:199:6:TIMER_StopTimer	8	static
+../1-MCAL/12-TIMER/TIMER_program.c:231:6:TIMER_Delay	8	static
+../1-MCAL/12-TIMER/TIMER_program.c:255:5:TIMER_u16GetCount	8	static
+../1-MCAL/12-TIMER/TIMER_program.c:262:6:TIMER_OutputCompare	24	static
+../1-MCAL/12-TIMER/TIMER_program.c:290:6:TIMER_PWM	24	static
+../1-MCAL/12-TIMER/TIMER_program.c:314:6:TIM2_IRQHandler	8	static
+../1-MCAL/12-TIMER/TIMER_program.c:321:6:TIM3_IRQHandler	8	static
+../1-MCAL/12-TIMER/TIMER_program.c:327:6:TIM4_IRQHandler	8	static
+../1-MCAL/12-TIMER/TIMER_program.c:332:6:TIM1_UP_IRQHandler	0	static

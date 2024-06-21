@@ -1,0 +1,5 @@
+../1-MCAL/01-GPIO/GPIO_program.c:19:6:GPIO_voidDirectionInit	1
+../1-MCAL/01-GPIO/GPIO_program.c:39:4:GPIO_u8SetPinValue	12
+../1-MCAL/01-GPIO/GPIO_program.c:72:4:GPIO_u8SetPortValue	9
+../1-MCAL/01-GPIO/GPIO_program.c:101:4:GPIO_u8TogglePinValue	6
+../1-MCAL/01-GPIO/GPIO_program.c:120:4:GPIO_u8GetPinValue	6

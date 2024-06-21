@@ -1,0 +1,5 @@
+../1-MCAL/02-RCC/RCC_program.c:279:4:RCC_u8DisableClock	8	static
+../1-MCAL/02-RCC/RCC_program.c:299:4:RCC_u8ChangeModeBuses	0	static
+../1-MCAL/02-RCC/RCC_program.c:325:4:RCC_u8EnableClock	0	static
+../1-MCAL/02-RCC/RCC_program.c:345:6:RCC_voidAjustmentClockSys	0	static
+../1-MCAL/02-RCC/RCC_program.c:19:6:RCC_voidInit	8	static

@@ -1,0 +1,8 @@
+../2-HAL/02-DCM/DCM_program.c:26:6:DCM_voidRotateCCW	8	static
+../2-HAL/02-DCM/DCM_program.c:31:6:DCM_voidRotateCW	8	static
+../2-HAL/02-DCM/DCM_program.c:36:6:DCM_voidStop2	8	static
+../2-HAL/02-DCM/DCM_program.c:42:6:DCM_voidRotate	8	static
+../2-HAL/02-DCM/DCM_program.c:46:6:DCM_voidStop	8	static
+../2-HAL/02-DCM/DCM_program.c:52:6:DCM_voidInit	16	static
+../2-HAL/02-DCM/DCM_program.c:58:4:DCM_u8DetectDirection	16	static
+../2-HAL/02-DCM/DCM_program.c:85:6:DCM_voidMotorISR	8	static

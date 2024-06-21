@@ -1,0 +1,7 @@
+../2-HAL/08-COM/COM_program.c:22:6:COM_voidSendUpdateRequest	8	static
+../2-HAL/08-COM/COM_program.c:32:6:COM_voidSendUpdateProgress	8	static
+../2-HAL/08-COM/COM_program.c:41:6:COM_voidSendUpdateComplete	8	static
+../2-HAL/08-COM/COM_program.c:51:6:COM_voidSendUpdateFailed	8	static
+../2-HAL/08-COM/COM_program.c:61:6:COM_voidSendDaignosticsData	8	static
+../2-HAL/08-COM/COM_program.c:70:6:COM_voidRecieveUpdateResponse	8	static
+../2-HAL/08-COM/COM_program.c:81:6:COM_voidRecieveDaignosticsRequest	0	static

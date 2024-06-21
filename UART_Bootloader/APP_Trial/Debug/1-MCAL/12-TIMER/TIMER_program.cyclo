@@ -1,0 +1,17 @@
+../1-MCAL/12-TIMER/TIMER_program.c:25:18:Get_timer	2
+../1-MCAL/12-TIMER/TIMER_program.c:205:18:GET_TIM_CH	1
+../1-MCAL/12-TIMER/TIMER_program.c:38:6:TIMER_voidTimerConfig	18
+../1-MCAL/12-TIMER/TIMER_program.c:139:5:TIMER_u8GetCaptureValue	5
+../1-MCAL/12-TIMER/TIMER_program.c:159:6:TIMER_voidSelectEdge	3
+../1-MCAL/12-TIMER/TIMER_program.c:176:6:TIMER_u8StopChannel	4
+../1-MCAL/12-TIMER/TIMER_program.c:193:6:TIMER_StartTimer	1
+../1-MCAL/12-TIMER/TIMER_program.c:102:6:TIMER_voidCapture	8
+../1-MCAL/12-TIMER/TIMER_program.c:199:6:TIMER_StopTimer	1
+../1-MCAL/12-TIMER/TIMER_program.c:231:6:TIMER_Delay	3
+../1-MCAL/12-TIMER/TIMER_program.c:255:5:TIMER_u16GetCount	1
+../1-MCAL/12-TIMER/TIMER_program.c:262:6:TIMER_OutputCompare	7
+../1-MCAL/12-TIMER/TIMER_program.c:290:6:TIMER_PWM	7
+../1-MCAL/12-TIMER/TIMER_program.c:314:6:TIM2_IRQHandler	1
+../1-MCAL/12-TIMER/TIMER_program.c:321:6:TIM3_IRQHandler	1
+../1-MCAL/12-TIMER/TIMER_program.c:327:6:TIM4_IRQHandler	1
+../1-MCAL/12-TIMER/TIMER_program.c:332:6:TIM1_UP_IRQHandler	1

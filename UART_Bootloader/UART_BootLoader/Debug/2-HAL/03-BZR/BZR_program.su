@@ -1,0 +1,3 @@
+../2-HAL/03-BZR/BZR_program.c:20:6:BZR_voidOn	16	static
+../2-HAL/03-BZR/BZR_program.c:26:6:BZR_voidOff	16	static
+../2-HAL/03-BZR/BZR_program.c:32:6:BZR_voidToggle	16	static

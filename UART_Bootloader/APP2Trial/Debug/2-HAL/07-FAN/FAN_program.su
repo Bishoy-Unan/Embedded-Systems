@@ -1,0 +1,2 @@
+../2-HAL/07-FAN/FAN_program.c:20:6:FAN_voidFanOn	16	static
+../2-HAL/07-FAN/FAN_program.c:29:6:FAN_voidFanOff	16	static

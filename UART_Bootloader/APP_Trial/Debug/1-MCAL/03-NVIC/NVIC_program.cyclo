@@ -1,0 +1,9 @@
+../1-MCAL/03-NVIC/NVIC_program.c:19:6:NVIC_voidInit	1
+../1-MCAL/03-NVIC/NVIC_program.c:123:4:NVIC_u8SetPriority	2
+../1-MCAL/03-NVIC/NVIC_program.c:136:4:NVIC_u8GetRegisterNumber	2
+../1-MCAL/03-NVIC/NVIC_program.c:149:4:NVIC_u8GetRegisterBit	2
+../1-MCAL/03-NVIC/NVIC_program.c:26:4:NVIC_u8EnableInterrupt	2
+../1-MCAL/03-NVIC/NVIC_program.c:45:4:NVIC_u8DisableInterrupt	2
+../1-MCAL/03-NVIC/NVIC_program.c:65:4:NVIC_u8EnablePendingFlag	2
+../1-MCAL/03-NVIC/NVIC_program.c:84:4:NVIC_u8DisablePendingFlag	2
+../1-MCAL/03-NVIC/NVIC_program.c:104:4:NVIC_u8GetActiveFlag	2

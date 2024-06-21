@@ -1,0 +1,3 @@
+../2-HAL/01-LED/LED_program.c:20:6:LED_voidLedOn	16	static
+../2-HAL/01-LED/LED_program.c:29:6:LED_voidLedOff	16	static
+../2-HAL/01-LED/LED_program.c:38:6:LED_voidLedToggle	16	static
