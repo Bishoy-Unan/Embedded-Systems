@@ -3,7 +3,6 @@
 /***********************   GRADUATION PROJECT : (FOTA)   ***********************/
 /***********************   Layer :MCAL                   ***********************/
 /***********************   SWC (DRIVER):USART 			 ***********************/
-/***********************   DATA : 09-04-2021 			 ***********************/
 /*******************************************************************************/
 /*******************************************************************************/
 
@@ -46,9 +45,7 @@ void USART_voidInit( u8 Copy_u8UsartPort )
 	SET_BIT(USART -> CR1,USART_UE);
 	/*Transmitter enable  */
 	SET_BIT(USART -> CR1,USART_TE);
-	/*Receiver enable    */
-	SET_BIT(USART -> CR1,USART_RE);
-	/*Receiver interrupt enable    */
+	/*Receiver enable     */
 	SET_BIT(USART -> CR1,USART_RE);
 	/* Clear All The Register*/
 	USART -> SR =0;
@@ -83,7 +80,7 @@ u8 USART_u8ReceiveChar(u8 Copy_u8UsartPort)
 	u8 Local_u8Data;
 	USART_t *USART = USART_Get(Copy_u8UsartPort);
 
-	while((GET_BIT((USART -> SR), USART_RXNE) == 0));
+	while((GET_BIT((USART->SR), USART_RXNE) == 0));
 
 	Local_u8Data = USART -> DR;
 

@@ -3,7 +3,6 @@
 /***********************   GRADUATION PROJECT : (FOTA)   ***********************/
 /***********************   Layer :MCAL                   ***********************/
 /***********************   SWC (DRIVER):FPEC 			 ***********************/
-/***********************   DATA : 7-3-2022  			 ***********************/
 /*******************************************************************************/
 /*******************************************************************************/
 
@@ -18,7 +17,7 @@
 //Initializing FPEC
 void FPEC_voidInit(void)
 {
-	//Enter the latency of the flash
+	//Enter the latency of the flash as 0<clk<24MHZ
 	FPEC->FLASH_ACR = FPEC_LATENCY ;
 
 	//Unlock the flash and FPEC_CR
@@ -36,12 +35,13 @@ u8 FPEC_voidEraseFlashArea(u32 Copy_u32StartPageAddress , u32 Copy_u32EndPageAdr
 
 	if ((Copy_u32StartPageAddress>=FPEC_START_PAGE_BOOT)&&(Copy_u32EndPageAdress<=FPEC_END_PAGE_BOOT))
 	{
-		while (GET_BIT(FPEC->FLASH_SR ,0)==1);
+		// wait until any other operation in running until it ends
+		while (GET_BIT(FPEC->FLASH_SR ,BSY_FLAG)==1);
 
 		for (u8 Local_u8Counter = 0 ;Local_u8Counter<=Copy_u32EndPageAdress;Local_u8Counter++)
 		{
 			//Start the erase operation
-			SET_BIT(FPEC->FLASH_CR,1);
+			SET_BIT(FPEC->FLASH_CR,FLASH_CR_PER);
 
 			FPEC->FLASH_AR = Copy_u32StartPageAddress + (Local_u8Counter *1024);
 			//Start operation erase
@@ -75,19 +75,20 @@ u8 FPEC_voidFlashPageErase(u8 Copy_u8PageNumber)
 
 	if (Copy_u8PageNumber<=FPEC_MAX_NUM_PAGE)
 	{
-		while (GET_BIT(FPEC->FLASH_SR ,0)==1);
+		//BSY: Busy flag
+		while (GET_BIT(FPEC->FLASH_SR ,BSY_FLAG)==1);
 
-		SET_BIT(FPEC->FLASH_CR,1);
+		SET_BIT(FPEC->FLASH_CR,FLASH_CR_PER);
 
 		FPEC->FLASH_AR = (u32)(Copy_u8PageNumber*1024)+0x08000000 ;
 		//Start operation erase
-		SET_BIT(FPEC->FLASH_CR ,6) ;
+		SET_BIT(FPEC->FLASH_CR ,FLASH_CR_STRT) ;
 
-		while (GET_BIT(FPEC->FLASH_SR ,0)==1);
+		while (GET_BIT(FPEC->FLASH_SR ,BSY_FLAG)==1);
 
 		//END OPERATION
-		SET_BIT(FPEC->FLASH_SR ,5);
-		CLR_BIT(FPEC->FLASH_CR,1);
+		SET_BIT(FPEC->FLASH_SR ,FLASH_SR_EOP);
+		CLR_BIT(FPEC->FLASH_CR,FLASH_CR_PER);
 	}
 	else
 		Local_u8ErrorState = NOK;
@@ -98,19 +99,23 @@ u8 FPEC_voidFlashPageErase(u8 Copy_u8PageNumber)
 //Write to flash
 void FPEC_voidFlashWrite(u32 Copy_u32Address, u16* Copy_u16Data, u8 Copy_u8Length)
 {
+
+	//BSY: Busy flag
+			while (GET_BIT(FPEC->FLASH_SR ,BSY_FLAG)==1);
+
 	for (u8 Local_u8Counter = 0 ; Local_u8Counter<Copy_u8Length ; Local_u8Counter++)
 	{
 
-		SET_BIT(FPEC->FLASH_CR,0);
+		SET_BIT(FPEC->FLASH_CR,FLASH_CR_PG);
 
 		*((volatile u16 *)(Copy_u32Address)) =  Copy_u16Data[Local_u8Counter];
 
 		/*Waitting util the write operation is end*/
 
-		while (GET_BIT(FPEC->FLASH_SR,0) == 1);
+		while (GET_BIT(FPEC->FLASH_SR,BSY_FLAG) == 1);
 
-		SET_BIT(FPEC->FLASH_SR,5);
-		CLR_BIT(FPEC->FLASH_CR,0);
+		SET_BIT(FPEC->FLASH_SR,FLASH_SR_EOP);
+		CLR_BIT(FPEC->FLASH_CR,FLASH_CR_PG);
 
 		Copy_u32Address=Copy_u32Address+2;
 

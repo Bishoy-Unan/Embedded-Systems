@@ -45,7 +45,8 @@ _Min_Stack_Size = 0x400; /* required amount of stack */
 MEMORY
 {
   RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 20K
-  FLASH    (rx)    : ORIGIN = 0x08000000,   LENGTH = 15K
+  FLASH    (rx)    : ORIGIN = 0x08000000,   LENGTH = 10K
+  FLASH_SHARED (rx) : ORIGIN = 0x08003C00, LENGTH = 1K
 }
 
 /* Sections */
@@ -78,10 +79,12 @@ SECTIONS
   
   
   /* Define a section at a specific address in Flash */
-.my_section 0x080028C0 :
+.my_section 	:
 {
+	 . = ALIGN(4);
     KEEP(*(.my_section))
-} >FLASH
+     . = ALIGN(4);
+} >FLASH_SHARED
 
   /* Constant data into "FLASH" Rom type memory */
   .rodata :

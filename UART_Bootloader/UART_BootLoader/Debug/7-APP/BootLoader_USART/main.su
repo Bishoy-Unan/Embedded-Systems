@@ -1,3 +1,4 @@
-../7-APP/BootLoader_USART/main.c:58:6:main	152	static
-../7-APP/BootLoader_USART/main.c:219:6:APP1	8	static
-../7-APP/BootLoader_USART/main.c:229:6:APP2	8	static
+../7-APP/BootLoader_USART/main.c:61:6:PerformSoftwareReset	4	static
+../7-APP/BootLoader_USART/main.c:69:6:main	152	static
+../7-APP/BootLoader_USART/main.c:239:6:APP1	8	static
+../7-APP/BootLoader_USART/main.c:249:6:APP2	8	static

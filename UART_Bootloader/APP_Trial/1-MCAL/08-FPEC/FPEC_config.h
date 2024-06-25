@@ -23,6 +23,14 @@ FPEC_END_PAGE_BOOT   : Second Page of boot Loader  Page address
 //Maximum Page
 #define FPEC_MAX_NUM_PAGE			64
 
+// flags
+
+#define BSY_FLAG 					0
+#define FLASH_CR_PER				1
+#define FLASH_CR_STRT				6
+#define FLASH_SR_EOP				5
+#define FLASH_CR_PG					0
+
 
 /*
 FPEC_LATENCY:

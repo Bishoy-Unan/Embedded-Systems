@@ -3,7 +3,6 @@
 /***********************   GRADUATION PROJECT : (FOTA)   ***********************/
 /***********************   Layer :MCAL                   ***********************/
 /***********************   SWC (DRIVER):FPEC 			 ***********************/
-/***********************   DATA : 7-3-2022  			 ***********************/
 /*******************************************************************************/
 /*******************************************************************************/
 
@@ -79,9 +78,12 @@ u8 FPEC_voidFlashPageErase(u8 Copy_u8PageNumber)
 		//BSY: Busy flag
 		while (GET_BIT(FPEC->FLASH_SR ,BSY_FLAG)==1);
 
+		// Enable page erase
 		SET_BIT(FPEC->FLASH_CR,FLASH_CR_PER);
 
+		// Set page address
 		FPEC->FLASH_AR = (u32)(Copy_u8PageNumber*1024)+0x08000000 ;
+
 		//Start operation erase
 		SET_BIT(FPEC->FLASH_CR ,FLASH_CR_STRT) ;
 

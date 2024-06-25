@@ -15,7 +15,7 @@
 #include "NVIC_config.h"
 #include "NVIC_regisiter.h"
 
-//Initializing NVIC
+//Initialinzing NVIC 
 void NVIC_voidInit(void)
 {
 	//Configuration Number of Groups and number of sub group
