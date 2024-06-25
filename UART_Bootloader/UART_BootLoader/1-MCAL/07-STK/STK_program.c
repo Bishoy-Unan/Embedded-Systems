@@ -35,6 +35,7 @@ void STK_voidInit(void)
 
 void STK_voidEnableTimer (void)
 {
+
 	SET_BIT(STK->STK_CTRL, EN_ABLE) ;
 }
 
@@ -145,6 +146,9 @@ u8 STK_u8GetRemainigTime(void)
 void SysTick_Handler (void)
 {
 	u8 Local_u8Val = 0 ;
+	static u8 counter=0;
+		counter++;
+		if(counter==2){
 
 	if (STK_u32_MODE == STK_SINGLE_MODE)
 	{
@@ -157,6 +161,10 @@ void SysTick_Handler (void)
 	STK_voidCallBackFunc();
 
 	Local_u8Val=GET_BIT(STK->STK_CTRL,COUNT_FLAG);
+		}
+		else{
+			STK->STK_VAL = 0;
+		}
 
 
 }

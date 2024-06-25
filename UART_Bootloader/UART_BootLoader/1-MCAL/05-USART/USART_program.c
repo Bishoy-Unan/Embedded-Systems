@@ -8,6 +8,7 @@
 
 #include "../../6-Library/STD_TYPES.h"
 #include "../../6-Library/BIT_MATH.h"
+#include "../../1-MCAL/07-STK/STK_interface.h"
 
 #include "USART_interface.h"
 #include "USART_private.h"
@@ -83,7 +84,7 @@ u8 USART_u8ReceiveChar(u8 Copy_u8UsartPort)
 	while((GET_BIT((USART->SR), USART_RXNE) == 0));
 
 	Local_u8Data = USART -> DR;
-
+	STK_voidDisableTimer ();
 	return Local_u8Data;
 }
 

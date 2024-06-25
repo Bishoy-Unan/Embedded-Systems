@@ -19,6 +19,7 @@
 #include "../../1-MCAL/08-FPEC/FPEC_interface.h"
 #include "../../1-MCAL/11-WWDG/WWDG_interface.h"
 #include "../../1-MCAL/02-RCC/RCC_register.h"
+#include "../../1-MCAL/07-STK/STK_interface.h"
 /*******************************************************************************/
 /*******************************************************************************/
 /********************************HAL LAYER*************************************/
@@ -26,6 +27,10 @@
 
 /********************************SERV LAYER*************************************/
 #include "../../3-SERVICE/01-PARSING/PARSING_interface.h"
+
+	u16 No_update =0 ;
+	u16 Update = 1;
+	u16 Corruption =2 ;
 
 
 /*******************************************************************************/
@@ -58,12 +63,21 @@ u16 READ_REQUEST_FLAG __attribute__((section(".my_section")))= 1;// Initial valu
 #define VECTKEY    0x5FA
 #define SYSRESETREQ_BIT 2
 
+
+
 void PerformSoftwareReset(void)
 {
     // Write the key and set the SYSRESETREQ bit to trigger a software reset
 	RCC->CSR |= (1 << 24);
     SCB_AIRCR = (VECTKEY << 16) | (1 << SYSRESETREQ_BIT);
 }
+
+void TimeOut_Flashing(){
+		FPEC_voidFlashPageErase(15);
+		FPEC_voidFlashWrite(BOOT_u8REQUESTFLAG, &No_update, 1);
+		PerformSoftwareReset();
+}
+
 
 
 void main (void)
@@ -76,6 +90,12 @@ void main (void)
 
 	/*Initialize USART*/
 	USART_voidInit(USART1);
+	if(READ_REQUEST_FLAG==Update){
+//	/* Initialize Systick */
+	void STK_voidInit(void);
+
+	STK_u8DelayAsySingle(10000,TimeOut_Flashing);
+	}
 
 	/*Initialize FPEC*/
 	FPEC_voidInit();
@@ -86,9 +106,7 @@ void main (void)
 	#endif*/
 	
 
-	u16 Update = 1;
-	u16 No_update =0 ;
-	u16 Corruption =2 ;
+
 
 
 	LED_t LED1 = {LED_PORTA,LED_PIN4,LED_ACTIVE_HIGH};
@@ -123,14 +141,15 @@ void main (void)
 	if (READ_REQUEST_FLAG==Update )
 	{
 
-
-
 			// to get the record
 		while (BOOT_u8FinRecFlag ==0 )
 		{
 
 			/************* for reseiving the records **************/
+			//WWDG_voidReset(120);
 			BOOT_u8RecData[BOOT_u32RecCounter]=USART_u8ReceiveChar(USART1);
+			STK_u8DelayAsySingle(10000,TimeOut_Flashing);
+			//WWDG_voidReset(120);
 			/**************************************************************************************/
 			if (BOOT_u8RecData[BOOT_u32RecCounter]=='\n')
 			{
@@ -191,7 +210,7 @@ void main (void)
 				{
 					FPEC_voidFlashPageErase(15);
 					FPEC_voidFlashWrite(BOOT_u8REQUESTFLAG, &No_update, 1);
-					//IWDG_voidReset(100);
+					IWDG_voidReset(100);
 					BOOT_u8FinRecFlag=1;
 					//PerformSoftwareReset();
 				}
